@@ -114,7 +114,20 @@ Versioned review-priority weights and claim rules are defined in `engine/scoring
 
 The masked ownership graph is built by `engine/ownership.py`. It hashes source owner identifiers, suppresses all individual names and raw owner addresses, and emits the aggregate per-building metrics consumed by the ownership indicator.
 
+Run the complete implemented analysis path with:
+
+```bash
+python -m pipeline.analysis \
+  --enrollments data/raw/HOSPICE_ENROLLMENTS.csv \
+  --owners data/raw/HOSPICE_ALL_OWNERS.csv \
+  --additional-addresses data/raw/HOSPICE_ADDITIONAL_ADDRESSES.csv \
+  --costar-kit work/sponsor/costar-kit \
+  --output data/analysis
+```
+
+The CoStar kit is optional. Without it, the pipeline explicitly marks building-fit and space indicators as missing and rebalances the available scoring weights.
+
 
 ## Current milestone
 
-Step 2 provides a runnable application shell only. Data ingestion, scoring, mapping, and agent behavior will be added in later milestones.
+Step 11 provides a tested path from CMS ingestion through privacy-preserving ownership analysis and versioned building review-priority scoring. Dashboard data presentation and the guided investigation agent remain later milestones.
