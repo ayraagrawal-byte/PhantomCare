@@ -9,9 +9,9 @@ PhantomCare is being built as an explainable investigation workflow. It will com
 ```text
 api/          FastAPI application and backend tests
 dashboard/    Next.js dashboard
-pipeline/     CMS ingestion and enrichment jobs (Step 3)
-engine/       Deterministic indicators and scoring (Step 3+)
-agent/        Investigation workflow (later milestone)
+pipeline/     CMS ingestion, grouping, enrichment, and end-to-end analysis
+engine/       Deterministic clustering, ownership, indicators, and scoring
+agent/        Evidence-bound investigation and case-file workflow
 eval/         Evaluation fixtures and measured results
 docs/         Architecture and implementation records
 ```
@@ -137,7 +137,9 @@ Case files and early-stop traces are available from `GET /cases`, `GET /cases/{c
 
 Run a complete key-free demonstration with `python -m eval.offline_demo --output data/demo`. It generates synthetic inputs, executes the real pipeline and investigation workflow, writes API-ready artifacts, and evaluates the expected hotspot plus privacy and disclaimer guardrails.
 
+Before presenting or opening a pull request, run `python scripts/secret_scan.py`, `ruff check .`, `pytest`, `npm run test`, `npm run lint`, and `npm run build`. GitHub Actions runs the same release gates automatically. See `docs/PRESENTATION_RUNBOOK.md` for the offline demo flow.
+
 
 ## Current milestone
 
-Step 16 provides the full review path plus a reproducible, key-free offline demo and measured evaluation fixture.
+Step 17 provides the full review path, reproducible offline evaluation, automated CI and secret checks, dependency updates, and a presentation runbook.
