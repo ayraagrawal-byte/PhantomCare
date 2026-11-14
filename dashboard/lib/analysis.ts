@@ -102,6 +102,31 @@ export interface InvestigationResult {
   stopped_reason: string | null;
 }
 
+export interface InteractiveInvestigation {
+  target_id: string;
+  mode: "live_ai" | "deterministic_fallback";
+  model: string | null;
+  generated_at: string;
+  reasoning_summary: string;
+  recommended_next_step: string;
+  unknowns: string[];
+  tool_trace: Array<{
+    tool_name: string;
+    purpose: string;
+    input_identifiers: Record<string, string>;
+    result_summary: string;
+    evidence_references: string[];
+    missing_information: string[];
+  }>;
+  fusion_layers: Array<{
+    source: "CMS" | "CoStar" | "Vexcel" | "Ownership";
+    establishes: string[];
+    evidence_references: string[];
+    limitations: string[];
+  }>;
+  disclaimer: string;
+}
+
 const defaultApiUrl =
   process.env.NODE_ENV === "production"
     ? "https://phantomcare-api.vercel.app"
@@ -146,6 +171,14 @@ export async function fetchBuildingNetwork(targetId: string): Promise<BuildingNe
   const response = await fetch(`${apiUrl}/analysis/buildings/${targetId}/network`);
   if (!response.ok) throw new Error(`Network API returned ${response.status}.`);
   return response.json() as Promise<BuildingNetwork>;
+}
+
+export async function runInteractiveInvestigation(
+  targetId: string,
+): Promise<InteractiveInvestigation> {
+  const response = await fetch(`${apiUrl}/investigations/${targetId}`, { method: "POST" });
+  if (!response.ok) throw new Error(`Interactive investigation returned ${response.status}.`);
+  return response.json() as Promise<InteractiveInvestigation>;
 }
 
 export async function fetchAerialEvidence(targetId: string): Promise<AerialEvidence | null> {

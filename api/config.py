@@ -15,6 +15,7 @@ class Settings(BaseSettings):
     cache_dir: str = "./cache"
     analysis_dir: str = "./data/analysis"
     dashboard_origin: str = "http://localhost:3000"
+    agent_model: str | None = None
 
 
 @lru_cache

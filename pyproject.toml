@@ -22,6 +22,10 @@ dev = [
   "pytest-cov>=6.0,<7.0",
   "ruff>=0.8,<1.0",
 ]
+agent = [
+  "deepagents>=0.7.35,<0.8.0",
+  "langchain-openai>=1.7.4,<2.0.0",
+]
 
 [tool.setuptools.packages.find]
 include = ["api*", "pipeline*", "engine*", "agent*", "eval*", "scripts*"]

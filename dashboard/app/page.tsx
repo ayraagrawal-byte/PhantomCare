@@ -8,6 +8,7 @@ import {
   BuildingNetwork,
   BuildingListItem,
   InvestigationResult,
+  InteractiveInvestigation,
   ReviewLevel,
   fetchAnalysis,
   fetchAerialEvidence,
@@ -18,6 +19,7 @@ import {
   formatLevel,
   absoluteApiUrl,
   projectLaPoint,
+  runInteractiveInvestigation,
 } from "../lib/analysis";
 
 const filters: Array<{ label: string; value: ReviewLevel | "all" }> = [
@@ -34,6 +36,8 @@ export default function Home() {
   const [caseResult, setCaseResult] = useState<InvestigationResult | null>(null);
   const [network, setNetwork] = useState<BuildingNetwork | null>(null);
   const [aerial, setAerial] = useState<AerialEvidence | null>(null);
+  const [agentResult, setAgentResult] = useState<InteractiveInvestigation | null>(null);
+  const [agentStatus, setAgentStatus] = useState<"idle" | "loading" | "ready" | "error">("idle");
   const [caseStatus, setCaseStatus] = useState<"idle" | "loading" | "ready" | "error">("idle");
   const [level, setLevel] = useState<ReviewLevel | "all">("all");
   const [query, setQuery] = useState("");
@@ -70,6 +74,8 @@ export default function Home() {
     setCaseResult(null);
     setNetwork(null);
     setAerial(null);
+    setAgentResult(null);
+    setAgentStatus("idle");
     try {
       const [detailOutcome, caseOutcome, networkOutcome, aerialOutcome] = await Promise.allSettled([
         fetchBuildingDetail(buildingId),
@@ -93,6 +99,17 @@ export default function Home() {
       setSelected(null);
       setError(reason instanceof Error ? reason.message : "Building detail could not be loaded.");
       setCaseStatus("error");
+    }
+  }
+
+  async function runAgentInvestigation(buildingId: string) {
+    setAgentStatus("loading");
+    setAgentResult(null);
+    try {
+      setAgentResult(await runInteractiveInvestigation(buildingId));
+      setAgentStatus("ready");
+    } catch {
+      setAgentStatus("error");
     }
   }
 
@@ -169,7 +186,7 @@ export default function Home() {
           </div>
         </div>
         <aside className="inspector" aria-live="polite">
-          {selected ? <BuildingInspector building={selected} aerial={aerial} network={network} caseResult={caseResult} caseStatus={caseStatus} /> : caseStatus === "loading" ? <div className="inspector-empty" role="status">Loading building evidence…</div> : caseStatus === "error" ? <div className="inspector-empty" role="alert">Could not load building evidence. {error}</div> : <InspectorEmpty />}
+          {selected ? <BuildingInspector building={selected} aerial={aerial} network={network} caseResult={caseResult} caseStatus={caseStatus} agentResult={agentResult} agentStatus={agentStatus} onInvestigate={() => runAgentInvestigation(selected.building_id)} /> : caseStatus === "loading" ? <div className="inspector-empty" role="status">Loading building evidence…</div> : caseStatus === "error" ? <div className="inspector-empty" role="alert">Could not load building evidence. {error}</div> : <InspectorEmpty />}
         </aside>
       </section>
 
@@ -222,7 +239,7 @@ function InspectorEmpty() {
   );
 }
 
-function BuildingInspector({ building, aerial, network, caseResult, caseStatus }: { building: BuildingDetail; aerial: AerialEvidence | null; network: BuildingNetwork | null; caseResult: InvestigationResult | null; caseStatus: string }) {
+function BuildingInspector({ building, aerial, network, caseResult, caseStatus, agentResult, agentStatus, onInvestigate }: { building: BuildingDetail; aerial: AerialEvidence | null; network: BuildingNetwork | null; caseResult: InvestigationResult | null; caseStatus: string; agentResult: InteractiveInvestigation | null; agentStatus: string; onInvestigate: () => void }) {
   return (
     <div>
       <div className="inspector-head">
@@ -250,8 +267,28 @@ function BuildingInspector({ building, aerial, network, caseResult, caseStatus }
         ))}
       </div>
       <NetworkPanel network={network} />
+      <FusionPanel result={agentResult} status={agentStatus} onInvestigate={onInvestigate} />
       <CasePanel result={caseResult} status={caseStatus} />
     </div>
+  );
+}
+
+function FusionPanel({ result, status, onInvestigate }: { result: InteractiveInvestigation | null; status: string; onInvestigate: () => void }) {
+  return (
+    <section className="fusion-panel">
+      <div className="fusion-heading"><div><p className="section-label">Cross-source investigation</p><h3>CMS + CoStar + Vexcel</h3></div>{result && <span className={`agent-mode mode-${result.mode}`}>{result.mode === "live_ai" ? "Live AI" : "Deterministic fallback"}</span>}</div>
+      <p className="case-muted">Run a bounded, read-only investigation. Screening scores remain deterministic and unchanged.</p>
+      <button className="investigate-button" disabled={status === "loading"} onClick={onInvestigate} type="button">{status === "loading" ? "Investigating…" : "Investigate this building"}</button>
+      {status === "error" && <p className="fusion-error" role="alert">The interactive investigation could not be completed.</p>}
+      {result && <>
+        <p className="fusion-summary">{result.reasoning_summary}</p>
+        <div className="fusion-grid">{result.fusion_layers.map((layer) => <article key={layer.source}><strong>{layer.source}</strong>{layer.establishes.map((fact) => <p key={fact}>{fact}</p>)}<small>{layer.evidence_references.length ? `${layer.evidence_references.length} evidence reference(s)` : "No source record available"}</small>{layer.limitations.map((item) => <em key={item}>{item}</em>)}</article>)}</div>
+        <div className="next-step"><strong>Recommended next step</strong><p>{result.recommended_next_step}</p></div>
+        {result.unknowns.length > 0 && <details><summary>What remains unknown</summary><ul>{result.unknowns.map((item) => <li key={item}>{item}</li>)}</ul></details>}
+        <details><summary>Inspect {result.tool_trace.length} genuine tool calls</summary><div className="tool-trace">{result.tool_trace.map((event, index) => <article key={`${event.tool_name}-${index}`}><strong>{event.tool_name}</strong><p>{event.result_summary}</p><small>{event.evidence_references.join(" · ") || "No evidence reference returned"}</small></article>)}</div></details>
+        <small className="fusion-disclaimer">{result.disclaimer}</small>
+      </>}
+    </section>
   );
 }
 

@@ -9,4 +9,5 @@ def test_health() -> None:
 
 def test_health_route_is_registered() -> None:
     assert "/health" in app.openapi()["paths"]
+    assert "/investigations/{target_id}" in app.openapi()["paths"]
 
