@@ -127,7 +127,9 @@ python -m pipeline.analysis \
 
 The CoStar kit is optional. Without it, the pipeline explicitly marks building-fit and space indicators as missing and rebalances the available scoring weights.
 
+After generating the artifacts, FastAPI exposes them at `GET /analysis/summary`, `GET /analysis/buildings`, and `GET /analysis/buildings/{building_id}`. Set `PHANTOMCARE_ANALYSIS_DIR` if the output is not in `data/analysis`.
+
 
 ## Current milestone
 
-Step 11 provides a tested path from CMS ingestion through privacy-preserving ownership analysis and versioned building review-priority scoring. Dashboard data presentation and the guided investigation agent remain later milestones.
+Step 12 provides a tested path from CMS ingestion through privacy-preserving ownership analysis, versioned scoring, and validated read-only API responses. Dashboard data presentation and the guided investigation agent remain later milestones.

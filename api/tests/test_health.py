@@ -8,5 +8,5 @@ def test_health() -> None:
 
 
 def test_health_route_is_registered() -> None:
-    assert any(route.path == "/health" for route in app.routes)
+    assert "/health" in app.openapi()["paths"]
 
