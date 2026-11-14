@@ -53,6 +53,14 @@ def test_toolkit_preserves_owner_masking(repository: AnalysisRepository) -> None
     assert all(owner["label"].startswith("Individual owner ") for owner in individual_owners)
 
 
+def test_toolkit_enforces_maximum_tool_calls(repository: AnalysisRepository) -> None:
+    toolkit = EvidenceToolkit(repository, TARGET_ID, maximum_tool_calls=1)
+    toolkit.get_building_profile()
+
+    with pytest.raises(RuntimeError, match="maximum evidence tool calls"):
+        toolkit.get_cms_enrollments()
+
+
 def test_missing_target_stops_without_fabricating_evidence(
     repository: AnalysisRepository,
 ) -> None:

@@ -38,6 +38,7 @@ class InteractiveInvestigation(BaseModel):
     tool_trace: tuple[AgentToolTrace, ...]
     fusion_layers: tuple[FusionLayer, ...]
     disclaimer: str = "These are questions for human review, not conclusions of fraud."
+    fallback_reason: str | None = None
 
 
 def _evidence_refs(
@@ -55,9 +56,12 @@ def _evidence_refs(
 class EvidenceToolkit:
     """Read-only, artifact-backed evidence tools with an auditable call log."""
 
-    def __init__(self, repository: AnalysisRepository, target_id: str) -> None:
+    def __init__(
+        self, repository: AnalysisRepository, target_id: str, *, maximum_tool_calls: int = 8
+    ) -> None:
         self.repository = repository
         self.target_id = target_id
+        self.maximum_tool_calls = maximum_tool_calls
         self.trace: list[AgentToolTrace] = []
 
     def _building(self) -> BuildingAnalysisResponse:
@@ -74,6 +78,8 @@ class EvidenceToolkit:
         refs: tuple[str, ...] = (),
         missing: tuple[str, ...] = (),
     ) -> None:
+        if len(self.trace) >= self.maximum_tool_calls:
+            raise RuntimeError("maximum evidence tool calls reached")
         self.trace.append(
             AgentToolTrace(
                 tool_name=name,
@@ -251,7 +257,9 @@ class EvidenceToolkit:
         return result.to_dict()
 
 
-def _fallback_investigation(toolkit: EvidenceToolkit) -> InteractiveInvestigation:
+def _fallback_investigation(
+    toolkit: EvidenceToolkit, *, reason: str = "live_ai_not_enabled"
+) -> InteractiveInvestigation:
     profile = toolkit.get_building_profile()
     toolkit.get_cms_enrollments()
     toolkit.get_ownership_network()
@@ -285,6 +293,7 @@ def _fallback_investigation(toolkit: EvidenceToolkit) -> InteractiveInvestigatio
         unknowns=tuple(unknowns),
         tool_trace=tuple(toolkit.trace),
         fusion_layers=_fusion_layers(toolkit),
+        fallback_reason=reason,
     )
 
 
@@ -337,15 +346,23 @@ def investigate_interactively(
     target_id: str,
     *,
     model: str | None = None,
+    maximum_tool_calls: int = 8,
+    maximum_tokens: int = 1200,
+    timeout_seconds: int = 25,
+    maximum_retries: int = 0,
+    fallback_reason: str = "live_ai_not_enabled",
 ) -> InteractiveInvestigation:
-    toolkit = EvidenceToolkit(repository, target_id)
+    if maximum_tool_calls < 8:
+        raise ValueError("maximum_tool_calls must permit the eight-tool fallback")
+    toolkit = EvidenceToolkit(repository, target_id, maximum_tool_calls=maximum_tool_calls)
     if not model:
-        return _fallback_investigation(toolkit)
+        return _fallback_investigation(toolkit, reason=fallback_reason)
     try:
         from deepagents import create_deep_agent
+        from langchain.chat_models import init_chat_model
         from langchain_core.tools import StructuredTool
     except ImportError:
-        return _fallback_investigation(toolkit)
+        return _fallback_investigation(toolkit, reason="agent_dependency_unavailable")
 
     functions = [
         toolkit.get_building_profile,
@@ -366,8 +383,14 @@ def investigate_interactively(
         for function in functions
     ]
     try:
+        bounded_model = init_chat_model(
+            model,
+            max_tokens=maximum_tokens,
+            max_retries=maximum_retries,
+            timeout=timeout_seconds,
+        )
         agent = create_deep_agent(
-            model=model,
+            model=bounded_model,
             tools=tools,
             system_prompt=(
                 "Investigate a hospice registration screening target using only provided tools. "
@@ -383,15 +406,22 @@ def investigate_interactively(
                     {"role": "user", "content": f"Investigate target {target_id}."}
                 ],
                 "files": {},
-            }
+            },
+            config={"recursion_limit": maximum_tool_calls * 2 + 4},
         )
     except Exception:
-        return _fallback_investigation(EvidenceToolkit(repository, target_id))
+        return _fallback_investigation(
+            EvidenceToolkit(repository, target_id, maximum_tool_calls=maximum_tool_calls),
+            reason="live_ai_execution_failed",
+        )
     messages = result.get("messages", [])
     content = getattr(messages[-1], "content", "") if messages else ""
     validated_summary = _validated_agent_summary(content, toolkit.trace)
     if validated_summary is None:
-        return _fallback_investigation(EvidenceToolkit(repository, target_id))
+        return _fallback_investigation(
+            EvidenceToolkit(repository, target_id, maximum_tool_calls=maximum_tool_calls),
+            reason="live_ai_output_failed_validation",
+        )
     unknowns = sorted({item for event in toolkit.trace for item in event.missing_information})
     return InteractiveInvestigation(
         target_id=target_id,
@@ -406,6 +436,7 @@ def investigate_interactively(
         unknowns=tuple(unknowns),
         tool_trace=tuple(toolkit.trace),
         fusion_layers=_fusion_layers(toolkit),
+        fallback_reason=None,
     )
 
 

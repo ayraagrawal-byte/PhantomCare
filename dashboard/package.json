@@ -6,7 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "lint": "eslint .",
-    "test": "vitest run"
+    "test": "vitest run --exclude e2e/**"
   },
   "dependencies": {
     "next": "^16.0.0",

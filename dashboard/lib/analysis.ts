@@ -125,6 +125,7 @@ export interface InteractiveInvestigation {
     limitations: string[];
   }>;
   disclaimer: string;
+  fallback_reason: string | null;
 }
 
 const defaultApiUrl =

@@ -281,6 +281,7 @@ function FusionPanel({ result, status, onInvestigate }: { result: InteractiveInv
       <button className="investigate-button" disabled={status === "loading"} onClick={onInvestigate} type="button">{status === "loading" ? "Investigating…" : "Investigate this building"}</button>
       {status === "error" && <p className="fusion-error" role="alert">The interactive investigation could not be completed.</p>}
       {result && <>
+        {result.fallback_reason && <p className="fallback-reason">Live AI was not used: {formatLevel(result.fallback_reason)}.</p>}
         <p className="fusion-summary">{result.reasoning_summary}</p>
         <div className="fusion-grid">{result.fusion_layers.map((layer) => <article key={layer.source}><strong>{layer.source}</strong>{layer.establishes.map((fact) => <p key={fact}>{fact}</p>)}<small>{layer.evidence_references.length ? `${layer.evidence_references.length} evidence reference(s)` : "No source record available"}</small>{layer.limitations.map((item) => <em key={item}>{item}</em>)}</article>)}</div>
         <div className="next-step"><strong>Recommended next step</strong><p>{result.recommended_next_step}</p></div>
