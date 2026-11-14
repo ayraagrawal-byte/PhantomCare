@@ -1,0 +1,19 @@
+# Codex local working and deliverable directories
+work/
+outputs/
+
+# Local configuration and secrets
+.env
+.env.*
+!.env.example
+
+# Common generated files
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+node_modules/
+.next/
+dist/
+coverage/
+
