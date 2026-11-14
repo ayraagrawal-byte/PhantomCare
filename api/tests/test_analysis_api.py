@@ -10,6 +10,7 @@ from api.analysis import (
     AnalysisRepository,
     analysis_summary,
     building_detail,
+    building_network,
     list_buildings,
 )
 from api.app import app
@@ -87,6 +88,33 @@ def _artifacts(tmp_path: Path) -> AnalysisRepository:
             ]
         )
     )
+    (tmp_path / "ownership_network.json").write_text(
+        json.dumps(
+            {
+                "owners": [
+                    {
+                        "owner_key": "owner_masked",
+                        "display_name": "Individual owner abc123",
+                        "owner_type": "individual",
+                        "is_masked": True,
+                        "hospice_count": 2,
+                    }
+                ],
+                "edges": [
+                    {
+                        "owner_key": "owner_masked",
+                        "enrollment_id": "E-1",
+                        "ownership_percent": 50,
+                        "source_row_hash": "row",
+                    }
+                ],
+                "buildings": [
+                    {"building_id": "bldg_high", "metrics": {}, "owner_keys": ["owner_masked"]}
+                ],
+                "limitations": ["Context only.", "Does not establish fraud."],
+            }
+        )
+    )
     return AnalysisRepository(tmp_path)
 
 
@@ -100,6 +128,9 @@ def test_analysis_endpoints_validate_sort_filter_and_detail(tmp_path: Path) -> N
     assert [item.building_id for item in filtered] == ["bldg_high"]
     detail = building_detail("bldg_high", repository)
     assert detail.priority.score.total == 80
+    network = building_network("bldg_high", repository)
+    assert [node.kind for node in network.nodes] == ["building", "owner", "hospice"]
+    assert network.nodes[1].is_masked is True
     with pytest.raises(HTTPException) as caught:
         building_detail("missing", repository)
     assert caught.value.status_code == 404
@@ -125,4 +156,5 @@ def test_analysis_routes_are_registered() -> None:
         "/analysis/summary",
         "/analysis/buildings",
         "/analysis/buildings/{building_id}",
+        "/analysis/buildings/{building_id}/network",
     } <= paths

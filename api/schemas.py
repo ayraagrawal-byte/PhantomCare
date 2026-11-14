@@ -70,6 +70,26 @@ class BuildingListItemResponse(BaseModel):
         )
 
 
+class OwnershipNodeResponse(BaseModel):
+    id: str
+    label: str
+    kind: Literal["building", "owner", "hospice"]
+    is_masked: bool = False
+    count: int = Field(default=1, ge=1)
+
+
+class OwnershipLinkResponse(BaseModel):
+    source: str
+    target: str
+
+
+class BuildingNetworkResponse(BaseModel):
+    building_id: str
+    nodes: tuple[OwnershipNodeResponse, ...]
+    links: tuple[OwnershipLinkResponse, ...]
+    limitations: tuple[str, ...]
+
+
 class InvestigationResultResponse(BaseModel):
     target_id: str = Field(min_length=1, max_length=100)
     case_file: CaseFile | None
@@ -84,4 +104,3 @@ class CaseListItemResponse(BaseModel):
     total_score: float
     review_level: ReviewLevel
     finding_count: int = Field(ge=1)
-

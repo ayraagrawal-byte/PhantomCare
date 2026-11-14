@@ -4,11 +4,13 @@ import { useEffect, useMemo, useState } from "react";
 import {
   AnalysisSummary,
   BuildingDetail,
+  BuildingNetwork,
   BuildingListItem,
   InvestigationResult,
   ReviewLevel,
   fetchAnalysis,
   fetchCaseForTarget,
+  fetchBuildingNetwork,
   filterBuildings,
   formatLevel,
 } from "../lib/analysis";
@@ -25,6 +27,7 @@ export default function Home() {
   const [buildings, setBuildings] = useState<BuildingListItem[]>([]);
   const [selected, setSelected] = useState<BuildingDetail | null>(null);
   const [caseResult, setCaseResult] = useState<InvestigationResult | null>(null);
+  const [network, setNetwork] = useState<BuildingNetwork | null>(null);
   const [caseStatus, setCaseStatus] = useState<"idle" | "loading" | "ready" | "error">("idle");
   const [level, setLevel] = useState<ReviewLevel | "all">("all");
   const [query, setQuery] = useState("");
@@ -55,11 +58,13 @@ export default function Home() {
   async function inspectBuilding(buildingId: string) {
     setCaseStatus("loading");
     setCaseResult(null);
+    setNetwork(null);
     try {
       const base = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:8000";
-      const [detailOutcome, caseOutcome] = await Promise.allSettled([
+      const [detailOutcome, caseOutcome, networkOutcome] = await Promise.allSettled([
         fetch(`${base}/analysis/buildings/${buildingId}`),
         fetchCaseForTarget(buildingId),
+        fetchBuildingNetwork(buildingId),
       ]);
       if (detailOutcome.status === "rejected") throw detailOutcome.reason;
       const response = detailOutcome.value;
@@ -71,6 +76,7 @@ export default function Home() {
       } else {
         setCaseStatus("error");
       }
+      if (networkOutcome.status === "fulfilled") setNetwork(networkOutcome.value);
     } catch (reason) {
       setError(reason instanceof Error ? reason.message : "Building detail could not be loaded.");
       setCaseStatus("error");
@@ -147,7 +153,7 @@ export default function Home() {
           </div>
         </div>
         <aside className="inspector" aria-live="polite">
-          {selected ? <BuildingInspector building={selected} caseResult={caseResult} caseStatus={caseStatus} /> : <InspectorEmpty />}
+          {selected ? <BuildingInspector building={selected} network={network} caseResult={caseResult} caseStatus={caseStatus} /> : <InspectorEmpty />}
         </aside>
       </section>
 
@@ -172,7 +178,7 @@ function InspectorEmpty() {
   );
 }
 
-function BuildingInspector({ building, caseResult, caseStatus }: { building: BuildingDetail; caseResult: InvestigationResult | null; caseStatus: string }) {
+function BuildingInspector({ building, network, caseResult, caseStatus }: { building: BuildingDetail; network: BuildingNetwork | null; caseResult: InvestigationResult | null; caseStatus: string }) {
   return (
     <div>
       <div className="inspector-head">
@@ -197,8 +203,27 @@ function BuildingInspector({ building, caseResult, caseStatus }: { building: Bui
           </article>
         ))}
       </div>
+      <NetworkPanel network={network} />
       <CasePanel result={caseResult} status={caseStatus} />
     </div>
+  );
+}
+
+function NetworkPanel({ network }: { network: BuildingNetwork | null }) {
+  if (!network) return <section className="network-panel"><p className="section-label">Ownership network</p><p className="case-muted">No linked ownership network is available.</p></section>;
+  const owners = network.nodes.filter((node) => node.kind === "owner");
+  const hospices = network.nodes.filter((node) => node.kind === "hospice");
+  return (
+    <section className="network-panel">
+      <div className="network-heading"><p className="section-label">Ownership network</p><span>{network.links.length} links</span></div>
+      <div className="network-graph" aria-label={`Network with ${hospices.length} hospices and ${owners.length} owners`}>
+        <div className="network-column"><span className="network-node building-node">Selected building</span></div>
+        <div className="network-column">{hospices.slice(0, 8).map((node) => <span className="network-node hospice-node" key={node.id}>{node.label}</span>)}</div>
+        <div className="network-column">{owners.slice(0, 8).map((node) => <span className="network-node owner-node" key={node.id}>{node.label}{node.is_masked ? " · masked" : ""}<small>{node.count} linked</small></span>)}</div>
+      </div>
+      {network.nodes.length > 17 && <p className="network-more">Showing the first eight hospices and owners.</p>}
+      <small className="network-limit">{network.limitations[1]}</small>
+    </section>
   );
 }
 

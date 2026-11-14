@@ -13,6 +13,9 @@ from api.schemas import (
     AnalysisSummaryResponse,
     BuildingAnalysisResponse,
     BuildingListItemResponse,
+    BuildingNetworkResponse,
+    OwnershipLinkResponse,
+    OwnershipNodeResponse,
 )
 
 
@@ -49,15 +52,65 @@ class AnalysisRepository:
         except ValidationError as error:
             raise AnalysisArtifactError("building analysis failed validation") from error
 
+    def network(self, building_id: str) -> BuildingNetworkResponse:
+        raw = self._read("ownership_network.json")
+        if not isinstance(raw, dict):
+            raise AnalysisArtifactError("ownership network failed validation")
+        match = next(
+            (item for item in raw.get("buildings", []) if item.get("building_id") == building_id),
+            None,
+        )
+        if match is None:
+            raise KeyError(building_id)
+        owner_keys = set(match.get("owner_keys", []))
+        owners = {
+            item["owner_key"]: item
+            for item in raw.get("owners", [])
+            if item.get("owner_key") in owner_keys
+        }
+        edges = [item for item in raw.get("edges", []) if item.get("owner_key") in owner_keys]
+        enrollment_ids = sorted({str(item["enrollment_id"]) for item in edges})
+        nodes = [
+            OwnershipNodeResponse(
+                id=building_id,
+                label="Selected building",
+                kind="building",
+                count=len(enrollment_ids) or 1,
+            ),
+            *(
+                OwnershipNodeResponse(
+                    id=key,
+                    label=str(owner["display_name"]),
+                    kind="owner",
+                    is_masked=bool(owner.get("is_masked")),
+                    count=max(1, int(owner.get("hospice_count", 1))),
+                )
+                for key, owner in sorted(owners.items())
+            ),
+            *(
+                OwnershipNodeResponse(id=item, label=f"Hospice {index + 1}", kind="hospice")
+                for index, item in enumerate(enrollment_ids)
+            ),
+        ]
+        links = [OwnershipLinkResponse(source=building_id, target=item) for item in enrollment_ids]
+        links.extend(
+            OwnershipLinkResponse(source=str(item["enrollment_id"]), target=str(item["owner_key"]))
+            for item in edges
+        )
+        return BuildingNetworkResponse(
+            building_id=building_id,
+            nodes=tuple(nodes),
+            links=tuple(links),
+            limitations=tuple(str(item) for item in raw.get("limitations", [])),
+        )
+
 
 def get_analysis_repository() -> AnalysisRepository:
     return AnalysisRepository(settings.analysis_dir)
 
 
 router = APIRouter(prefix="/analysis", tags=["analysis"])
-AnalysisRepositoryDependency = Annotated[
-    AnalysisRepository, Depends(get_analysis_repository)
-]
+AnalysisRepositoryDependency = Annotated[AnalysisRepository, Depends(get_analysis_repository)]
 
 
 def _unavailable(error: AnalysisArtifactError) -> HTTPException:
@@ -113,3 +166,18 @@ def building_detail(
         status_code=404,
         detail={"code": "building_not_found", "building_id": building_id},
     )
+
+
+@router.get("/buildings/{building_id}/network", response_model=BuildingNetworkResponse)
+def building_network(
+    building_id: str, repository: AnalysisRepositoryDependency
+) -> BuildingNetworkResponse:
+    try:
+        return repository.network(building_id)
+    except AnalysisArtifactError as error:
+        raise _unavailable(error) from error
+    except KeyError as error:
+        raise HTTPException(
+            status_code=404,
+            detail={"code": "building_network_not_found", "building_id": building_id},
+        ) from error

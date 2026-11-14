@@ -40,6 +40,13 @@ export interface BuildingDetail {
   };
 }
 
+export interface BuildingNetwork {
+  building_id: string;
+  nodes: Array<{ id: string; label: string; kind: "building" | "owner" | "hospice"; is_masked: boolean; count: number }>;
+  links: Array<{ source: string; target: string }>;
+  limitations: string[];
+}
+
 interface Finding {
   title: string;
   summary: string;
@@ -93,6 +100,12 @@ export async function fetchCaseForTarget(
   if (response.status === 404) return null;
   if (!response.ok) throw new Error(`Case API returned ${response.status}.`);
   return response.json() as Promise<InvestigationResult>;
+}
+
+export async function fetchBuildingNetwork(targetId: string): Promise<BuildingNetwork> {
+  const response = await fetch(`${apiUrl}/analysis/buildings/${targetId}/network`);
+  if (!response.ok) throw new Error(`Network API returned ${response.status}.`);
+  return response.json() as Promise<BuildingNetwork>;
 }
 
 export function filterBuildings(
