@@ -27,7 +27,7 @@ dev = [
 include = ["api*", "pipeline*", "engine*", "agent*", "eval*"]
 
 [tool.pytest.ini_options]
-testpaths = ["api/tests", "pipeline/tests", "engine/tests", "agent/tests"]
+testpaths = ["api/tests", "pipeline/tests", "engine/tests", "agent/tests", "eval/tests"]
 addopts = "--strict-markers --disable-warnings"
 
 [tool.ruff]

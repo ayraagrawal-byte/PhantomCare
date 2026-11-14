@@ -1,6 +1,15 @@
 {
-  "status": "not_run",
-  "metrics": {},
-  "notes": "Evaluation begins after the data pipeline and deterministic scoring engine exist."
+  "status": "passed",
+  "generated_at": "2026-11-14T12:00:00+00:00",
+  "fixture": "synthetic-offline-v1",
+  "building_count": 3,
+  "high_priority_count": 1,
+  "completed_case_count": 1,
+  "early_stop_count": 2,
+  "expected_hotspot_found": true,
+  "expected_hotspot_high_priority": true,
+  "expected_hotspot_has_case": true,
+  "private_owner_data_absent": true,
+  "disclaimer_present": true,
+  "notes": "Measured with python -m eval.offline_demo; no network, credentials, or licensed event data used."
 }
-

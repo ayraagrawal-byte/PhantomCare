@@ -135,7 +135,9 @@ Generate deterministic evidence-bound case files with `python -m agent.investiga
 
 Case files and early-stop traces are available from `GET /cases`, `GET /cases/{case_id}`, and `GET /cases/targets/{target_id}`. The dashboard loads the target result into the building evidence inspector.
 
+Run a complete key-free demonstration with `python -m eval.offline_demo --output data/demo`. It generates synthetic inputs, executes the real pipeline and investigation workflow, writes API-ready artifacts, and evaluates the expected hotspot plus privacy and disclaimer guardrails.
+
 
 ## Current milestone
 
-Step 15 provides the full implemented review path from ingestion through scoring, validated analysis and case APIs, an interactive evidence dashboard, and traceable case-file or early-stop outcomes.
+Step 16 provides the full review path plus a reproducible, key-free offline demo and measured evaluation fixture.
