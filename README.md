@@ -131,7 +131,9 @@ After generating the artifacts, FastAPI exposes them at `GET /analysis/summary`,
 
 The Step 13 dashboard consumes these endpoints to show the ranked review queue, level and address filters, run totals, and a detailed evidence inspector. Start both `uvicorn api.app:app --reload` and `npm run dev` after generating analysis artifacts.
 
+Generate deterministic evidence-bound case files with `python -m agent.investigation --input data/analysis/building_analysis.json --output data/analysis/investigation_cases.json`. Weak or under-supported cases stop early, and successful cases include a skeptical-review trace.
+
 
 ## Current milestone
 
-Step 13 provides a tested path from CMS ingestion through privacy-preserving ownership analysis, versioned scoring, validated API responses, and an interactive review dashboard. The guided investigation agent remains a later milestone.
+Step 14 provides a tested path from CMS ingestion through privacy-preserving ownership analysis, versioned scoring, validated API responses, an interactive dashboard, and deterministic evidence-bound case files.
