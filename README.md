@@ -112,6 +112,8 @@ The deterministic indicator engine is implemented in `engine/indicators.py`. It 
 
 Versioned review-priority weights and claim rules are defined in `engine/scoring_v1.json`. Score results expose raw values, effective weights, missing indicators, strong indicators, and the reason for the displayed claim level.
 
+The masked ownership graph is built by `engine/ownership.py`. It hashes source owner identifiers, suppresses all individual names and raw owner addresses, and emits the aggregate per-building metrics consumed by the ownership indicator.
+
 
 ## Current milestone
 
