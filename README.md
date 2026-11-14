@@ -78,6 +78,15 @@ python -m pipeline.group_buildings \
   --output-buildings data/processed/buildings.csv
 ```
 
+Generate the deterministic clustering baseline with:
+
+```bash
+python -m engine.clustering \
+  --buildings data/processed/buildings.csv \
+  --enrollments data/processed/hospice_enrollments_normalized.csv \
+  --output data/processed/buildings_ranked.csv
+```
+
 ## Current milestone
 
 Step 2 provides a runnable application shell only. Data ingestion, scoring, mapping, and agent behavior will be added in later milestones.
