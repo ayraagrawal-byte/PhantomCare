@@ -87,6 +87,19 @@ python -m engine.clustering \
   --output data/processed/buildings_ranked.csv
 ```
 
+Cache sponsor enrichment for the highest-ranked buildings with:
+
+```bash
+python -m pipeline.enrich_buildings \
+  --provider costar \
+  --buildings data/processed/buildings_ranked.csv \
+  --cache-dir cache \
+  --output data/processed/costar_enrichment.json
+```
+
+Live mode requires the event-provided `COSTAR_API_URL`/`COSTAR_API_KEY` or `VEXCEL_API_URL`/`VEXCEL_API_KEY`. Use `--cache-only` for offline demonstrations.
+
+
 ## Current milestone
 
 Step 2 provides a runnable application shell only. Data ingestion, scoring, mapping, and agent behavior will be added in later milestones.
