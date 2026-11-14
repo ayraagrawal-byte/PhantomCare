@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import {
   AnalysisSummary,
   AerialEvidence,
@@ -37,6 +37,7 @@ export default function Home() {
   const [level, setLevel] = useState<ReviewLevel | "all">("all");
   const [query, setQuery] = useState("");
   const [status, setStatus] = useState<"loading" | "ready" | "error">("loading");
+  const selectionRequest = useRef(0);
   const [error, setError] = useState("");
 
   useEffect(() => {
@@ -61,6 +62,9 @@ export default function Home() {
   );
 
   async function inspectBuilding(buildingId: string) {
+    const requestId = ++selectionRequest.current;
+    setSelected(null);
+    setError("");
     setCaseStatus("loading");
     setCaseResult(null);
     setNetwork(null);
@@ -73,6 +77,7 @@ export default function Home() {
         fetchBuildingNetwork(buildingId),
         fetchAerialEvidence(buildingId),
       ]);
+      if (requestId !== selectionRequest.current) return;
       if (detailOutcome.status === "rejected") throw detailOutcome.reason;
       const response = detailOutcome.value;
       if (!response.ok) throw new Error(`Building detail returned ${response.status}.`);
@@ -86,6 +91,8 @@ export default function Home() {
       if (networkOutcome.status === "fulfilled") setNetwork(networkOutcome.value);
       if (aerialOutcome.status === "fulfilled") setAerial(aerialOutcome.value);
     } catch (reason) {
+      if (requestId !== selectionRequest.current) return;
+      setSelected(null);
       setError(reason instanceof Error ? reason.message : "Building detail could not be loaded.");
       setCaseStatus("error");
     }
@@ -163,7 +170,7 @@ export default function Home() {
           </div>
         </div>
         <aside className="inspector" aria-live="polite">
-          {selected ? <BuildingInspector building={selected} aerial={aerial} network={network} caseResult={caseResult} caseStatus={caseStatus} /> : <InspectorEmpty />}
+          {selected ? <BuildingInspector building={selected} aerial={aerial} network={network} caseResult={caseResult} caseStatus={caseStatus} /> : caseStatus === "loading" ? <div className="inspector-empty" role="status">Loading building evidence…</div> : caseStatus === "error" ? <div className="inspector-empty" role="alert">Could not load building evidence. {error}</div> : <InspectorEmpty />}
         </aside>
       </section>
 
