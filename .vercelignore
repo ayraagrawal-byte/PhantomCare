@@ -7,7 +7,6 @@
 .codex/
 .agents/
 node_modules/
-dashboard/
 package.json
 package-lock.json
 work/
