@@ -110,6 +110,8 @@ python -m pipeline.costar_extract \
 
 The deterministic indicator engine is implemented in `engine/indicators.py`. It consumes the clustering baseline, exact CoStar matches, masked ownership metrics, and optional human-reviewed aerial notes. It does not call an LLM.
 
+Versioned review-priority weights and claim rules are defined in `engine/scoring_v1.json`. Score results expose raw values, effective weights, missing indicators, strong indicators, and the reason for the displayed claim level.
+
 
 ## Current milestone
 

@@ -1,0 +1,15 @@
+{
+  "version": "review-priority-v1",
+  "weights": {
+    "address_clustering": 0.35,
+    "building_type_fit": 0.25,
+    "space_per_hospice": 0.20,
+    "ownership_network": 0.20,
+    "aerial_context": 0.0
+  },
+  "high_priority_minimum_score": 70,
+  "high_priority_minimum_strong_indicators": 3,
+  "worth_a_look_minimum_score": 35,
+  "strong_indicator_minimum_score": 60
+}
+
