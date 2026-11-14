@@ -5,8 +5,10 @@ import {
   AnalysisSummary,
   BuildingDetail,
   BuildingListItem,
+  InvestigationResult,
   ReviewLevel,
   fetchAnalysis,
+  fetchCaseForTarget,
   filterBuildings,
   formatLevel,
 } from "../lib/analysis";
@@ -22,6 +24,8 @@ export default function Home() {
   const [summary, setSummary] = useState<AnalysisSummary | null>(null);
   const [buildings, setBuildings] = useState<BuildingListItem[]>([]);
   const [selected, setSelected] = useState<BuildingDetail | null>(null);
+  const [caseResult, setCaseResult] = useState<InvestigationResult | null>(null);
+  const [caseStatus, setCaseStatus] = useState<"idle" | "loading" | "ready" | "error">("idle");
   const [level, setLevel] = useState<ReviewLevel | "all">("all");
   const [query, setQuery] = useState("");
   const [status, setStatus] = useState<"loading" | "ready" | "error">("loading");
@@ -49,13 +53,27 @@ export default function Home() {
   );
 
   async function inspectBuilding(buildingId: string) {
+    setCaseStatus("loading");
+    setCaseResult(null);
     try {
       const base = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:8000";
-      const response = await fetch(`${base}/analysis/buildings/${buildingId}`);
+      const [detailOutcome, caseOutcome] = await Promise.allSettled([
+        fetch(`${base}/analysis/buildings/${buildingId}`),
+        fetchCaseForTarget(buildingId),
+      ]);
+      if (detailOutcome.status === "rejected") throw detailOutcome.reason;
+      const response = detailOutcome.value;
       if (!response.ok) throw new Error(`Building detail returned ${response.status}.`);
       setSelected((await response.json()) as BuildingDetail);
+      if (caseOutcome.status === "fulfilled") {
+        setCaseResult(caseOutcome.value);
+        setCaseStatus("ready");
+      } else {
+        setCaseStatus("error");
+      }
     } catch (reason) {
       setError(reason instanceof Error ? reason.message : "Building detail could not be loaded.");
+      setCaseStatus("error");
     }
   }
 
@@ -129,7 +147,7 @@ export default function Home() {
           </div>
         </div>
         <aside className="inspector" aria-live="polite">
-          {selected ? <BuildingInspector building={selected} /> : <InspectorEmpty />}
+          {selected ? <BuildingInspector building={selected} caseResult={caseResult} caseStatus={caseStatus} /> : <InspectorEmpty />}
         </aside>
       </section>
 
@@ -154,7 +172,7 @@ function InspectorEmpty() {
   );
 }
 
-function BuildingInspector({ building }: { building: BuildingDetail }) {
+function BuildingInspector({ building, caseResult, caseStatus }: { building: BuildingDetail; caseResult: InvestigationResult | null; caseStatus: string }) {
   return (
     <div>
       <div className="inspector-head">
@@ -179,6 +197,44 @@ function BuildingInspector({ building }: { building: BuildingDetail }) {
           </article>
         ))}
       </div>
+      <CasePanel result={caseResult} status={caseStatus} />
     </div>
+  );
+}
+
+function CasePanel({ result, status }: { result: InvestigationResult | null; status: string }) {
+  return (
+    <section className="case-panel">
+      <p className="section-label">Guided investigation</p>
+      {status === "loading" && <p className="case-muted">Loading case trace…</p>}
+      {status === "error" && <p className="case-muted">The case artifact could not be loaded.</p>}
+      {status === "ready" && !result && <p className="case-muted">No investigation has been generated for this building.</p>}
+      {result?.stopped_reason && (
+        <div className="early-stop"><strong>Stopped early</strong><span>{result.stopped_reason}</span></div>
+      )}
+      {result?.case_file && (
+        <>
+          <div className="case-heading"><h3>Case file</h3><code>{result.case_file.case_id}</code></div>
+          <p className="case-disclaimer">{result.case_file.disclaimer}</p>
+          <div className="finding-list">
+            {result.case_file.findings.map((finding) => (
+              <article key={finding.title}>
+                <div><strong>{finding.title}</strong><span>{Math.round(finding.strength * 100)}% strength</span></div>
+                <p>{finding.summary}</p>
+                <small>{finding.evidence.length} attached evidence record{finding.evidence.length === 1 ? "" : "s"}</small>
+              </article>
+            ))}
+          </div>
+        </>
+      )}
+      {result && (
+        <div className="trace-list">
+          <h3>Investigation trace</h3>
+          {result.trace.map((event) => (
+            <div key={event.event_id}><span>{formatLevel(event.event_type)}</span><p>{event.message}</p></div>
+          ))}
+        </div>
+      )}
+    </section>
   );
 }

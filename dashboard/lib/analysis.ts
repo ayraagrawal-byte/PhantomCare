@@ -40,6 +40,31 @@ export interface BuildingDetail {
   };
 }
 
+interface Finding {
+  title: string;
+  summary: string;
+  strength: number;
+  evidence: unknown[];
+  limitations: string[];
+}
+
+export interface InvestigationResult {
+  target_id: string;
+  case_file: null | {
+    case_id: string;
+    created_at: string;
+    disclaimer: string;
+    findings: Finding[];
+  };
+  trace: Array<{
+    event_id: string;
+    event_type: string;
+    message: string;
+    occurred_at: string;
+  }>;
+  stopped_reason: string | null;
+}
+
 const apiUrl = (process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:8000").replace(/\/$/, "");
 
 async function getJson<T>(path: string, signal: AbortSignal): Promise<T> {
@@ -59,6 +84,15 @@ export async function fetchAnalysis(signal: AbortSignal) {
     getJson<BuildingListItem[]>("/analysis/buildings?limit=500", signal),
   ]);
   return { summary, buildings };
+}
+
+export async function fetchCaseForTarget(
+  targetId: string,
+): Promise<InvestigationResult | null> {
+  const response = await fetch(`${apiUrl}/cases/targets/${targetId}`);
+  if (response.status === 404) return null;
+  if (!response.ok) throw new Error(`Case API returned ${response.status}.`);
+  return response.json() as Promise<InvestigationResult>;
 }
 
 export function filterBuildings(

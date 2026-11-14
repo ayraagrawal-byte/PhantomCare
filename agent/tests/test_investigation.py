@@ -67,6 +67,7 @@ def test_writes_neutral_evidence_bound_case_and_complete_trace() -> None:
     )
 
     assert result.case_file is not None
+    assert result.target_id == "bldg_test"
     assert len(result.case_file.findings) == 2
     assert all(finding.evidence for finding in result.case_file.findings)
     assert all(finding.strength < 0.8 for finding in result.case_file.findings)
@@ -96,6 +97,7 @@ def test_early_stops_below_priority_threshold() -> None:
     result = investigate_building(building(total=20, level="no_indicators_found"))
 
     assert result.case_file is None
+    assert result.target_id == "bldg_test"
     assert result.trace[-1].event_type.value == "early_stopped"
     assert "threshold" in (result.stopped_reason or "")
 

@@ -133,7 +133,9 @@ The Step 13 dashboard consumes these endpoints to show the ranked review queue, 
 
 Generate deterministic evidence-bound case files with `python -m agent.investigation --input data/analysis/building_analysis.json --output data/analysis/investigation_cases.json`. Weak or under-supported cases stop early, and successful cases include a skeptical-review trace.
 
+Case files and early-stop traces are available from `GET /cases`, `GET /cases/{case_id}`, and `GET /cases/targets/{target_id}`. The dashboard loads the target result into the building evidence inspector.
+
 
 ## Current milestone
 
-Step 14 provides a tested path from CMS ingestion through privacy-preserving ownership analysis, versioned scoring, validated API responses, an interactive dashboard, and deterministic evidence-bound case files.
+Step 15 provides the full implemented review path from ingestion through scoring, validated analysis and case APIs, an interactive evidence dashboard, and traceable case-file or early-stop outcomes.

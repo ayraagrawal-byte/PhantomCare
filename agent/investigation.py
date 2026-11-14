@@ -30,12 +30,14 @@ class InvestigationPolicy:
 
 @dataclass(frozen=True)
 class InvestigationResult:
+    target_id: str
     case_file: CaseFile | None
     trace: tuple[TraceEvent, ...]
     stopped_reason: str | None
 
     def to_dict(self) -> dict[str, object]:
         return {
+            "target_id": self.target_id,
             "case_file": (
                 self.case_file.model_dump(mode="json") if self.case_file else None
             ),
@@ -154,7 +156,7 @@ def investigate_building(
                 occurred_at=timestamp,
             )
         )
-        return InvestigationResult(None, tuple(trace), reason)
+        return InvestigationResult(building.building_id, None, tuple(trace), reason)
     if evidence_count < active_policy.minimum_evidence_records:
         reason = (
             f"Only {evidence_count} evidence record(s) were available; "
@@ -169,7 +171,7 @@ def investigate_building(
                 occurred_at=timestamp,
             )
         )
-        return InvestigationResult(None, tuple(trace), reason)
+        return InvestigationResult(building.building_id, None, tuple(trace), reason)
 
     trace.append(
         _event(
@@ -211,7 +213,7 @@ def investigate_building(
                 occurred_at=timestamp,
             )
         )
-        return InvestigationResult(None, tuple(trace), reason)
+        return InvestigationResult(building.building_id, None, tuple(trace), reason)
 
     limitation_count = sum(len(finding.limitations) for finding in candidates)
     trace.append(
@@ -245,7 +247,7 @@ def investigate_building(
             evidence=candidate_evidence,
         )
     )
-    return InvestigationResult(case_file, tuple(trace), None)
+    return InvestigationResult(building.building_id, case_file, tuple(trace), None)
 
 
 def main() -> None:
