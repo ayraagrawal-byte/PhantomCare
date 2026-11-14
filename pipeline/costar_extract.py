@@ -128,6 +128,7 @@ class CostarExtract:
                 "address": address,
                 "latitude": address.get("latitude"),
                 "longitude": address.get("longitude"),
+                "building_name": row.get("buildingName"),
                 "property_type": self._decode("PropertyType", row.get("propertyType")),
                 "property_subtype": self._decode(
                     "PropertySubtype", row.get("propertySubtype")

@@ -108,6 +108,8 @@ python -m pipeline.costar_extract \
   --output data/processed/costar_matches.json
 ```
 
+The deterministic indicator engine is implemented in `engine/indicators.py`. It consumes the clustering baseline, exact CoStar matches, masked ownership metrics, and optional human-reviewed aerial notes. It does not call an LLM.
+
 
 ## Current milestone
 

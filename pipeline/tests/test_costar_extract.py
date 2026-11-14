@@ -17,6 +17,7 @@ def write_kit(root: Path) -> None:
         "propertyType": 5,
         "propertySubtype": 12,
         "buildingClass": 2,
+        "buildingName": "Van Nuys Executive Suites",
         "buildingRating": 4,
         "grossBuildingAreaSquareFeet": 32000,
         "rentableBuildingAreaSquareFeet": 30000,
@@ -73,6 +74,7 @@ def test_costar_extract_matches_normalized_building_and_preserves_provenance(
     assert len(matches) == 1
     match = matches[0]
     assert match["property_type"] == "Office"
+    assert match["building_name"] == "Van Nuys Executive Suites"
     assert match["gross_building_area_sqft"] == 32000
     assert match["floor_count"] == 3
     assert match["occupancy_record_count"] == 3
