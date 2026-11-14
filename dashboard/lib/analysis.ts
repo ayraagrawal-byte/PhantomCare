@@ -102,7 +102,11 @@ export interface InvestigationResult {
   stopped_reason: string | null;
 }
 
-const apiUrl = (process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:8000").replace(/\/$/, "");
+const defaultApiUrl =
+  process.env.NODE_ENV === "production"
+    ? "https://phantomcare-api.vercel.app"
+    : "http://localhost:8000";
+const apiUrl = (process.env.NEXT_PUBLIC_API_URL ?? defaultApiUrl).replace(/\/$/, "");
 
 async function getJson<T>(path: string, signal: AbortSignal): Promise<T> {
   const response = await fetch(`${apiUrl}${path}`, { signal });
@@ -130,6 +134,12 @@ export async function fetchCaseForTarget(
   if (response.status === 404) return null;
   if (!response.ok) throw new Error(`Case API returned ${response.status}.`);
   return response.json() as Promise<InvestigationResult>;
+}
+
+export async function fetchBuildingDetail(targetId: string): Promise<BuildingDetail> {
+  const response = await fetch(`${apiUrl}/analysis/buildings/${targetId}`);
+  if (!response.ok) throw new Error(`Building detail returned ${response.status}.`);
+  return response.json() as Promise<BuildingDetail>;
 }
 
 export async function fetchBuildingNetwork(targetId: string): Promise<BuildingNetwork> {

@@ -11,6 +11,7 @@ import {
   ReviewLevel,
   fetchAnalysis,
   fetchAerialEvidence,
+  fetchBuildingDetail,
   fetchCaseForTarget,
   fetchBuildingNetwork,
   filterBuildings,
@@ -70,18 +71,15 @@ export default function Home() {
     setNetwork(null);
     setAerial(null);
     try {
-      const base = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:8000";
       const [detailOutcome, caseOutcome, networkOutcome, aerialOutcome] = await Promise.allSettled([
-        fetch(`${base}/analysis/buildings/${buildingId}`),
+        fetchBuildingDetail(buildingId),
         fetchCaseForTarget(buildingId),
         fetchBuildingNetwork(buildingId),
         fetchAerialEvidence(buildingId),
       ]);
       if (requestId !== selectionRequest.current) return;
       if (detailOutcome.status === "rejected") throw detailOutcome.reason;
-      const response = detailOutcome.value;
-      if (!response.ok) throw new Error(`Building detail returned ${response.status}.`);
-      setSelected((await response.json()) as BuildingDetail);
+      setSelected(detailOutcome.value);
       if (caseOutcome.status === "fulfilled") {
         setCaseResult(caseOutcome.value);
         setCaseStatus("ready");
@@ -118,13 +116,14 @@ export default function Home() {
         <p className="lede">
           Rank hospice registration clusters using explainable public-record and building-context
           indicators. Every score shows its inputs, limitations, and missing data.
+          <span className="dataset-note">Data snapshot: CMS Q4 2026 public records with CoStar and Vexcel hackathon evidence.</span>
         </p>
       </section>
 
       {status === "error" && (
         <section className="error-panel" role="alert">
-          <strong>Analysis is not available.</strong><span>{error}</span>
-          <code>python -m pipeline.analysis … --output data/analysis</code>
+          <strong>Analysis is temporarily unavailable.</strong>
+          <span>Check your connection and reload the page. {error}</span>
         </section>
       )}
 
@@ -140,7 +139,7 @@ export default function Home() {
       <section className="workspace">
         <div className="list-panel">
           <div className="section-heading">
-            <div><p className="section-label">Review queue</p><h2>Ranked buildings</h2></div>
+            <div><p className="section-label">Review queue</p><h2>Ranked buildings</h2><p className="result-count">Showing {visible.length} of {buildings.length} buildings</p></div>
             <label className="search">
               <span className="sr-only">Search addresses</span>
               <input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Search address or building ID" type="search" />
@@ -190,7 +189,7 @@ function HotspotMap({ buildings, selectedId, onSelect }: { buildings: BuildingLi
   });
   return (
     <section className="map-panel" aria-labelledby="map-title">
-      <div className="map-copy"><p className="section-label">Geographic review</p><h2 id="map-title">LA County hotspots</h2><p>Markers use matched CoStar coordinates. Size reflects hospice count; color reflects review priority.</p><div className="map-legend"><span><i className="legend-hot" />High priority</span><span><i className="legend-watch" />Worth a look</span></div></div>
+      <div className="map-copy"><p className="section-label">Schematic geographic overview</p><h2 id="map-title">LA County hotspots</h2><p>This is an illustrative county view, not a parcel basemap. Markers use matched CoStar coordinates; size reflects hospice count and color reflects review priority.</p><div className="map-legend"><span><i className="legend-hot" />High priority</span><span><i className="legend-watch" />Worth a look</span></div></div>
       <div className="county-map">
         <svg aria-label={`${points.length} mapped buildings`} role="img" viewBox="0 0 100 100" preserveAspectRatio="none">
           <path className="county-shape" d="M10 8 L59 5 L82 18 L88 35 L80 47 L90 64 L75 91 L43 95 L26 80 L15 72 L8 50 L14 34 Z" />
@@ -308,7 +307,7 @@ function NetworkPanel({ network }: { network: BuildingNetwork | null }) {
 function CasePanel({ result, status }: { result: InvestigationResult | null; status: string }) {
   return (
     <section className="case-panel">
-      <p className="section-label">Guided investigation</p>
+      <p className="section-label">Evidence review</p>
       {status === "loading" && <p className="case-muted">Loading case trace…</p>}
       {status === "error" && <p className="case-muted">The case artifact could not be loaded.</p>}
       {status === "ready" && !result && <p className="case-muted">No investigation has been generated for this building.</p>}
@@ -333,7 +332,7 @@ function CasePanel({ result, status }: { result: InvestigationResult | null; sta
       )}
       {result && (
         <div className="trace-list">
-          <h3>Investigation trace</h3>
+          <h3>Deterministic review trace</h3>
           {result.trace.map((event) => (
             <div key={event.event_id}><span>{formatLevel(event.event_type)}</span><p>{event.message}</p></div>
           ))}
