@@ -66,6 +66,25 @@ def _building(building_id: str, total: float, level: str) -> dict[str, object]:
         "costar_match_status": "not_configured",
         "latitude": 34.0522 if building_id == "bldg_high" else None,
         "longitude": -118.2437 if building_id == "bldg_high" else None,
+        "building_context": (
+            {
+                "property_id": "77",
+                "building_name": "Review Executive Suites",
+                "property_type": "Office",
+                "property_subtype": "Office Building",
+                "building_class": "B",
+                "gross_building_area_sqft": 32000,
+                "rentable_building_area_sqft": 30000,
+                "stories_above_grade": 3,
+                "floor_count": 3,
+                "occupancy_record_count": 4,
+                "unique_tenant_location_count": 3,
+                "occupancy_scope": "current_or_past_records; not a current tenant count",
+                "matterport_model_ids": ["model-1"],
+            }
+            if building_id == "bldg_high"
+            else None
+        ),
     }
 
 
@@ -131,6 +150,8 @@ def test_analysis_endpoints_validate_sort_filter_and_detail(tmp_path: Path) -> N
     detail = building_detail("bldg_high", repository)
     assert detail.priority.score.total == 80
     assert buildings[0].latitude == 34.0522
+    assert detail.building_context is not None
+    assert detail.building_context.rentable_building_area_sqft == 30000
     network = building_network("bldg_high", repository)
     assert [node.kind for node in network.nodes] == ["building", "owner", "hospice"]
     assert network.nodes[1].is_masked is True

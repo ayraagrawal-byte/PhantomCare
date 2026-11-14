@@ -34,6 +34,22 @@ class PriorityResponse(BaseModel):
     claim_reason: str = Field(min_length=1, max_length=1000)
 
 
+class BuildingContextResponse(BaseModel):
+    property_id: str
+    building_name: str | None = None
+    property_type: str | None = None
+    property_subtype: str | None = None
+    building_class: str | None = None
+    gross_building_area_sqft: float | None = Field(default=None, ge=0)
+    rentable_building_area_sqft: float | None = Field(default=None, ge=0)
+    stories_above_grade: int | None = Field(default=None, ge=0)
+    floor_count: int | None = Field(default=None, ge=0)
+    occupancy_record_count: int = Field(ge=0)
+    unique_tenant_location_count: int = Field(ge=0)
+    occupancy_scope: str | None = None
+    matterport_model_ids: tuple[str, ...]
+
+
 class BuildingAnalysisResponse(BaseModel):
     building_id: str = Field(min_length=1, max_length=100)
     building_key: str = Field(min_length=1, max_length=500)
@@ -48,6 +64,7 @@ class BuildingAnalysisResponse(BaseModel):
     ]
     latitude: float | None = Field(default=None, ge=-90, le=90)
     longitude: float | None = Field(default=None, ge=-180, le=180)
+    building_context: BuildingContextResponse | None = None
 
 
 class BuildingListItemResponse(BaseModel):

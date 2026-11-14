@@ -221,6 +221,7 @@ function BuildingInspector({ building, network, caseResult, caseStatus }: { buil
         <div><dt>CoStar match</dt><dd>{building.costar_match_status.replaceAll("_", " ")}</dd></div>
         <div><dt>Model</dt><dd>{building.priority.score.model_version}</dd></div>
       </dl>
+      <BuildingContextCard building={building} />
       {building.priority.missing_indicators.length > 0 && (
         <div className="missing-note">Missing data: {building.priority.missing_indicators.map(formatLevel).join(", ")}. Available weights were rebalanced.</div>
       )}
@@ -237,6 +238,26 @@ function BuildingInspector({ building, network, caseResult, caseStatus }: { buil
       <NetworkPanel network={network} />
       <CasePanel result={caseResult} status={caseStatus} />
     </div>
+  );
+}
+
+function BuildingContextCard({ building }: { building: BuildingDetail }) {
+  const context = building.building_context;
+  if (!context) return <section className="context-card context-missing"><p className="section-label">CoStar building context</p><p>No exact property record is available for this address.</p></section>;
+  const area = context.rentable_building_area_sqft ?? context.gross_building_area_sqft;
+  return (
+    <section className="context-card">
+      <div className="context-heading"><div><p className="section-label">CoStar building context</p><h3>{context.building_name ?? context.property_type ?? "Matched property"}</h3></div><span>Property {context.property_id}</span></div>
+      <div className="context-grid">
+        <div><span>Type</span><strong>{[context.property_type, context.property_subtype].filter(Boolean).join(" · ") || "Not reported"}</strong></div>
+        <div><span>Area</span><strong>{area ? `${Math.round(area).toLocaleString()} sq ft` : "Not reported"}</strong></div>
+        <div><span>Floors</span><strong>{context.stories_above_grade ?? context.floor_count ?? "Not reported"}</strong></div>
+        <div><span>Occupancy records</span><strong>{context.occupancy_record_count}</strong></div>
+        <div><span>Unique tenant locations</span><strong>{context.unique_tenant_location_count}</strong></div>
+        <div><span>Matterport</span><strong>{context.matterport_model_ids.length ? `${context.matterport_model_ids.length} model available` : "No model linked"}</strong></div>
+      </div>
+      {context.occupancy_scope && <small className="context-caveat">Occupancy count scope: {context.occupancy_scope.replaceAll("_", " ")}.</small>}
+    </section>
   );
 }
 

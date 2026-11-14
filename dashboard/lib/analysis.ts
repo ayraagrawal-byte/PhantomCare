@@ -40,6 +40,21 @@ export interface BuildingDetail {
     strong_indicators: string[];
     claim_reason: string;
   };
+  building_context: null | {
+    property_id: string;
+    building_name: string | null;
+    property_type: string | null;
+    property_subtype: string | null;
+    building_class: string | null;
+    gross_building_area_sqft: number | null;
+    rentable_building_area_sqft: number | null;
+    stories_above_grade: number | null;
+    floor_count: number | null;
+    occupancy_record_count: number;
+    unique_tenant_location_count: number;
+    occupancy_scope: string | null;
+    matterport_model_ids: string[];
+  };
 }
 
 export interface BuildingNetwork {

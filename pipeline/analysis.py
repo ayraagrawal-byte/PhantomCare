@@ -28,6 +28,7 @@ class BuildingAnalysis:
     costar_match_status: str
     latitude: float | None
     longitude: float | None
+    building_context: dict[str, Any] | None
 
 
 @dataclass(frozen=True)
@@ -109,6 +110,27 @@ def run_analysis(
                 longitude=float(costar["longitude"])
                 if costar and costar.get("longitude") is not None
                 else None,
+                building_context=(
+                    {
+                        "property_id": str(costar.get("property_id")),
+                        "building_name": costar.get("building_name"),
+                        "property_type": costar.get("property_type"),
+                        "property_subtype": costar.get("property_subtype"),
+                        "building_class": costar.get("building_class"),
+                        "gross_building_area_sqft": costar.get("gross_building_area_sqft"),
+                        "rentable_building_area_sqft": costar.get("rentable_building_area_sqft"),
+                        "stories_above_grade": costar.get("stories_above_grade"),
+                        "floor_count": costar.get("floor_count"),
+                        "occupancy_record_count": costar.get("occupancy_record_count", 0),
+                        "unique_tenant_location_count": costar.get(
+                            "unique_tenant_location_count", 0
+                        ),
+                        "occupancy_scope": costar.get("occupancy_scope"),
+                        "matterport_model_ids": costar.get("matterport_model_ids", []),
+                    }
+                    if costar
+                    else None
+                ),
             )
         )
 

@@ -63,6 +63,7 @@ def test_end_to_end_analysis_produces_explainable_outputs(tmp_path: Path) -> Non
     assert top.costar_match_status == "not_configured"
     assert top.latitude is None
     assert top.longitude is None
+    assert top.building_context is None
     assert top.priority["score"]["level"] == "worth_a_look"
     assert set(top.priority["missing_indicators"]) == {
         "building_type_fit",
