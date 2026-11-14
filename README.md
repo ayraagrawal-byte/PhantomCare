@@ -69,6 +69,15 @@ python -m pipeline.import_cms \
 
 The importer validates documented CMS columns, preserves source provenance, filters related records to retained LA County enrollments, and writes an import summary. See `docs/STEP_4_CMS_INGESTION.md` for the county-filter guardrail.
 
+Normalize imported addresses and group enrollments by physical building with:
+
+```bash
+python -m pipeline.group_buildings \
+  --enrollments data/processed/hospice_enrollments.csv \
+  --output-enrollments data/processed/hospice_enrollments_normalized.csv \
+  --output-buildings data/processed/buildings.csv
+```
+
 ## Current milestone
 
 Step 2 provides a runnable application shell only. Data ingestion, scoring, mapping, and agent behavior will be added in later milestones.
