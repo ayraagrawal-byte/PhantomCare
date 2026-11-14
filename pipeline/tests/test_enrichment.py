@@ -3,6 +3,7 @@ from __future__ import annotations
 import json
 from datetime import UTC, datetime
 from pathlib import Path
+from urllib.parse import parse_qs, urlparse
 
 import pytest
 
@@ -14,11 +15,27 @@ from pipeline.enrichment import (
     HttpJsonClient,
     JsonCache,
     LookupRequest,
+    MatterportModelsClient,
+    VexcelPropertyClient,
     costar_provider,
     vexcel_provider,
 )
 
 ADDRESS = "14545 FRIAR ST VAN NUYS CA 91411"
+
+
+class FakeResponse:
+    def __init__(self, payload: dict) -> None:
+        self.body = json.dumps(payload).encode()
+
+    def __enter__(self):
+        return self
+
+    def __exit__(self, *_args) -> None:
+        return None
+
+    def read(self) -> bytes:
+        return self.body
 
 
 def test_fixture_lookup_is_cached_with_provenance(tmp_path: Path) -> None:
@@ -122,4 +139,51 @@ def test_provider_identity_must_match_client(tmp_path: Path) -> None:
             cache=JsonCache(tmp_path),
             client=FixtureClient("vexcel", {}),
         )
+
+
+def test_vexcel_client_uses_documented_point_order_and_header(monkeypatch) -> None:
+    captured = {}
+
+    def fake_urlopen(request, timeout):
+        captured["url"] = request.full_url
+        captured["key"] = request.get_header("X-api-key")
+        captured["timeout"] = timeout
+        return FakeResponse({"type": "FeatureCollection", "features": []})
+
+    monkeypatch.setattr("pipeline.enrichment.urlopen", fake_urlopen)
+    client = VexcelPropertyClient(api_key="test-key")
+    payload = client.lookup(
+        LookupRequest(address=ADDRESS, latitude=34.187, longitude=-118.45)
+    )
+
+    query = parse_qs(urlparse(captured["url"]).query)
+    assert query["wkt"] == ["POINT(-118.45 34.187)"]
+    assert query["srid"] == ["4326"]
+    assert captured["key"] == "test-key"
+    assert payload["features"] == []
+
+
+def test_vexcel_client_requires_coordinates() -> None:
+    client = VexcelPropertyClient(api_key="test-key")
+    with pytest.raises(ValueError, match="latitude and longitude"):
+        client.lookup(LookupRequest(address=ADDRESS))
+
+
+def test_matterport_client_uses_server_side_basic_auth(monkeypatch) -> None:
+    captured = {}
+
+    def fake_urlopen(request, timeout):
+        captured["authorization"] = request.get_header("Authorization")
+        captured["body"] = json.loads(request.data.decode())
+        captured["timeout"] = timeout
+        return FakeResponse({"data": {"models": {"totalResults": 0, "results": []}}})
+
+    monkeypatch.setattr("pipeline.enrichment.urlopen", fake_urlopen)
+    client = MatterportModelsClient(token_id="token-id", token_secret="token-secret")
+    payload = client.lookup(LookupRequest(address=ADDRESS))
+
+    assert captured["authorization"].startswith("Basic ")
+    assert "token-secret" not in json.dumps(captured["body"])
+    assert captured["body"]["variables"] == {"query": ADDRESS}
+    assert payload["data"]["models"]["totalResults"] == 0
 

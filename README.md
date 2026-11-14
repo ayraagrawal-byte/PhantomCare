@@ -97,7 +97,16 @@ python -m pipeline.enrich_buildings \
   --output data/processed/costar_enrichment.json
 ```
 
-Live mode requires the event-provided `COSTAR_API_URL`/`COSTAR_API_KEY` or `VEXCEL_API_URL`/`VEXCEL_API_KEY`. Use `--cache-only` for offline demonstrations.
+Vexcel live mode uses the event-provided `VEXCEL_API_KEY`. Matterport uses `MATTERPORT_API_KEY` and `MATTERPORT_API_TOKEN` server-side. CoStar is an encrypted data extract rather than a live API. Use `--cache-only` for offline demonstrations.
+
+Match ranked buildings to the decrypted CoStar extract with:
+
+```bash
+python -m pipeline.costar_extract \
+  --kit work/sponsor/costar-kit \
+  --buildings data/processed/buildings_ranked.csv \
+  --output data/processed/costar_matches.json
+```
 
 
 ## Current milestone

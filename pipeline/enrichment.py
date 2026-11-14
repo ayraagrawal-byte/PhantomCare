@@ -5,6 +5,7 @@ import json
 import os
 import tempfile
 from abc import ABC, abstractmethod
+from base64 import b64encode
 from dataclasses import asdict, dataclass
 from datetime import UTC, datetime
 from enum import StrEnum
@@ -196,6 +197,113 @@ class HttpJsonClient(ProviderClient):
         return payload
 
 
+class VexcelPropertyClient(ProviderClient):
+    provider = "vexcel"
+    mode = ProviderMode.LIVE
+    endpoint = "https://api.vexcelgroup.com/v2/property/extract"
+    layers = "urban,urban-r,wide-area,urban-g"
+
+    def __init__(self, *, api_key: str, timeout_seconds: float = 120) -> None:
+        if not api_key:
+            raise ValueError("Vexcel API key is required for live mode")
+        self.api_key = api_key
+        self.timeout_seconds = timeout_seconds
+
+    def lookup(self, request: LookupRequest) -> dict[str, Any]:
+        if request.latitude is None or request.longitude is None:
+            raise ValueError("Vexcel property lookups require latitude and longitude")
+        params = {
+            "wkt": f"POINT({request.longitude} {request.latitude})",
+            "srid": 4326,
+            "layer": self.layers,
+            "latest": "true",
+            "include": "precomputed",
+            "unit-system": "imperial",
+        }
+        http_request = Request(
+            f"{self.endpoint}?{urlencode(params)}",
+            headers={
+                "X-API-KEY": self.api_key,
+                "Accept": "application/json",
+                "User-Agent": "PhantomCare/0.1",
+            },
+        )
+        try:
+            with urlopen(http_request, timeout=self.timeout_seconds) as response:
+                body = response.read().decode("utf-8")
+        except HTTPError as error:
+            if error.code == 404:
+                return {"features": [], "context": {"no_property_at_point": True}}
+            raise EnrichmentError(f"Vexcel returned HTTP {error.code}") from error
+        except (TimeoutError, URLError) as error:
+            detail = getattr(error, "reason", str(error))
+            raise EnrichmentError(f"Vexcel lookup failed: {detail}") from error
+        try:
+            payload = json.loads(body)
+        except json.JSONDecodeError as error:
+            raise ProviderResponseError("Vexcel returned a non-JSON response") from error
+        if not isinstance(payload, dict) or not isinstance(payload.get("features"), list):
+            raise ProviderResponseError("Vexcel property response must be a GeoJSON object")
+        return payload
+
+
+class MatterportModelsClient(ProviderClient):
+    provider = "matterport"
+    mode = ProviderMode.LIVE
+    endpoint = "https://api.matterport.com/api/models/graph"
+
+    def __init__(
+        self,
+        *,
+        token_id: str,
+        token_secret: str,
+        timeout_seconds: float = 30,
+    ) -> None:
+        if not token_id or not token_secret:
+            raise ValueError("Matterport token ID and secret are required")
+        self.token_id = token_id
+        self.token_secret = token_secret
+        self.timeout_seconds = timeout_seconds
+
+    def lookup(self, request: LookupRequest) -> dict[str, Any]:
+        query = """
+        query SearchModels($query: String!) {
+          models(query: $query) {
+            totalResults
+            results { id name created modified visibility }
+          }
+        }
+        """
+        body = json.dumps({"query": query, "variables": {"query": request.address}}).encode()
+        credentials = b64encode(
+            f"{self.token_id}:{self.token_secret}".encode()
+        ).decode("ascii")
+        http_request = Request(
+            self.endpoint,
+            data=body,
+            method="POST",
+            headers={
+                "Authorization": f"Basic {credentials}",
+                "Content-Type": "application/json",
+                "Accept": "application/json",
+                "User-Agent": "PhantomCare/0.1",
+            },
+        )
+        try:
+            with urlopen(http_request, timeout=self.timeout_seconds) as response:
+                payload = json.loads(response.read().decode("utf-8"))
+        except HTTPError as error:
+            raise EnrichmentError(f"Matterport returned HTTP {error.code}") from error
+        except (TimeoutError, URLError, json.JSONDecodeError) as error:
+            detail = getattr(error, "reason", str(error))
+            raise EnrichmentError(f"Matterport lookup failed: {detail}") from error
+        if not isinstance(payload, dict):
+            raise ProviderResponseError("Matterport response must be a JSON object")
+        if payload.get("errors"):
+            raise ProviderResponseError("Matterport returned GraphQL errors")
+        return payload
+
+
 class CachedEnrichmentProvider:
     def __init__(
         self,
@@ -252,6 +360,20 @@ def vexcel_provider(
 ) -> CachedEnrichmentProvider:
     return CachedEnrichmentProvider(
         provider="vexcel",
+        cache=JsonCache(cache_dir),
+        client=client,
+        cache_only=cache_only,
+    )
+
+
+def matterport_provider(
+    *,
+    cache_dir: str | Path,
+    client: ProviderClient | None = None,
+    cache_only: bool = False,
+) -> CachedEnrichmentProvider:
+    return CachedEnrichmentProvider(
+        provider="matterport",
         cache=JsonCache(cache_dir),
         client=client,
         cache_only=cache_only,

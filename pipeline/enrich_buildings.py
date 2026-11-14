@@ -7,29 +7,45 @@ from pathlib import Path
 
 import pandas as pd
 
-from pipeline.enrichment import HttpJsonClient, LookupRequest, costar_provider, vexcel_provider
+from pipeline.enrichment import (
+    LookupRequest,
+    MatterportModelsClient,
+    VexcelPropertyClient,
+    costar_provider,
+    matterport_provider,
+    vexcel_provider,
+)
 
 
 def _provider(name: str, cache_dir: Path, cache_only: bool):
     if cache_only:
         client = None
-    else:
-        endpoint = os.environ.get(f"{name.upper()}_API_URL", "")
-        api_key = os.environ.get(f"{name.upper()}_API_KEY", "")
-        if not endpoint:
-            raise ValueError(f"{name.upper()}_API_URL is required outside cache-only mode")
-        client = HttpJsonClient(
-            provider=name,
-            endpoint=endpoint,
-            api_key=api_key,
+    elif name == "vexcel":
+        client = VexcelPropertyClient(api_key=os.environ.get("VEXCEL_API_KEY", ""))
+    elif name == "matterport":
+        client = MatterportModelsClient(
+            token_id=os.environ.get("MATTERPORT_API_KEY", ""),
+            token_secret=os.environ.get("MATTERPORT_API_TOKEN", ""),
         )
-    factory = costar_provider if name == "costar" else vexcel_provider
+    else:
+        raise ValueError(
+            "CoStar is supplied as an encrypted data extract, not a live API. "
+            "Import the kit before running CoStar enrichment."
+        )
+    factories = {
+        "costar": costar_provider,
+        "vexcel": vexcel_provider,
+        "matterport": matterport_provider,
+    }
+    factory = factories[name]
     return factory(cache_dir=cache_dir, client=client, cache_only=cache_only)
 
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="Cache CoStar or Vexcel building enrichment.")
-    parser.add_argument("--provider", choices=("costar", "vexcel"), required=True)
+    parser.add_argument(
+        "--provider", choices=("costar", "vexcel", "matterport"), required=True
+    )
     parser.add_argument("--buildings", type=Path, required=True)
     parser.add_argument("--cache-dir", type=Path, default=Path("cache"))
     parser.add_argument("--output", type=Path, required=True)

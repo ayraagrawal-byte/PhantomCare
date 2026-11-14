@@ -2,13 +2,19 @@
 
 Date: 2026-11-13
 
+## Confirmed sponsor interfaces
+
+- CoStar is an encrypted raw data extract, not a live API.
+- Vexcel uses REST API 2.0 at `https://api.vexcelgroup.com/v2` with the `X-API-KEY` header.
+- Matterport uses the server-side Model GraphQL endpoint with HTTP Basic authentication.
+
 ## Modes
 
 - `fixture`: deterministic dictionaries for tests and development
 - `live`: HTTPS JSON lookups using explicitly configured event endpoints and credentials
 - `cache_only`: offline replay that fails clearly when a requested record is absent
 
-No sponsor endpoint is embedded or guessed. Live URLs and API keys must be supplied through environment variables based on the event documentation.
+Only endpoints confirmed by the sponsor documentation are embedded. API keys and tokens are supplied through ignored environment variables.
 
 ## Cache contract
 
@@ -47,5 +53,7 @@ For judging or offline development, add `--cache-only`. A cache miss is then an 
 
 ## Integration boundary
 
-The adapters intentionally preserve raw payloads until the actual hackathon API/SDK schemas are available. Provider-specific field mapping should be added against captured fixtures from those documented schemas; it must not be inferred from marketing pages or invented field names.
+The Vexcel client now performs the documented `GET /property/extract` lookup with WKT longitude-first ordering, SRID 4326, all coverage layers, and precomputed imperial property attributes. The Matterport client searches available models through the documented Model GraphQL endpoint. Both preserve raw responses before field extraction.
+
+The decrypted CoStar kit is read as a versioned raw-data extract. The importer joins commercial-property records to Matterport model IDs, counts occupancy records separately from unique tenant locations, decodes property enums, and performs exact normalized-address matching. Occupancy data explicitly remains labeled as current-or-past records rather than being presented as a current tenant count. Every property match retains its JSONL line number and SHA-256 source-row hash.
 
