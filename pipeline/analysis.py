@@ -26,6 +26,8 @@ class BuildingAnalysis:
     indicators: tuple[dict[str, Any], ...]
     priority: dict[str, Any]
     costar_match_status: str
+    latitude: float | None
+    longitude: float | None
 
 
 @dataclass(frozen=True)
@@ -71,9 +73,7 @@ def run_analysis(
     buildings = group_by_building(normalized)
     ranked = calculate_clustering_baseline(buildings, normalized)
     ownership = build_ownership_network(imported.owners, normalized, ranked)
-    ownership_by_building = {
-        item.building_id: item.metrics for item in ownership.buildings
-    }
+    ownership_by_building = {item.building_id: item.metrics for item in ownership.buildings}
     extract = CostarExtract(costar_kit) if costar_kit else None
     indicator_engine = IndicatorEngine()
     results: list[BuildingAnalysis] = []
@@ -100,11 +100,15 @@ def run_analysis(
                 building_id=building_id,
                 building_key=building_key,
                 hospice_count=int(row["HOSPICE_COUNT"]),
-                indicators=tuple(
-                    indicator.model_dump(mode="json") for indicator in indicators
-                ),
+                indicators=tuple(indicator.model_dump(mode="json") for indicator in indicators),
                 priority=decision.to_dict(),
                 costar_match_status=match_status,
+                latitude=float(costar["latitude"])
+                if costar and costar.get("latitude") is not None
+                else None,
+                longitude=float(costar["longitude"])
+                if costar and costar.get("longitude") is not None
+                else None,
             )
         )
 

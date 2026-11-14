@@ -13,6 +13,7 @@ import {
   fetchBuildingNetwork,
   filterBuildings,
   formatLevel,
+  projectLaPoint,
 } from "../lib/analysis";
 
 const filters: Array<{ label: string; value: ReviewLevel | "all" }> = [
@@ -120,6 +121,8 @@ export default function Home() {
         <Metric label="Worth a look" value={summary?.worth_a_look_count} tone="watch" />
       </section>
 
+      <HotspotMap buildings={visible} selectedId={selected?.building_id ?? null} onSelect={inspectBuilding} />
+
       <section className="workspace">
         <div className="list-panel">
           <div className="section-heading">
@@ -162,6 +165,34 @@ export default function Home() {
         <span>{summary ? `Analysis generated ${new Date(summary.generated_at).toLocaleString()}` : "Awaiting analysis artifacts"}</span>
       </footer>
     </main>
+  );
+}
+
+function HotspotMap({ buildings, selectedId, onSelect }: { buildings: BuildingListItem[]; selectedId: string | null; onSelect: (buildingId: string) => void }) {
+  const points = buildings.flatMap((building) => {
+    if (building.latitude === null || building.longitude === null) return [];
+    const position = projectLaPoint(building.latitude, building.longitude);
+    return position ? [{ building, ...position }] : [];
+  });
+  return (
+    <section className="map-panel" aria-labelledby="map-title">
+      <div className="map-copy"><p className="section-label">Geographic review</p><h2 id="map-title">LA County hotspots</h2><p>Markers use matched CoStar coordinates. Size reflects hospice count; color reflects review priority.</p><div className="map-legend"><span><i className="legend-hot" />High priority</span><span><i className="legend-watch" />Worth a look</span></div></div>
+      <div className="county-map">
+        <svg aria-label={`${points.length} mapped buildings`} role="img" viewBox="0 0 100 100" preserveAspectRatio="none">
+          <path className="county-shape" d="M10 8 L59 5 L82 18 L88 35 L80 47 L90 64 L75 91 L43 95 L26 80 L15 72 L8 50 L14 34 Z" />
+          <path className="map-road" d="M18 26 L78 78 M30 12 L42 90 M12 56 L84 44" />
+          {points.map(({ building, x, y }) => (
+            <g className={`map-marker marker-${building.review_level} ${selectedId === building.building_id ? "selected" : ""}`} key={building.building_id} onClick={() => onSelect(building.building_id)} role="button" tabIndex={0} onKeyDown={(event) => { if (event.key === "Enter" || event.key === " ") onSelect(building.building_id); }}>
+              <circle cx={x} cy={y} r={Math.min(5.5, 2.2 + building.hospice_count * .32)} />
+              <title>{building.building_key}: {building.hospice_count} hospices, score {Math.round(building.total_score)}</title>
+            </g>
+          ))}
+        </svg>
+        {points.length === 0 && <p className="map-empty">No mapped CoStar coordinates in this filtered view.</p>}
+        <span className="map-label label-valley">SAN FERNANDO VALLEY</span><span className="map-label label-dtla">DTLA</span><span className="map-label label-port">PORT</span>
+      </div>
+      <div className="map-count"><strong>{points.length}</strong><span>mapped of {buildings.length} shown</span></div>
+    </section>
   );
 }
 

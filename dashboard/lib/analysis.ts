@@ -17,6 +17,8 @@ export interface BuildingListItem {
   review_level: ReviewLevel;
   strong_indicator_count: number;
   costar_match_status: string;
+  latitude: number | null;
+  longitude: number | null;
 }
 
 interface Indicator {
@@ -126,4 +128,13 @@ export function filterBuildings(
 
 export function formatLevel(value: string): string {
   return value.replaceAll("_", " ").replace(/\b\w/g, (letter) => letter.toUpperCase());
+}
+
+export function projectLaPoint(latitude: number, longitude: number): { x: number; y: number } | null {
+  const bounds = { north: 34.82, south: 33.68, west: -118.95, east: -117.63 };
+  if (latitude < bounds.south || latitude > bounds.north || longitude < bounds.west || longitude > bounds.east) return null;
+  return {
+    x: ((longitude - bounds.west) / (bounds.east - bounds.west)) * 100,
+    y: ((bounds.north - latitude) / (bounds.north - bounds.south)) * 100,
+  };
 }

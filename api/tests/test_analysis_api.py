@@ -64,6 +64,8 @@ def _building(building_id: str, total: float, level: str) -> dict[str, object]:
         ],
         "priority": _priority(building_id, total, level),
         "costar_match_status": "not_configured",
+        "latitude": 34.0522 if building_id == "bldg_high" else None,
+        "longitude": -118.2437 if building_id == "bldg_high" else None,
     }
 
 
@@ -128,6 +130,7 @@ def test_analysis_endpoints_validate_sort_filter_and_detail(tmp_path: Path) -> N
     assert [item.building_id for item in filtered] == ["bldg_high"]
     detail = building_detail("bldg_high", repository)
     assert detail.priority.score.total == 80
+    assert buildings[0].latitude == 34.0522
     network = building_network("bldg_high", repository)
     assert [node.kind for node in network.nodes] == ["building", "owner", "hospice"]
     assert network.nodes[1].is_masked is True

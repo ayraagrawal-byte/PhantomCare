@@ -46,6 +46,8 @@ class BuildingAnalysisResponse(BaseModel):
         "ambiguous_exact_match",
         "exact_match",
     ]
+    latitude: float | None = Field(default=None, ge=-90, le=90)
+    longitude: float | None = Field(default=None, ge=-180, le=180)
 
 
 class BuildingListItemResponse(BaseModel):
@@ -56,6 +58,8 @@ class BuildingListItemResponse(BaseModel):
     review_level: ReviewLevel
     strong_indicator_count: int
     costar_match_status: str
+    latitude: float | None
+    longitude: float | None
 
     @classmethod
     def from_analysis(cls, building: BuildingAnalysisResponse) -> "BuildingListItemResponse":
@@ -67,6 +71,8 @@ class BuildingListItemResponse(BaseModel):
             review_level=building.priority.score.level,
             strong_indicator_count=len(building.priority.strong_indicators),
             costar_match_status=building.costar_match_status,
+            latitude=building.latitude,
+            longitude=building.longitude,
         )
 
 

@@ -61,6 +61,8 @@ def test_end_to_end_analysis_produces_explainable_outputs(tmp_path: Path) -> Non
     assert len(run.buildings) == 3
     top = next(item for item in run.buildings if item.hospice_count == 5)
     assert top.costar_match_status == "not_configured"
+    assert top.latitude is None
+    assert top.longitude is None
     assert top.priority["score"]["level"] == "worth_a_look"
     assert set(top.priority["missing_indicators"]) == {
         "building_type_fit",
