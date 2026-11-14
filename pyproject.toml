@@ -24,7 +24,7 @@ dev = [
 ]
 
 [tool.setuptools.packages.find]
-include = ["api*", "pipeline*", "engine*", "agent*", "eval*"]
+include = ["api*", "pipeline*", "engine*", "agent*", "eval*", "scripts*"]
 
 [tool.pytest.ini_options]
 testpaths = ["api/tests", "pipeline/tests", "engine/tests", "agent/tests", "eval/tests"]
