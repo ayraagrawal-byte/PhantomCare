@@ -129,7 +129,9 @@ The CoStar kit is optional. Without it, the pipeline explicitly marks building-f
 
 After generating the artifacts, FastAPI exposes them at `GET /analysis/summary`, `GET /analysis/buildings`, and `GET /analysis/buildings/{building_id}`. Set `PHANTOMCARE_ANALYSIS_DIR` if the output is not in `data/analysis`.
 
+The Step 13 dashboard consumes these endpoints to show the ranked review queue, level and address filters, run totals, and a detailed evidence inspector. Start both `uvicorn api.app:app --reload` and `npm run dev` after generating analysis artifacts.
+
 
 ## Current milestone
 
-Step 12 provides a tested path from CMS ingestion through privacy-preserving ownership analysis, versioned scoring, and validated read-only API responses. Dashboard data presentation and the guided investigation agent remain later milestones.
+Step 13 provides a tested path from CMS ingestion through privacy-preserving ownership analysis, versioned scoring, validated API responses, and an interactive review dashboard. The guided investigation agent remains a later milestone.
