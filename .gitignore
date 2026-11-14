@@ -24,4 +24,4 @@ data/processed/
 data/demo/
 data/analysis/
 cache/
-
+.vercel/
