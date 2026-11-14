@@ -10,6 +10,7 @@ readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
   "fastapi>=0.115,<1.0",
+  "pandas>=2.2,<3.0",
   "pydantic-settings>=2.6,<3.0",
   "uvicorn[standard]>=0.32,<1.0",
 ]
@@ -26,7 +27,7 @@ dev = [
 include = ["api*", "pipeline*", "engine*", "agent*", "eval*"]
 
 [tool.pytest.ini_options]
-testpaths = ["api/tests"]
+testpaths = ["api/tests", "pipeline/tests"]
 addopts = "--strict-markers --disable-warnings"
 
 [tool.ruff]

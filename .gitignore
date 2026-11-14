@@ -18,3 +18,8 @@ node_modules/
 dist/
 coverage/
 
+# Imported and cached datasets
+data/raw/
+data/processed/
+cache/
+

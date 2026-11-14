@@ -54,6 +54,21 @@ The dashboard is available at `http://localhost:3000`.
 
 Copy `.env.example` to `.env` and customize values locally. Never commit sponsor API keys or cached licensed data.
 
+## CMS ingestion
+
+Import the three relational hospice files with:
+
+```bash
+python -m pipeline.import_cms \
+  --enrollments data/raw/HOSPICE_ENROLLMENTS.csv \
+  --owners data/raw/HOSPICE_ALL_OWNERS.csv \
+  --additional-addresses data/raw/HOSPICE_ADDITIONAL_ADDRESSES.csv \
+  --la-county-zip-file data/reference/la_county_zip_codes.txt \
+  --output data/processed
+```
+
+The importer validates documented CMS columns, preserves source provenance, filters related records to retained LA County enrollments, and writes an import summary. See `docs/STEP_4_CMS_INGESTION.md` for the county-filter guardrail.
+
 ## Current milestone
 
 Step 2 provides a runnable application shell only. Data ingestion, scoring, mapping, and agent behavior will be added in later milestones.
