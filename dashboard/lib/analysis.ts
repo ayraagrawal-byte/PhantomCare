@@ -64,6 +64,19 @@ export interface BuildingNetwork {
   limitations: string[];
 }
 
+export interface AerialEvidence {
+  target_id: string;
+  address: string;
+  latitude: number;
+  longitude: number;
+  provider: "vexcel";
+  kind: "ortho";
+  retrieved_at: string;
+  image_url: string;
+  image_sha256: string;
+  limitations: string[];
+}
+
 interface Finding {
   title: string;
   summary: string;
@@ -123,6 +136,17 @@ export async function fetchBuildingNetwork(targetId: string): Promise<BuildingNe
   const response = await fetch(`${apiUrl}/analysis/buildings/${targetId}/network`);
   if (!response.ok) throw new Error(`Network API returned ${response.status}.`);
   return response.json() as Promise<BuildingNetwork>;
+}
+
+export async function fetchAerialEvidence(targetId: string): Promise<AerialEvidence | null> {
+  const response = await fetch(`${apiUrl}/analysis/buildings/${targetId}/aerial`);
+  if (response.status === 404) return null;
+  if (!response.ok) throw new Error(`Aerial evidence API returned ${response.status}.`);
+  return response.json() as Promise<AerialEvidence>;
+}
+
+export function absoluteApiUrl(path: string): string {
+  return `${apiUrl}${path.startsWith("/") ? path : `/${path}`}`;
 }
 
 export function filterBuildings(

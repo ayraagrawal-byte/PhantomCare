@@ -113,6 +113,19 @@ class BuildingNetworkResponse(BaseModel):
     limitations: tuple[str, ...]
 
 
+class AerialEvidenceResponse(BaseModel):
+    target_id: str
+    address: str
+    latitude: float = Field(ge=-90, le=90)
+    longitude: float = Field(ge=-180, le=180)
+    provider: Literal["vexcel"]
+    kind: Literal["ortho"]
+    retrieved_at: AwareDatetime
+    image_url: str
+    image_sha256: str
+    limitations: tuple[str, ...]
+
+
 class InvestigationResultResponse(BaseModel):
     target_id: str = Field(min_length=1, max_length=100)
     case_file: CaseFile | None

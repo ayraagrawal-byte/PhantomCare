@@ -7,7 +7,7 @@ import pytest
 from fastapi import HTTPException
 
 from api.app import app
-from api.cases import CaseRepository, case_detail, case_for_target, list_cases
+from api.cases import CaseRepository, case_detail, case_for_target, download_case, list_cases
 
 
 def result(*, target_id: str = "bldg_1", stopped: bool = False) -> dict[str, object]:
@@ -80,6 +80,9 @@ def test_lists_completed_cases_and_returns_target_results(tmp_path: Path) -> Non
     assert cases[0].case_id == "case_bldg_1"
     assert cases[0].finding_count == 1
     assert case_detail("case_bldg_1", repo).target_id == "bldg_1"
+    download = download_case("case_bldg_1", repo)
+    assert download.media_type == "application/json"
+    assert "attachment" in download.headers["content-disposition"]
     stopped = case_for_target("bldg_2", repo)
     assert stopped.case_file is None
     assert stopped.stopped_reason == "Insufficient evidence."
@@ -100,4 +103,9 @@ def test_missing_target_and_artifacts_return_structured_errors(tmp_path: Path) -
 
 def test_case_routes_are_registered() -> None:
     paths = set(app.openapi()["paths"])
-    assert {"/cases", "/cases/{case_id}", "/cases/targets/{target_id}"} <= paths
+    assert {
+        "/cases",
+        "/cases/{case_id}",
+        "/cases/{case_id}/download",
+        "/cases/targets/{target_id}",
+    } <= paths

@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import hashlib
 import json
 from pathlib import Path
 
@@ -9,6 +10,8 @@ from fastapi import HTTPException
 from api.analysis import (
     AnalysisRepository,
     analysis_summary,
+    building_aerial,
+    building_aerial_image,
     building_detail,
     building_network,
     list_buildings,
@@ -136,6 +139,27 @@ def _artifacts(tmp_path: Path) -> AnalysisRepository:
             }
         )
     )
+    image = b"\xff\xd8\xfffixture"
+    (tmp_path / "vexcel").mkdir()
+    (tmp_path / "vexcel" / "bldg_high.jpg").write_bytes(image)
+    (tmp_path / "vexcel_evidence.json").write_text(
+        json.dumps(
+            [
+                {
+                    "target_id": "bldg_high",
+                    "address": "100 TEST ST",
+                    "latitude": 34.0522,
+                    "longitude": -118.2437,
+                    "provider": "vexcel",
+                    "kind": "ortho",
+                    "retrieved_at": "2026-11-14T00:00:00Z",
+                    "image_filename": "bldg_high.jpg",
+                    "image_sha256": hashlib.sha256(image).hexdigest(),
+                    "limitations": ["Context only."],
+                }
+            ]
+        )
+    )
     return AnalysisRepository(tmp_path)
 
 
@@ -155,6 +179,9 @@ def test_analysis_endpoints_validate_sort_filter_and_detail(tmp_path: Path) -> N
     network = building_network("bldg_high", repository)
     assert [node.kind for node in network.nodes] == ["building", "owner", "hospice"]
     assert network.nodes[1].is_masked is True
+    aerial = building_aerial("bldg_high", repository)
+    assert aerial.provider == "vexcel"
+    assert str(building_aerial_image("bldg_high", repository).path).endswith("bldg_high.jpg")
     with pytest.raises(HTTPException) as caught:
         building_detail("missing", repository)
     assert caught.value.status_code == 404
@@ -181,4 +208,6 @@ def test_analysis_routes_are_registered() -> None:
         "/analysis/buildings",
         "/analysis/buildings/{building_id}",
         "/analysis/buildings/{building_id}/network",
+        "/analysis/buildings/{building_id}/aerial",
+        "/analysis/buildings/{building_id}/aerial/image",
     } <= paths

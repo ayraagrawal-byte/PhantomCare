@@ -124,3 +124,17 @@ def test_rows_missing_identifiers_are_rejected_and_reported(tmp_path: Path) -> N
     assert summary.rejected_rows == 1
     assert summary.rejection_reasons == {"missing_owner_associate_id": 1}
 
+
+def test_official_windows_1252_text_is_supported(tmp_path: Path) -> None:
+    path = tmp_path / "enrollments.csv"
+    path.write_bytes(
+        (
+            "ENROLLMENT ID,NPI,ORGANIZATION NAME,ADDRESS LINE 1,CITY,STATE,ZIP CODE,COUNTY\n"
+            "E-1,1234567890,HOSPICE D’AMOUR,100 MAIN ST,LOS ANGELES,CA,90012,LOS ANGELES\n"
+        ).encode("cp1252")
+    )
+
+    frame, summary = import_cms_file(path, CmsFileType.ENROLLMENTS)
+
+    assert summary.retained_rows == 1
+    assert frame.iloc[0]["ORGANIZATION_NAME"] == "HOSPICE D’AMOUR"

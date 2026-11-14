@@ -5,6 +5,7 @@ from pathlib import Path
 from typing import Annotated
 
 from fastapi import APIRouter, Depends, HTTPException, Query
+from fastapi.responses import Response
 from pydantic import TypeAdapter, ValidationError
 
 from api.config import settings
@@ -22,9 +23,7 @@ class CaseRepository:
     def results(self) -> tuple[InvestigationResultResponse, ...]:
         try:
             payload = json.loads(self.path.read_text(encoding="utf-8"))
-            return tuple(
-                TypeAdapter(list[InvestigationResultResponse]).validate_python(payload)
-            )
+            return tuple(TypeAdapter(list[InvestigationResultResponse]).validate_python(payload))
         except FileNotFoundError as error:
             raise CaseArtifactError("investigation_cases.json is missing") from error
         except (OSError, json.JSONDecodeError, ValidationError) as error:
@@ -45,9 +44,7 @@ def _unavailable(error: CaseArtifactError) -> HTTPException:
         detail={
             "code": "cases_unavailable",
             "message": str(error),
-            "action": (
-                "Run python -m agent.investigation against building_analysis.json."
-            ),
+            "action": ("Run python -m agent.investigation against building_analysis.json."),
         },
     )
 
@@ -109,4 +106,17 @@ def case_detail(
     raise HTTPException(
         status_code=404,
         detail={"code": "case_not_found", "case_id": case_id},
+    )
+
+
+@router.get("/{case_id}/download", response_class=Response)
+def download_case(case_id: str, repository: CaseRepositoryDependency) -> Response:
+    result = case_detail(case_id, repository)
+    if result.case_file is None:
+        raise HTTPException(status_code=404, detail={"code": "case_not_found", "case_id": case_id})
+    body = result.case_file.model_dump_json(indent=2)
+    return Response(
+        content=body,
+        media_type="application/json",
+        headers={"Content-Disposition": f'attachment; filename="phantomcare-{case_id}.json"'},
     )

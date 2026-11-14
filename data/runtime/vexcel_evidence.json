@@ -1,0 +1,17 @@
+[
+  {
+    "target_id": "bldg_793ac00ed2ae2571",
+    "address": "12444 VICTORY BLVD N HOLLYWOOD CA 91606",
+    "latitude": 34.186618711015,
+    "longitude": -118.404225263642,
+    "provider": "vexcel",
+    "kind": "ortho",
+    "retrieved_at": "2026-11-14T20:17:33.495641+00:00",
+    "image_filename": "bldg_793ac00ed2ae2571.jpg",
+    "image_sha256": "088ebb69e5285233c85dccb5e523d8d10a7767f6783b4a6967b8546c1e9f36b1",
+    "limitations": [
+      "Aerial imagery provides geographic context and is not evidence of improper conduct.",
+      "The image covers an 80-meter square centered on the geocoded address."
+    ]
+  }
+]

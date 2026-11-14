@@ -118,10 +118,17 @@ def _column_mapping(columns: Iterable[str]) -> dict[str, str]:
 
 
 def _read_csv(source: str | Path) -> pd.DataFrame:
-    try:
-        return pd.read_csv(source, dtype=str, keep_default_na=False, encoding="utf-8-sig")
-    except Exception as error:
-        raise CmsSchemaError(f"Unable to read CMS CSV {source}: {error}") from error
+    decode_error: UnicodeDecodeError | None = None
+    for encoding in ("utf-8-sig", "cp1252"):
+        try:
+            return pd.read_csv(source, dtype=str, keep_default_na=False, encoding=encoding)
+        except UnicodeDecodeError as error:
+            decode_error = error
+        except Exception as error:
+            raise CmsSchemaError(f"Unable to read CMS CSV {source}: {error}") from error
+    raise CmsSchemaError(
+        f"Unable to decode CMS CSV {source} as UTF-8 or Windows-1252: {decode_error}"
+    )
 
 
 def _validate_columns(frame: pd.DataFrame, file_type: CmsFileType) -> None:
@@ -169,9 +176,7 @@ def _valid_required_rows(
     return frame.loc[keep].copy(), reasons
 
 
-def _filter_la_county(
-    frame: pd.DataFrame, la_county_zip_codes: set[str] | None
-) -> pd.DataFrame:
+def _filter_la_county(frame: pd.DataFrame, la_county_zip_codes: set[str] | None) -> pd.DataFrame:
     state_matches = frame["STATE"].str.upper().eq("CA")
     if "COUNTY" in frame.columns:
         county = frame["COUNTY"].str.upper().str.replace(" COUNTY", "", regex=False)
@@ -270,4 +275,3 @@ def write_bundle(result: CmsBundleResult, output_dir: str | Path) -> None:
     with (destination / "import_summary.json").open("w", encoding="utf-8") as stream:
         json.dump([asdict(summary) for summary in result.summaries], stream, indent=2)
         stream.write("\n")
-

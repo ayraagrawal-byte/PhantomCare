@@ -142,4 +142,4 @@ Before presenting or opening a pull request, run `python scripts/secret_scan.py`
 
 ## Current milestone
 
-Step 17 provides the full review path, reproducible offline evaluation, automated CI and secret checks, dependency updates, and a presentation runbook.
+The application now includes a real Q4 2026 CMS analysis, exact-match CoStar context, cached Vexcel ortho evidence for the primary demo target, masked ownership networks, downloadable case files, automated release gates, and deployment-ready API/dashboard entrypoints.

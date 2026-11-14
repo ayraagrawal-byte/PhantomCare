@@ -1,15 +1,18 @@
 from __future__ import annotations
 
+import hashlib
 import json
 from pathlib import Path
 from typing import Annotated
 
 from fastapi import APIRouter, Depends, HTTPException, Query
+from fastapi.responses import FileResponse
 from pydantic import TypeAdapter, ValidationError
 
 from api.config import settings
 from api.contracts import ReviewLevel
 from api.schemas import (
+    AerialEvidenceResponse,
     AnalysisSummaryResponse,
     BuildingAnalysisResponse,
     BuildingListItemResponse,
@@ -104,6 +107,30 @@ class AnalysisRepository:
             limitations=tuple(str(item) for item in raw.get("limitations", [])),
         )
 
+    def aerial(self, building_id: str) -> AerialEvidenceResponse:
+        raw = self._read("vexcel_evidence.json")
+        if not isinstance(raw, list):
+            raise AnalysisArtifactError("Vexcel evidence failed validation")
+        match = next((item for item in raw if item.get("target_id") == building_id), None)
+        if match is None:
+            raise KeyError(building_id)
+        payload = dict(match)
+        payload.pop("image_filename", None)
+        payload["image_url"] = f"/analysis/buildings/{building_id}/aerial/image"
+        return AerialEvidenceResponse.model_validate(payload)
+
+    def aerial_image(self, building_id: str) -> Path:
+        evidence = self.aerial(building_id)
+        manifest = self._read("vexcel_evidence.json")
+        match = next(item for item in manifest if item.get("target_id") == building_id)
+        filename = Path(str(match["image_filename"])).name
+        path = (self.root / "vexcel" / filename).resolve()
+        if path.parent != (self.root / "vexcel").resolve() or not path.is_file():
+            raise AnalysisArtifactError("Vexcel evidence image is unavailable")
+        if hashlib.sha256(path.read_bytes()).hexdigest() != evidence.image_sha256:
+            raise AnalysisArtifactError("Vexcel evidence image failed integrity validation")
+        return path
+
 
 def get_analysis_repository() -> AnalysisRepository:
     return AnalysisRepository(settings.analysis_dir)
@@ -181,3 +208,34 @@ def building_network(
             status_code=404,
             detail={"code": "building_network_not_found", "building_id": building_id},
         ) from error
+
+
+@router.get("/buildings/{building_id}/aerial", response_model=AerialEvidenceResponse)
+def building_aerial(
+    building_id: str, repository: AnalysisRepositoryDependency
+) -> AerialEvidenceResponse:
+    try:
+        return repository.aerial(building_id)
+    except AnalysisArtifactError as error:
+        raise _unavailable(error) from error
+    except KeyError as error:
+        raise HTTPException(
+            status_code=404,
+            detail={"code": "aerial_evidence_not_found", "building_id": building_id},
+        ) from error
+
+
+@router.get("/buildings/{building_id}/aerial/image", response_class=FileResponse)
+def building_aerial_image(
+    building_id: str, repository: AnalysisRepositoryDependency
+) -> FileResponse:
+    try:
+        path = repository.aerial_image(building_id)
+    except AnalysisArtifactError as error:
+        raise _unavailable(error) from error
+    except KeyError as error:
+        raise HTTPException(
+            status_code=404,
+            detail={"code": "aerial_evidence_not_found", "building_id": building_id},
+        ) from error
+    return FileResponse(path, media_type="image/jpeg", filename=f"{building_id}-vexcel-ortho.jpg")

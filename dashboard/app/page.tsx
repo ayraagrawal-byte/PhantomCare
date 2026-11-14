@@ -3,16 +3,19 @@
 import { useEffect, useMemo, useState } from "react";
 import {
   AnalysisSummary,
+  AerialEvidence,
   BuildingDetail,
   BuildingNetwork,
   BuildingListItem,
   InvestigationResult,
   ReviewLevel,
   fetchAnalysis,
+  fetchAerialEvidence,
   fetchCaseForTarget,
   fetchBuildingNetwork,
   filterBuildings,
   formatLevel,
+  absoluteApiUrl,
   projectLaPoint,
 } from "../lib/analysis";
 
@@ -29,6 +32,7 @@ export default function Home() {
   const [selected, setSelected] = useState<BuildingDetail | null>(null);
   const [caseResult, setCaseResult] = useState<InvestigationResult | null>(null);
   const [network, setNetwork] = useState<BuildingNetwork | null>(null);
+  const [aerial, setAerial] = useState<AerialEvidence | null>(null);
   const [caseStatus, setCaseStatus] = useState<"idle" | "loading" | "ready" | "error">("idle");
   const [level, setLevel] = useState<ReviewLevel | "all">("all");
   const [query, setQuery] = useState("");
@@ -60,12 +64,14 @@ export default function Home() {
     setCaseStatus("loading");
     setCaseResult(null);
     setNetwork(null);
+    setAerial(null);
     try {
       const base = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:8000";
-      const [detailOutcome, caseOutcome, networkOutcome] = await Promise.allSettled([
+      const [detailOutcome, caseOutcome, networkOutcome, aerialOutcome] = await Promise.allSettled([
         fetch(`${base}/analysis/buildings/${buildingId}`),
         fetchCaseForTarget(buildingId),
         fetchBuildingNetwork(buildingId),
+        fetchAerialEvidence(buildingId),
       ]);
       if (detailOutcome.status === "rejected") throw detailOutcome.reason;
       const response = detailOutcome.value;
@@ -78,6 +84,7 @@ export default function Home() {
         setCaseStatus("error");
       }
       if (networkOutcome.status === "fulfilled") setNetwork(networkOutcome.value);
+      if (aerialOutcome.status === "fulfilled") setAerial(aerialOutcome.value);
     } catch (reason) {
       setError(reason instanceof Error ? reason.message : "Building detail could not be loaded.");
       setCaseStatus("error");
@@ -156,7 +163,7 @@ export default function Home() {
           </div>
         </div>
         <aside className="inspector" aria-live="polite">
-          {selected ? <BuildingInspector building={selected} network={network} caseResult={caseResult} caseStatus={caseStatus} /> : <InspectorEmpty />}
+          {selected ? <BuildingInspector building={selected} aerial={aerial} network={network} caseResult={caseResult} caseStatus={caseStatus} /> : <InspectorEmpty />}
         </aside>
       </section>
 
@@ -209,7 +216,7 @@ function InspectorEmpty() {
   );
 }
 
-function BuildingInspector({ building, network, caseResult, caseStatus }: { building: BuildingDetail; network: BuildingNetwork | null; caseResult: InvestigationResult | null; caseStatus: string }) {
+function BuildingInspector({ building, aerial, network, caseResult, caseStatus }: { building: BuildingDetail; aerial: AerialEvidence | null; network: BuildingNetwork | null; caseResult: InvestigationResult | null; caseStatus: string }) {
   return (
     <div>
       <div className="inspector-head">
@@ -222,6 +229,7 @@ function BuildingInspector({ building, network, caseResult, caseStatus }: { buil
         <div><dt>Model</dt><dd>{building.priority.score.model_version}</dd></div>
       </dl>
       <BuildingContextCard building={building} />
+      {aerial && <AerialCard evidence={aerial} />}
       {building.priority.missing_indicators.length > 0 && (
         <div className="missing-note">Missing data: {building.priority.missing_indicators.map(formatLevel).join(", ")}. Available weights were rebalanced.</div>
       )}
@@ -238,6 +246,17 @@ function BuildingInspector({ building, network, caseResult, caseStatus }: { buil
       <NetworkPanel network={network} />
       <CasePanel result={caseResult} status={caseStatus} />
     </div>
+  );
+}
+
+function AerialCard({ evidence }: { evidence: AerialEvidence }) {
+  return (
+    <figure className="aerial-card">
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img alt={`Vexcel ortho context for ${evidence.address}`} src={absoluteApiUrl(evidence.image_url)} />
+      <figcaption><div><p className="section-label">Vexcel aerial context</p><strong>Verified ortho imagery</strong></div><span>{new Date(evidence.retrieved_at).toLocaleDateString()}</span></figcaption>
+      <small>{evidence.limitations[0]}</small>
+    </figure>
   );
 }
 
@@ -292,6 +311,7 @@ function CasePanel({ result, status }: { result: InvestigationResult | null; sta
       {result?.case_file && (
         <>
           <div className="case-heading"><h3>Case file</h3><code>{result.case_file.case_id}</code></div>
+          <a className="download-case" href={absoluteApiUrl(`/cases/${result.case_file.case_id}/download`)}>Download JSON case file</a>
           <p className="case-disclaimer">{result.case_file.disclaimer}</p>
           <div className="finding-list">
             {result.case_file.findings.map((finding) => (
