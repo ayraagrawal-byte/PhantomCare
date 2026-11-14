@@ -10,6 +10,7 @@ outputs/
 # Common generated files
 __pycache__/
 *.py[cod]
+*.egg-info/
 .pytest_cache/
 .venv/
 node_modules/
