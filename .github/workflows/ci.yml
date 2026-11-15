@@ -17,15 +17,16 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
         with:
           python-version: "3.12"
           cache: pip
       - run: python -m pip install --upgrade pip
       - run: python -m pip install -e ".[dev]"
       - name: Scan tracked files for secrets
-        run: python scripts/secret_scan.py
+        # Isolated mode requires scripts to be importable from the installed package.
+        run: python -I -m scripts.secret_scan
       - name: Lint Python
         run: ruff check .
       - name: Test backend, pipeline, engine, agent, and evaluation
@@ -37,8 +38,8 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
         with:
           node-version: "22"
           cache: npm

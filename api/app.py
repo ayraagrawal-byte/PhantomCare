@@ -1,3 +1,5 @@
+from urllib.parse import urlsplit
+
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
@@ -13,9 +15,16 @@ app = FastAPI(
     version="0.1.0",
 )
 
+dashboard_origins = [settings.dashboard_origin]
+dashboard_url = urlsplit(settings.dashboard_origin)
+loopback_alias = {"localhost": "127.0.0.1", "127.0.0.1": "localhost"}.get(dashboard_url.hostname)
+if loopback_alias and settings.environment == "development":
+    port = f":{dashboard_url.port}" if dashboard_url.port is not None else ""
+    dashboard_origins.append(f"{dashboard_url.scheme}://{loopback_alias}{port}")
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[settings.dashboard_origin],
+    allow_origins=dashboard_origins,
     allow_credentials=False,
     allow_methods=["GET"],
     allow_headers=["*"],
@@ -28,4 +37,3 @@ app.include_router(investigations_router)
 @app.get("/health", response_model=HealthResponse, tags=["system"])
 def health() -> HealthResponse:
     return HealthResponse(status="ok", environment=settings.environment)
-

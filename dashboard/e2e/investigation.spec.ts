@@ -1,6 +1,139 @@
 import { expect, test } from "@playwright/test";
 
 const targetAddress = "12444 VICTORY BLVD N HOLLYWOOD CA 91606";
+const streetTiles = "https://tile.openstreetmap.org/**";
+const buildingList = "**/analysis/buildings?limit=500";
+
+test.beforeEach(async ({ page }) => {
+  // Keep browser QA independent of the public tile service and its request limits.
+  await page.route(streetTiles, (route) => route.fulfill({
+    contentType: "image/svg+xml",
+    body: '<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256"><path fill="#ddd" d="M0 0h256v256H0z"/></svg>',
+  }));
+});
+
+test("hotspots navigate and share selection with the evidence inspector", async ({ page }, testInfo) => {
+  // Isolate two real coordinates so the marker interaction has a stable cluster to expand.
+  await page.route("**/analysis/summary", async (route) => {
+    const response = await route.fetch();
+    await route.fulfill({ response, json: {
+      ...await response.json(), cams_mapped_count: 2, approximate_mapped_count: 0,
+    } });
+  });
+  await page.route(buildingList, async (route) => {
+    const response = await route.fetch();
+    const buildings = await response.json();
+    await route.fulfill({ response, json: buildings.map((building: Record<string, unknown>) =>
+      building.building_key === targetAddress || building.building_key === "3111 LOS FELIZ BLVD LOS ANGELES CA 90039"
+        ? building
+        : { ...building, latitude: null, longitude: null, verified_location: null },
+    ) });
+  });
+  await page.goto("/");
+  const hotspots = page.getByRole("region", { name: "LA County hotspots" });
+  const map = hotspots.getByRole("region", { name: "Interactive LA County street map" });
+  await expect(hotspots.getByText("2 mapped of 468 analyzed buildings")).toBeVisible();
+  await expect(map.getByRole("link", { name: "OpenStreetMap contributors" })).toBeVisible();
+  await expect(map.locator(".leaflet-tile-loaded").first()).toBeVisible();
+  const initialTile = await map.locator(".leaflet-tile").first().getAttribute("src");
+  await map.getByRole("button", { name: "Zoom in" }).click();
+  await expect.poll(async () => map.locator(".leaflet-tile").first().getAttribute("src")).not.toBe(initialTile);
+  await hotspots.getByRole("button", { name: "Reset view" }).click();
+  await expect.poll(async () => map.locator(".leaflet-tile").first().getAttribute("src")).toBe(initialTile);
+
+  if (!testInfo.project.use.hasTouch) {
+    const pane = map.locator(".leaflet-map-pane");
+    const initialPosition = await pane.getAttribute("style");
+    const box = (await map.boundingBox())!;
+    await page.mouse.move(box.x + box.width * 0.75, box.y + box.height / 2);
+    await page.mouse.down();
+    await page.mouse.move(box.x + box.width * 0.55, box.y + box.height / 2, { steps: 8 });
+    await page.mouse.up();
+    await expect.poll(() => pane.getAttribute("style")).not.toBe(initialPosition);
+    await hotspots.getByRole("button", { name: "Reset view" }).click();
+  }
+
+  const marker = map.getByTitle(targetAddress, { exact: true });
+  // At narrow widths both locations may initially share a cluster.
+  const cluster = map.locator(".hotspot-cluster");
+  if (await cluster.count()) await cluster.first().click();
+  if (testInfo.project.use.hasTouch) await marker.tap();
+  else await marker.click();
+  const popup = map.locator(".hotspot-popup");
+  await expect(popup).toContainText(targetAddress);
+  await expect(popup).toContainText(/hospices.*Review score/);
+  await expect(popup).toContainText("LA County CAMS · standardized match · Address point");
+  await expect(marker).toHaveClass(/is-selected/);
+  await popup.getByRole("link", { name: "View building evidence" }).click();
+  await expect(page.locator("#building-evidence").getByRole("heading", { name: targetAddress })).toBeVisible();
+  await expect(page.getByRole("button", { name: new RegExp(targetAddress), pressed: true })).toBeVisible();
+});
+
+test("localhost uses the loopback API and displays all current CAMS matches", async ({ page }) => {
+  const buildings = page.waitForResponse("http://127.0.0.1:8000/analysis/buildings?limit=500");
+  await page.goto("http://localhost:3000/");
+  expect((await buildings).ok()).toBe(true);
+  await expect(page.getByText("467 mapped of 468 analyzed buildings")).toBeVisible();
+  await page.reload();
+  await expect(page.getByText("467 mapped of 468 analyzed buildings")).toBeVisible();
+});
+
+test("rejects a stale two-point response when the API advertises the current cache", async ({ page }) => {
+  await page.route(buildingList, async (route) => {
+    const response = await route.fetch();
+    const buildings = await response.json();
+    let remaining = 2;
+    await route.fulfill({ response, json: buildings.map((building: Record<string, unknown>) =>
+      building.verified_location && remaining-- > 0
+        ? building
+        : { ...building, latitude: null, longitude: null, verified_location: null },
+    ) });
+  });
+  await page.goto("/");
+  const hotspots = page.getByRole("region", { name: "LA County hotspots" });
+  await expect(hotspots.getByRole("alert")).toContainText("do not match the CAMS cache");
+  await expect(hotspots.getByText(/mapped of/)).toHaveCount(0);
+  await expect(hotspots.locator(".hotspot-marker, .hotspot-cluster")).toHaveCount(0);
+  await expect(page.getByText("Showing 468 of 468 buildings")).toBeVisible();
+});
+
+test("hotspots report a tile outage while preserving mapped locations", async ({ page }) => {
+  await page.route(streetTiles, (route) => route.abort());
+  await page.goto("/");
+  const hotspots = page.getByRole("region", { name: "LA County hotspots" });
+  await expect(hotspots.getByRole("status").filter({ hasText: "Some street tiles are unavailable" })).toBeVisible();
+  await expect(hotspots.getByText("467 mapped of 468 analyzed buildings")).toBeVisible();
+  await expect(hotspots.locator(".hotspot-cluster").first()).toBeVisible();
+  const row = page.locator(".building-row").filter({ hasText: targetAddress });
+  await row.click();
+  await expect(hotspots.getByTitle(targetAddress, { exact: true })).toHaveClass(/is-selected/);
+});
+
+test("approximate markers retain separate counts and disclose street-level precision", async ({ page }) => {
+  await page.goto("/");
+  const hotspots = page.getByRole("region", { name: "LA County hotspots" });
+  await expect(hotspots.getByText("344 verified · 123 approximate · 1 unmapped")).toBeVisible();
+  const address = "16430 VENTURA BLVD ENCINO CA 91436";
+  await page.locator(".building-row").filter({ hasText: address }).click();
+  const marker = hotspots.getByTitle(address, { exact: true });
+  await expect(marker).toHaveClass(/hotspot-approximate/);
+  await marker.click();
+  await expect(hotspots.locator(".hotspot-popup")).toContainText("Census street interpolation");
+  await expect(hotspots.locator(".hotspot-popup")).toContainText("Building position unconfirmed");
+  await expect(page.locator("#building-evidence").getByRole("heading", { name: address })).toBeVisible();
+});
+
+test("reviewed parcel positions disclose parcel precision and open evidence", async ({ page }) => {
+  await page.goto("/");
+  const address = "444 E HUNTINGTON DR ARCADIA CA 91006";
+  const hotspots = page.getByRole("region", { name: "LA County hotspots" });
+  await page.locator(".building-row").filter({ hasText: address }).click();
+  const marker = hotspots.getByTitle(address, { exact: true });
+  await expect(marker).toHaveClass(/hotspot-approximate/);
+  await marker.click();
+  await expect(hotspots.locator(".hotspot-popup")).toContainText("Parcel location");
+  await expect(page.locator("#building-evidence").getByRole("heading", { name: address })).toBeVisible();
+});
 
 test("complete deterministic investigation journey", async ({ page }) => {
   const consoleErrors: string[] = [];
