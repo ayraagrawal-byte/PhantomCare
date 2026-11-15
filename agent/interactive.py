@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import re
 from datetime import UTC, datetime
 from typing import Any, Literal
 
@@ -8,7 +9,8 @@ from pydantic import BaseModel
 
 from agent.investigation import investigate_building
 from api.analysis import AnalysisRepository
-from api.schemas import BuildingAnalysisResponse
+from api.schemas import BuildingAnalysisResponse, BuildingContextResponse
+from engine.indicators import IndicatorThresholds
 
 
 class AgentToolTrace(BaseModel):
@@ -20,11 +22,32 @@ class AgentToolTrace(BaseModel):
     missing_information: tuple[str, ...] = ()
 
 
+DataClass = Literal[
+    "public_record", "derived_masked", "licensed_property_data", "aerial_imagery"
+]
+DATA_CLASS_BY_SOURCE: dict[str, DataClass] = {
+    "CMS": "public_record",
+    "Ownership": "derived_masked",
+    "CoStar": "licensed_property_data",
+    "Vexcel": "aerial_imagery",
+}
+
+
 class FusionLayer(BaseModel):
     source: Literal["CMS", "CoStar", "Vexcel", "Ownership"]
+    data_class: DataClass
     establishes: tuple[str, ...]
     evidence_references: tuple[str, ...] = ()
     limitations: tuple[str, ...] = ()
+
+
+class CrossSourceComparison(BaseModel):
+    """What combining sources clarifies, what stays uncertain, and what to request next."""
+
+    sources_compared: tuple[str, ...]
+    combined_observations: tuple[str, ...]
+    remains_uncertain: tuple[str, ...]
+    records_to_request: tuple[str, ...]
 
 
 class InteractiveInvestigation(BaseModel):
@@ -37,6 +60,8 @@ class InteractiveInvestigation(BaseModel):
     unknowns: tuple[str, ...]
     tool_trace: tuple[AgentToolTrace, ...]
     fusion_layers: tuple[FusionLayer, ...]
+    review_checklist: tuple[str, ...] = ()
+    cross_source_comparison: CrossSourceComparison | None = None
     disclaimer: str = "These are questions for human review, not conclusions of fraud."
     fallback_reason: str | None = None
 
@@ -170,7 +195,7 @@ class EvidenceToolkit:
         self._record(
             "get_costar_property_context",
             "Compare registration concentration with physical-property metadata.",
-            f"Loaded exact CoStar property {context.property_id}.",
+            _costar_summary(context),
             refs or (f"costar:{context.property_id}",),
             (() if context.occupancy_scope else ("Occupancy scope was not reported.",)),
         )
@@ -257,6 +282,109 @@ class EvidenceToolkit:
         return result.to_dict()
 
 
+def _costar_summary(context: BuildingContextResponse) -> str:
+    parts = [f"Exact CoStar property {context.property_id}"]
+    if context.building_name:
+        parts[0] += f" ({context.building_name})"
+    kind = " / ".join(
+        value for value in (context.property_type, context.property_subtype)
+        if value and value != "Unknown"
+    )
+    if kind:
+        parts.append(kind)
+    if context.building_class:
+        parts.append(f"class {context.building_class}")
+    area = context.rentable_building_area_sqft or context.gross_building_area_sqft
+    if area:
+        parts.append(f"{area:,.0f} sq ft")
+    if context.stories_above_grade:
+        parts.append(f"{context.stories_above_grade} stories above grade")
+    if context.unique_tenant_location_count:
+        parts.append(
+            f"{context.unique_tenant_location_count} unique tenant locations in "
+            "current-or-past occupancy records"
+        )
+    return "; ".join(parts) + "."
+
+
+def _cross_source_comparison(toolkit: EvidenceToolkit) -> CrossSourceComparison:
+    """Deterministic comparison using only sources whose tools actually ran."""
+    ran = {event.tool_name for event in toolkit.trace}
+    building = toolkit._building()
+    context = building.building_context if "get_costar_property_context" in ran else None
+    aerial = None
+    if "get_vexcel_aerial_evidence" in ran:
+        try:
+            aerial = toolkit.repository.aerial(toolkit.target_id)
+        except KeyError:
+            aerial = None
+    sources = ["CMS"]
+    combined: list[str] = []
+    uncertain = [
+        "Whether any registered hospice currently occupies space at this address.",
+        "Whether patient care is delivered here; registrations and property records "
+        "cannot show this.",
+    ]
+    records = [
+        "CMS PECOS practice-location and enrollment-status records for each registration.",
+        "California Department of Public Health hospice licensing records.",
+    ]
+    count = building.hospice_count
+    if context is not None:
+        sources.append("CoStar")
+        area = context.rentable_building_area_sqft or context.gross_building_area_sqft
+        if area:
+            per = area / count
+            watch = IndicatorThresholds().space_per_hospice_watch
+            combined.append(
+                f"CMS lists {count} registration(s); CoStar records {area:,.0f} sq ft, about "
+                f"{per:,.0f} sq ft per registration (screening ratio; under {watch:,.0f} sq ft "
+                "draws attention)."
+            )
+        if context.unique_tenant_location_count:
+            combined.append(
+                f"CoStar shows {context.unique_tenant_location_count} unique tenant locations "
+                "(current or past), so the address is a multi-tenant property; the registration "
+                "count should be read against that tenant base."
+            )
+        uncertain.append(
+            "Whether CoStar occupancy records include the registered hospice, and which suite; "
+            "occupancy records are current-or-past, not a current tenant count."
+        )
+        records.append("Lease or suite assignment from the property manager, if authorized.")
+    else:
+        uncertain.append(
+            "Building type and leasable area: no exact CoStar property record was available."
+        )
+        records.append("Building type and area from county assessor or permit records.")
+    if aerial is not None:
+        sources.append("Vexcel")
+        combined.append(
+            f"Vexcel ortho imagery ({aerial.retrieved_at.date().isoformat()}) shows the "
+            "exterior footprint around the geocoded address; it gives location context only."
+        )
+        if context is not None:
+            combined.append(
+                "CoStar property characteristics and Vexcel imagery refer to the same "
+                "building record and can be compared directly."
+            )
+        uncertain.append("Interior use: aerial imagery cannot show what happens inside.")
+    else:
+        uncertain.append("Exterior context: no Vexcel imagery was retrieved for this address.")
+    if "get_ownership_network" in ran:
+        sources.append("Ownership")
+        uncertain.append(
+            "Whether shared ownership reflects a legitimate multi-entity organization."
+        )
+    records.append("An authorized site visit, only if the record review warrants one.")
+    return CrossSourceComparison(
+        sources_compared=tuple(sources),
+        combined_observations=tuple(combined),
+        remains_uncertain=tuple(uncertain),
+        records_to_request=tuple(records),
+    )
+
+
 def _fallback_investigation(
     toolkit: EvidenceToolkit, *, reason: str = "live_ai_not_enabled"
 ) -> InteractiveInvestigation:
@@ -275,11 +403,16 @@ def _fallback_investigation(
     if aerial.get("available"):
         available.append("Vexcel exterior context")
     additions = ", ".join(available) if available else "no matched physical-property layer"
+    level_phrase = {
+        "high_priority": "places the target in the high-priority review tier",
+        "worth_a_look": "marks the target as worth a look",
+    }.get(profile["review_level"], "found no screening indicators that warrant priority review")
+    count = profile["hospice_count"]
     summary = (
-        f"CMS-derived records group {profile['hospice_count']} hospice registrations at the "
-        f"selected address. Deterministic scoring prioritizes the target for review; {additions} "
-        "is available. Registration concentration and exterior context do not establish "
-        "improper conduct."
+        f"CMS-derived records group {count} hospice registration{'s' if count != 1 else ''} "
+        f"at the selected address. Deterministic scoring {level_phrase} "
+        f"(score {profile['score']:.1f}); {additions} is available. Registration records, "
+        "property data and imagery do not establish improper conduct."
     )
     return InteractiveInvestigation(
         target_id=toolkit.target_id,
@@ -293,8 +426,44 @@ def _fallback_investigation(
         unknowns=tuple(unknowns),
         tool_trace=tuple(toolkit.trace),
         fusion_layers=_fusion_layers(toolkit),
+        review_checklist=_review_checklist(toolkit),
+        cross_source_comparison=_cross_source_comparison(toolkit),
         fallback_reason=reason,
     )
+
+
+def _review_checklist(toolkit: EvidenceToolkit) -> tuple[str, ...]:
+    """Deterministic human-review steps derived from what the tools actually returned."""
+    events = {event.tool_name: event for event in toolkit.trace}
+    items = [
+        "Confirm each cited evidence reference against its source record before relying on it.",
+        "Verify current CMS enrollment and state licensing status for each registration.",
+    ]
+    costar = events.get("get_costar_property_context")
+    if costar is None or costar.result_summary.startswith("No exact CoStar"):
+        items.append(
+            "No exact CoStar property record: confirm building type and leasable area from "
+            "another authorized source before weighing space-based context."
+        )
+    else:
+        items.append("Confirm the CoStar property match is the same building and suite.")
+    vexcel = events.get("get_vexcel_aerial_evidence")
+    if vexcel is None or not vexcel.evidence_references:
+        items.append("No Vexcel imagery: do not draw conclusions about the exterior.")
+    else:
+        items.append(
+            "Treat Vexcel imagery as exterior context only; it cannot show interior use or "
+            "whether a hospice operates."
+        )
+    items.extend(
+        (
+            "Keep owner identities masked; do not attempt to re-identify individuals.",
+            "Consider legitimate explanations (administrative offices, shared corporate "
+            "ownership) before any referral.",
+            "Record the reviewer decision and rationale; the screening score is not a finding.",
+        )
+    )
+    return tuple(items)
 
 
 def _fusion_layers(toolkit: EvidenceToolkit) -> tuple[FusionLayer, ...]:
@@ -308,6 +477,7 @@ def _fusion_layers(toolkit: EvidenceToolkit) -> tuple[FusionLayer, ...]:
     return tuple(
         FusionLayer(
             source=source,
+            data_class=DATA_CLASS_BY_SOURCE[source],
             establishes=(events[name].result_summary,),
             evidence_references=events[name].evidence_references,
             limitations=events[name].missing_information,
@@ -317,26 +487,45 @@ def _fusion_layers(toolkit: EvidenceToolkit) -> tuple[FusionLayer, ...]:
     )
 
 
+_CITATION_PATTERN = re.compile(
+    r"\b(?:cms_hospice_enrollments|cms_hospice_all_owners|cms_hospice_additional_addresses"
+    r"|costar|vexcel|matterport|derived):[a-z0-9_\-]+(?:\.[a-z0-9_\-]+)*"
+)
+# Neutral disclaimers that mention fraud only to deny it are allowed.
+_NEUTRAL_FRAUD_PHRASES = (
+    "not evidence of fraud",
+    "not proof of fraud",
+    "not conclusions of fraud",
+    "not a conclusion of fraud",
+    "not an allegation of fraud",
+    "no finding of fraud",
+    "does not establish fraud",
+    "do not establish fraud",
+    "without alleging fraud",
+)
+_ALLEGATION_PATTERN = re.compile(
+    r"\b(?:fraud\w*|scam\w*|sham|bogus|illegal\w*|criminal\w*|kickback\w*)\b"
+    r"|proves? no hospice|no hospice operates"
+)
+
+
 def _validated_agent_summary(content: object, trace: list[AgentToolTrace]) -> str | None:
+    """Accept a model summary only if it is neutral and cites only tool-returned evidence."""
     if not isinstance(content, str) or not content.strip():
         return None
     normalized = content.casefold()
-    prohibited_claims = (
-        "is fraudulent",
-        "are fraudulent",
-        "committing fraud",
-        "proves fraud",
-        "proves no hospice",
-        "no hospice operates",
-    )
-    if any(claim in normalized for claim in prohibited_claims):
+    screened = normalized
+    for phrase in _NEUTRAL_FRAUD_PHRASES:
+        screened = screened.replace(phrase, " ")
+    if _ALLEGATION_PATTERN.search(screened):
         return None
     references = {
         reference.casefold()
         for event in trace
         for reference in event.evidence_references
     }
-    if not references or not any(reference in normalized for reference in references):
+    cited = set(_CITATION_PATTERN.findall(normalized))
+    if not references or not cited or not cited <= references:
         return None
     return content.strip()[:4000]
 
@@ -436,6 +625,8 @@ def investigate_interactively(
         unknowns=tuple(unknowns),
         tool_trace=tuple(toolkit.trace),
         fusion_layers=_fusion_layers(toolkit),
+        review_checklist=_review_checklist(toolkit),
+        cross_source_comparison=_cross_source_comparison(toolkit),
         fallback_reason=None,
     )
 

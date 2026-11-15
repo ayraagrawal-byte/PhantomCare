@@ -133,10 +133,18 @@ export interface InteractiveInvestigation {
   }>;
   fusion_layers: Array<{
     source: "CMS" | "CoStar" | "Vexcel" | "Ownership";
+    data_class?: "public_record" | "derived_masked" | "licensed_property_data" | "aerial_imagery";
     establishes: string[];
     evidence_references: string[];
     limitations: string[];
   }>;
+  review_checklist?: string[];
+  cross_source_comparison?: {
+    sources_compared: string[];
+    combined_observations: string[];
+    remains_uncertain: string[];
+    records_to_request: string[];
+  } | null;
   disclaimer: string;
   fallback_reason: string | null;
 }

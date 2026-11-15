@@ -403,6 +403,10 @@ test("complete deterministic investigation journey", async ({ page }) => {
   await expect(inspector.getByText("CoStar", { exact: true })).toBeVisible();
   await expect(inspector.getByText("Vexcel", { exact: true })).toBeVisible();
   await expect(inspector.getByText("Recommended next step")).toBeVisible();
+  const checklist = inspector.locator(".review-checklist");
+  await expect(checklist.getByText("Human-review checklist")).toBeVisible();
+  await expect(checklist).toContainText("No exact CoStar property record");
+  await expect(checklist).toContainText("Treat Vexcel imagery as exterior context only");
   await expect(page.getByRole("heading", { name: "Not a Fraud Determination" })).toBeVisible();
 
   await inspector.getByText(/Inspect 8 genuine tool calls/).click();
@@ -416,6 +420,30 @@ test("complete deterministic investigation journey", async ({ page }) => {
 
   expect(consoleErrors).toEqual([]);
   expect(failedRequests).toEqual([]);
+});
+
+test("real CoStar match shows licensed context, Matterport link and cross-source comparison", async ({ page }) => {
+  await openDashboard(page);
+  await expect(page.getByText("Analysis online")).toBeVisible();
+  await (await findBuilding(page, "3800 BARHAM BLVD")).click();
+  const inspector = page.locator(".inspector");
+  const context = inspector.locator(".context-card");
+  await expect(context.getByRole("heading", { name: "Barham Plaza" })).toBeVisible();
+  await expect(context).toContainText("85,831 sq ft");
+  await expect(context).toContainText("Licensed CoStar data");
+  const tour = context.getByRole("link", { name: /sponsor-linked Matterport model/ });
+  await expect(tour).toHaveAttribute("href", "https://my.matterport.com/show/?m=cqDGKrH5ZTu");
+  await expect(tour).toHaveAttribute("rel", /noopener/);
+  await expect(context).toContainText("not any specific hospice suite");
+  await expect(inspector.locator(".aerial-card")).toHaveCount(0);
+
+  await inspector.getByRole("button", { name: "Investigate this building" }).click();
+  await expect(inspector.getByText("Deterministic fallback", { exact: true })).toBeVisible();
+  await expect(inspector.locator(".data-class-licensed_property_data")).toHaveText("Licensed CoStar data");
+  const comparison = inspector.locator(".comparison-panel");
+  await expect(comparison).toContainText("Compared: CMS + CoStar + Ownership");
+  await expect(comparison).toContainText("85,831 sq ft per registration");
+  await expect(comparison).toContainText("no Vexcel imagery was retrieved");
 });
 
 test("rapid selection and failed detail request never leave stale evidence", async ({ page }) => {
