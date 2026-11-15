@@ -177,6 +177,10 @@ test("complete deterministic investigation journey", async ({ page }) => {
   await expect(inspector.getByText("CoStar", { exact: true })).toBeVisible();
   await expect(inspector.getByText("Vexcel", { exact: true })).toBeVisible();
   await expect(inspector.getByText("Recommended next step")).toBeVisible();
+  const checklist = inspector.locator(".review-checklist");
+  await expect(checklist.getByText("Human-review checklist")).toBeVisible();
+  await expect(checklist).toContainText("No exact CoStar property record");
+  await expect(checklist).toContainText("Treat Vexcel imagery as exterior context only");
 
   await inspector.getByText(/Inspect 8 genuine tool calls/).click();
   await expect(inspector.getByText("get_source_records", { exact: true })).toBeVisible();

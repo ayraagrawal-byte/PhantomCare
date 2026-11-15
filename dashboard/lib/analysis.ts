@@ -137,6 +137,7 @@ export interface InteractiveInvestigation {
     evidence_references: string[];
     limitations: string[];
   }>;
+  review_checklist?: string[];
   disclaimer: string;
   fallback_reason: string | null;
 }

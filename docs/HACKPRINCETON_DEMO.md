@@ -16,7 +16,7 @@
 
 ## Fallback path
 
-The demo is designed to succeed without external services. Use the checked-in synthetic/offline artifact in `data/runtime`, keep `PHANTOMCARE_AGENT_LIVE_ENABLED=false`, and show the visible **Deterministic fallback** badge and reason. If Vexcel imagery cannot render, show its missing-data state and continue with the provenance text and CMS/ownership records. Never describe this path as live AI.
+The demo is designed to succeed without external services. Use the checked-in offline artifact in `data/runtime` (real public CMS data plus the real CoStar and Vexcel records; no network needed), keep `PHANTOMCARE_AGENT_LIVE_ENABLED=false`, and show the visible **Deterministic fallback** badge and reason. If Vexcel imagery cannot render, show its missing-data state and continue with the provenance text and CMS/ownership records. Never describe this path as live AI.
 
 ## If controlled live AI is later approved
 
@@ -26,5 +26,5 @@ Use a synthetic target only after the release prerequisites are present. Explain
 
 - Say “investigation lead,” “unusual pattern,” and “requires verification.”
 - Do not say “fraud detected,” “shell company,” “fake hospice,” or that aerial imagery proves service activity.
-- The measured technical result is 90 backend tests, 4 frontend unit tests, and 8 real-browser tests passing for this release candidate.
+- Measured on `claude/sprint-recovery`: 122 backend tests, 5 frontend unit tests, 20 real-browser tests (10 desktop, 10 mobile), and the ten-scenario synthetic evaluation (10/10) passing. See `docs/EVALUATION_SUMMARY.md`.
 - The current data limitation is important: the one exact CoStar match and the one Vexcel image belong to different offline buildings.

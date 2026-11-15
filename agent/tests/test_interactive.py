@@ -82,3 +82,34 @@ def test_live_summary_requires_citation_and_rejects_fraud_claims() -> None:
     assert _validated_agent_summary("Neutral observation [derived:record-1].", trace)
     assert _validated_agent_summary("Neutral observation without citation.", trace) is None
     assert _validated_agent_summary("This hospice is fraudulent [derived:record-1].", trace) is None
+
+
+def test_fallback_includes_source_aware_review_checklist(repository: AnalysisRepository) -> None:
+    result = investigate_interactively(repository, TARGET_ID)
+
+    checklist = " ".join(result.review_checklist)
+    assert "No exact CoStar property record" in checklist
+    assert "exterior context only" in checklist
+    assert "Keep owner identities masked" in checklist
+
+
+def test_validator_rejects_paraphrased_allegations_and_fabricated_citations() -> None:
+    trace = [
+        AgentToolTrace(
+            tool_name="get_source_records",
+            purpose="test",
+            input_identifiers={"target_id": "target"},
+            result_summary="test",
+            evidence_references=("derived:record-1",),
+        )
+    ]
+    for text in (
+        "The operator is committing hospice fraud [derived:record-1].",
+        "These are sham hospices [derived:record-1].",
+        "An illegal scheme [derived:record-1].",
+    ):
+        assert _validated_agent_summary(text, trace) is None
+    assert _validated_agent_summary("Review [derived:record-1] [costar:999].", trace) is None
+    assert _validated_agent_summary(
+        "Merits review; this is not evidence of fraud [derived:record-1].", trace
+    )

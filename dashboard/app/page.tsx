@@ -274,6 +274,7 @@ function FusionPanel({ result, status, onInvestigate }: { result: InteractiveInv
         <p className="fusion-summary">{result.reasoning_summary}</p>
         <div className="fusion-grid">{result.fusion_layers.map((layer) => <article key={layer.source}><strong>{layer.source}</strong>{layer.establishes.map((fact) => <p key={fact}>{fact}</p>)}<small>{layer.evidence_references.length ? `${layer.evidence_references.length} evidence reference(s)` : "No source record available"}</small>{layer.limitations.map((item) => <em key={item}>{item}</em>)}</article>)}</div>
         <div className="next-step"><strong>Recommended next step</strong><p>{result.recommended_next_step}</p></div>
+        {result.review_checklist && result.review_checklist.length > 0 && <div className="review-checklist"><strong>Human-review checklist</strong><ul>{result.review_checklist.map((item) => <li key={item}>{item}</li>)}</ul></div>}
         {result.unknowns.length > 0 && <details><summary>What remains unknown</summary><ul>{result.unknowns.map((item) => <li key={item}>{item}</li>)}</ul></details>}
         <details><summary>Inspect {result.tool_trace.length} genuine tool calls</summary><div className="tool-trace">{result.tool_trace.map((event, index) => <article key={`${event.tool_name}-${index}`}><strong>{event.tool_name}</strong><p>{event.result_summary}</p><small>{event.evidence_references.join(" · ") || "No evidence reference returned"}</small></article>)}</div></details>
         <small className="fusion-disclaimer">{result.disclaimer}</small>

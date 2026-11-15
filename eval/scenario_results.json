@@ -1,0 +1,311 @@
+{
+  "suite": "phantomcare-ten-scenario-v1",
+  "data": "synthetic",
+  "disclaimer": "All ten scenarios use synthetic inputs. A pass means the implementation followed its own published rules; it is not a measure of real-world fraud-detection accuracy.",
+  "generated_at": "2026-11-14T12:00:00+00:00",
+  "scenario_count": 10,
+  "scenarios_passed": 10,
+  "check_count": 67,
+  "checks_passed": 67,
+  "metric_definition": "scenarios_passed = scenarios whose every check equals its hand-derived expected value. checks_passed = individual expected-vs-actual comparisons that matched.",
+  "scenarios": [
+    {
+      "scenario_id": "S01_full_signal_hotspot",
+      "description": "Clustering, executive-suite context, low area per registration, shared ownership.",
+      "data": "synthetic",
+      "expected": {
+        "level": "high_priority",
+        "total": 100.0,
+        "strong": 4,
+        "missing": [],
+        "case_written": true
+      },
+      "actual": {
+        "level": "high_priority",
+        "total": 100.0,
+        "strong": 4,
+        "missing": [],
+        "case_written": true
+      },
+      "checks": {
+        "level": true,
+        "total": true,
+        "strong": true,
+        "missing": true,
+        "case_written": true,
+        "scored_indicators_have_provenance": true,
+        "case_citations_traceable": true,
+        "case_disclaimer_present": true
+      },
+      "passed": true
+    },
+    {
+      "scenario_id": "S02_missing_costar",
+      "description": "Same CMS and ownership signal with no CoStar match (the real 12444 Victory pattern).",
+      "data": "synthetic",
+      "expected": {
+        "level": "worth_a_look",
+        "total": 100.0,
+        "strong": 2,
+        "missing": [
+          "building_type_fit",
+          "space_per_hospice"
+        ],
+        "case_written": true
+      },
+      "actual": {
+        "level": "worth_a_look",
+        "total": 100.0,
+        "strong": 2,
+        "missing": [
+          "building_type_fit",
+          "space_per_hospice"
+        ],
+        "case_written": true
+      },
+      "checks": {
+        "level": true,
+        "total": true,
+        "strong": true,
+        "missing": true,
+        "case_written": true,
+        "scored_indicators_have_provenance": true,
+        "case_citations_traceable": true,
+        "case_disclaimer_present": true
+      },
+      "passed": true
+    },
+    {
+      "scenario_id": "S03_medical_office_context",
+      "description": "Clustered registrations inside a large medical office building, no shared owners.",
+      "data": "synthetic",
+      "expected": {
+        "level": "worth_a_look",
+        "total": 35.0,
+        "strong": 1,
+        "missing": [],
+        "case_written": true
+      },
+      "actual": {
+        "level": "worth_a_look",
+        "total": 35.0,
+        "strong": 1,
+        "missing": [],
+        "case_written": true
+      },
+      "checks": {
+        "level": true,
+        "total": true,
+        "strong": true,
+        "missing": true,
+        "case_written": true,
+        "scored_indicators_have_provenance": true,
+        "case_citations_traceable": true,
+        "case_disclaimer_present": true
+      },
+      "passed": true
+    },
+    {
+      "scenario_id": "S04_single_registration",
+      "description": "One registration at a building with no CoStar match and no ownership links.",
+      "data": "synthetic",
+      "expected": {
+        "level": "no_indicators_found",
+        "total": 0.0,
+        "strong": 0,
+        "missing": [
+          "building_type_fit",
+          "space_per_hospice"
+        ],
+        "case_written": false
+      },
+      "actual": {
+        "level": "no_indicators_found",
+        "total": 0.0,
+        "strong": 0,
+        "missing": [
+          "building_type_fit",
+          "space_per_hospice"
+        ],
+        "case_written": false
+      },
+      "checks": {
+        "level": true,
+        "total": true,
+        "strong": true,
+        "missing": true,
+        "case_written": true,
+        "scored_indicators_have_provenance": true,
+        "case_citations_traceable": true
+      },
+      "passed": true
+    },
+    {
+      "scenario_id": "S05_generic_office_moderate",
+      "description": "Moderate clustering in a generic office with moderate shared ownership.",
+      "data": "synthetic",
+      "expected": {
+        "level": "worth_a_look",
+        "total": 56.25,
+        "strong": 2,
+        "missing": [],
+        "case_written": true
+      },
+      "actual": {
+        "level": "worth_a_look",
+        "total": 56.25,
+        "strong": 2,
+        "missing": [],
+        "case_written": true
+      },
+      "checks": {
+        "level": true,
+        "total": true,
+        "strong": true,
+        "missing": true,
+        "case_written": true,
+        "scored_indicators_have_provenance": true,
+        "case_citations_traceable": true,
+        "case_disclaimer_present": true
+      },
+      "passed": true
+    },
+    {
+      "scenario_id": "S06_costar_without_area",
+      "description": "Exact CoStar match whose record has no usable area measurement.",
+      "data": "synthetic",
+      "expected": {
+        "level": "high_priority",
+        "total": 100.0,
+        "strong": 3,
+        "missing": [
+          "space_per_hospice"
+        ],
+        "case_written": true
+      },
+      "actual": {
+        "level": "high_priority",
+        "total": 100.0,
+        "strong": 3,
+        "missing": [
+          "space_per_hospice"
+        ],
+        "case_written": true
+      },
+      "checks": {
+        "level": true,
+        "total": true,
+        "strong": true,
+        "missing": true,
+        "case_written": true,
+        "scored_indicators_have_provenance": true,
+        "case_citations_traceable": true,
+        "case_disclaimer_present": true
+      },
+      "passed": true
+    },
+    {
+      "scenario_id": "S07_owner_masking",
+      "description": "A synthetic individual owner's name and ID never reach application artifacts.",
+      "data": "synthetic",
+      "expected": {
+        "private_name_in_artifacts": false,
+        "private_owner_id_in_artifacts": false,
+        "artifacts_written": true
+      },
+      "actual": {
+        "private_name_in_artifacts": false,
+        "private_owner_id_in_artifacts": false,
+        "artifacts_written": true
+      },
+      "checks": {
+        "private_name_in_artifacts": true,
+        "private_owner_id_in_artifacts": true,
+        "artifacts_written": true
+      },
+      "passed": true
+    },
+    {
+      "scenario_id": "S08_fraud_claims_rejected",
+      "description": "Model summaries that allege fraud fall back; neutral, cited language is allowed.",
+      "data": "synthetic",
+      "expected": {
+        "allegations_rejected": 7,
+        "neutral_summary_accepted": true
+      },
+      "actual": {
+        "allegations_rejected": 7,
+        "neutral_summary_accepted": true,
+        "allegations_accepted": []
+      },
+      "checks": {
+        "allegations_rejected": true,
+        "neutral_summary_accepted": true
+      },
+      "passed": true
+    },
+    {
+      "scenario_id": "S09_citation_validation",
+      "description": "Uncited or fabricated evidence references cause fallback.",
+      "data": "synthetic",
+      "expected": {
+        "uncited": "rejected",
+        "fabricated_only": "rejected",
+        "real_plus_fabricated": "rejected",
+        "all_real": "accepted"
+      },
+      "actual": {
+        "uncited": "rejected",
+        "fabricated_only": "rejected",
+        "real_plus_fabricated": "rejected",
+        "all_real": "accepted"
+      },
+      "checks": {
+        "uncited": true,
+        "fabricated_only": true,
+        "real_plus_fabricated": true,
+        "all_real": true
+      },
+      "passed": true
+    },
+    {
+      "scenario_id": "S10_synthetic_cross_source_fusion",
+      "description": "SYNTHETIC same-building CoStar + Vexcel fusion (no real building has both).",
+      "data": "synthetic",
+      "expected": {
+        "level": "high_priority",
+        "total": 100.0,
+        "strong": 4,
+        "missing": [],
+        "case_written": true,
+        "vexcel_evidence_present": true,
+        "aerial_changes_score": false,
+        "aerial_case_finding": false
+      },
+      "actual": {
+        "level": "high_priority",
+        "total": 100.0,
+        "strong": 4,
+        "missing": [],
+        "case_written": true,
+        "vexcel_evidence_present": true,
+        "aerial_changes_score": false,
+        "aerial_case_finding": false
+      },
+      "checks": {
+        "level": true,
+        "total": true,
+        "strong": true,
+        "missing": true,
+        "case_written": true,
+        "scored_indicators_have_provenance": true,
+        "case_citations_traceable": true,
+        "case_disclaimer_present": true,
+        "vexcel_evidence_present": true,
+        "aerial_changes_score": true,
+        "aerial_case_finding": true
+      },
+      "passed": true
+    }
+  ]
+}

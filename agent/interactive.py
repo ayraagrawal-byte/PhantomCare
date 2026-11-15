@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import re
 from datetime import UTC, datetime
 from typing import Any, Literal
 
@@ -37,6 +38,7 @@ class InteractiveInvestigation(BaseModel):
     unknowns: tuple[str, ...]
     tool_trace: tuple[AgentToolTrace, ...]
     fusion_layers: tuple[FusionLayer, ...]
+    review_checklist: tuple[str, ...] = ()
     disclaimer: str = "These are questions for human review, not conclusions of fraud."
     fallback_reason: str | None = None
 
@@ -293,8 +295,43 @@ def _fallback_investigation(
         unknowns=tuple(unknowns),
         tool_trace=tuple(toolkit.trace),
         fusion_layers=_fusion_layers(toolkit),
+        review_checklist=_review_checklist(toolkit),
         fallback_reason=reason,
     )
+
+
+def _review_checklist(toolkit: EvidenceToolkit) -> tuple[str, ...]:
+    """Deterministic human-review steps derived from what the tools actually returned."""
+    events = {event.tool_name: event for event in toolkit.trace}
+    items = [
+        "Confirm each cited evidence reference against its source record before relying on it.",
+        "Verify current CMS enrollment and state licensing status for each registration.",
+    ]
+    costar = events.get("get_costar_property_context")
+    if costar is None or costar.result_summary.startswith("No exact CoStar"):
+        items.append(
+            "No exact CoStar property record: confirm building type and leasable area from "
+            "another authorized source before weighing space-based context."
+        )
+    else:
+        items.append("Confirm the CoStar property match is the same building and suite.")
+    vexcel = events.get("get_vexcel_aerial_evidence")
+    if vexcel is None or not vexcel.evidence_references:
+        items.append("No Vexcel imagery: do not draw conclusions about the exterior.")
+    else:
+        items.append(
+            "Treat Vexcel imagery as exterior context only; it cannot show interior use or "
+            "whether a hospice operates."
+        )
+    items.extend(
+        (
+            "Keep owner identities masked; do not attempt to re-identify individuals.",
+            "Consider legitimate explanations (administrative offices, shared corporate "
+            "ownership) before any referral.",
+            "Record the reviewer decision and rationale; the screening score is not a finding.",
+        )
+    )
+    return tuple(items)
 
 
 def _fusion_layers(toolkit: EvidenceToolkit) -> tuple[FusionLayer, ...]:
@@ -317,26 +354,45 @@ def _fusion_layers(toolkit: EvidenceToolkit) -> tuple[FusionLayer, ...]:
     )
 
 
+_CITATION_PATTERN = re.compile(
+    r"\b(?:cms_hospice_enrollments|cms_hospice_all_owners|cms_hospice_additional_addresses"
+    r"|costar|vexcel|matterport|derived):[a-z0-9_\-]+(?:\.[a-z0-9_\-]+)*"
+)
+# Neutral disclaimers that mention fraud only to deny it are allowed.
+_NEUTRAL_FRAUD_PHRASES = (
+    "not evidence of fraud",
+    "not proof of fraud",
+    "not conclusions of fraud",
+    "not a conclusion of fraud",
+    "not an allegation of fraud",
+    "no finding of fraud",
+    "does not establish fraud",
+    "do not establish fraud",
+    "without alleging fraud",
+)
+_ALLEGATION_PATTERN = re.compile(
+    r"\b(?:fraud\w*|scam\w*|sham|bogus|illegal\w*|criminal\w*|kickback\w*)\b"
+    r"|proves? no hospice|no hospice operates"
+)
+
+
 def _validated_agent_summary(content: object, trace: list[AgentToolTrace]) -> str | None:
+    """Accept a model summary only if it is neutral and cites only tool-returned evidence."""
     if not isinstance(content, str) or not content.strip():
         return None
     normalized = content.casefold()
-    prohibited_claims = (
-        "is fraudulent",
-        "are fraudulent",
-        "committing fraud",
-        "proves fraud",
-        "proves no hospice",
-        "no hospice operates",
-    )
-    if any(claim in normalized for claim in prohibited_claims):
+    screened = normalized
+    for phrase in _NEUTRAL_FRAUD_PHRASES:
+        screened = screened.replace(phrase, " ")
+    if _ALLEGATION_PATTERN.search(screened):
         return None
     references = {
         reference.casefold()
         for event in trace
         for reference in event.evidence_references
     }
-    if not references or not any(reference in normalized for reference in references):
+    cited = set(_CITATION_PATTERN.findall(normalized))
+    if not references or not cited or not cited <= references:
         return None
     return content.strip()[:4000]
 
@@ -436,6 +492,7 @@ def investigate_interactively(
         unknowns=tuple(unknowns),
         tool_trace=tuple(toolkit.trace),
         fusion_layers=_fusion_layers(toolkit),
+        review_checklist=_review_checklist(toolkit),
         fallback_reason=None,
     )
 
