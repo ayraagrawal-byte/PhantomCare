@@ -20,7 +20,7 @@ describe("analysis dashboard helpers", () => {
     expect(filterBuildings(buildings,"all","van nuys")).toEqual([buildings[1]]);
   });
   it("turns API enum values into readable labels", () => {
-    expect(formatLevel("worth_a_look")).toBe("Worth A Look");
+    expect(formatLevel("worth_a_look")).toBe("Investigate");
     expect(formatLevel("space_per_hospice")).toBe("Space Per Hospice");
   });
   it("keeps the disclaimer explicit", () => {
