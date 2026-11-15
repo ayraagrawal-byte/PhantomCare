@@ -11,6 +11,15 @@ from pydantic import TypeAdapter, ValidationError
 
 from api.config import settings
 from api.contracts import ReviewLevel
+from api.contracts.geocodes import (
+    CAMS_LAYER,
+    CamsCache,
+    CamsResult,
+    ReviewedCache,
+    ReviewedLocation,
+    SupplementalCache,
+    SupplementalResult,
+)
 from api.schemas import (
     AerialEvidenceResponse,
     AnalysisSummaryResponse,
@@ -119,6 +128,68 @@ class AnalysisRepository:
         payload["image_url"] = f"/analysis/buildings/{building_id}/aerial/image"
         return AerialEvidenceResponse.model_validate(payload)
 
+    def aerial_locations(self) -> dict[str, AerialEvidenceResponse]:
+        try:
+            raw = self._read("vexcel_evidence.json")
+        except AnalysisArtifactError:
+            return {}
+        locations: dict[str, AerialEvidenceResponse] = {}
+        duplicates: set[str] = set()
+        for item in raw if isinstance(raw, list) else []:
+            if not isinstance(item, dict):
+                continue
+            try:
+                evidence = AerialEvidenceResponse.model_validate({**item, "image_url": ""})
+            except ValidationError:
+                continue
+            if evidence.target_id in locations:
+                duplicates.add(evidence.target_id)
+            locations[evidence.target_id] = evidence
+        return {key: value for key, value in locations.items() if key not in duplicates}
+
+    def cams_locations(self) -> dict[str, CamsResult] | None:
+        try:
+            data = (self.root / "cams_geocodes.json").read_bytes()
+        except FileNotFoundError:
+            return None
+        except OSError:
+            return {}
+        try:
+            cache = CamsCache.model_validate_json(data)
+        except ValidationError:
+            return {}
+        return cache.results if cache.source_url == CAMS_LAYER else {}
+
+    def supplemental_locations(self, cams: dict[str, CamsResult]) -> dict[str, SupplementalResult]:
+        try:
+            cache = SupplementalCache.model_validate_json(
+                (self.root / "supplemental_geocodes.json").read_bytes()
+            )
+        except (OSError, ValidationError):
+            return {}
+        if cache.cams_url != CAMS_LAYER:
+            return {}
+        return {
+            key: item for key, item in cache.results.items()
+            if key in cams and cams[key].location is None
+            and cams[key].building_key == item.building_key
+        }
+
+    def reviewed_locations(
+        self, supplemental: dict[str, SupplementalResult]
+    ) -> dict[str, ReviewedLocation]:
+        try:
+            cache = ReviewedCache.model_validate_json(
+                (self.root / "reviewed_geocodes.json").read_bytes()
+            )
+        except (OSError, ValidationError):
+            return {}
+        return {
+            key: item.location for key, item in cache.results.items()
+            if item.location and key in supplemental and supplemental[key].anchor is None
+            and supplemental[key].building_key == item.building_key
+        }
+
     def aerial_image(self, building_id: str) -> Path:
         evidence = self.aerial(building_id)
         manifest = self._read("vexcel_evidence.json")
@@ -156,9 +227,28 @@ def analysis_summary(
     repository: AnalysisRepositoryDependency,
 ) -> AnalysisSummaryResponse:
     try:
-        return repository.summary()
+        summary = repository.summary()
     except AnalysisArtifactError as error:
         raise _unavailable(error) from error
+    cams = repository.cams_locations()
+    if cams:
+        supplemental = repository.supplemental_locations(cams)
+        reviewed = repository.reviewed_locations(supplemental)
+        summary.cams_mapped_count = sum(result.location is not None for result in cams.values())
+        summary.cams_mapped_count += sum(
+            result.verified is not None for result in supplemental.values()
+        )
+        summary.cams_mapped_count += sum(
+            point.confidence == "verified" for point in reviewed.values()
+        )
+        summary.approximate_mapped_count = sum(
+            result.anchor is not None and result.verified is None
+            for result in supplemental.values()
+        )
+        summary.approximate_mapped_count += sum(
+            point.confidence == "approximate" for point in reviewed.values()
+        )
+    return summary
 
 
 @router.get("/buildings", response_model=list[BuildingListItemResponse])
@@ -166,6 +256,7 @@ def list_buildings(
     repository: AnalysisRepositoryDependency,
     level: ReviewLevel | None = None,
     limit: int = Query(default=100, ge=1, le=500),
+    offset: Annotated[int, Query(ge=0)] = 0,
 ) -> list[BuildingListItemResponse]:
     try:
         buildings = repository.buildings()
@@ -174,7 +265,46 @@ def list_buildings(
     items = [BuildingListItemResponse.from_analysis(building) for building in buildings]
     if level is not None:
         items = [item for item in items if item.review_level == level]
-    return sorted(items, key=lambda item: (-item.total_score, item.building_id))[:limit]
+    items = sorted(items, key=lambda item: (-item.total_score, item.building_id))[
+        offset : offset + limit
+    ]
+    cams = repository.cams_locations()
+    if cams is not None:
+        supplemental = repository.supplemental_locations(cams)
+        reviewed = repository.reviewed_locations(supplemental)
+        for item in items:
+            result = cams.get(item.building_id)
+            location = approximate = None
+            if result and result.building_key == item.building_key:
+                location = result.location
+                if extra := supplemental.get(item.building_id):
+                    location = extra.verified
+                    approximate = extra.anchor if location is None else None
+                if review := reviewed.get(item.building_id):
+                    if review.confidence == "verified":
+                        location = review
+                    else:
+                        approximate = review
+            item.verified_location = location
+            item.approximate_location = approximate
+            location = location or approximate
+            item.latitude = location.latitude if location else None
+            item.longitude = location.longitude if location else None
+            item.coordinate_source = location.source if location else None
+        return items
+
+    aerial_locations = repository.aerial_locations()
+    for item in items:
+        if item.latitude is not None and item.longitude is not None:
+            if item.costar_match_status == "exact_match":
+                item.coordinate_source = "CoStar"
+        elif (location := aerial_locations.get(item.building_id)) and (
+            location.address == item.building_key
+        ):
+            item.latitude = location.latitude
+            item.longitude = location.longitude
+            item.coordinate_source = "Vexcel imagery address center"
+    return items
 
 
 @router.get("/buildings/{building_id}", response_model=BuildingAnalysisResponse)

@@ -9,6 +9,7 @@ from api.contracts import (
     ReviewPriorityScore,
     TraceEvent,
 )
+from api.contracts.geocodes import ApproximateLocation, CamsLocation, ReviewedLocation
 
 
 class HealthResponse(BaseModel):
@@ -20,6 +21,8 @@ class AnalysisSummaryResponse(BaseModel):
     generated_at: AwareDatetime
     enrollment_count: int = Field(ge=0)
     building_count: int = Field(ge=0)
+    cams_mapped_count: int | None = Field(default=None, ge=0)
+    approximate_mapped_count: int = Field(default=0, ge=0)
     high_priority_count: int = Field(ge=0)
     worth_a_look_count: int = Field(ge=0)
     disclaimer: str = Field(min_length=1, max_length=500)
@@ -77,6 +80,9 @@ class BuildingListItemResponse(BaseModel):
     costar_match_status: str
     latitude: float | None
     longitude: float | None
+    coordinate_source: str | None = None
+    verified_location: CamsLocation | ReviewedLocation | None = None
+    approximate_location: ApproximateLocation | ReviewedLocation | None = None
 
     @classmethod
     def from_analysis(cls, building: BuildingAnalysisResponse) -> "BuildingListItemResponse":

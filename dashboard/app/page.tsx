@@ -1,5 +1,6 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import { useEffect, useMemo, useRef, useState } from "react";
 import {
   AnalysisSummary,
@@ -8,6 +9,7 @@ import {
   BuildingNetwork,
   BuildingListItem,
   InvestigationResult,
+  InteractiveInvestigation,
   ReviewLevel,
   fetchAnalysis,
   fetchAerialEvidence,
@@ -17,8 +19,13 @@ import {
   filterBuildings,
   formatLevel,
   absoluteApiUrl,
-  projectLaPoint,
+  runInteractiveInvestigation,
 } from "../lib/analysis";
+
+const HotspotMap = dynamic(() => import("./hotspot-map"), {
+  ssr: false,
+  loading: () => <section className="map-panel"><div className="map-copy"><h2>LA County hotspots</h2><p role="status">Loading map?</p></div></section>,
+});
 
 const filters: Array<{ label: string; value: ReviewLevel | "all" }> = [
   { label: "All buildings", value: "all" },
@@ -30,16 +37,20 @@ const filters: Array<{ label: string; value: ReviewLevel | "all" }> = [
 export default function Home() {
   const [summary, setSummary] = useState<AnalysisSummary | null>(null);
   const [buildings, setBuildings] = useState<BuildingListItem[]>([]);
+  const [selectedId, setSelectedId] = useState<string | null>(null);
   const [selected, setSelected] = useState<BuildingDetail | null>(null);
   const [caseResult, setCaseResult] = useState<InvestigationResult | null>(null);
   const [network, setNetwork] = useState<BuildingNetwork | null>(null);
   const [aerial, setAerial] = useState<AerialEvidence | null>(null);
+  const [agentResult, setAgentResult] = useState<InteractiveInvestigation | null>(null);
+  const [agentStatus, setAgentStatus] = useState<"idle" | "loading" | "ready" | "error">("idle");
   const [caseStatus, setCaseStatus] = useState<"idle" | "loading" | "ready" | "error">("idle");
   const [level, setLevel] = useState<ReviewLevel | "all">("all");
   const [query, setQuery] = useState("");
   const [status, setStatus] = useState<"loading" | "ready" | "error">("loading");
   const selectionRequest = useRef(0);
   const [error, setError] = useState("");
+  const [mapWarning, setMapWarning] = useState("");
 
   useEffect(() => {
     const controller = new AbortController();
@@ -47,6 +58,7 @@ export default function Home() {
       .then((result) => {
         setSummary(result.summary);
         setBuildings(result.buildings);
+        setMapWarning(result.mapWarning);
         setStatus("ready");
       })
       .catch((reason: unknown) => {
@@ -64,12 +76,15 @@ export default function Home() {
 
   async function inspectBuilding(buildingId: string) {
     const requestId = ++selectionRequest.current;
+    setSelectedId(buildingId);
     setSelected(null);
     setError("");
     setCaseStatus("loading");
     setCaseResult(null);
     setNetwork(null);
     setAerial(null);
+    setAgentResult(null);
+    setAgentStatus("idle");
     try {
       const [detailOutcome, caseOutcome, networkOutcome, aerialOutcome] = await Promise.allSettled([
         fetchBuildingDetail(buildingId),
@@ -91,8 +106,20 @@ export default function Home() {
     } catch (reason) {
       if (requestId !== selectionRequest.current) return;
       setSelected(null);
+      setSelectedId(null);
       setError(reason instanceof Error ? reason.message : "Building detail could not be loaded.");
       setCaseStatus("error");
+    }
+  }
+
+  async function runAgentInvestigation(buildingId: string) {
+    setAgentStatus("loading");
+    setAgentResult(null);
+    try {
+      setAgentResult(await runInteractiveInvestigation(buildingId));
+      setAgentStatus("ready");
+    } catch {
+      setAgentStatus("error");
     }
   }
 
@@ -134,7 +161,14 @@ export default function Home() {
         <Metric label="Worth a look" value={summary?.worth_a_look_count} tone="watch" />
       </section>
 
-      <HotspotMap buildings={visible} selectedId={selected?.building_id ?? null} onSelect={inspectBuilding} />
+      <HotspotMap buildings={buildings} total={summary?.building_count ?? buildings.length}
+        status={status} warning={mapWarning} selectedId={selectedId} onSelect={(buildingId) => {
+          if (!visible.some((building) => building.building_id === buildingId)) {
+            setLevel("all");
+            setQuery("");
+          }
+          if (buildingId !== selectedId) void inspectBuilding(buildingId);
+        }} />
 
       <section className="workspace">
         <div className="list-panel">
@@ -156,7 +190,7 @@ export default function Home() {
             {status === "loading" && [1, 2, 3].map((item) => <div className="skeleton" key={item} />)}
             {status === "ready" && visible.length === 0 && <p className="empty-state">No buildings match this view.</p>}
             {visible.map((building, index) => (
-              <button className="building-row" key={building.building_id} onClick={() => inspectBuilding(building.building_id)} type="button">
+              <button className="building-row" aria-pressed={selectedId === building.building_id} key={building.building_id} onClick={() => inspectBuilding(building.building_id)} type="button">
                 <span className="rank">{String(index + 1).padStart(2, "0")}</span>
                 <span className="building-main">
                   <strong>{building.building_key}</strong>
@@ -168,8 +202,8 @@ export default function Home() {
             ))}
           </div>
         </div>
-        <aside className="inspector" aria-live="polite">
-          {selected ? <BuildingInspector building={selected} aerial={aerial} network={network} caseResult={caseResult} caseStatus={caseStatus} /> : caseStatus === "loading" ? <div className="inspector-empty" role="status">Loading building evidence…</div> : caseStatus === "error" ? <div className="inspector-empty" role="alert">Could not load building evidence. {error}</div> : <InspectorEmpty />}
+        <aside className="inspector" id="building-evidence" aria-live="polite">
+          {selected ? <BuildingInspector building={selected} aerial={aerial} network={network} caseResult={caseResult} caseStatus={caseStatus} agentResult={agentResult} agentStatus={agentStatus} onInvestigate={() => runAgentInvestigation(selected.building_id)} /> : caseStatus === "loading" ? <div className="inspector-empty" role="status">Loading building evidence…</div> : caseStatus === "error" ? <div className="inspector-empty" role="alert">Could not load building evidence. {error}</div> : <InspectorEmpty />}
         </aside>
       </section>
 
@@ -178,34 +212,6 @@ export default function Home() {
         <span>{summary ? `Analysis generated ${new Date(summary.generated_at).toLocaleString()}` : "Awaiting analysis artifacts"}</span>
       </footer>
     </main>
-  );
-}
-
-function HotspotMap({ buildings, selectedId, onSelect }: { buildings: BuildingListItem[]; selectedId: string | null; onSelect: (buildingId: string) => void }) {
-  const points = buildings.flatMap((building) => {
-    if (building.latitude === null || building.longitude === null) return [];
-    const position = projectLaPoint(building.latitude, building.longitude);
-    return position ? [{ building, ...position }] : [];
-  });
-  return (
-    <section className="map-panel" aria-labelledby="map-title">
-      <div className="map-copy"><p className="section-label">Schematic geographic overview</p><h2 id="map-title">LA County hotspots</h2><p>This is an illustrative county view, not a parcel basemap. Markers use matched CoStar coordinates; size reflects hospice count and color reflects review priority.</p><div className="map-legend"><span><i className="legend-hot" />High priority</span><span><i className="legend-watch" />Worth a look</span></div></div>
-      <div className="county-map">
-        <svg aria-label={`${points.length} mapped buildings`} role="img" viewBox="0 0 100 100" preserveAspectRatio="none">
-          <path className="county-shape" d="M10 8 L59 5 L82 18 L88 35 L80 47 L90 64 L75 91 L43 95 L26 80 L15 72 L8 50 L14 34 Z" />
-          <path className="map-road" d="M18 26 L78 78 M30 12 L42 90 M12 56 L84 44" />
-          {points.map(({ building, x, y }) => (
-            <g className={`map-marker marker-${building.review_level} ${selectedId === building.building_id ? "selected" : ""}`} key={building.building_id} onClick={() => onSelect(building.building_id)} role="button" tabIndex={0} onKeyDown={(event) => { if (event.key === "Enter" || event.key === " ") onSelect(building.building_id); }}>
-              <circle cx={x} cy={y} r={Math.min(5.5, 2.2 + building.hospice_count * .32)} />
-              <title>{building.building_key}: {building.hospice_count} hospices, score {Math.round(building.total_score)}</title>
-            </g>
-          ))}
-        </svg>
-        {points.length === 0 && <p className="map-empty">No mapped CoStar coordinates in this filtered view.</p>}
-        <span className="map-label label-valley">SAN FERNANDO VALLEY</span><span className="map-label label-dtla">DTLA</span><span className="map-label label-port">PORT</span>
-      </div>
-      <div className="map-count"><strong>{points.length}</strong><span>mapped of {buildings.length} shown</span></div>
-    </section>
   );
 }
 
@@ -222,7 +228,7 @@ function InspectorEmpty() {
   );
 }
 
-function BuildingInspector({ building, aerial, network, caseResult, caseStatus }: { building: BuildingDetail; aerial: AerialEvidence | null; network: BuildingNetwork | null; caseResult: InvestigationResult | null; caseStatus: string }) {
+function BuildingInspector({ building, aerial, network, caseResult, caseStatus, agentResult, agentStatus, onInvestigate }: { building: BuildingDetail; aerial: AerialEvidence | null; network: BuildingNetwork | null; caseResult: InvestigationResult | null; caseStatus: string; agentResult: InteractiveInvestigation | null; agentStatus: string; onInvestigate: () => void }) {
   return (
     <div>
       <div className="inspector-head">
@@ -250,8 +256,29 @@ function BuildingInspector({ building, aerial, network, caseResult, caseStatus }
         ))}
       </div>
       <NetworkPanel network={network} />
+      <FusionPanel result={agentResult} status={agentStatus} onInvestigate={onInvestigate} />
       <CasePanel result={caseResult} status={caseStatus} />
     </div>
+  );
+}
+
+function FusionPanel({ result, status, onInvestigate }: { result: InteractiveInvestigation | null; status: string; onInvestigate: () => void }) {
+  return (
+    <section className="fusion-panel">
+      <div className="fusion-heading"><div><p className="section-label">Cross-source investigation</p><h3>CMS + CoStar + Vexcel</h3></div>{result && <span className={`agent-mode mode-${result.mode}`}>{result.mode === "live_ai" ? "Live AI" : "Deterministic fallback"}</span>}</div>
+      <p className="case-muted">Run a bounded, read-only investigation. Screening scores remain deterministic and unchanged.</p>
+      <button className="investigate-button" disabled={status === "loading"} onClick={onInvestigate} type="button">{status === "loading" ? "Investigating…" : "Investigate this building"}</button>
+      {status === "error" && <p className="fusion-error" role="alert">The interactive investigation could not be completed.</p>}
+      {result && <>
+        {result.fallback_reason && <p className="fallback-reason">Live AI was not used: {formatLevel(result.fallback_reason)}.</p>}
+        <p className="fusion-summary">{result.reasoning_summary}</p>
+        <div className="fusion-grid">{result.fusion_layers.map((layer) => <article key={layer.source}><strong>{layer.source}</strong>{layer.establishes.map((fact) => <p key={fact}>{fact}</p>)}<small>{layer.evidence_references.length ? `${layer.evidence_references.length} evidence reference(s)` : "No source record available"}</small>{layer.limitations.map((item) => <em key={item}>{item}</em>)}</article>)}</div>
+        <div className="next-step"><strong>Recommended next step</strong><p>{result.recommended_next_step}</p></div>
+        {result.unknowns.length > 0 && <details><summary>What remains unknown</summary><ul>{result.unknowns.map((item) => <li key={item}>{item}</li>)}</ul></details>}
+        <details><summary>Inspect {result.tool_trace.length} genuine tool calls</summary><div className="tool-trace">{result.tool_trace.map((event, index) => <article key={`${event.tool_name}-${index}`}><strong>{event.tool_name}</strong><p>{event.result_summary}</p><small>{event.evidence_references.join(" · ") || "No evidence reference returned"}</small></article>)}</div></details>
+        <small className="fusion-disclaimer">{result.disclaimer}</small>
+      </>}
+    </section>
   );
 }
 

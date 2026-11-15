@@ -1,0 +1,4831 @@
+{
+  "schema_version": 1,
+  "source_url": "https://services.arcgis.com/RmCCgQtiZLDCtblq/arcgis/rest/services/eGIS_Addressing_ADDRESS_POINTSv2/FeatureServer/0",
+  "retrieved_at": "2026-11-14T23:14:47.575342Z",
+  "results": {
+    "bldg_793ac00ed2ae2571": {
+      "building_key": "12444 VICTORY BLVD N HOLLYWOOD CA 91606",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1953945,
+        "county_record_source": "LA City",
+        "matched_address": "12444 Victory Blvd North Hollywood 91606",
+        "confidence": "standardized",
+        "precision": "address_point",
+        "latitude": 34.18644994779336,
+        "longitude": -118.40455077456429
+      }
+    },
+    "bldg_a22eebcea0bd968d": {
+      "building_key": "3111 LOS FELIZ BLVD LOS ANGELES CA 90039",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1672879,
+        "county_record_source": "LA City",
+        "matched_address": "3111 Los Feliz Blvd Los Angeles 90039",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.124490750413905,
+        "longitude": -118.26707208671608
+      }
+    },
+    "bldg_c88f3340601a18e8": {
+      "building_key": "120 N VICTORY BLVD BURBANK CA 91502",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 465642,
+        "county_record_source": "Office of Assessor",
+        "matched_address": "120 N Victory Blvd Burbank 91502",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.17435573582065,
+        "longitude": -118.31656614536224
+      }
+    },
+    "bldg_90c817f935f2b32b": {
+      "building_key": "14545 FRIAR ST VAN NUYS CA 91411",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1495599,
+        "county_record_source": "LA City",
+        "matched_address": "14545 Friar St Van Nuys 91411",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.18582361037399,
+        "longitude": -118.45034908949373
+      }
+    },
+    "bldg_812e83ea4f81158b": {
+      "building_key": "15720 VENTURA BLVD ENCINO CA 91436",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1342316,
+        "county_record_source": "LA City",
+        "matched_address": "15720 Ventura Blvd Encino 91436",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.15504606281341,
+        "longitude": -118.47563356268167
+      }
+    },
+    "bldg_bf5dd52f2d068407": {
+      "building_key": "19634 VENTURA BLVD TARZANA CA 91356",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1503713,
+        "county_record_source": "LA City",
+        "matched_address": "19634 Ventura Blvd Tarzana 91356",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.17246252068343,
+        "longitude": -118.56123732109728
+      }
+    },
+    "bldg_5a86f602740705c5": {
+      "building_key": "6931 VAN NUYS BLVD VAN NUYS CA 91405",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1910524,
+        "county_record_source": "LA City",
+        "matched_address": "6931 Van Nuys Blvd Van Nuys 91405",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.19640089994039,
+        "longitude": -118.44898840082715
+      }
+    },
+    "bldg_7d5d5ffd3244e817": {
+      "building_key": "7630 VINELAND AVE SUN VALLEY CA 91352",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1685907,
+        "county_record_source": "LA City",
+        "matched_address": "7630 Vineland Ave Sun Valley 91352",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.20913673696296,
+        "longitude": -118.37000101289773
+      }
+    },
+    "bldg_babee979d606092a": {
+      "building_key": "9221 CORBIN AVE NORTHRIDGE CA 91324",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1650826,
+        "county_record_source": "LA City",
+        "matched_address": "9221 Corbin Ave Northridge 91324",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.23755327811952,
+        "longitude": -118.56292334139769
+      }
+    },
+    "bldg_6e15cbd9a96da43c": {
+      "building_key": "121 W LEXINGTON DR GLENDALE CA 91203",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 2258291,
+        "county_record_source": "Glendale GIS",
+        "matched_address": "121 W Lexington Dr Glendale 91203",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.152043288761135,
+        "longitude": -118.2554653442854
+      }
+    },
+    "bldg_bd197bdc7c1ae91d": {
+      "building_key": "16250 VENTURA BLVD ENCINO CA 91436",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1343033,
+        "county_record_source": "LA City",
+        "matched_address": "16250 Ventura Blvd Encino 91436",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.15668500966139,
+        "longitude": -118.48716103025613
+      }
+    },
+    "bldg_4ea4e38e2ec6ce55": {
+      "building_key": "18340 VENTURA BLVD TARZANA CA 91356",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1950407,
+        "county_record_source": "LA City",
+        "matched_address": "18340 Ventura Blvd Tarzana 91356",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.16701365876936,
+        "longitude": -118.53209083935982
+      }
+    },
+    "bldg_92bab04c6c3ccde4": {
+      "building_key": "20953 DEVONSHIRE ST CHATSWORTH CA 91311",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1972670,
+        "county_record_source": "LA City",
+        "matched_address": "20953 Devonshire St Chatsworth 91311",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.25740950081018,
+        "longitude": -118.59041199300187
+      }
+    },
+    "bldg_f0c04d3927d00886": {
+      "building_key": "2600 FOOTHILL BLVD LA CRESCENTA CA 91214",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 286187,
+        "county_record_source": "LACO DPW House Numbering Map",
+        "matched_address": "2600 Foothill Blvd La Crescenta 91214",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.22104465800333,
+        "longitude": -118.23543533137722
+      }
+    },
+    "bldg_d5ad848f1faf95b3": {
+      "building_key": "4405 W RIVERSIDE DR BURBANK CA 91505",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 835534,
+        "county_record_source": "Office of Assessor",
+        "matched_address": "4405 W Riverside Dr Burbank 91505",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.15251366503742,
+        "longitude": -118.3480617801057
+      }
+    },
+    "bldg_f57cb68ef41dd714": {
+      "building_key": "512 E WILSON AVE GLENDALE CA 91206",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 2195868,
+        "county_record_source": "Glendale GIS",
+        "matched_address": "512 E Wilson Ave Glendale 91206",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.148029388812276,
+        "longitude": -118.24951634568802
+      }
+    },
+    "bldg_321e3b6b5776b520": {
+      "building_key": "5311 TOPANGA CANYON BLVD WOODLAND HILLS CA 91364",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1806397,
+        "county_record_source": "LA City",
+        "matched_address": "5311 Topanga Canyon Blvd Woodland Hills 91364",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.16636636677446,
+        "longitude": -118.60614105827088
+      }
+    },
+    "bldg_2eee09fe654a7429": {
+      "building_key": "8700 RESEDA BLVD NORTHRIDGE CA 91324",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1310839,
+        "county_record_source": "LA City",
+        "matched_address": "8700 Reseda Blvd Northridge 91324",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.22999051401894,
+        "longitude": -118.53568235152257
+      }
+    },
+    "bldg_a14a1f3e674cf523": {
+      "building_key": "11428 ARTESIA BLVD ARTESIA CA 90701",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 2620901,
+        "county_record_source": "Assessor",
+        "matched_address": "11428 Artesia Blvd Artesia 90701",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 33.87259671115815,
+        "longitude": -118.0900261970682
+      }
+    },
+    "bldg_e0e897dae456f270": {
+      "building_key": "11755 VICTORY BLVD N HOLLYWOOD CA 91606",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1819877,
+        "county_record_source": "LA City",
+        "matched_address": "11755 Victory Blvd North Hollywood 91606",
+        "confidence": "standardized",
+        "precision": "address_point",
+        "latitude": 34.186843797490354,
+        "longitude": -118.38979547152097
+      }
+    },
+    "bldg_2e5c9c2e4a6774e8": {
+      "building_key": "13609 VICTORY BLVD VAN NUYS CA 91401",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 2026447,
+        "county_record_source": "LA City",
+        "matched_address": "13609 Victory Blvd Van Nuys 91401",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.18684320279057,
+        "longitude": -118.42937112384672
+      }
+    },
+    "bldg_270292e7b6d44134": {
+      "building_key": "13746 VICTORY BLVD VAN NUYS CA 91401",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1294336,
+        "county_record_source": "LA City",
+        "matched_address": "13746 Victory Blvd Van Nuys 91401",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.18644415100305,
+        "longitude": -118.43285790276101
+      }
+    },
+    "bldg_ff1bc8ee765491af": {
+      "building_key": "14328 VICTORY BLVD VAN NUYS CA 91401",
+      "reason": "no_address_match"
+    },
+    "bldg_504d89aed4f098e4": {
+      "building_key": "14542 VENTURA BLVD SHERMAN OAKS CA 91403",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1882120,
+        "county_record_source": "LA City",
+        "matched_address": "14542 Ventura Blvd Sherman Oaks 91403",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.15099625985952,
+        "longitude": -118.45019385299679
+      }
+    },
+    "bldg_e0eae0ae7ce9fc20": {
+      "building_key": "14547 TITUS ST PANORAMA CITY CA 91402",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1745715,
+        "county_record_source": "LA City",
+        "matched_address": "14547 Titus St Panorama City 91402",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.21986317721554,
+        "longitude": -118.45018303022626
+      }
+    },
+    "bldg_19e50e3be620e4ef": {
+      "building_key": "150 E OLIVE AVE BURBANK CA 91502",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 734964,
+        "county_record_source": "Office of Assessor",
+        "matched_address": "150 E Olive Ave Burbank 91502",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.18037628977953,
+        "longitude": -118.30868371069135
+      }
+    },
+    "bldg_1ed78c6dfdc1cd4c": {
+      "building_key": "15130 VENTURA BLVD SHERMAN OAKS CA 91403",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 2055815,
+        "county_record_source": "LA City",
+        "matched_address": "15130 Ventura Blvd Sherman Oaks 91403",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.15306531218112,
+        "longitude": -118.46277466829537
+      }
+    },
+    "bldg_d84953c0ea1ec38c": {
+      "building_key": "15450 VENTURA BLVD SHERMAN OAKS CA 91403",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1341727,
+        "county_record_source": "LA City",
+        "matched_address": "15450 Ventura Blvd Sherman Oaks 91403",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.154335749043774,
+        "longitude": -118.47044812583555
+      }
+    },
+    "bldg_31882d06af96aca6": {
+      "building_key": "1616 VICTORY BLVD GLENDALE CA 91201",
+      "reason": "unit_records_only"
+    },
+    "bldg_effa5480a6765638": {
+      "building_key": "16200 VENTURA BLVD ENCINO CA 91436",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1343988,
+        "county_record_source": "LA City",
+        "matched_address": "16200 Ventura Blvd Encino 91436",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.15647416539933,
+        "longitude": -118.48572011941624
+      }
+    },
+    "bldg_61eb698c381440df": {
+      "building_key": "16430 VENTURA BLVD ENCINO CA 91436",
+      "reason": "no_address_match"
+    },
+    "bldg_8cae99a8f7c715f8": {
+      "building_key": "17050 CHATSWORTH ST GRANADA HILLS CA 91344",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1607304,
+        "county_record_source": "LA City",
+        "matched_address": "17050 Chatsworth St Granada Hills 91344",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.26460486939341,
+        "longitude": -118.50394148162563
+      }
+    },
+    "bldg_9aecac061c3c6600": {
+      "building_key": "17215 STUDEBAKER RD CERRITOS CA 90703",
+      "reason": "unit_records_only"
+    },
+    "bldg_32e4b08cf2e59252": {
+      "building_key": "18305 SHERMAN WAY RESEDA CA 91335",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1995053,
+        "county_record_source": "LA City",
+        "matched_address": "18305 Sherman Wy Reseda 91335",
+        "confidence": "standardized",
+        "precision": "address_point",
+        "latitude": 34.20129565514069,
+        "longitude": -118.53201456488834
+      }
+    },
+    "bldg_d28daa18a07d2da9": {
+      "building_key": "18425 BURBANK BLVD TARZANA CA 91356",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1606107,
+        "county_record_source": "LA City",
+        "matched_address": "18425 Burbank Blvd Tarzana 91356",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.17242243889823,
+        "longitude": -118.53475229503172
+      }
+    },
+    "bldg_01891fa4a8d405a7": {
+      "building_key": "1917 HILLHURST AVE LOS ANGELES CA 90027",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 2462683,
+        "county_record_source": "LA City",
+        "matched_address": "1917 Hillhurst Ave Los Angeles 90027",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.10603554639053,
+        "longitude": -118.28792501550689
+      }
+    },
+    "bldg_2406d82475b787db": {
+      "building_key": "20121 VENTURA BLVD WOODLAND HILLS CA 91364",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1309773,
+        "county_record_source": "LA City",
+        "matched_address": "20121 Ventura Blvd Woodland Hills 91364",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.17079897662325,
+        "longitude": -118.57204375068314
+      }
+    },
+    "bldg_e7898a34b7e1d070": {
+      "building_key": "20945 DEVONSHIRE ST CHATSWORTH CA 91311",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1472059,
+        "county_record_source": "LA City",
+        "matched_address": "20945 Devonshire St Chatsworth 91311",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.257411089182035,
+        "longitude": -118.59007956707696
+      }
+    },
+    "bldg_d950bc9037eba06f": {
+      "building_key": "21151 S WESTERN AVE TORRANCE CA 90501",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 2659858,
+        "county_record_source": "Assessor",
+        "matched_address": "21151 S Western Ave Torrance 90501",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 33.837076908484036,
+        "longitude": -118.30984665097786
+      }
+    },
+    "bldg_f7d3002b10bbbd36": {
+      "building_key": "22024 LASSEN ST CHATSWORTH CA 91311",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1434077,
+        "county_record_source": "LA City",
+        "matched_address": "22024 Lassen St Chatsworth 91311",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.24941656524918,
+        "longitude": -118.60690365193268
+      }
+    },
+    "bldg_8610040730bbf6b6": {
+      "building_key": "224 E OLIVE AVE BURBANK CA 91502",
+      "reason": "no_address_match"
+    },
+    "bldg_0e19e166d8530c5e": {
+      "building_key": "2500 E FOOTHILL BLVD PASADENA CA 91107",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 2214372,
+        "county_record_source": "Pasadena GIS",
+        "matched_address": "2500 E Foothill Blvd Pasadena 91107",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.14964317884366,
+        "longitude": -118.09841685838767
+      }
+    },
+    "bldg_7d9aaf0962af4788": {
+      "building_key": "2501 W BURBANK BLVD BURBANK CA 91505",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 934564,
+        "county_record_source": "Office of Assessor",
+        "matched_address": "2501 W Burbank Blvd Burbank 91505",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.1789041970587,
+        "longitude": -118.33865035364299
+      }
+    },
+    "bldg_337d2e2ae5f55bda": {
+      "building_key": "25835 NARBONNE AVE LOMITA CA 90717",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 129643,
+        "county_record_source": "Office of Assessor",
+        "matched_address": "25835 Narbonne Ave Lomita 90717",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 33.7884931361038,
+        "longitude": -118.32085536246473
+      }
+    },
+    "bldg_e5c660f4afc5403e": {
+      "building_key": "2855 TEMPLE AVE SIGNAL HILL CA 90755",
+      "reason": "no_address_match"
+    },
+    "bldg_53684c9309b369f7": {
+      "building_key": "3089 N LIMA ST BURBANK CA 91504",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 829532,
+        "county_record_source": "Office of Assessor",
+        "matched_address": "3089 N Lima St Burbank 91504",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.20618980853036,
+        "longitude": -118.3468658368471
+      }
+    },
+    "bldg_787e8f761079032d": {
+      "building_key": "315 W VERDUGO AVE BURBANK CA 91502",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 575987,
+        "county_record_source": "Office of Assessor",
+        "matched_address": "315 W Verdugo Ave Burbank 91502",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.171033802764136,
+        "longitude": -118.31447039174908
+      }
+    },
+    "bldg_8a6d560e081dd983": {
+      "building_key": "3171 LOS FELIZ BLVD LOS ANGELES CA 90039",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1429360,
+        "county_record_source": "LA City",
+        "matched_address": "3171 Los Feliz Blvd Los Angeles 90039",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.12387445467711,
+        "longitude": -118.26828706636822
+      }
+    },
+    "bldg_32341f704a3a5c7f": {
+      "building_key": "333 N SANTA ANITA AVE ARCADIA CA 91006",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 574072,
+        "county_record_source": "Office of Assessor",
+        "matched_address": "333 N Santa Anita Ave Arcadia 91006",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.144272589259174,
+        "longitude": -118.03223156490661
+      }
+    },
+    "bldg_582415877715af76": {
+      "building_key": "358 E OLIVE AVE BURBANK CA 91502",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 462988,
+        "county_record_source": "Office of Assessor",
+        "matched_address": "358 E Olive Ave Burbank 91502",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.182718694043885,
+        "longitude": -118.30641273655863
+      }
+    },
+    "bldg_362ad920aeec2443": {
+      "building_key": "4100 W ALAMEDA AVE BURBANK CA 91505",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 436229,
+        "county_record_source": "Office of Assessor",
+        "matched_address": "4100 W Alameda Ave Burbank 91505",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.15237180112754,
+        "longitude": -118.34463800366902
+      }
+    },
+    "bldg_513dd653a97eb545": {
+      "building_key": "4119 W BURBANK BLVD BURBANK CA 91505",
+      "reason": "no_address_match"
+    },
+    "bldg_1aae956dfeaa449b": {
+      "building_key": "417 S SAN GABRIEL BLVD SAN GABRIEL CA 91776",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 2093793,
+        "county_record_source": "Assessor",
+        "matched_address": "417 S San Gabriel Blvd San Gabriel 91776",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.09734135321908,
+        "longitude": -118.09118663934449
+      }
+    },
+    "bldg_c3cf8a839af7bc59": {
+      "building_key": "420 N MONTEBELLO BLVD MONTEBELLO CA 90640",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 772814,
+        "county_record_source": "Office of Assessor",
+        "matched_address": "420 N Montebello Blvd Montebello 90640",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.01656278982371,
+        "longitude": -118.10573330970367
+      }
+    },
+    "bldg_b7c088d9d4bb4a66": {
+      "building_key": "4730 WOODMAN AVE SHERMAN OAKS CA 91423",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1975302,
+        "county_record_source": "LA City",
+        "matched_address": "4730 Woodman Ave Sherman Oaks 91423",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.15663465743239,
+        "longitude": -118.43104220671044
+      }
+    },
+    "bldg_5ea82578ada95891": {
+      "building_key": "4766 PARK GRANADA CALABASAS CA 91302",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1254808,
+        "county_record_source": "Office of Assessor",
+        "matched_address": "4766 Park Granada Calabasas 91302",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.15394137285869,
+        "longitude": -118.64106267816354
+      }
+    },
+    "bldg_5a1f196b582c474b": {
+      "building_key": "500 E OLIVE AVE BURBANK CA 91501",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 988537,
+        "county_record_source": "Office of Assessor",
+        "matched_address": "500 E Olive Ave Burbank 91501",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.18435373026873,
+        "longitude": -118.30456840795861
+      }
+    },
+    "bldg_06222e49c745f792": {
+      "building_key": "5301 LAUREL CANYON BLVD VALLEY VILLAGE CA 91607",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1767912,
+        "county_record_source": "LA City",
+        "matched_address": "5301 Laurel Canyon Blvd Valley Village 91607",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.16696623545721,
+        "longitude": -118.39671870553686
+      }
+    },
+    "bldg_f4a8d09d7304986a": {
+      "building_key": "6308 WOODMAN AVE VAN NUYS CA 91401",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1725762,
+        "county_record_source": "LA City",
+        "matched_address": "6308 Woodman Ave Van Nuys 91401",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.18524037507233,
+        "longitude": -118.43106189978455
+      }
+    },
+    "bldg_b143eb309242d61d": {
+      "building_key": "6350 LAUREL CANYON BLVD N HOLLYWOOD CA 91606",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1691286,
+        "county_record_source": "LA City",
+        "matched_address": "6350 Laurel Canyon Blvd North Hollywood 91606",
+        "confidence": "standardized",
+        "precision": "address_point",
+        "latitude": 34.18619629634537,
+        "longitude": -118.3963246749477
+      }
+    },
+    "bldg_6d4818599ba545bd": {
+      "building_key": "6819 SEPULVEDA BLVD VAN NUYS CA 91405",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1554055,
+        "county_record_source": "LA City",
+        "matched_address": "6819 Sepulveda Blvd Van Nuys 91405",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.19445504744071,
+        "longitude": -118.46640907507809
+      }
+    },
+    "bldg_1c491e8aa99bd8d3": {
+      "building_key": "7034 VAN NUYS BLVD VAN NUYS CA 91405",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1805404,
+        "county_record_source": "LA City",
+        "matched_address": "7034 Van Nuys Blvd Van Nuys 91405",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.19818928251515,
+        "longitude": -118.44849066186357
+      }
+    },
+    "bldg_ef94967f9e42461d": {
+      "building_key": "7100 HAYVENHURST AVE VAN NUYS CA 91406",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 2014781,
+        "county_record_source": "LA City",
+        "matched_address": "7100 Hayvenhurst Ave Van Nuys 91406",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.19917794553287,
+        "longitude": -118.49222904788034
+      }
+    },
+    "bldg_a44b5b034f272d2f": {
+      "building_key": "7301 TOPANGA CANYON BLVD CANOGA PARK CA 91303",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1642827,
+        "county_record_source": "LA City",
+        "matched_address": "7301 Topanga Canyon Blvd Canoga Park 91303",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.203017837555684,
+        "longitude": -118.60618101525331
+      }
+    },
+    "bldg_14ad86480bd5df75": {
+      "building_key": "7321 ATOLL AVE N HOLLYWOOD CA 91605",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1740510,
+        "county_record_source": "LA City",
+        "matched_address": "7321 Atoll Ave North Hollywood 91605",
+        "confidence": "standardized",
+        "precision": "address_point",
+        "latitude": 34.20359902089324,
+        "longitude": -118.4212014664668
+      }
+    },
+    "bldg_a4382207735eebea": {
+      "building_key": "7335 VAN NUYS BLVD VAN NUYS CA 91405",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1576235,
+        "county_record_source": "LA City",
+        "matched_address": "7335 Van Nuys Blvd Van Nuys 91405",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.20401650569787,
+        "longitude": -118.4490014872177
+      }
+    },
+    "bldg_03fa344fd8eb0bfe": {
+      "building_key": "7345 TOPANGA CANYON BLVD CANOGA PARK CA 91303",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1713322,
+        "county_record_source": "LA City",
+        "matched_address": "7345 Topanga Canyon Blvd Canoga Park 91303",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.20417336654801,
+        "longitude": -118.60617818383474
+      }
+    },
+    "bldg_792de1a42cceb32e": {
+      "building_key": "7355 TOPANGA CANYON BLVD CANOGA PARK CA 91303",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1853751,
+        "county_record_source": "LA City",
+        "matched_address": "7355 Topanga Canyon Blvd Canoga Park 91303",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.20442335294103,
+        "longitude": -118.60620319648825
+      }
+    },
+    "bldg_9e7607c389c11b5e": {
+      "building_key": "8119 FOOTHILL BLVD SUNLAND CA 91040",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1727803,
+        "county_record_source": "LA City",
+        "matched_address": "8119 Foothill Blvd Sunland 91040",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.259850859520206,
+        "longitude": -118.30992546515279
+      }
+    },
+    "bldg_cd367982ea0d1414": {
+      "building_key": "8622 RESEDA BLVD NORTHRIDGE CA 91324",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1680609,
+        "county_record_source": "LA City",
+        "matched_address": "8622 Reseda Blvd Northridge 91324",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.22711213096895,
+        "longitude": -118.53589060368824
+      }
+    },
+    "bldg_9c359cc8d989967f": {
+      "building_key": "8925 SEPULVEDA BLVD N HILLS CA 91343",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1976363,
+        "county_record_source": "LA City",
+        "matched_address": "8925 Sepulveda Blvd North Hills 91343",
+        "confidence": "standardized",
+        "precision": "address_point",
+        "latitude": 34.232641396427425,
+        "longitude": -118.46790183209585
+      }
+    },
+    "bldg_d6d7ac530c133cf3": {
+      "building_key": "9608 VAN NUYS BLVD PANORAMA CITY CA 91402",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1898998,
+        "county_record_source": "LA City",
+        "matched_address": "9608 Van Nuys Blvd Panorama City 91402",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.244725429224836,
+        "longitude": -118.45004390494108
+      }
+    },
+    "bldg_c83eb2a9bee8fa17": {
+      "building_key": "1 N INDIAN HILL BLVD CLAREMONT CA 91711",
+      "reason": "no_address_match"
+    },
+    "bldg_f357f6e764e58803": {
+      "building_key": "100 W BROADWAY GLENDALE CA 91210",
+      "reason": "ambiguous_points"
+    },
+    "bldg_2909bca74ba8eb58": {
+      "building_key": "1001 W CARSON ST TORRANCE CA 90502",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 142796,
+        "county_record_source": "LACO DPW House Numbering Map",
+        "matched_address": "1001 W Carson St Torrance 90502",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 33.83214294175826,
+        "longitude": -118.2929052886257
+      }
+    },
+    "bldg_51eeb036a368076b": {
+      "building_key": "101 S 1ST ST BURBANK CA 91502",
+      "reason": "unit_records_only"
+    },
+    "bldg_7ebc2f909aca6727": {
+      "building_key": "1010 N CENTRAL AVE GLENDALE CA 91202",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 2388717,
+        "county_record_source": "Glendale GIS",
+        "matched_address": "1010 N Central Ave Glendale 91202",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.16009614252794,
+        "longitude": -118.25670679985856
+      }
+    },
+    "bldg_f037552e1040d15d": {
+      "building_key": "10120 CANOGA AVE CHATSWORTH CA 91311",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 2013556,
+        "county_record_source": "LA City",
+        "matched_address": "10120 Canoga Ave Chatsworth 91311",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.254261183085646,
+        "longitude": -118.59714281057062
+      }
+    },
+    "bldg_cf4d44221d4cf1cf": {
+      "building_key": "10272 FOOTHILL BLVD LAKE VIEW TER CA 91342",
+      "reason": "no_address_match"
+    },
+    "bldg_ff48e5bf6d30ee74": {
+      "building_key": "1028 N LAKE AVE PASADENA CA 91104",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 2263852,
+        "county_record_source": "Pasadena GIS",
+        "matched_address": "1028 N Lake Ave Pasadena 91104",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.1637777499676,
+        "longitude": -118.13221365717736
+      }
+    },
+    "bldg_a3c64479a3097bf8": {
+      "building_key": "104 W BEVERLY BLVD MONTEBELLO CA 90640",
+      "reason": "no_address_match"
+    },
+    "bldg_0fd8ea492e5dd2ed": {
+      "building_key": "105 W ALAMEDA AVE BURBANK CA 91502",
+      "reason": "no_address_match"
+    },
+    "bldg_79244ada529cebe1": {
+      "building_key": "1050 A COMMERCE CENTER DR LANCASTER CA 93534",
+      "reason": "no_address_match"
+    },
+    "bldg_98acb25148353628": {
+      "building_key": "1050 E PALMDALE BLVD PALMDALE CA 93550",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 2653995,
+        "county_record_source": "Assessor",
+        "matched_address": "1050 E Palmdale Blvd Palmdale 93550",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.5789433373695,
+        "longitude": -118.11061146898228
+      }
+    },
+    "bldg_b0210cc79eeb523c": {
+      "building_key": "10501 VALLEY BLVD EL MONTE CA 91731",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 2653066,
+        "county_record_source": "Assessor",
+        "matched_address": "10501 Valley Blvd El Monte 91731",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.07714531217112,
+        "longitude": -118.04442884538332
+      }
+    },
+    "bldg_9e4238d2e497fb42": {
+      "building_key": "10523 BURBANK BLVD N HOLLYWOOD CA 91601",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 2011098,
+        "county_record_source": "LA City",
+        "matched_address": "10523 Burbank Blvd North Hollywood 91601",
+        "confidence": "standardized",
+        "precision": "address_point",
+        "latitude": 34.172336404178296,
+        "longitude": -118.36019962802305
+      }
+    },
+    "bldg_e9e917d4dc19f781": {
+      "building_key": "1055 WILSHIRE BLVD LOS ANGELES CA 90017",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1422249,
+        "county_record_source": "LA City",
+        "matched_address": "1055 Wilshire Blvd Los Angeles 90017",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.05232569658749,
+        "longitude": -118.26290922838884
+      }
+    },
+    "bldg_bb05ef6d3f7f699a": {
+      "building_key": "10550 SEPULVEDA BLVD MISSION HILLS CA 91345",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1909840,
+        "county_record_source": "LA City",
+        "matched_address": "10550 Sepulveda Blvd San Fernando 91345",
+        "confidence": "standardized",
+        "precision": "address_point",
+        "latitude": 34.26235835211704,
+        "longitude": -118.46698316621699
+      }
+    },
+    "bldg_0573dfbc4ef6af3f": {
+      "building_key": "10600 SEPULVEDA BLVD MISSION HILLS CA 91345",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1660328,
+        "county_record_source": "LA City",
+        "matched_address": "10600 Sepulveda Blvd San Fernando 91345",
+        "confidence": "standardized",
+        "precision": "address_point",
+        "latitude": 34.262796082296816,
+        "longitude": -118.46697148332596
+      }
+    },
+    "bldg_19e365a6b5038539": {
+      "building_key": "10605 BALBOA BLVD GRANADA HILLS CA 91344",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1538734,
+        "county_record_source": "LA City",
+        "matched_address": "10605 Balboa Blvd Granada Hills 91344",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.26290730372644,
+        "longitude": -118.50274723112837
+      }
+    },
+    "bldg_ab34112e3465891f": {
+      "building_key": "1061W AVE M14 D PALMDALE CA 93551",
+      "reason": "no_address_match"
+    },
+    "bldg_aa7366d7ed2efb6f": {
+      "building_key": "10646 ZELZAH AVE GRANADA HILLS CA 91344",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 2008296,
+        "county_record_source": "LA City",
+        "matched_address": "10646 Zelzah Ave Granada Hills 91344",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.263532175949685,
+        "longitude": -118.52315844233162
+      }
+    },
+    "bldg_af582e1a852adfe8": {
+      "building_key": "10660 WHITE OAK AVE GRANADA HILLS CA 91344",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1593105,
+        "county_record_source": "LA City",
+        "matched_address": "10660 White Oak Ave Granada Hills 91344",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.26397706388922,
+        "longitude": -118.51951386705397
+      }
+    },
+    "bldg_41e4cd530b281b84": {
+      "building_key": "107 S FAIR OAKS AVE PASADENA CA 91105",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 2334974,
+        "county_record_source": "Pasadena GIS",
+        "matched_address": "107 S Fair Oaks Ave Pasadena 91105",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.143884877330684,
+        "longitude": -118.15065034657238
+      }
+    },
+    "bldg_1aaede4ecb577de2": {
+      "building_key": "10700 BURBANK BLVD N HOLLYWOOD CA 91601",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1573034,
+        "county_record_source": "LA City",
+        "matched_address": "10700 Burbank Blvd North Hollywood 91601",
+        "confidence": "standardized",
+        "precision": "address_point",
+        "latitude": 34.171991047093385,
+        "longitude": -118.3640154030854
+      }
+    },
+    "bldg_9962d971a80f9377": {
+      "building_key": "10999 RIVERSIDE DR N HOLLYWOOD CA 91602",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1351036,
+        "county_record_source": "LA City",
+        "matched_address": "10999 Riverside Dr North Hollywood 91602",
+        "confidence": "standardized",
+        "precision": "address_point",
+        "latitude": 34.15254616820649,
+        "longitude": -118.36995603313241
+      }
+    },
+    "bldg_0fc77f62457f7d24": {
+      "building_key": "11080 ARTESIA BLVD CERRITOS CA 90703",
+      "reason": "unit_records_only"
+    },
+    "bldg_f5f3da30623b64b3": {
+      "building_key": "1109 W SAN BERNARDINO RD COVINA CA 91722",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 752215,
+        "county_record_source": "Office of Assessor",
+        "matched_address": "1109 W San Bernardino Rd Covina 91722",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.0890708609177,
+        "longitude": -117.9124984429051
+      }
+    },
+    "bldg_54d61967f8e28365": {
+      "building_key": "1110 N WESTERN AVE LOS ANGELES CA 90029",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1956474,
+        "county_record_source": "LA City",
+        "matched_address": "1110 N Western Ave Los Angeles 90029",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.09130109478196,
+        "longitude": -118.30870658080408
+      }
+    },
+    "bldg_d45e70815b613bcc": {
+      "building_key": "11100 VALLEY BLVD EL MONTE CA 91731",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 805837,
+        "county_record_source": "Office of Assessor",
+        "matched_address": "11100 Valley Blvd El Monte 91731",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.07351102504231,
+        "longitude": -118.03365544874356
+      }
+    },
+    "bldg_cd6e8ca5f0edc1e5": {
+      "building_key": "1112 1 2 N PACIFIC AVE GLENDALE CA 91202",
+      "reason": "no_address_match"
+    },
+    "bldg_ad011af23bd586aa": {
+      "building_key": "11145 TAMPA AVE NORTHRIDGE CA 91326",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1726980,
+        "county_record_source": "LA City",
+        "matched_address": "11145 Tampa Ave Porter Ranch 91326",
+        "confidence": "standardized",
+        "precision": "address_point",
+        "latitude": 34.2734213583041,
+        "longitude": -118.55728667475563
+      }
+    },
+    "bldg_3d1882d076511ab4": {
+      "building_key": "1115 N HOLLYWOOD WAY BURBANK CA 91505",
+      "reason": "no_address_match"
+    },
+    "bldg_6ac67e3427cf4488": {
+      "building_key": "1126 N GRAND AVE COVINA CA 91724",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 703882,
+        "county_record_source": "Office of Assessor",
+        "matched_address": "1126 N Grand Ave Covina 91724",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.10010215313259,
+        "longitude": -117.87227341588343
+      }
+    },
+    "bldg_72755812c140e65d": {
+      "building_key": "11260 WILBUR AVE PORTER RANCH CA 91326",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1501278,
+        "county_record_source": "LA City",
+        "matched_address": "11260 Wilbur Ave Porter Ranch 91326",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.27473990506438,
+        "longitude": -118.5468432672922
+      }
+    },
+    "bldg_a4421b375ec72a31": {
+      "building_key": "11336 CAMARILLO ST N HOLLYWOOD CA 91602",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1334950,
+        "county_record_source": "LA City",
+        "matched_address": "11336 Camarillo St North Hollywood 91602",
+        "confidence": "standardized",
+        "precision": "address_point",
+        "latitude": 34.1574927166199,
+        "longitude": -118.37785762762745
+      }
+    },
+    "bldg_5f8f6b80293a9117": {
+      "building_key": "11401 CARSON ST LAKEWOOD CA 90715",
+      "reason": "unit_records_only"
+    },
+    "bldg_bb6a3f5c19a12a22": {
+      "building_key": "11507 OXNARD ST N HOLLYWOOD CA 91606",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1710111,
+        "county_record_source": "LA City",
+        "matched_address": "11507 Oxnard St North Hollywood 91606",
+        "confidence": "standardized",
+        "precision": "address_point",
+        "latitude": 34.179601252566776,
+        "longitude": -118.3827234162762
+      }
+    },
+    "bldg_5ad9c735a3b04b08": {
+      "building_key": "11565 LAUREL CANYON BLVD SAN FERNANDO CA 91340",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 2033869,
+        "county_record_source": "LA City",
+        "matched_address": "11565 Laurel Canyon Blvd San Fernando 91340",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.27996278859828,
+        "longitude": -118.45515836722063
+      }
+    },
+    "bldg_9c478f05a8c90f3c": {
+      "building_key": "11755 VICTORY BLVD 103 N HOLLYWOOD CA 91606",
+      "reason": "community_mismatch"
+    },
+    "bldg_cb0f46146a255ac1": {
+      "building_key": "11911 ARTESIA BLVD CERRITOS CA 90701",
+      "reason": "no_address_match"
+    },
+    "bldg_74323da460e83f38": {
+      "building_key": "120 S VICTORY BLVD BURBANK CA 91502",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 896114,
+        "county_record_source": "Office of Assessor",
+        "matched_address": "120 S Victory Blvd Burbank 91502",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.17312067935482,
+        "longitude": -118.31525651246508
+      }
+    },
+    "bldg_e5427cdb37ebc6a7": {
+      "building_key": "1201 N PACIFIC AVE GLENDALE CA 91202",
+      "reason": "unit_records_only"
+    },
+    "bldg_175e6f3497f03c24": {
+      "building_key": "12015 MORA DR SANTA FE SPRINGS CA 90670",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1205723,
+        "county_record_source": "Office of Assessor",
+        "matched_address": "12015 Mora Dr Santa Fe Springs 90670",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 33.9412446342238,
+        "longitude": -118.07779634209753
+      }
+    },
+    "bldg_cadf0c48d7cd5802": {
+      "building_key": "121 W WHITTIER BLVD LA HABRA CA 90631",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 2632032,
+        "county_record_source": "La Habra",
+        "matched_address": "121 W Whittier Blvd La Habra 90631",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 33.93952497237574,
+        "longitude": -117.94678225083449
+      }
+    },
+    "bldg_952f5861a399931a": {
+      "building_key": "12140 ARTESIA BLVD 214 ARTESIA CA 90701",
+      "reason": "community_mismatch"
+    },
+    "bldg_44fc66839501d85a": {
+      "building_key": "12158 HAMLIN ST N HOLLYWOOD CA 91606",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1628632,
+        "county_record_source": "LA City",
+        "matched_address": "12158 Hamlin St North Hollywood 91606",
+        "confidence": "standardized",
+        "precision": "address_point",
+        "latitude": 34.18838205790803,
+        "longitude": -118.39848023487832
+      }
+    },
+    "bldg_18ab2a29c15518ce": {
+      "building_key": "1217 BUENA VISTA ST DUARTE CA 91010",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1136753,
+        "county_record_source": "Office of Assessor",
+        "matched_address": "1217 Buena Vista St Duarte 91010",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.13905824530862,
+        "longitude": -117.97792165551533
+      }
+    },
+    "bldg_2d07e15eb2cd126f": {
+      "building_key": "1220 W GLENOAKS BLVD GLENDALE CA 91201",
+      "reason": "unit_records_only"
+    },
+    "bldg_71d08712e8373e0e": {
+      "building_key": "12241 FIRESTONE BLVD AB NORWALK CA 90650",
+      "reason": "community_mismatch"
+    },
+    "bldg_101235d88c38b1ef": {
+      "building_key": "12254 BELLFLOWER BLVD DOWNEY CA 90242",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1234014,
+        "county_record_source": "Office of Assessor",
+        "matched_address": "12254 Bellflower Blvd Downey 90242",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 33.92143825591594,
+        "longitude": -118.12465014152626
+      }
+    },
+    "bldg_f2193516f7e39f67": {
+      "building_key": "12295 OSBORNE ST PACOIMA CA 91331",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1901581,
+        "county_record_source": "LA City",
+        "matched_address": "12295 Osborne St Pacoima 91331",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.26568084851864,
+        "longitude": -118.40188763753841
+      }
+    },
+    "bldg_4a77c4b1fd540f18": {
+      "building_key": "12403 SLAUSON AVE WHITTIER CA 90606",
+      "reason": "no_address_match"
+    },
+    "bldg_13d6cb41f7333025": {
+      "building_key": "12440 FIRESTONE BLVD NORWALK CA 90650",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 2654991,
+        "county_record_source": "Assessor",
+        "matched_address": "12440 Firestone Blvd Norwalk 90650",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 33.90504255193589,
+        "longitude": -118.0686411941873
+      }
+    },
+    "bldg_312766da336b9ecc": {
+      "building_key": "1250 E WALNUT ST PASADENA CA 91106",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 2134879,
+        "county_record_source": "Pasadena GIS",
+        "matched_address": "1250 E Walnut St Pasadena 91106",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.14943791658867,
+        "longitude": -118.12472639681103
+      }
+    },
+    "bldg_420d3bc0c1df0eae": {
+      "building_key": "12500 RIVERSIDE DR VALLEY VILLAGE CA 91607",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1742324,
+        "county_record_source": "LA City",
+        "matched_address": "12500 Riverside Dr Valley Village 91607",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.15744717245146,
+        "longitude": -118.4058888831548
+      }
+    },
+    "bldg_1a8ac3ada6ad57a3": {
+      "building_key": "12501 CHANDLER BLVD VALLEY VILLAGE CA 91607",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1550721,
+        "county_record_source": "LA City",
+        "matched_address": "12501 Chandler Blvd Valley Village 91607",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.168809411052514,
+        "longitude": -118.40570171127297
+      }
+    },
+    "bldg_b9d65adc17eacc20": {
+      "building_key": "12750 CENTER CT DR S CERRITOS CA 90703",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 33519,
+        "county_record_source": "LACO DPW Add",
+        "matched_address": "12750 Center Court Dr S Cerritos 90703",
+        "confidence": "standardized",
+        "precision": "address_point",
+        "latitude": 33.86762540251025,
+        "longitude": -118.06047376795475
+      }
+    },
+    "bldg_1f900fd940afbb92": {
+      "building_key": "13047 ARTESIA BLVD CERRITOS CA 90703",
+      "reason": "unit_records_only"
+    },
+    "bldg_156140da62a0bb62": {
+      "building_key": "13273 VENTURA BLVD STUDIO CITY CA 91604",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1328919,
+        "county_record_source": "LA City",
+        "matched_address": "13273 Ventura Blvd Studio City 91604",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.146681356996865,
+        "longitude": -118.42211959430007
+      }
+    },
+    "bldg_ba4b801e174d5b76": {
+      "building_key": "133 N ALTADENA DR PASADENA CA 91107",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 2385594,
+        "county_record_source": "Pasadena GIS",
+        "matched_address": "133 N Altadena Dr Pasadena 91107",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.148582403994915,
+        "longitude": -118.0994749972584
+      }
+    },
+    "bldg_ea804e6c279c65d6": {
+      "building_key": "1343 N GRAND AVE COVINA CA 91724",
+      "reason": "no_address_match"
+    },
+    "bldg_552cb7cae3e9e23e": {
+      "building_key": "13523 VENTURA BLVD SHERMAN OAKS CA 91423",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1618039,
+        "county_record_source": "LA City",
+        "matched_address": "13523 Ventura Blvd Sherman Oaks 91423",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.1476235683153,
+        "longitude": -118.42779529244274
+      }
+    },
+    "bldg_91a2a27899dde63b": {
+      "building_key": "13527 VENTURA BLVD SHERMAN OAKS CA 91423",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1632006,
+        "county_record_source": "LA City",
+        "matched_address": "13527 Ventura Blvd Sherman Oaks 91423",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.14763301530032,
+        "longitude": -118.42784351058823
+      }
+    },
+    "bldg_86de380de55ea46b": {
+      "building_key": "13615 VICTORY BLVD VAN NUYS CA 91401",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1995559,
+        "county_record_source": "LA City",
+        "matched_address": "13615 Victory Blvd Van Nuys 91401",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.18684179997593,
+        "longitude": -118.4295897404437
+      }
+    },
+    "bldg_64c591372555c791": {
+      "building_key": "13658 HAWTHORNE BLVD HAWTHORNE CA 90250",
+      "reason": "no_address_match"
+    },
+    "bldg_ff04727c5224c696": {
+      "building_key": "13721 VENTURA BLVD SHERMAN OAKS CA 91423",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1649473,
+        "county_record_source": "LA City",
+        "matched_address": "13721 Ventura Blvd Sherman Oaks 91423",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.148552834270305,
+        "longitude": -118.43204724078423
+      }
+    },
+    "bldg_4951a6b7ac472ee4": {
+      "building_key": "13758 VICTORY BLVD 200 VAN NUYS CA 91401",
+      "reason": "community_mismatch"
+    },
+    "bldg_2770e8823586574e": {
+      "building_key": "14015 VAN NESS AVE GARDENA CA 90249",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 2090306,
+        "county_record_source": "Assessor",
+        "matched_address": "14015 Van Ness Ave Gardena 90249",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 33.90402648214751,
+        "longitude": -118.31810552161174
+      }
+    },
+    "bldg_d98b8bf8fe39be07": {
+      "building_key": "1403 LOMITA BLVD HARBOR CITY CA 90710",
+      "reason": "no_address_match"
+    },
+    "bldg_b408608f72114fb2": {
+      "building_key": "140N VICTORY BLVD BURBANK CA 91502",
+      "reason": "no_address_match"
+    },
+    "bldg_1f61ebfe20e9533a": {
+      "building_key": "14112 VICTORY BLVD VAN NUYS CA 91401",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1784039,
+        "county_record_source": "LA City",
+        "matched_address": "14112 Victory Blvd Van Nuys 91401",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.18650454115728,
+        "longitude": -118.44058993689113
+      }
+    },
+    "bldg_6ce5809fdaf6c8ac": {
+      "building_key": "1414 S AZUSA AVE W COVINA CA 91791",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 504349,
+        "county_record_source": "Office of Assessor",
+        "matched_address": "1414 S Azusa Ave West Covina 91791",
+        "confidence": "standardized",
+        "precision": "address_point",
+        "latitude": 34.04829267729854,
+        "longitude": -117.90636592411207
+      }
+    },
+    "bldg_1d3389976f2d4808": {
+      "building_key": "1419 N SAN FERNANDO BLVD BURBANK CA 91504",
+      "reason": "no_address_match"
+    },
+    "bldg_03d6515a45ebc130": {
+      "building_key": "1420 N CLAREMONT BLVD CLAREMONT CA 91711",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 827704,
+        "county_record_source": "Office of Assessor",
+        "matched_address": "1420 N Claremont Blvd Claremont 91711",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.109328785868506,
+        "longitude": -117.70169523851861
+      }
+    },
+    "bldg_0b7cdde1aba64cc6": {
+      "building_key": "1425 W BURBANK BLVD BURBANK CA 91506",
+      "reason": "no_address_match"
+    },
+    "bldg_8255460549e9b995": {
+      "building_key": "14260 VENTURA BLVD SHERMAN OAKS CA 91423",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1841267,
+        "county_record_source": "LA City",
+        "matched_address": "14260 Ventura Blvd Sherman Oaks 91423",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.14996850953471,
+        "longitude": -118.44408329923859
+      }
+    },
+    "bldg_7c196f316a66b4f4": {
+      "building_key": "144 N GLENDALE AVE GLENDALE CA 91206",
+      "reason": "unit_records_only"
+    },
+    "bldg_57ee14e9a53f2349": {
+      "building_key": "14416 HAMLIN ST VAN NUYS CA 91401",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1406087,
+        "county_record_source": "LA City",
+        "matched_address": "14416 Hamlin St Van Nuys 91401",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.18847312055386,
+        "longitude": -118.44722252122688
+      }
+    },
+    "bldg_f954b60ba1882a52": {
+      "building_key": "14429 VENTURA BLVD SHERMAN OAKS CA 91423",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 2483569,
+        "county_record_source": "LA City",
+        "matched_address": "14429 Ventura Blvd Sherman Oaks 91423",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.15129245949972,
+        "longitude": -118.44745131260358
+      }
+    },
+    "bldg_f2bf170cef4dc824": {
+      "building_key": "14515 VALLEY VIEW AVE SANTA FE SPRINGS CA 90670",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1232587,
+        "county_record_source": "Office of Assessor",
+        "matched_address": "14515 Valley View Ave Santa Fe Springs 90670",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 33.89965241336193,
+        "longitude": -118.030176284429
+      }
+    },
+    "bldg_046d7c14ebb750ec": {
+      "building_key": "14545 VICTORY BLVD VAN NUYS CA 91411",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1633643,
+        "county_record_source": "LA City",
+        "matched_address": "14545 Victory Blvd Van Nuys 91411",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.18686212876341,
+        "longitude": -118.4502702543085
+      }
+    },
+    "bldg_551c1bb2e5a7da6f": {
+      "building_key": "14553 DELANO ST VAN NUYS CA 91411",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1682557,
+        "county_record_source": "LA City",
+        "matched_address": "14553 Delano St Van Nuys 91411",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.182792647133944,
+        "longitude": -118.45051084985056
+      }
+    },
+    "bldg_a460f6b22e4dfd7e": {
+      "building_key": "146 N SAN FERNANDO BLVD BURBANK CA 91502",
+      "reason": "no_address_match"
+    },
+    "bldg_99af74262c52d988": {
+      "building_key": "14621 TITUS ST PANORAMA CITY CA 91402",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1696245,
+        "county_record_source": "LA City",
+        "matched_address": "14621 Titus St Panorama City 91402",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.219864104852974,
+        "longitude": -118.45165251426513
+      }
+    },
+    "bldg_b54c4f9e7ad30b03": {
+      "building_key": "14712 PIPELINE AVE CHINO HILLS CA 91709",
+      "reason": "no_address_match"
+    },
+    "bldg_8e2899fce56810f7": {
+      "building_key": "1500 CRENSHAW BLVD TORRANCE CA 90501",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 526117,
+        "county_record_source": "City Of Torrance",
+        "matched_address": "1500 Crenshaw Blvd Torrance 90501",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 33.83363547473154,
+        "longitude": -118.3283736713636
+      }
+    },
+    "bldg_ed0269f9f2a4a0ad": {
+      "building_key": "15050 IMPERIAL HWY LA MIRADA CA 90638",
+      "reason": "no_address_match"
+    },
+    "bldg_82d4d8496b83c96d": {
+      "building_key": "151N SAN VICENTE BLVD 209 BEVERLY HILLS CA 90211",
+      "reason": "no_address_match"
+    },
+    "bldg_668e51ec5bdb141f": {
+      "building_key": "15317 PARAMOUNT BLVD 205 PARAMOUNT CA 90723",
+      "reason": "community_mismatch"
+    },
+    "bldg_e43d899746a341f5": {
+      "building_key": "15335 FAIRFIELD RANCH RD CHINO HILLS CA 91709",
+      "reason": "no_address_match"
+    },
+    "bldg_32b1ff713532de51": {
+      "building_key": "1535 W MERCED AVE W COVINA CA 91790",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1104272,
+        "county_record_source": "Office of Assessor",
+        "matched_address": "1535 W Merced Ave West Covina 91790",
+        "confidence": "standardized",
+        "precision": "address_point",
+        "latitude": 34.06339099707186,
+        "longitude": -117.94778321013519
+      }
+    },
+    "bldg_ad615559f5af8ccb": {
+      "building_key": "1543 E PALMDALE BLVD PALMDALE CA 93550",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 2653569,
+        "county_record_source": "Assessor",
+        "matched_address": "1543 E Palmdale Blvd Palmdale 93550",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.580142338877444,
+        "longitude": -118.10150221196683
+      }
+    },
+    "bldg_87068f06ee7ca068": {
+      "building_key": "15455 SAN FERNANDO BLVD MISSION HILLS CA 91345",
+      "reason": "no_address_match"
+    },
+    "bldg_9ba6f68c8f5bc93f": {
+      "building_key": "15477 VENTURA BLVD SHERMAN OAKS CA 91403",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1323805,
+        "county_record_source": "LA City",
+        "matched_address": "15477 Ventura Blvd Sherman Oaks 91403",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.154841655507425,
+        "longitude": -118.47127089446673
+      }
+    },
+    "bldg_af0e155fc4fd8895": {
+      "building_key": "15500 ERWIN ST VAN NUYS CA 91411",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1406625,
+        "county_record_source": "LA City",
+        "matched_address": "15500 Erwin St Van Nuys 91411",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.182807049677585,
+        "longitude": -118.47087388618324
+      }
+    },
+    "bldg_0f7e4ee1c42bb70d": {
+      "building_key": "15600 DEVONSHIRE ST GRANADA HILLS CA 91344",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1562333,
+        "county_record_source": "LA City",
+        "matched_address": "15600 Devonshire St Granada Hills 91344",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.25717862196941,
+        "longitude": -118.47297617596173
+      }
+    },
+    "bldg_da4f1a2f80c35117": {
+      "building_key": "1575 N LAKE AVE PASADENA CA 91104",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 2180098,
+        "county_record_source": "Pasadena GIS",
+        "matched_address": "1575 N Lake Ave Pasadena 91104",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.17303446091242,
+        "longitude": -118.13269341181274
+      }
+    },
+    "bldg_34dbc768cb932f19": {
+      "building_key": "15821 VENTURA BLVD ENCINO CA 91436",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1360514,
+        "county_record_source": "LA City",
+        "matched_address": "15821 Ventura Blvd Encino 91436",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.15584632559221,
+        "longitude": -118.47812977498522
+      }
+    },
+    "bldg_4a601f4a44d9b1b8": {
+      "building_key": "15826 VENTURA BLVD ENCINO CA 91436",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1336358,
+        "county_record_source": "LA City",
+        "matched_address": "15826 Ventura Blvd Encino 91436",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.1551456161399,
+        "longitude": -118.47854307361666
+      }
+    },
+    "bldg_1f523e111801f032": {
+      "building_key": "159 E HUNTINGTON DR ARCADIA CA 91006",
+      "reason": "no_address_match"
+    },
+    "bldg_844d41988a2ab84d": {
+      "building_key": "15904 STRATHERN ST VAN NUYS CA 91406",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1908055,
+        "county_record_source": "LA City",
+        "matched_address": "15904 Strathern St Van Nuys 91406",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.2155926700199,
+        "longitude": -118.47975718548388
+      }
+    },
+    "bldg_7455db71f8a7e8b9": {
+      "building_key": "16102B HART ST VAN NUYS CA 91406",
+      "reason": "no_address_match"
+    },
+    "bldg_1d543e656550fdd6": {
+      "building_key": "16110B HART ST VAN NUYS CA 91406",
+      "reason": "no_address_match"
+    },
+    "bldg_ded4f22fca6e8968": {
+      "building_key": "16114 HART ST VAN NUYS CA 91406",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1691819,
+        "county_record_source": "LA City",
+        "matched_address": "16114 Hart St Van Nuys 91406",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.19742825299982,
+        "longitude": -118.48424662416744
+      }
+    },
+    "bldg_d71748f21856aaa0": {
+      "building_key": "16159 COHASSET ST VAN NUYS CA 91406",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1925630,
+        "county_record_source": "LA City",
+        "matched_address": "16159 Cohasset St Van Nuys 91406",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.20673111841688,
+        "longitude": -118.48563744523146
+      }
+    },
+    "bldg_2e4201b106e0ecb6": {
+      "building_key": "1619 W GARVEY AVE N W COVINA CA 91790",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 950487,
+        "county_record_source": "Office of Assessor",
+        "matched_address": "1619 W Garvey Ave N West Covina 91790",
+        "confidence": "standardized",
+        "precision": "address_point",
+        "latitude": 34.07286344642549,
+        "longitude": -117.94048874063013
+      }
+    },
+    "bldg_30ac4f274bbdb012": {
+      "building_key": "16446 WOODRUFF AVE BELLFLOWER CA 90706",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 478302,
+        "county_record_source": "Office of Assessor",
+        "matched_address": "16446 Woodruff Ave Bellflower 90706",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 33.88389890601517,
+        "longitude": -118.11706125298966
+      }
+    },
+    "bldg_4e84eb2e494b9aae": {
+      "building_key": "16501 SHERMAN WAY VAN NUYS CA 91406",
+      "reason": "no_address_match"
+    },
+    "bldg_d9d06a31f8b2751f": {
+      "building_key": "16555 SHERMAN WAY VAN NUYS CA 91406",
+      "reason": "no_address_match"
+    },
+    "bldg_b4b1015b9d981318": {
+      "building_key": "16661 VENTURA BLVD ENCINO CA 91436",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1352809,
+        "county_record_source": "LA City",
+        "matched_address": "16661 Ventura Blvd Encino 91436",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.15837792685004,
+        "longitude": -118.49646253099026
+      }
+    },
+    "bldg_e896a860f5c37458": {
+      "building_key": "1680 S GARFIELD AVE ALHAMBRA CA 91801",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1016349,
+        "county_record_source": "Office of Assessor",
+        "matched_address": "1680 S Garfield Ave Alhambra 91801",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.07507017233783,
+        "longitude": -118.12263518449669
+      }
+    },
+    "bldg_a0192ee8b5d31086": {
+      "building_key": "16830 VENTURA BLVD ENCINO CA 91436",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1324479,
+        "county_record_source": "LA City",
+        "matched_address": "16830 Ventura Blvd Encino 91436",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.15886552422297,
+        "longitude": -118.50032875422433
+      }
+    },
+    "bldg_cb9f982e1b830dcc": {
+      "building_key": "17000 VENTURA BLVD ENCINO CA 91316",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1330056,
+        "county_record_source": "LA City",
+        "matched_address": "17000 Ventura Blvd Encino 91316",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.15959169125604,
+        "longitude": -118.50356303969596
+      }
+    },
+    "bldg_f53e5b424ddb6319": {
+      "building_key": "17037 CHATSWORTH ST GRANADA HILLS CA 91344",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 2038047,
+        "county_record_source": "LA City",
+        "matched_address": "17037 Chatsworth St Granada Hills 91344",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.264981269246896,
+        "longitude": -118.50366788333764
+      }
+    },
+    "bldg_7150ff663668e25f": {
+      "building_key": "171 N ALTADENA DR PASADENA CA 91107",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 2375578,
+        "county_record_source": "Pasadena GIS",
+        "matched_address": "171 N Altadena Dr Pasadena 91107",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.149141841951035,
+        "longitude": -118.09885359110889
+      }
+    },
+    "bldg_57ff1d8cb213f9ad": {
+      "building_key": "17100 PIONEER BLVD ARTESIA CA 90701",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 2623085,
+        "county_record_source": "Assessor",
+        "matched_address": "17100 Pioneer Blvd Artesia 90701",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 33.87583081676013,
+        "longitude": -118.08088330668609
+      }
+    },
+    "bldg_1b3511f812086784": {
+      "building_key": "1711W TEMPLE ST 3614 LOS ANGELES CA 90026",
+      "reason": "no_address_match"
+    },
+    "bldg_cd66ed710cb0041e": {
+      "building_key": "17141 VENTURA BLVD ENCINO CA 91316",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1317621,
+        "county_record_source": "LA City",
+        "matched_address": "17141 Ventura Blvd Encino 91316",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.16061063244716,
+        "longitude": -118.506824008231
+      }
+    },
+    "bldg_8a935b0a6eeab667": {
+      "building_key": "17337 VENTURA BLVD ENCINO CA 91316",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1353105,
+        "county_record_source": "LA City",
+        "matched_address": "17337 Ventura Blvd Encino 91316",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.16117789277696,
+        "longitude": -118.51075838485322
+      }
+    },
+    "bldg_ac31746a2c6077ff": {
+      "building_key": "1739 TERMINO AVE LONG BEACH CA 90804",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1094721,
+        "county_record_source": "Long Beach GIS",
+        "matched_address": "1739 Termino Ave Long Beach 90804",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 33.78887484302109,
+        "longitude": -118.14609243248138
+      }
+    },
+    "bldg_21af20a140cd381d": {
+      "building_key": "17425 CHATSWORTH ST GRANADA HILLS CA 91344",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 2044665,
+        "county_record_source": "LA City",
+        "matched_address": "17425 Chatsworth St Granada Hills 91344",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.26522321547555,
+        "longitude": -118.51424902528758
+      }
+    },
+    "bldg_cf3c83ee8cbde8c0": {
+      "building_key": "17620 SHERMAN WAY VAN NUYS CA 91406",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 2039021,
+        "county_record_source": "LA City",
+        "matched_address": "17620 Sherman Wy Van Nuys 91406",
+        "confidence": "standardized",
+        "precision": "address_point",
+        "latitude": 34.20092458012782,
+        "longitude": -118.5170094330063
+      }
+    },
+    "bldg_7e32a0a21d8ce31b": {
+      "building_key": "17785 CENTER CT DR N CERRITOS CA 90703",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 349850,
+        "county_record_source": "LACO DPW Add",
+        "matched_address": "17785 Center Court Dr N Cerritos 90703",
+        "confidence": "standardized",
+        "precision": "address_point",
+        "latitude": 33.868606609201876,
+        "longitude": -118.06154287209625
+      }
+    },
+    "bldg_f9a10976bfe3b9c8": {
+      "building_key": "17817 CHATSWORTH ST GRANADA HILLS CA 91344",
+      "reason": "no_address_match"
+    },
+    "bldg_e13a99709dd5320a": {
+      "building_key": "18075 VENTURA BLVD ENCINO CA 91316",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1336443,
+        "county_record_source": "LA City",
+        "matched_address": "18075 Ventura Blvd Encino 91316",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.16543348114019,
+        "longitude": -118.52660780855196
+      }
+    },
+    "bldg_54df8c532683a62d": {
+      "building_key": "18107 SHERMAN WAY RESEDA CA 91335",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1636470,
+        "county_record_source": "LA City",
+        "matched_address": "18107 Sherman Wy Reseda 91335",
+        "confidence": "standardized",
+        "precision": "address_point",
+        "latitude": 34.2013448836985,
+        "longitude": -118.52780128127792
+      }
+    },
+    "bldg_50a81e994e746622": {
+      "building_key": "1818 S WESTERN AVE LOS ANGELES CA 90006",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1685558,
+        "county_record_source": "LA City",
+        "matched_address": "1818 S Western Ave Los Angeles 90006",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.04119494472641,
+        "longitude": -118.30881735339
+      }
+    },
+    "bldg_2568e5bbcc2b436c": {
+      "building_key": "1821 W VERDUGO AVE BURBANK CA 91506",
+      "reason": "no_address_match"
+    },
+    "bldg_7b0afa058027ef1a": {
+      "building_key": "183 N HILL AVE PASADENA CA 91106",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 2194170,
+        "county_record_source": "Pasadena GIS",
+        "matched_address": "183 N Hill Ave Pasadena 91106",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.14921336947289,
+        "longitude": -118.12178874159233
+      }
+    },
+    "bldg_e76d5975a03dd9e8": {
+      "building_key": "18345 VENTURA BLVD TARZANA CA 91356",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1884748,
+        "county_record_source": "LA City",
+        "matched_address": "18345 Ventura Blvd Tarzana 91356",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.167631101310576,
+        "longitude": -118.53237229240895
+      }
+    },
+    "bldg_0e384bdc1b6c1115": {
+      "building_key": "18401 BURBANK BLVD TARZANA CA 91356",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 2054617,
+        "county_record_source": "LA City",
+        "matched_address": "18401 Burbank Blvd Tarzana 91356",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.171941163795715,
+        "longitude": -118.53359066934603
+      }
+    },
+    "bldg_eb662c4e6286c24e": {
+      "building_key": "18455 BURBANK BLVD TARZANA CA 91356",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1850421,
+        "county_record_source": "LA City",
+        "matched_address": "18455 Burbank Blvd Tarzana 91356",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.17251591008622,
+        "longitude": -118.53556149561122
+      }
+    },
+    "bldg_6750b0c0f132b907": {
+      "building_key": "18531 ROSCOE BLVD NORTHRIDGE CA 91324",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1889801,
+        "county_record_source": "LA City",
+        "matched_address": "18531 Roscoe Blvd Northridge 91324",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.22087649470565,
+        "longitude": -118.53745990663604
+      }
+    },
+    "bldg_08725d7c4fb7346f": {
+      "building_key": "18623 VENTURA BLVD TARZANA CA 91356",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1983562,
+        "county_record_source": "LA City",
+        "matched_address": "18623 Ventura Blvd Tarzana 91356",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.170217394700835,
+        "longitude": -118.53913707598002
+      }
+    },
+    "bldg_36da6b79efe753cf": {
+      "building_key": "18645 SHERMAN WAY RESEDA CA 91335",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1438960,
+        "county_record_source": "LA City",
+        "matched_address": "18645 Sherman Wy Reseda 91335",
+        "confidence": "standardized",
+        "precision": "address_point",
+        "latitude": 34.20131302282487,
+        "longitude": -118.54039003035342
+      }
+    },
+    "bldg_e1654b3345827e2e": {
+      "building_key": "18663 VENTURA BLVD TARZANA CA 91356",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 2060005,
+        "county_record_source": "LA City",
+        "matched_address": "18663 Ventura Blvd Tarzana 91356",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.170876745556804,
+        "longitude": -118.54014688676762
+      }
+    },
+    "bldg_ceeff6fbb9a2b0c8": {
+      "building_key": "18711 SHERMAN WAY RESEDA CA 91335",
+      "reason": "unit_records_only"
+    },
+    "bldg_524e2cd3b53a72b9": {
+      "building_key": "18747 SHERMAN WAY RESEDA CA 91335",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1611424,
+        "county_record_source": "LA City",
+        "matched_address": "18747 Sherman Wy Reseda 91335",
+        "confidence": "standardized",
+        "precision": "address_point",
+        "latitude": 34.20128554104266,
+        "longitude": -118.54204611325966
+      }
+    },
+    "bldg_702c61dd28e68e2a": {
+      "building_key": "1901 S ATLANTIC BLVD MONTEREY PARK CA 91754",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1249994,
+        "county_record_source": "Monterey Park",
+        "matched_address": "1901 S Atlantic Blvd Monterey Park 91754",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.04204872894984,
+        "longitude": -118.14203932277343
+      }
+    },
+    "bldg_b09528952fddf2c9": {
+      "building_key": "19350 BUSINESS CENTER DR NORTHRIDGE CA 91324",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1297760,
+        "county_record_source": "LA City",
+        "matched_address": "19350 Business Center Dr Northridge 91324",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.23093037971173,
+        "longitude": -118.55538010756167
+      }
+    },
+    "bldg_bd2235169d9d6e12": {
+      "building_key": "19531 VENTURA BLVD TARZANA CA 91356",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1460178,
+        "county_record_source": "LA City",
+        "matched_address": "19531 Ventura Blvd Tarzana 91356",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.1729750252255,
+        "longitude": -118.5590273228291
+      }
+    },
+    "bldg_30cf1d4a768ce982": {
+      "building_key": "19608 CAMINO DE ROSA WALNUT CA 91789",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 455766,
+        "county_record_source": "Office of Assessor",
+        "matched_address": "19608 Camino De Rosa Walnut 91789",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.00350254683998,
+        "longitude": -117.8732704251871
+      }
+    },
+    "bldg_bbc0fc8b3057a762": {
+      "building_key": "19625 VENTURA BLVD TARZANA CA 91356",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1701889,
+        "county_record_source": "LA City",
+        "matched_address": "19625 Ventura Blvd Tarzana 91356",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.17288860137579,
+        "longitude": -118.56097114195782
+      }
+    },
+    "bldg_aabfa64c7fe1ae7f": {
+      "building_key": "19626 VENTURA BLVD TARZANA CA 91356",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1744589,
+        "county_record_source": "LA City",
+        "matched_address": "19626 Ventura Blvd Tarzana 91356",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.1724812289549,
+        "longitude": -118.56097668487924
+      }
+    },
+    "bldg_f12818dbc33d4c09": {
+      "building_key": "19725 SHERMAN WAY CANOGA PARK CA 91306",
+      "reason": "community_mismatch"
+    },
+    "bldg_c3b633d33ab53654": {
+      "building_key": "19725 SHERMAN WAY WINNETKA CA 91306",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1560984,
+        "county_record_source": "LA City",
+        "matched_address": "19725 Sherman Wy Winnetka 91306",
+        "confidence": "standardized",
+        "precision": "address_point",
+        "latitude": 34.20129810353178,
+        "longitude": -118.56314481140237
+      }
+    },
+    "bldg_3e58a69f5ed3ba19": {
+      "building_key": "19737 VENTURA BLVD WOODLAND HILLS CA 91364",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1692318,
+        "county_record_source": "LA City",
+        "matched_address": "19737 Ventura Blvd Woodland Hills 91364",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.17265989357157,
+        "longitude": -118.56358678697565
+      }
+    },
+    "bldg_37821f9004563c3c": {
+      "building_key": "200 W GLENOAKS BLVD GLENDALE CA 91202",
+      "reason": "no_address_match"
+    },
+    "bldg_2e4863d3852b77f8": {
+      "building_key": "2001 W BEVERLY BLVD MONTEBELLO CA 90640",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1118422,
+        "county_record_source": "Office of Assessor",
+        "matched_address": "2001 W Beverly Blvd Montebello 90640",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.020054155749946,
+        "longitude": -118.12062904861465
+      }
+    },
+    "bldg_754f20602cadf7f3": {
+      "building_key": "2001 W MAGNOLIA BLVD BURBANK CA 91506",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 616996,
+        "county_record_source": "Office of Assessor",
+        "matched_address": "2001 W Magnolia Blvd Burbank 91506",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.17386520875104,
+        "longitude": -118.32993573928734
+      }
+    },
+    "bldg_83f67ba4d21e31c2": {
+      "building_key": "201 N HOLLYWOOD WAY BURBANK CA 91505",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 793789,
+        "county_record_source": "Office of Assessor",
+        "matched_address": "201 N Hollywood Wy Burbank 91505",
+        "confidence": "standardized",
+        "precision": "address_point",
+        "latitude": 34.154332437771764,
+        "longitude": -118.34080529819668
+      }
+    },
+    "bldg_3f13a0a9be8617d7": {
+      "building_key": "20246 SATICOY ST WINNETKA CA 91306",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1422708,
+        "county_record_source": "LA City",
+        "matched_address": "20246 Saticoy St Winnetka 91306",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.20818836391916,
+        "longitude": -118.5746109101081
+      }
+    },
+    "bldg_e8d2dcb637b71164": {
+      "building_key": "20300 S VERMONT AVE TORRANCE CA 90502",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1695704,
+        "county_record_source": "LA City",
+        "matched_address": "20300 S Vermont Ave Torrance 90502",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 33.846842308531926,
+        "longitude": -118.29021189845943
+      }
+    },
+    "bldg_466de06264732225": {
+      "building_key": "20335 VENTURA BLVD WOODLAND HILLS CA 91364",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1532890,
+        "county_record_source": "LA City",
+        "matched_address": "20335 Ventura Blvd Woodland Hills 91364",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.169312603651974,
+        "longitude": -118.57624068813809
+      }
+    },
+    "bldg_ac9c998442194c55": {
+      "building_key": "2055 TORRANCE BLVD TORRANCE CA 90501",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 546544,
+        "county_record_source": "City Of Torrance",
+        "matched_address": "2055 Torrance Blvd Torrance 90501",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 33.83655055902216,
+        "longitude": -118.31782958617578
+      }
+    },
+    "bldg_d84d1dc6b35189d5": {
+      "building_key": "2060 E ROUTE 66 GLENDORA CA 91740",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 2238619,
+        "county_record_source": "Office of Assessor",
+        "matched_address": "2060 E Route 66 Glendora 91740",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.127591456341435,
+        "longitude": -117.82498874351339
+      }
+    },
+    "bldg_2431aa1b9ecf6da5": {
+      "building_key": "2060 HUNTINGTON DR SAN MARINO CA 91108",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 546267,
+        "county_record_source": "Office of Assessor",
+        "matched_address": "2060 Huntington Dr San Marino 91108",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.12052231576106,
+        "longitude": -118.10880091221854
+      }
+    },
+    "bldg_ddf4ff4495c57c4e": {
+      "building_key": "20705S WESTERN AVE TORRANCE CA 90501",
+      "reason": "no_address_match"
+    },
+    "bldg_d9570ddaa50c593b": {
+      "building_key": "20710 MANHATTAN PL TORRANCE CA 90501",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 451409,
+        "county_record_source": "City Of Torrance",
+        "matched_address": "20710 Manhattan Pl Torrance 90501",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 33.842896434913975,
+        "longitude": -118.31123748798973
+      }
+    },
+    "bldg_a130bd1e70898009": {
+      "building_key": "20944 SHERMAN WAY CANOGA PARK CA 91303",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1926606,
+        "county_record_source": "LA City",
+        "matched_address": "20944 Sherman Wy Canoga Park 91303",
+        "confidence": "standardized",
+        "precision": "address_point",
+        "latitude": 34.20085887938358,
+        "longitude": -118.58989504459134
+      }
+    },
+    "bldg_29ff2f9e65baacf6": {
+      "building_key": "20955 DEVONSHIRE ST CHATSWORTH CA 91311",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1532463,
+        "county_record_source": "LA City",
+        "matched_address": "20955 Devonshire St Chatsworth 91311",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.257414769542045,
+        "longitude": -118.5904482029877
+      }
+    },
+    "bldg_5735e38b9a07607f": {
+      "building_key": "21006 DEVONSHIRE ST CHATSWORTH CA 91311",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1600071,
+        "county_record_source": "LA City",
+        "matched_address": "21006 Devonshire St Chatsworth 91311",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.257007127579506,
+        "longitude": -118.5914487767301
+      }
+    },
+    "bldg_fb798c7d4ba894ed": {
+      "building_key": "21021 DEVONSHIRE ST 108 CHATSWORTH CA 91311",
+      "reason": "community_mismatch"
+    },
+    "bldg_2713ce0ed680ad44": {
+      "building_key": "211 W FOOTHILL BLVD GLENDORA CA 91741",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 536417,
+        "county_record_source": "Office of Assessor",
+        "matched_address": "211 W Foothill Blvd Glendora 91741",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.13625944690858,
+        "longitude": -117.86720802452108
+      }
+    },
+    "bldg_db9f7a30bd024c3b": {
+      "building_key": "212 N GLENDALE AVE GLENDALE CA 91206",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1057415,
+        "county_record_source": "Glendale GIS",
+        "matched_address": "212 N Glendale Ave Glendale 91206",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.1486369442888,
+        "longitude": -118.24583873377657
+      }
+    },
+    "bldg_efb2b58afa849cf9": {
+      "building_key": "21220 DEVONSHIRE ST CHATSWORTH CA 91311",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1722783,
+        "county_record_source": "LA City",
+        "matched_address": "21220 Devonshire St Chatsworth 91311",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.25691429461721,
+        "longitude": -118.59449500429746
+      }
+    },
+    "bldg_31fb09be84b71db1": {
+      "building_key": "21221 S WESTERN AVE TORRANCE CA 90501",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 2659876,
+        "county_record_source": "Assessor",
+        "matched_address": "21221 S Western Ave Torrance 90501",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 33.83606791511141,
+        "longitude": -118.30969260402982
+      }
+    },
+    "bldg_043ff169ebc2bcf7": {
+      "building_key": "21241 VENTURA BLVD WOODLAND HILLS CA 91364",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1510895,
+        "county_record_source": "LA City",
+        "matched_address": "21241 Ventura Blvd Woodland Hills 91364",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.1675665921878,
+        "longitude": -118.59490940910416
+      }
+    },
+    "bldg_9b0e3bbf29828fe0": {
+      "building_key": "21243 VENTURA BLVD WOODLAND HILLS CA 91364",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1630323,
+        "county_record_source": "LA City",
+        "matched_address": "21243 Ventura Blvd Woodland Hills 91364",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.16761246093655,
+        "longitude": -118.59523352814533
+      }
+    },
+    "bldg_c0b5cfe346077a33": {
+      "building_key": "21405 DEVONSHIRE ST CHATSWORTH CA 91311",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1385544,
+        "county_record_source": "LA City",
+        "matched_address": "21405 Devonshire St Chatsworth 91311",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.25740276033519,
+        "longitude": -118.59761289792728
+      }
+    },
+    "bldg_94e4390c31edc69f": {
+      "building_key": "2155 E GARVEY AVE N W COVINA CA 91791",
+      "reason": "no_address_match"
+    },
+    "bldg_bc37bafccd81840f": {
+      "building_key": "2161 COLORADO BLVD 206 LOS ANGELES CA 90041",
+      "reason": "community_mismatch"
+    },
+    "bldg_4bc9c025d72b1010": {
+      "building_key": "217 E ALAMEDA AVE BURBANK CA 91502",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 530637,
+        "county_record_source": "Office of Assessor",
+        "matched_address": "217 E Alameda Ave Burbank 91502",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.17535840398798,
+        "longitude": -118.29939763847857
+      }
+    },
+    "bldg_bb6188c0af3b1864": {
+      "building_key": "21707 HAWTHORNE BLVD 304 TORRANCE CA 90503",
+      "reason": "community_mismatch"
+    },
+    "bldg_519956bcff67e8d8": {
+      "building_key": "21757 DEVONSHIRE ST CHATSWORTH CA 91311",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1704977,
+        "county_record_source": "LA City",
+        "matched_address": "21757 Devonshire St Chatsworth 91311",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.25741507512435,
+        "longitude": -118.60362160168948
+      }
+    },
+    "bldg_3b44d530e226fd43": {
+      "building_key": "21860 BURBANK BLVD WOODLAND HILLS CA 91367",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1863358,
+        "county_record_source": "LA City",
+        "matched_address": "21860 Burbank Blvd Woodland Hills 91367",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.171988972602385,
+        "longitude": -118.60380611603937
+      }
+    },
+    "bldg_0ab2b1e18e44319d": {
+      "building_key": "2200 S FREMONT AVE ALHAMBRA CA 91803",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 408858,
+        "county_record_source": "Office of Assessor",
+        "matched_address": "2200 S Fremont Ave Alhambra 91803",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.06753048971562,
+        "longitude": -118.14899661792903
+      }
+    },
+    "bldg_fbed99ff02d3452d": {
+      "building_key": "22048 SHERMAN WAY 103 CANOGA PARK CA 91303",
+      "reason": "community_mismatch"
+    },
+    "bldg_94d435913b36ac0e": {
+      "building_key": "22048 SHERMAN WAY CANOGA PARK CA 91303",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 2462864,
+        "county_record_source": "LA City",
+        "matched_address": "22048 Sherman Wy Canoga Park 91303",
+        "confidence": "standardized",
+        "precision": "address_point",
+        "latitude": 34.200686778095466,
+        "longitude": -118.60769768719555
+      }
+    },
+    "bldg_8b886998091b5692": {
+      "building_key": "221 N SAN DIMAS AVE SAN DIMAS CA 91773",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 722172,
+        "county_record_source": "Office of Assessor",
+        "matched_address": "221 N San Dimas Ave San Dimas 91773",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.109544845441434,
+        "longitude": -117.80747689878174
+      }
+    },
+    "bldg_923517695d0f03c5": {
+      "building_key": "221 W ALAMEDA AVE BURBANK CA 91502",
+      "reason": "unit_records_only"
+    },
+    "bldg_6c0c2b73516d35aa": {
+      "building_key": "22141 VENTURA BLVD WOODLAND HILLS CA 91364",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1903717,
+        "county_record_source": "LA City",
+        "matched_address": "22141 Ventura Blvd Woodland Hills 91364",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.168857504861954,
+        "longitude": -118.60959542414747
+      }
+    },
+    "bldg_4baabd12de2babb1": {
+      "building_key": "22148 SHERMAN WAY CANOGA PARK CA 91303",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1270076,
+        "county_record_source": "LA City",
+        "matched_address": "22148 Sherman Wy Canoga Park 91303",
+        "confidence": "standardized",
+        "precision": "address_point",
+        "latitude": 34.200739022923024,
+        "longitude": -118.60974878770777
+      }
+    },
+    "bldg_9aff66068339c834": {
+      "building_key": "222 N HARVARD BLVD LOS ANGELES CA 90004",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1796817,
+        "county_record_source": "LA City",
+        "matched_address": "222 N Harvard Blvd Los Angeles 90004",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.0760077875364,
+        "longitude": -118.30400044570419
+      }
+    },
+    "bldg_e2758a586437ec49": {
+      "building_key": "225 E BROADWAY GLENDALE CA 91205",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1062254,
+        "county_record_source": "Glendale GIS",
+        "matched_address": "225 E Broadway Glendale 91205",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.14658171603054,
+        "longitude": -118.2529665996171
+      }
+    },
+    "bldg_10f64ba4d31b9b48": {
+      "building_key": "2250 OBISPO AVE SIGNAL HILL CA 90755",
+      "reason": "no_address_match"
+    },
+    "bldg_518cad1ed7c73135": {
+      "building_key": "2252 BEVERLY BLVD LOS ANGELES CA 90057",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 2059180,
+        "county_record_source": "LA City",
+        "matched_address": "2252 Beverly Blvd Los Angeles 90057",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.067607793862834,
+        "longitude": -118.27297706914186
+      }
+    },
+    "bldg_84a62c745688bc81": {
+      "building_key": "229 N CENTRAL AVE GLENDALE CA 91203",
+      "reason": "unit_records_only"
+    },
+    "bldg_0a794861ecf120fe": {
+      "building_key": "23001 HAWTHORNE BLVD TORRANCE CA 90505",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 2657155,
+        "county_record_source": "Assessor",
+        "matched_address": "23001 Hawthorne Blvd Torrance 90505",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 33.81797976160845,
+        "longitude": -118.3515176693771
+      }
+    },
+    "bldg_57d5ea99fe93bad3": {
+      "building_key": "2318 W BURBANK BLVD BURBANK CA 91506",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1114310,
+        "county_record_source": "Office of Assessor",
+        "matched_address": "2318 W Burbank Blvd Burbank 91506",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.179048867303415,
+        "longitude": -118.33661227761138
+      }
+    },
+    "bldg_2b81d58255eddff8": {
+      "building_key": "232 N LAKE AVE PASADENA CA 91101",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 2324795,
+        "county_record_source": "Pasadena GIS",
+        "matched_address": "232 N Lake Ave Pasadena 91101",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.15008589489989,
+        "longitude": -118.13185471055144
+      }
+    },
+    "bldg_a466323291bd91e8": {
+      "building_key": "233 E POMONA BLVD MONTEREY PARK CA 91755",
+      "reason": "ambiguous_points"
+    },
+    "bldg_b118a7bfae957eac": {
+      "building_key": "23300 CINEMA DR VALENCIA CA 91355",
+      "reason": "unit_records_only"
+    },
+    "bldg_a18a888e5a95c551": {
+      "building_key": "2340 PLAZA DEL AMO TORRANCE CA 90501",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 823761,
+        "county_record_source": "City Of Torrance",
+        "matched_address": "2340 Plaza Del Amo Torrance 90501",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 33.830132279358466,
+        "longitude": -118.3240353271803
+      }
+    },
+    "bldg_c266280bfadc89fa": {
+      "building_key": "23505 CRENSHAW BLVD TORRANCE CA 90505",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1101615,
+        "county_record_source": "City Of Torrance",
+        "matched_address": "23505 Crenshaw Blvd Torrance 90505",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 33.812454043559114,
+        "longitude": -118.32846376677418
+      }
+    },
+    "bldg_238a888cecc35e3d": {
+      "building_key": "23550 LYONS AVE NEWHALL CA 91321",
+      "reason": "unit_records_only"
+    },
+    "bldg_6b218cc7391d5845": {
+      "building_key": "236 S ATLANTIC BLVD LOS ANGELES CA 90022",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 309635,
+        "county_record_source": "LACO DPW House Numbering Map",
+        "matched_address": "236 S Atlantic Blvd Los Angeles 90022",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.03386270820194,
+        "longitude": -118.15165728870879
+      }
+    },
+    "bldg_7285bd8294cbfacf": {
+      "building_key": "23720 ARLINGTON AVE TORRANCE CA 90501",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 967840,
+        "county_record_source": "City Of Torrance",
+        "matched_address": "23720 Arlington Ave Torrance 90501",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 33.80901474966925,
+        "longitude": -118.31963864302325
+      }
+    },
+    "bldg_da61837dc29ee156": {
+      "building_key": "2420 W CARSON ST TORRANCE CA 90501",
+      "reason": "no_address_match"
+    },
+    "bldg_b304a13a7ce0b52c": {
+      "building_key": "24355 LYONS AVE SANTA CLARITA CA 91321",
+      "reason": "unit_records_only"
+    },
+    "bldg_ba6d6f61ef2f6d6b": {
+      "building_key": "24868 APPLE ST SANTA CLARITA CA 91321",
+      "reason": "unit_records_only"
+    },
+    "bldg_0f3fc087ce959f76": {
+      "building_key": "2505 FOOTHILL BLVD LA CRESCENTA CA 91214",
+      "reason": "unit_records_only"
+    },
+    "bldg_ac8e97e37b5c567a": {
+      "building_key": "25050 AVE KEARNY VALENCIA CA 91355",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 2629420,
+        "county_record_source": "Santa Clarita",
+        "matched_address": "25050 Avenue Kearny Valencia 91355",
+        "confidence": "standardized",
+        "precision": "address_point",
+        "latitude": 34.43535110714011,
+        "longitude": -118.5719426115638
+      }
+    },
+    "bldg_84f5b9e9148c79b3": {
+      "building_key": "2525 COLORADO BLVD LOS ANGELES CA 90041",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1895143,
+        "county_record_source": "LA City",
+        "matched_address": "2525 Colorado Blvd Los Angeles 90041",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.14182650014634,
+        "longitude": -118.2216924468569
+      }
+    },
+    "bldg_73f98ceb30803b8d": {
+      "building_key": "2550 N HOLLYWOOD WAY BURBANK CA 91505",
+      "reason": "unit_records_only"
+    },
+    "bldg_c993f5b044432438": {
+      "building_key": "2550E AMAR RD A1G W COVINA CA 91792",
+      "reason": "no_address_match"
+    },
+    "bldg_23401a0c3c643096": {
+      "building_key": "2555 E COLORADO BLVD PASADENA CA 91107",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 2205254,
+        "county_record_source": "Pasadena GIS",
+        "matched_address": "2555 E Colorado Blvd Pasadena 91107",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.14670337499338,
+        "longitude": -118.09833346143678
+      }
+    },
+    "bldg_dffff52cd126cc49": {
+      "building_key": "2605 1 2 W BEVERLY BLVD MONTEBELLO CA 90640",
+      "reason": "no_address_match"
+    },
+    "bldg_918f8394facb2cf5": {
+      "building_key": "2654 HONOLULU AVE MONTROSE CA 91020",
+      "reason": "no_address_match"
+    },
+    "bldg_391cf05955dc5c30": {
+      "building_key": "2659 TOWNSGATE RD WESTLAKE VILLAGE CA 91361",
+      "reason": "no_address_match"
+    },
+    "bldg_bc5352e370a39c0e": {
+      "building_key": "2670 S MYRTLE AVE MONROVIA CA 91016",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 585569,
+        "county_record_source": "Office of Assessor",
+        "matched_address": "2670 S Myrtle Ave Monrovia 91016",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.11733792407181,
+        "longitude": -118.00051952600833
+      }
+    },
+    "bldg_53fdae324234b6dd": {
+      "building_key": "26811 SECO CANYON RD SANTA CLARITA CA 91350",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 2601648,
+        "county_record_source": "Santa Clarita",
+        "matched_address": "26811 Seco Canyon Rd Santa Clarita 91350",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.433672227620846,
+        "longitude": -118.53193056205872
+      }
+    },
+    "bldg_40f2fbf9d1fb8c7f": {
+      "building_key": "26893 BOUQUET CANYON RD SANTA CLARITA CA 91350",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 2601582,
+        "county_record_source": "Santa Clarita",
+        "matched_address": "26893 Bouquet Canyon Rd Santa Clarita 91350",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.43449775579076,
+        "longitude": -118.52936964708614
+      }
+    },
+    "bldg_998584ca5ba59a49": {
+      "building_key": "2700 E FOOTHILL BLVD PASADENA CA 91107",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 2254832,
+        "county_record_source": "Pasadena GIS",
+        "matched_address": "2700 E Foothill Blvd Pasadena 91107",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.149652646803546,
+        "longitude": -118.09499126909232
+      }
+    },
+    "bldg_59b0b1558b3d35bd": {
+      "building_key": "271 E WORKMAN ST COVINA CA 91723",
+      "reason": "no_address_match"
+    },
+    "bldg_4909fef964a4ada9": {
+      "building_key": "2777 PACIFIC AVE LONG BEACH CA 90806",
+      "reason": "no_address_match"
+    },
+    "bldg_8a350513aaf1a888": {
+      "building_key": "28 N OAK AVE PASADENA CA 91107",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 2202992,
+        "county_record_source": "Pasadena GIS",
+        "matched_address": "28 N Oak Ave Pasadena 91107",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.146305805661214,
+        "longitude": -118.10731891463118
+      }
+    },
+    "bldg_dc0b4af3e508a2c7": {
+      "building_key": "281 HARVEY DR GLENDALE CA 91206",
+      "reason": "unit_records_only"
+    },
+    "bldg_23c9c978e3a25306": {
+      "building_key": "2908 N NAOMI ST BURBANK CA 91504",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 739860,
+        "county_record_source": "Office of Assessor",
+        "matched_address": "2908 N Naomi St Burbank 91504",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.20438874720114,
+        "longitude": -118.33965760222188
+      }
+    },
+    "bldg_113d24f05c69e0d4": {
+      "building_key": "2920 W OLIVE AVE BURBANK CA 91505",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 489713,
+        "county_record_source": "Office of Assessor",
+        "matched_address": "2920 W Olive Ave Burbank 91505",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.157231498115365,
+        "longitude": -118.33308167533909
+      }
+    },
+    "bldg_2298b6a1751a65ef": {
+      "building_key": "2934 E GARVEY AVE S W COVINA CA 91791",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 906219,
+        "county_record_source": "Office of Assessor",
+        "matched_address": "2934 E Garvey Ave S West Covina 91791",
+        "confidence": "standardized",
+        "precision": "address_point",
+        "latitude": 34.07130697978264,
+        "longitude": -117.88373766833425
+      }
+    },
+    "bldg_31fa6a193e936151": {
+      "building_key": "2955E HILLCREST DR 128 WESTLAKE VILLAGE CA 91362",
+      "reason": "no_address_match"
+    },
+    "bldg_7535c899171655cb": {
+      "building_key": "2985 E HILLCREST DR WESTLAKE VILLAGE CA 91362",
+      "reason": "no_address_match"
+    },
+    "bldg_4d02a7245679efab": {
+      "building_key": "303 N GLENOAKS BLVD BURBANK CA 91502",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1025965,
+        "county_record_source": "Office of Assessor",
+        "matched_address": "303 N Glenoaks Blvd Burbank 91502",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.18436798941451,
+        "longitude": -118.30905702722127
+      }
+    },
+    "bldg_22ab0f7632bb0b22": {
+      "building_key": "303 S GLENOAKS BLVD BURBANK CA 91502",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 638719,
+        "county_record_source": "Office of Assessor",
+        "matched_address": "303 S Glenoaks Blvd Burbank 91502",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.18130113736674,
+        "longitude": -118.30422437517682
+      }
+    },
+    "bldg_416b4ec74d78b64c": {
+      "building_key": "3033 N AVON ST BURBANK CA 91504",
+      "reason": "no_address_match"
+    },
+    "bldg_aa237e48e46731cb": {
+      "building_key": "30423 CANWOOD ST AGOURA HILLS CA 91301",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 2103670,
+        "county_record_source": "Office of Assessor",
+        "matched_address": "30423 Canwood St Agoura Hills 91301",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.148129662689136,
+        "longitude": -118.78391329831808
+      }
+    },
+    "bldg_98a884b4489d146c": {
+      "building_key": "30495 CANWOOD ST AGOURA HILLS CA 91301",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 885009,
+        "county_record_source": "Office of Assessor",
+        "matched_address": "30495 Canwood St Agoura Hills 91301",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.14736660847342,
+        "longitude": -118.78534371234186
+      }
+    },
+    "bldg_5437fee349320e63": {
+      "building_key": "3053 W OLYMPIC BLVD LOS ANGELES CA 90006",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1571134,
+        "county_record_source": "LA City",
+        "matched_address": "3053 W Olympic Blvd Los Angeles 90006",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.052784567767894,
+        "longitude": -118.30186369545254
+      }
+    },
+    "bldg_b9b088c8eed2755c": {
+      "building_key": "30851 AGOURA RD AGOURA HILLS CA 91301",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1108633,
+        "county_record_source": "Office of Assessor",
+        "matched_address": "30851 Agoura Rd Agoura Hills 91301",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.14551227660135,
+        "longitude": -118.79288574976877
+      }
+    },
+    "bldg_90de98a65e268732": {
+      "building_key": "30941 AGOURA RD WESTLAKE VILLAGE CA 91361",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 323577,
+        "county_record_source": "Office of Assessor",
+        "matched_address": "30941 Agoura Rd Westlake Village 91361",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.145533167812594,
+        "longitude": -118.79537250591456
+      }
+    },
+    "bldg_89924b81ec0291d1": {
+      "building_key": "3121 SKYPARK DR TORRANCE CA 90505",
+      "reason": "no_address_match"
+    },
+    "bldg_3833e55fec8b72b9": {
+      "building_key": "3131 FOOTHILL BLVD LA CRESCENTA CA 91214",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 210617,
+        "county_record_source": "LACO DPW House Numbering Map",
+        "matched_address": "3131 Foothill Blvd La Crescenta 91214",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.229061004337616,
+        "longitude": -118.24744483441027
+      }
+    },
+    "bldg_62fe9666a435f808": {
+      "building_key": "315 ARDEN AVE GLENDALE CA 91203",
+      "reason": "unit_records_only"
+    },
+    "bldg_e58d0c489fa80833": {
+      "building_key": "3151 CAHUENGA BLVD W LOS ANGELES CA 90068",
+      "reason": "community_mismatch"
+    },
+    "bldg_0f0cb1aa1300cb78": {
+      "building_key": "3169 BARBARA CT LOS ANGELES CA 90068",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 2062381,
+        "county_record_source": "LA City",
+        "matched_address": "3169 Barbara Ct Los Angeles 90068",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.127787791634475,
+        "longitude": -118.34726103663552
+      }
+    },
+    "bldg_6b46c815c105ff53": {
+      "building_key": "317 W LA HABRA BLVD LA HABRA CA 90631",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 2645233,
+        "county_record_source": "La Habra",
+        "matched_address": "317 W La Habra Blvd La Habra 90631",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 33.9321768111095,
+        "longitude": -117.94897102593782
+      }
+    },
+    "bldg_faedf244cc187f6b": {
+      "building_key": "3191 W TEMPLE AVE POMONA CA 91768",
+      "reason": "no_address_match"
+    },
+    "bldg_a1925948f7062096": {
+      "building_key": "320 ARDEN AVE GLENDALE CA 91203",
+      "reason": "unit_records_only"
+    },
+    "bldg_6afa89479050821c": {
+      "building_key": "320 PINE AVE LONG BEACH CA 90802",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 2180090,
+        "county_record_source": "Long Beach GIS",
+        "matched_address": "320 Pine Ave Long Beach 90802",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 33.77100512585097,
+        "longitude": -118.19223500770599
+      }
+    },
+    "bldg_df4049fef0852432": {
+      "building_key": "3200 W BURBANK BLVD BURBANK CA 91505",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 992748,
+        "county_record_source": "Office of Assessor",
+        "matched_address": "3200 W Burbank Blvd Burbank 91505",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.17604731430579,
+        "longitude": -118.34527459547803
+      }
+    },
+    "bldg_fc9592618a9d4f26": {
+      "building_key": "3200 WILSHIRE BLVD LOS ANGELES CA 90010",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1407483,
+        "county_record_source": "LA City",
+        "matched_address": "3200 Wilshire Blvd Los Angeles 90010",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.06163017904725,
+        "longitude": -118.29213291110898
+      }
+    },
+    "bldg_cb79e6a3ce5814af": {
+      "building_key": "327 ARDEN AVE GLENDALE CA 91203",
+      "reason": "unit_records_only"
+    },
+    "bldg_c6e664955509f1df": {
+      "building_key": "331 ARDEN AVE GLENDALE CA 91203",
+      "reason": "unit_records_only"
+    },
+    "bldg_b0831d8e58e13b69": {
+      "building_key": "336 N CENTRAL AVE GLENDALE CA 91203",
+      "reason": "unit_records_only"
+    },
+    "bldg_df5412ce2e1bed41": {
+      "building_key": "3430 OCEAN VIEW BLVD GLENDALE CA 91208",
+      "reason": "unit_records_only"
+    },
+    "bldg_57dc4074d72bab23": {
+      "building_key": "3440 WILSHIRE BLVD LOS ANGELES CA 90010",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1662525,
+        "county_record_source": "LA City",
+        "matched_address": "3440 Wilshire Blvd Los Angeles 90010",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.061516931975746,
+        "longitude": -118.29945285243157
+      }
+    },
+    "bldg_fddba3f69394ccde": {
+      "building_key": "3467 OCEAN VIEW BLVD GLENDALE CA 91208",
+      "reason": "unit_records_only"
+    },
+    "bldg_4e8abe980f939bdb": {
+      "building_key": "351 E FOOTHILL BLVD ARCADIA CA 91006",
+      "reason": "no_address_match"
+    },
+    "bldg_730193896569f67a": {
+      "building_key": "3510 TORRANCE BLVD TORRANCE CA 90503",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1263744,
+        "county_record_source": "City Of Torrance",
+        "matched_address": "3510 Torrance Blvd Torrance 90503",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 33.83604035805854,
+        "longitude": -118.34687920715653
+      }
+    },
+    "bldg_25db0ff58dd208cb": {
+      "building_key": "3511 W OLYMPIC BLVD LOS ANGELES CA 90019",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1342246,
+        "county_record_source": "LA City",
+        "matched_address": "3511 W Olympic Blvd Los Angeles 90019",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.05288441660262,
+        "longitude": -118.31504720820978
+      }
+    },
+    "bldg_fc0053ca7788f111": {
+      "building_key": "356 W COLORADO ST GLENDALE CA 91204",
+      "reason": "unit_records_only"
+    },
+    "bldg_17d95b3b102838e8": {
+      "building_key": "3607 W MAGNOLIA BLVD BURBANK CA 91505",
+      "reason": "no_address_match"
+    },
+    "bldg_29905263697d03a6": {
+      "building_key": "3629 N SEPULVEDA BLVD MANHATTAN BEACH CA 90266",
+      "reason": "no_address_match"
+    },
+    "bldg_39936852043a92f3": {
+      "building_key": "3704 FOOTHILL BLVD GLENDALE CA 91214",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 2310088,
+        "county_record_source": "Glendale GIS",
+        "matched_address": "3704 Foothill Blvd La Crescenta 91214",
+        "confidence": "standardized",
+        "precision": "address_point",
+        "latitude": 34.23606426706896,
+        "longitude": -118.25975667725201
+      }
+    },
+    "bldg_3363bef9633cc494": {
+      "building_key": "373 VAN NESS AVE TORRANCE CA 90501",
+      "reason": "no_address_match"
+    },
+    "bldg_bd368617143bd516": {
+      "building_key": "3756 SANTA ROSALIA DR LOS ANGELES CA 90008",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1672530,
+        "county_record_source": "LA City",
+        "matched_address": "3756 Santa Rosalia Dr Los Angeles 90008",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.00913707518212,
+        "longitude": -118.33916799405128
+      }
+    },
+    "bldg_1161264fd5dbc223": {
+      "building_key": "3800 BARHAM BLVD LOS ANGELES CA 90068",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1630669,
+        "county_record_source": "LA City",
+        "matched_address": "3800 Barham Blvd Los Angeles 90068",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.14369882488044,
+        "longitude": -118.34099924727045
+      }
+    },
+    "bldg_32a6ddb4590e4bef": {
+      "building_key": "3806 W MAGNOLIA BLVD BURBANK CA 91505",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1121632,
+        "county_record_source": "Office of Assessor",
+        "matched_address": "3806 W Magnolia Blvd Burbank 91505",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.16715421305808,
+        "longitude": -118.34825462348572
+      }
+    },
+    "bldg_6b8a1e8ee463a6cc": {
+      "building_key": "3857 FOOTHILL BLVD GLENDALE CA 91214",
+      "reason": "unit_records_only"
+    },
+    "bldg_a7f0e440098d2850": {
+      "building_key": "38700 5TH ST W PALMDALE CA 93551",
+      "reason": "no_address_match"
+    },
+    "bldg_f6284aff98ee09a5": {
+      "building_key": "3916 FOOTHILL BLVD LA CRESCENTA CA 91214",
+      "reason": "unit_records_only"
+    },
+    "bldg_78688b24357a0c12": {
+      "building_key": "3925 ROSEMEAD BLVD 201 ROSEMEAD CA 91770",
+      "reason": "community_mismatch"
+    },
+    "bldg_631cdd4745cd8005": {
+      "building_key": "3939 ATLANTIC AVE 216 LONG BEACH CA 90807",
+      "reason": "no_address_match"
+    },
+    "bldg_faf01e4dc8c8ffa8": {
+      "building_key": "4001 W ALAMEDA AVE BURBANK CA 91505",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 777360,
+        "county_record_source": "Office of Assessor",
+        "matched_address": "4001 W Alameda Ave Burbank 91505",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.15327004464344,
+        "longitude": -118.34386878836324
+      }
+    },
+    "bldg_9082ebce2eed9076": {
+      "building_key": "401 N BRAND BLVD GLENDALE CA 91203",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 2093557,
+        "county_record_source": "Assessor",
+        "matched_address": "401 N Brand Blvd Glendale 91203",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.15196093927369,
+        "longitude": -118.25550067907928
+      }
+    },
+    "bldg_9c9021d91501c65e": {
+      "building_key": "401 S MAIN ST POMONA CA 91766",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1120546,
+        "county_record_source": "Office of Assessor",
+        "matched_address": "401 S Main St Pomona 91766",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.05572053484311,
+        "longitude": -117.7524854824996
+      }
+    },
+    "bldg_55396435fd31cd28": {
+      "building_key": "4010 WATSON PLAZA DR LAKEWOOD CA 90712",
+      "reason": "unit_records_only"
+    },
+    "bldg_ff425cf6f7ea741d": {
+      "building_key": "410 W BADILLO ST COVINA CA 91723",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 912625,
+        "county_record_source": "Office of Assessor",
+        "matched_address": "410 W Badillo St Covina 91723",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.08605009247855,
+        "longitude": -117.89713149795324
+      }
+    },
+    "bldg_5fc780f15b7ac3f7": {
+      "building_key": "4115 E LIVE OAK AVE ARCADIA CA 91006",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 176441,
+        "county_record_source": "LACO DPW House Numbering Map",
+        "matched_address": "4115 E Live Oak Ave Arcadia 91006",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.10993875055431,
+        "longitude": -118.01441717820292
+      }
+    },
+    "bldg_9a16fb96de52cafa": {
+      "building_key": "4170 VERDUGO RD LOS ANGELES CA 90065",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1366820,
+        "county_record_source": "LA City",
+        "matched_address": "4170 Verdugo Rd Los Angeles 90065",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.126996006127676,
+        "longitude": -118.2319529053476
+      }
+    },
+    "bldg_bb1e988b364fcb50": {
+      "building_key": "418 N GLENDALE AVE GLENDALE CA 91206",
+      "reason": "unit_records_only"
+    },
+    "bldg_4106e40e2a1ec9e7": {
+      "building_key": "419 W COLORADO ST GLENDALE CA 91204",
+      "reason": "unit_records_only"
+    },
+    "bldg_242cd0a5bca64615": {
+      "building_key": "420 S ROSEMEAD BLVD PASADENA CA 91107",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 228145,
+        "county_record_source": "LACO DPW House Numbering Map",
+        "matched_address": "420 S Rosemead Blvd Pasadena 91107",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.13918809921674,
+        "longitude": -118.07304167845437
+      }
+    },
+    "bldg_348172ec461fd7a1": {
+      "building_key": "4210 EAGLE ROCK BLVD LOS ANGELES CA 90065",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1489928,
+        "county_record_source": "LA City",
+        "matched_address": "4210 Eagle Rock Blvd Los Angeles 90065",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.121776277055794,
+        "longitude": -118.22479283118427
+      }
+    },
+    "bldg_86b057540eb6d2b2": {
+      "building_key": "42156 10TH ST W LANCASTER CA 93534",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 575225,
+        "county_record_source": "Office of Assessor",
+        "matched_address": "42156 10th St W Lancaster 93534",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.64916590119528,
+        "longitude": -118.14651715996335
+      }
+    },
+    "bldg_21e527c194ba528d": {
+      "building_key": "4223 GLENCOE AVE MARINA DEL REY CA 90292",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1447653,
+        "county_record_source": "LA City",
+        "matched_address": "4223 Glencoe Ave Marina Del Rey 90292",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 33.9874275705229,
+        "longitude": -118.44190477197961
+      }
+    },
+    "bldg_e023183fef2669e3": {
+      "building_key": "424 N LAKE AVE PASADENA CA 91101",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 855387,
+        "county_record_source": "Pasadena GIS",
+        "matched_address": "424 N Lake Ave Pasadena 91101",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.15332546291221,
+        "longitude": -118.13196221395032
+      }
+    },
+    "bldg_a1215e77234f8a73": {
+      "building_key": "425 E COLORADO ST GLENDALE CA 91205",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 2367021,
+        "county_record_source": "Glendale GIS",
+        "matched_address": "425 E Colorado St Glendale 91205",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.14347016689267,
+        "longitude": -118.25051427590408
+      }
+    },
+    "bldg_7adbd8f88d98f950": {
+      "building_key": "4250 PENNSYLVANIA AVE LA CRESCENTA CA 91214",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 77584,
+        "county_record_source": "LACO DPW Add",
+        "matched_address": "4250 Pennsylvania Ave La Crescenta 91214",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.2243033959995,
+        "longitude": -118.24848219111345
+      }
+    },
+    "bldg_3961d088e7a89412": {
+      "building_key": "427 W COLORADO ST GLENDALE CA 91204",
+      "reason": "unit_records_only"
+    },
+    "bldg_009cea11a3335b24": {
+      "building_key": "430 FOOTHILL BLVD LA CANADA CA 91011",
+      "reason": "community_mismatch"
+    },
+    "bldg_10f945f3612df849": {
+      "building_key": "430 S GARFIELD AVE ALHAMBRA CA 91801",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1019383,
+        "county_record_source": "Office of Assessor",
+        "matched_address": "430 S Garfield Ave Alhambra 91801",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.090342438004505,
+        "longitude": -118.12307557256648
+      }
+    },
+    "bldg_bfff729b7e01798e": {
+      "building_key": "4305 TORRANCE BLVD TORRANCE CA 90503",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 874955,
+        "county_record_source": "City Of Torrance",
+        "matched_address": "4305 Torrance Blvd Torrance 90503",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 33.83803079304838,
+        "longitude": -118.35942366080114
+      }
+    },
+    "bldg_5d7400f7e98ff1fc": {
+      "building_key": "4312 WOODMAN AVE SHERMAN OAKS CA 91423",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1691268,
+        "county_record_source": "LA City",
+        "matched_address": "4312 Woodman Ave Sherman Oaks 91423",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.14854143726904,
+        "longitude": -118.43103914776356
+      }
+    },
+    "bldg_6a18aa1f81449900": {
+      "building_key": "434 W COLORADO ST GLENDALE CA 91204",
+      "reason": "unit_records_only"
+    },
+    "bldg_4a1ded9c94bac6e7": {
+      "building_key": "436 W COLORADO ST GLENDALE CA 91204",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 2215472,
+        "county_record_source": "Glendale GIS",
+        "matched_address": "436 W Colorado St Glendale 91204",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.142242045990095,
+        "longitude": -118.26242854838328
+      }
+    },
+    "bldg_551f734becf45bdd": {
+      "building_key": "43805 15TH ST W LANCASTER CA 93534",
+      "reason": "no_address_match"
+    },
+    "bldg_5b6fe215941c988f": {
+      "building_key": "43845 10TH ST W LANCASTER CA 93534",
+      "reason": "ambiguous_points"
+    },
+    "bldg_a0a8a483c5fb1fb3": {
+      "building_key": "440 W COLORADO ST GLENDALE CA 91204",
+      "reason": "unit_records_only"
+    },
+    "bldg_83d3c24f675d3a35": {
+      "building_key": "4400 COLDWATER CANYON AVE STUDIO CITY CA 91604",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1342646,
+        "county_record_source": "LA City",
+        "matched_address": "4400 Coldwater Canyon Ave Studio City 91604",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.1506100418367,
+        "longitude": -118.41359927119912
+      }
+    },
+    "bldg_0f489925983c19c1": {
+      "building_key": "44151 15TH ST W LANCASTER CA 93534",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 2078837,
+        "county_record_source": "Assessor",
+        "matched_address": "44151 15Th St W Lancaster 93534",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.685522632943105,
+        "longitude": -118.15834613324502
+      }
+    },
+    "bldg_dd22e0c020f570e1": {
+      "building_key": "4419 VAN NUYS BLVD SHERMAN OAKS CA 91403",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1917502,
+        "county_record_source": "LA City",
+        "matched_address": "4419 Van Nuys Blvd Sherman Oaks 91403",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.15157692335495,
+        "longitude": -118.44891824665459
+      }
+    },
+    "bldg_77d2181f61b97fc0": {
+      "building_key": "44215 15TH ST W LANCASTER CA 93534",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 2078811,
+        "county_record_source": "Assessor",
+        "matched_address": "44215 15Th St W Lancaster 93534",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.686642096869434,
+        "longitude": -118.15854837264466
+      }
+    },
+    "bldg_3ea017d81afa100e": {
+      "building_key": "4425 W RIVERSIDE DR BURBANK CA 91505",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 790037,
+        "county_record_source": "Office of Assessor",
+        "matched_address": "4425 W Riverside Dr Burbank 91505",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.15256193030317,
+        "longitude": -118.34914905717116
+      }
+    },
+    "bldg_6a2307f3dce76b83": {
+      "building_key": "444 E HUNTINGTON DR ARCADIA CA 91006",
+      "reason": "no_address_match"
+    },
+    "bldg_43cc75193fa0f3c0": {
+      "building_key": "4444 W RIVERSIDE DR BURBANK CA 91505",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 538537,
+        "county_record_source": "Office of Assessor",
+        "matched_address": "4444 W Riverside Dr Burbank 91505",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.151967837941484,
+        "longitude": -118.34878239894434
+      }
+    },
+    "bldg_f5e027e6404ebf46": {
+      "building_key": "44501 16TH ST W LANCASTER CA 93534",
+      "reason": "unit_records_only"
+    },
+    "bldg_a1ce63c041818a8a": {
+      "building_key": "450 N BRAND BLVD GLENDALE CA 91203",
+      "reason": "no_address_match"
+    },
+    "bldg_2f1c06dd56a620c4": {
+      "building_key": "4510E PACIFIC COAST HWY 320 LONG BEACH CA 90804",
+      "reason": "no_address_match"
+    },
+    "bldg_a3496c8c5c9557d3": {
+      "building_key": "4515 OCEAN VIEW BLVD LA CANADA CA 91011",
+      "reason": "community_mismatch"
+    },
+    "bldg_e80320ecb8446a20": {
+      "building_key": "455 N MOSS ST BURBANK CA 91502",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 618767,
+        "county_record_source": "Office of Assessor",
+        "matched_address": "455 N Moss St Burbank 91502",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.17997909343569,
+        "longitude": -118.31784659593407
+      }
+    },
+    "bldg_c5e87320d9ae55fb": {
+      "building_key": "4605 LANKERSHIM BLVD N HOLLYWOOD CA 91602",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 2051412,
+        "county_record_source": "LA City",
+        "matched_address": "4605 Lankershim Blvd North Hollywood 91602",
+        "confidence": "standardized",
+        "precision": "address_point",
+        "latitude": 34.15405266958418,
+        "longitude": -118.36833232939217
+      }
+    },
+    "bldg_b54ee4330f2272f7": {
+      "building_key": "4640 LANKERSHIM BLVD N HOLLYWOOD CA 91602",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1729616,
+        "county_record_source": "LA City",
+        "matched_address": "4640 Lankershim Blvd North Hollywood 91602",
+        "confidence": "standardized",
+        "precision": "address_point",
+        "latitude": 34.15499100806706,
+        "longitude": -118.36842361174917
+      }
+    },
+    "bldg_8355a4686760c9f2": {
+      "building_key": "490 S ROSEMEAD BLVD PASADENA CA 91107",
+      "reason": "unit_records_only"
+    },
+    "bldg_cc3be7e1d4bd1953": {
+      "building_key": "50 N HILL AVE PASADENA CA 91106",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 2391443,
+        "county_record_source": "Pasadena GIS",
+        "matched_address": "50 N Hill Ave Pasadena 91106",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.14705240335367,
+        "longitude": -118.12107618798359
+      }
+    },
+    "bldg_885355714d1a25bf": {
+      "building_key": "500 N BRAND BLVD GLENDALE CA 91203",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 2159766,
+        "county_record_source": "Glendale GIS",
+        "matched_address": "500 N Brand Blvd Glendale 91203",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.153770212390924,
+        "longitude": -118.25448903772782
+      }
+    },
+    "bldg_f925a61cbea4ee6a": {
+      "building_key": "500 N CENTRAL AVE GLENDALE CA 91203",
+      "reason": "no_address_match"
+    },
+    "bldg_265702f8ab6c335e": {
+      "building_key": "500 W BONITA AVE SAN DIMAS CA 91773",
+      "reason": "no_address_match"
+    },
+    "bldg_f95524364b56045c": {
+      "building_key": "5000 OVERLAND AVE CULVER CITY CA 90230",
+      "reason": "unit_records_only"
+    },
+    "bldg_95968495b1d397f2": {
+      "building_key": "5199 E PACIFIC COAST HWY LONG BEACH CA 90804",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 2655978,
+        "county_record_source": "Assessor",
+        "matched_address": "5199 E Pacific Coast Hwy Long Beach 90804",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 33.78343774345628,
+        "longitude": -118.1323423411151
+      }
+    },
+    "bldg_d47da061f838ffea": {
+      "building_key": "520 E WILSON AVE GLENDALE CA 91206",
+      "reason": "unit_records_only"
+    },
+    "bldg_e89d2d3df17f7f8a": {
+      "building_key": "5236 COLODNY DR AGOURA HILLS CA 91301",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 769377,
+        "county_record_source": "Office of Assessor",
+        "matched_address": "5236 Colodny Dr Agoura Hills 91301",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.14390641366434,
+        "longitude": -118.74231428738628
+      }
+    },
+    "bldg_7030e340857915c6": {
+      "building_key": "5301 LAUREL CANTON BL VALLEY VILLAGE CA 91607",
+      "reason": "no_address_match"
+    },
+    "bldg_3fc1287a3cacf1f0": {
+      "building_key": "5315 LAUREL CANYON BLVD VALLEY VILLAGE CA 91607",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1385204,
+        "county_record_source": "LA City",
+        "matched_address": "5315 Laurel Canyon Blvd Valley Village 91607",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.167225439012185,
+        "longitude": -118.3967138224056
+      }
+    },
+    "bldg_7f642f4375e0430c": {
+      "building_key": "5315 TORRANCE BLVD TORRANCE CA 90503",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 621764,
+        "county_record_source": "City Of Torrance",
+        "matched_address": "5315 Torrance Blvd Torrance 90503",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 33.838352939054666,
+        "longitude": -118.37057156212185
+      }
+    },
+    "bldg_fc31111038406238": {
+      "building_key": "539 N GLENOAKS BLVD BURBANK CA 91502",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 906688,
+        "county_record_source": "Office of Assessor",
+        "matched_address": "539 N Glenoaks Blvd Burbank 91502",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.18639632144382,
+        "longitude": -118.31107672791924
+      }
+    },
+    "bldg_671eb9f7fe428be4": {
+      "building_key": "5500 VAN NUYS BLVD SHERMAN OAKS CA 91401",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1456769,
+        "county_record_source": "LA City",
+        "matched_address": "5500 Van Nuys Blvd Van Nuys 91401",
+        "confidence": "standardized",
+        "precision": "address_point",
+        "latitude": 34.170698706886455,
+        "longitude": -118.44809183615492
+      }
+    },
+    "bldg_29381003c443d11d": {
+      "building_key": "5530 CORBIN AVE TARZANA CA 91356",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1406718,
+        "county_record_source": "LA City",
+        "matched_address": "5530 Corbin Ave Tarzana 91356",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.17173554466193,
+        "longitude": -118.56205790430751
+      }
+    },
+    "bldg_316720536eac6e9d": {
+      "building_key": "5605 WOODMAN AVE VAN NUYS CA 91401",
+      "reason": "unit_records_only"
+    },
+    "bldg_56121db42fc6e3c0": {
+      "building_key": "5652 VINELAND AVE N HOLLYWOOD CA 91601",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1533150,
+        "county_record_source": "LA City",
+        "matched_address": "5652 Vineland Ave North Hollywood 91601",
+        "confidence": "standardized",
+        "precision": "address_point",
+        "latitude": 34.17366669169033,
+        "longitude": -118.36994809225989
+      }
+    },
+    "bldg_ca0b2fce42cfc126": {
+      "building_key": "5658 SEPULVEDA BLVD SHERMAN OAKS CA 91411",
+      "reason": "community_mismatch"
+    },
+    "bldg_335b6557f06a83c8": {
+      "building_key": "5658 SEPULVEDA BLVD VAN NUYS CA 91411",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1618186,
+        "county_record_source": "LA City",
+        "matched_address": "5658 Sepulveda Blvd Van Nuys 91411",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.17374069571176,
+        "longitude": -118.46591020000683
+      }
+    },
+    "bldg_f47b4f26279edf2a": {
+      "building_key": "566 W LANCASTER BLVD LANCASTER CA 93534",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 568538,
+        "county_record_source": "Office of Assessor",
+        "matched_address": "566 W Lancaster Blvd Lancaster 93534",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.69782582993567,
+        "longitude": -118.13911379619302
+      }
+    },
+    "bldg_49acbf47dad5d751": {
+      "building_key": "5670 WILSHIRE BLVD LOS ANGELES CA 90036",
+      "reason": "no_address_match"
+    },
+    "bldg_ba39af7e8a004c9f": {
+      "building_key": "5958 VINELAND AVE N HOLLYWOOD CA 91601",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1643802,
+        "county_record_source": "LA City",
+        "matched_address": "5958 Vineland Ave North Hollywood 91601",
+        "confidence": "standardized",
+        "precision": "address_point",
+        "latitude": 34.17920941488804,
+        "longitude": -118.37011586150172
+      }
+    },
+    "bldg_c5a97a70c958f0d6": {
+      "building_key": "600 W BROADWAY GLENDALE CA 91204",
+      "reason": "unit_records_only"
+    },
+    "bldg_19d317d5cfaf3a7c": {
+      "building_key": "6005 VINELAND AVE N HOLLYWOOD CA 91606",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1963721,
+        "county_record_source": "LA City",
+        "matched_address": "6005 Vineland Ave North Hollywood 91606",
+        "confidence": "standardized",
+        "precision": "address_point",
+        "latitude": 34.17962458334634,
+        "longitude": -118.37051337436755
+      }
+    },
+    "bldg_2a469db814faff44": {
+      "building_key": "6047 TAMPA AVE TARZANA CA 91356",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1619337,
+        "county_record_source": "LA City",
+        "matched_address": "6047 Tampa Ave Tarzana 91356",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.18080702811585,
+        "longitude": -118.5537618236966
+      }
+    },
+    "bldg_46b27ad58d688888": {
+      "building_key": "6200 CANOGA AVE WOODLAND HILLS CA 91367",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1953248,
+        "county_record_source": "LA City",
+        "matched_address": "6200 Canoga Ave Woodland Hills 91367",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.18330485030102,
+        "longitude": -118.59720225647423
+      }
+    },
+    "bldg_a00c995d92e44c0b": {
+      "building_key": "625 FAIR OAKS AVE S PASADENA CA 91030",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1213159,
+        "county_record_source": "Office of Assessor",
+        "matched_address": "625 Fair Oaks Ave South Pasadena 91030",
+        "confidence": "standardized",
+        "precision": "address_point",
+        "latitude": 34.11809654076894,
+        "longitude": -118.15115331039813
+      }
+    },
+    "bldg_acf0be4de01a6659": {
+      "building_key": "629 S HILL ST LOS ANGELES CA 90014",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1475094,
+        "county_record_source": "LA City",
+        "matched_address": "629 S Hill St Los Angeles 90014",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.04683064044134,
+        "longitude": -118.25384958850849
+      }
+    },
+    "bldg_ae3f9e8668ee4062": {
+      "building_key": "6303 OWENSMOUTH AVE WOODLAND HILLS CA 91367",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1980437,
+        "county_record_source": "LA City",
+        "matched_address": "6303 Owensmouth Ave Woodland Hills 91367",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.184740013878475,
+        "longitude": -118.60183694195486
+      }
+    },
+    "bldg_c8ff304bfc094c18": {
+      "building_key": "6345 BALBOA BLVD ENCINO CA 91316",
+      "reason": "no_address_match"
+    },
+    "bldg_12c9963a0085aefa": {
+      "building_key": "6365 VAN NUYS BLVD VAN NUYS CA 91401",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1488748,
+        "county_record_source": "LA City",
+        "matched_address": "6365 Van Nuys Blvd Van Nuys 91401",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.18620407954096,
+        "longitude": -118.44903564122399
+      }
+    },
+    "bldg_eff37da2c84ca362": {
+      "building_key": "6404 WILSHIRE BLVD LOS ANGELES CA 90048",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1822664,
+        "county_record_source": "LA City",
+        "matched_address": "6404 Wilshire Blvd Los Angeles 90048",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.06351511779622,
+        "longitude": -118.36853629493464
+      }
+    },
+    "bldg_4c7e5f32f7687204": {
+      "building_key": "6404A INDEPENDENCE AVE WOODLAND HILLS CA 91367",
+      "reason": "no_address_match"
+    },
+    "bldg_b5c362ca6cad8b45": {
+      "building_key": "6420 COLDWATER CANYON AVE N HOLLYWOOD CA 91606",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 2465564,
+        "county_record_source": "LA City",
+        "matched_address": "6420 Coldwater Canyon Ave North Hollywood 91606",
+        "confidence": "standardized",
+        "precision": "address_point",
+        "latitude": 34.18748435904067,
+        "longitude": -118.41353410858858
+      }
+    },
+    "bldg_df662860f29d2182": {
+      "building_key": "6420 VAN NUYS BLVD VAN NUYS CA 91401",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 2009428,
+        "county_record_source": "LA City",
+        "matched_address": "6420 Van Nuys Blvd Van Nuys 91401",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.18732450422792,
+        "longitude": -118.44845992123756
+      }
+    },
+    "bldg_990dd939a8d74086": {
+      "building_key": "6422 VAN NUYS BLVD VAN NUYS CA 91401",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1577123,
+        "county_record_source": "LA City",
+        "matched_address": "6422 Van Nuys Blvd Van Nuys 91401",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.187352626907334,
+        "longitude": -118.44849103087019
+      }
+    },
+    "bldg_32acdd3996b7ba50": {
+      "building_key": "644 W BROADWAY GLENDALE CA 91204",
+      "reason": "unit_records_only"
+    },
+    "bldg_9e99f33cf0cd6dae": {
+      "building_key": "646 S BARRANCA AVE COVINA CA 91723",
+      "reason": "no_address_match"
+    },
+    "bldg_752141b84b2d6eb7": {
+      "building_key": "6637 SAN FERNANDO RD GLENDALE CA 91201",
+      "reason": "no_address_match"
+    },
+    "bldg_956c0adad2ad3c5c": {
+      "building_key": "664 W BROADWAY GLENDALE CA 91204",
+      "reason": "unit_records_only"
+    },
+    "bldg_b523336ce0400f98": {
+      "building_key": "6711 VAN NUYS BLVD VAN NUYS CA 91405",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1788096,
+        "county_record_source": "LA City",
+        "matched_address": "6711 Van Nuys Blvd Van Nuys 91405",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.19252504548211,
+        "longitude": -118.44905856270147
+      }
+    },
+    "bldg_984985ccebfe62cf": {
+      "building_key": "6742 VAN NUYS BLVD VAN NUYS CA 91405",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1840203,
+        "county_record_source": "LA City",
+        "matched_address": "6742 Van Nuys Blvd Van Nuys 91405",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.19342794089171,
+        "longitude": -118.44846129752756
+      }
+    },
+    "bldg_0f67ab015e84f07c": {
+      "building_key": "6912 OWENSMOUTH AVE CANOGA PARK CA 91303",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1638666,
+        "county_record_source": "LA City",
+        "matched_address": "6912 Owensmouth Ave Canoga Park 91303",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.19596753170325,
+        "longitude": -118.60139062471836
+      }
+    },
+    "bldg_6daab15e71dbbfea": {
+      "building_key": "6934 CANBY AVE RESEDA CA 91335",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1338527,
+        "county_record_source": "LA City",
+        "matched_address": "6934 Canby Ave Reseda 91335",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.19672400804777,
+        "longitude": -118.53354548658079
+      }
+    },
+    "bldg_67a20edb403557ee": {
+      "building_key": "700 N BRAND BLVD GLENDALE CA 91203",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 2337509,
+        "county_record_source": "Glendale GIS",
+        "matched_address": "700 N Brand Blvd Glendale 91203",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.157289602197096,
+        "longitude": -118.25440053630871
+      }
+    },
+    "bldg_560178da91728230": {
+      "building_key": "700 N CENTRAL AVE GLENDALE CA 91203",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 2298857,
+        "county_record_source": "Glendale GIS",
+        "matched_address": "700 N Central Ave Glendale 91203",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.15725958622382,
+        "longitude": -118.257728448502
+      }
+    },
+    "bldg_7fd6adbacab50dad": {
+      "building_key": "7037 LAUREL CANYON BLVD N HOLLYWOOD CA 91605",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1906865,
+        "county_record_source": "LA City",
+        "matched_address": "7037 Laurel Canyon Blvd North Hollywood 91605",
+        "confidence": "standardized",
+        "precision": "address_point",
+        "latitude": 34.19879989901844,
+        "longitude": -118.39672416703172
+      }
+    },
+    "bldg_cd1881655f25cb1c": {
+      "building_key": "704 S VICTORY BLVD BURBANK CA 91502",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1062798,
+        "county_record_source": "Office of Assessor",
+        "matched_address": "704 S Victory Blvd Burbank 91502",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.16902351823817,
+        "longitude": -118.3106686418462
+      }
+    },
+    "bldg_c2ae85586dcd4f95": {
+      "building_key": "706 W BROADWAY GLENDALE CA 91204",
+      "reason": "no_address_match"
+    },
+    "bldg_df132d6e0696152a": {
+      "building_key": "7108 DE SOTO AVE CANOGA PARK CA 91303",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1680809,
+        "county_record_source": "LA City",
+        "matched_address": "7108 De Soto Ave Canoga Park 91303",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.19939991605157,
+        "longitude": -118.58826227922698
+      }
+    },
+    "bldg_84c024dd96a58372": {
+      "building_key": "711 W CAMINO REAL AVE ARCADIA CA 91007",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 914556,
+        "county_record_source": "Office of Assessor",
+        "matched_address": "711 W Camino Real Ave Arcadia 91007",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.12244325124516,
+        "longitude": -118.05579248210945
+      }
+    },
+    "bldg_a522ebb38a615f3e": {
+      "building_key": "7120 HAYVENHURST AVE VAN NUYS CA 91406",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1694516,
+        "county_record_source": "LA City",
+        "matched_address": "7120 Hayvenhurst Ave Van Nuys 91406",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.199705082902355,
+        "longitude": -118.49222358185105
+      }
+    },
+    "bldg_0b46408f647cf225": {
+      "building_key": "715 S AVERILL AVE SAN PEDRO CA 90732",
+      "reason": "no_address_match"
+    },
+    "bldg_f31bf4ffc48946e0": {
+      "building_key": "7200 VINELAND AVE SUN VALLEY CA 91352",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 2065132,
+        "county_record_source": "LA City",
+        "matched_address": "7200 Vineland Ave Sun Valley 91352",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.20168744367865,
+        "longitude": -118.3701266963736
+      }
+    },
+    "bldg_443a7ca72402edfa": {
+      "building_key": "7233 1 2 FOOTHILL BLVD TUJUNGA CA 91042",
+      "reason": "no_address_match"
+    },
+    "bldg_c9c497667137d0bc": {
+      "building_key": "7257 VASSAR AVE CANOGA PARK CA 91303",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1438805,
+        "county_record_source": "LA City",
+        "matched_address": "7257 Vassar Ave Canoga Park 91303",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.2026461036127,
+        "longitude": -118.6046569135373
+      }
+    },
+    "bldg_b180723cdd2faf0b": {
+      "building_key": "726 W BROADWAY ST GLENDALE CA 91204",
+      "reason": "community_mismatch"
+    },
+    "bldg_7097b7f45251b521": {
+      "building_key": "74 N PASADENA AVE PASADENA CA 91103",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 2418540,
+        "county_record_source": "Pasadena GIS",
+        "matched_address": "74 N Pasadena Ave Pasadena 91103",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.147378964834616,
+        "longitude": -118.15315495243006
+      }
+    },
+    "bldg_520bde1a4f60ada4": {
+      "building_key": "750 N DIAMOND BAR BLVD DIAMOND BAR CA 91765",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 534058,
+        "county_record_source": "Office of Assessor",
+        "matched_address": "750 N Diamond Bar Blvd Diamond Bar 91765",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.033003051284375,
+        "longitude": -117.80710265972203
+      }
+    },
+    "bldg_4afb01a4c21eaee6": {
+      "building_key": "7590 N GLENOAKS BLVD BURBANK CA 91504",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1360828,
+        "county_record_source": "LA City",
+        "matched_address": "7590 N Glenoaks Blvd Burbank 91504",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.208948777492054,
+        "longitude": -118.34377676179707
+      }
+    },
+    "bldg_f32e93436498ddaf": {
+      "building_key": "7621 INDUSTRY AVE PICO RIVERA CA 90660",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1246801,
+        "county_record_source": "Office of Assessor",
+        "matched_address": "7621 Industry Ave Pico Rivera 90660",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 33.97932812868036,
+        "longitude": -118.11294670499022
+      }
+    },
+    "bldg_3e27bc41c9af9cb2": {
+      "building_key": "7831 FOOTHILL BLVD SUNLAND CA 91040",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1834380,
+        "county_record_source": "LA City",
+        "matched_address": "7831 Foothill Blvd Sunland 91040",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.25978183315463,
+        "longitude": -118.30376826276382
+      }
+    },
+    "bldg_e211f444f1446885": {
+      "building_key": "7940 GARVEY AVE ROSEMEAD CA 91770",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1212812,
+        "county_record_source": "Office of Assessor",
+        "matched_address": "7940 Garvey Ave Rosemead 91770",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.062247741666724,
+        "longitude": -118.09553964088029
+      }
+    },
+    "bldg_ad861fde810319e2": {
+      "building_key": "8 N 1ST AVE ARCADIA CA 91006",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 713008,
+        "county_record_source": "Office of Assessor",
+        "matched_address": "8 N 1st Ave Arcadia 91006",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.14040766347595,
+        "longitude": -118.02800455433034
+      }
+    },
+    "bldg_086db4274e68c948": {
+      "building_key": "800 N HARBOR BLVD LA HABRA CA 90631",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 2641625,
+        "county_record_source": "La Habra",
+        "matched_address": "800 N Harbor Blvd La Habra 90631",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 33.93939717085978,
+        "longitude": -117.93270574082574
+      }
+    },
+    "bldg_31aaf5232fdeeb86": {
+      "building_key": "800 S VICTORY BLVD BURBANK CA 91502",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 862958,
+        "county_record_source": "Office of Assessor",
+        "matched_address": "800 S Victory Blvd Burbank 91502",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.168327796877705,
+        "longitude": -118.30948610196455
+      }
+    },
+    "bldg_4278e2dc19086357": {
+      "building_key": "809 S LEMON AVE DIAMOND BAR CA 91789",
+      "reason": "no_address_match"
+    },
+    "bldg_9cff9f94e41e09cd": {
+      "building_key": "8135 SAN FERNANDO RD SUN VALLEY CA 91352",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1575410,
+        "county_record_source": "LA City",
+        "matched_address": "8135 San Fernando Rd Sun Valley 91352",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.21815393356155,
+        "longitude": -118.3679327838575
+      }
+    },
+    "bldg_6870608c66130be7": {
+      "building_key": "8138 FOOTHILL BLVD SUNLAND CA 91040",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1760752,
+        "county_record_source": "LA City",
+        "matched_address": "8138 Foothill Blvd Sunland 91040",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.25894992722424,
+        "longitude": -118.3106619127244
+      }
+    },
+    "bldg_6ac146252d585bb7": {
+      "building_key": "815 S CENTRAL AVE GLENDALE CA 91204",
+      "reason": "unit_records_only"
+    },
+    "bldg_f64f3292f0be77fc": {
+      "building_key": "8215 VAN NUYS BLVD PANORAMA CITY CA 91402",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1477997,
+        "county_record_source": "LA City",
+        "matched_address": "8215 Van Nuys Blvd Panorama City 91402",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.22037116607943,
+        "longitude": -118.44897438135283
+      }
+    },
+    "bldg_893b607a0cfd10b9": {
+      "building_key": "8255 FIRESTONE BLVD DOWNEY CA 90241",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 2663710,
+        "county_record_source": "Assessor",
+        "matched_address": "8255 Firestone Blvd Downey 90241",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 33.94057828755995,
+        "longitude": -118.13317638006016
+      }
+    },
+    "bldg_60e1277534ab3c2d": {
+      "building_key": "8363 RESEDA BLVD NORTHRIDGE CA 91324",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1515933,
+        "county_record_source": "LA City",
+        "matched_address": "8363 Reseda Blvd Northridge 91324",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.22256943818966,
+        "longitude": -118.53630462091613
+      }
+    },
+    "bldg_2077c5afaa758612": {
+      "building_key": "8374 TOPANGA CANYON BLVD CANOGA PARK CA 91304",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1555622,
+        "county_record_source": "LA City",
+        "matched_address": "8374 Topanga Canyon Blvd Canoga Park 91304",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.22191175339234,
+        "longitude": -118.60577239184751
+      }
+    },
+    "bldg_5a100c2f91e6a394": {
+      "building_key": "847 N HOLLYWOOD WAY BURBANK CA 91505",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1194425,
+        "county_record_source": "Office of Assessor",
+        "matched_address": "847 N Hollywood Wy Burbank 91505",
+        "confidence": "standardized",
+        "precision": "address_point",
+        "latitude": 34.16580192004003,
+        "longitude": -118.34625193480223
+      }
+    },
+    "bldg_38267ea2f7facc62": {
+      "building_key": "875 S WESTLAKE BLVD WESTLAKE VILLAGE CA 91361",
+      "reason": "no_address_match"
+    },
+    "bldg_f22c9e80729cc016": {
+      "building_key": "8949 RESEDA BLVD NORTHRIDGE CA 91324",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1601673,
+        "county_record_source": "LA City",
+        "matched_address": "8949 Reseda Blvd Northridge 91324",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.233179026351955,
+        "longitude": -118.53650561679487
+      }
+    },
+    "bldg_eb2ca7d131e3f91b": {
+      "building_key": "9003 RESEDA BLVD NORTHRIDGE CA 91324",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1567516,
+        "county_record_source": "LA City",
+        "matched_address": "9003 Reseda Blvd Northridge 91324",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.23372685427342,
+        "longitude": -118.53629518631281
+      }
+    },
+    "bldg_901157e8217288db": {
+      "building_key": "9017 RESEDA BLVD NORTHRIDGE CA 91324",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1532015,
+        "county_record_source": "LA City",
+        "matched_address": "9017 Reseda Blvd Northridge 91324",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.23416105204214,
+        "longitude": -118.53649127981782
+      }
+    },
+    "bldg_1aa15d7e639aa454": {
+      "building_key": "9040 TELEGRAPH RD DOWNEY CA 90240",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1032633,
+        "county_record_source": "Office of Assessor",
+        "matched_address": "9040 Telegraph Rd Downey 90240",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 33.95983249243008,
+        "longitude": -118.10945505538591
+      }
+    },
+    "bldg_eaa83393465c6d43": {
+      "building_key": "9100 WILSHIRE BLVD BEVERLY HILLS CA 90212",
+      "reason": "no_address_match"
+    },
+    "bldg_5cb6980ab5d9a660": {
+      "building_key": "927 W OLIVE AVE BURBANK CA 91506",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 761547,
+        "county_record_source": "Office of Assessor",
+        "matched_address": "927 W Olive Ave Burbank 91506",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.17297674114202,
+        "longitude": -118.31749756786289
+      }
+    },
+    "bldg_bcdefc342aee2522": {
+      "building_key": "9350 RESEDA BLVD NORTHRIDGE CA 91324",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1295033,
+        "county_record_source": "LA City",
+        "matched_address": "9350 Reseda Blvd Northridge 91324",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.240466976504564,
+        "longitude": -118.53589952907812
+      }
+    },
+    "bldg_b2ef4ad391cd590e": {
+      "building_key": "936 E GREEN ST PASADENA CA 91106",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 2356119,
+        "county_record_source": "Pasadena GIS",
+        "matched_address": "936 E Green St Pasadena 91106",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.144370910022204,
+        "longitude": -118.13105416111395
+      }
+    },
+    "bldg_27c1ce5f2daee877": {
+      "building_key": "9420 TOPANGA CANYON BLVD CHATSWORTH CA 91311",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 2075130,
+        "county_record_source": "LA City",
+        "matched_address": "9420 Topanga Canyon Blvd Chatsworth 91311",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.24152758531161,
+        "longitude": -118.60598343104968
+      }
+    },
+    "bldg_66e5ac3d36ba5a08": {
+      "building_key": "9560 TOPANGA CANYON BLVD CHATSWORTH CA 91311",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1522894,
+        "county_record_source": "LA City",
+        "matched_address": "9560 Topanga Canyon Blvd Chatsworth 91311",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.24402576634061,
+        "longitude": -118.60658230908892
+      }
+    },
+    "bldg_68fa29fd4da27d23": {
+      "building_key": "9608 VAN NUYS BLVD 207-B PANORAMA CITY CA 91402",
+      "reason": "community_mismatch"
+    },
+    "bldg_e741fd93573bc8fc": {
+      "building_key": "963 N LA BREA AVE INGLEWOOD CA 90302",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1256896,
+        "county_record_source": "Inglewood GIS",
+        "matched_address": "963 N La Brea Ave Inglewood 90302",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 33.9757622535517,
+        "longitude": -118.35847778722372
+      }
+    },
+    "bldg_ed2f196326c1625a": {
+      "building_key": "9660 FLAIR DR EL MONTE CA 91731",
+      "reason": "unit_records_only"
+    },
+    "bldg_b62bc812d05ddc64": {
+      "building_key": "9700 RESEDA BLVD NORTHRIDGE CA 91324",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1968307,
+        "county_record_source": "LA City",
+        "matched_address": "9700 Reseda Blvd Northridge 91324",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.24672916096018,
+        "longitude": -118.53587862466806
+      }
+    },
+    "bldg_fee1364c61ae5974": {
+      "building_key": "9836 WHITE OAK AVE NORTHRIDGE CA 91325",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1653184,
+        "county_record_source": "LA City",
+        "matched_address": "9836 White Oak Ave Northridge 91325",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.249667791967774,
+        "longitude": -118.5195171717212
+      }
+    },
+    "bldg_35d77e01ba97c921": {
+      "building_key": "990 W 190TH ST TORRANCE CA 90502",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 1994140,
+        "county_record_source": "LA City",
+        "matched_address": "990 W 190Th St Torrance 90502",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 33.85658422331211,
+        "longitude": -118.2946643910258
+      }
+    },
+    "bldg_42ab6a25b118e248": {
+      "building_key": "9917 COMMERCE AVE TUJUNGA CA 91042",
+      "location": {
+        "source": "LA County CAMS",
+        "feature_id": 2475139,
+        "county_record_source": "LA City",
+        "matched_address": "9917 Commerce Ave Tujunga 91042",
+        "confidence": "exact",
+        "precision": "address_point",
+        "latitude": 34.24915846343795,
+        "longitude": -118.2889096212894
+      }
+    }
+  }
+}

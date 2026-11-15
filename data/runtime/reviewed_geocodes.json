@@ -1,0 +1,487 @@
+{
+  "schema_version": 1,
+  "results": {
+    "bldg_c83eb2a9bee8fa17": {
+      "building_key": "1 N INDIAN HILL BLVD CLAREMONT CA 91711",
+      "original_cms_address": "1 N INDIAN HILL BLVD, STE 205, CLAREMONT, CA, 917114769",
+      "notes": "Assessor parcel 8313009006 confirms the N direction and the identical ZIP+4. CAMS omits N. Census returned no match.",
+      "location": {
+        "source": "LA County CAMS",
+        "record_id": "2091563",
+        "matched_address": "1 N INDIAN HILL BLVD, CLAREMONT, CA 91711",
+        "county": "Los Angeles",
+        "confidence": "verified",
+        "precision": "address_point",
+        "latitude": 34.09425242404542,
+        "longitude": -117.71960081635905,
+        "evidence_urls": [
+          "https://data.cms.gov/provider-characteristics/hospitals-and-other-facilities/hospice-enrollments",
+          "https://services.arcgis.com/RmCCgQtiZLDCtblq/arcgis/rest/services/eGIS_Addressing_ADDRESS_POINTSv2/FeatureServer/0/query?where=OBJECTID%3D2091563&outFields=OBJECTID%2CFullAddress%2CAIN&outSR=4326&f=pjson",
+          "https://public.gis.lacounty.gov/public/rest/services/LACounty_Cache/LACounty_Parcel/MapServer/0/query?where=AIN%3D%278313009006%27&outFields=AIN%2CSitusFullAddress%2CCENTER_LAT%2CCENTER_LON&outSR=4326&f=pjson"
+        ]
+      }
+    },
+    "bldg_79244ada529cebe1": {
+      "building_key": "1050 A COMMERCE CENTER DR LANCASTER CA 93534",
+      "original_cms_address": "1050 A COMMERCE CENTER DRIVE, LANCASTER, CA, 935345860",
+      "notes": "Census and the Assessor agree on 1050 Commerce Center Drive. The CAMS parcel point is about 73 m away. The extra A is unconfirmed and no separate A point was found.",
+      "location": {
+        "source": "U.S. Census Bureau Geocoder",
+        "record_id": "241248909",
+        "matched_address": "1050 COMMERCE CENTER DR, LANCASTER, CA, 93534",
+        "county": "Los Angeles",
+        "confidence": "approximate",
+        "precision": "street_interpolation",
+        "latitude": 34.672443741587,
+        "longitude": -118.14955389797,
+        "evidence_urls": [
+          "https://data.cms.gov/provider-characteristics/hospitals-and-other-facilities/hospice-enrollments",
+          "https://services.arcgis.com/RmCCgQtiZLDCtblq/arcgis/rest/services/eGIS_Addressing_ADDRESS_POINTSv2/FeatureServer/0/query?where=OBJECTID%3D2078534&outFields=OBJECTID%2CFullAddress%2CAIN&outSR=4326&f=pjson",
+          "https://geocoding.geo.census.gov/geocoder/geographies/onelineaddress?address=1050+COMMERCE+CENTER+DR%2C+LANCASTER%2C+CA%2C+93534&benchmark=Public_AR_Current&vintage=Current_Current&layers=Counties&format=json"
+        ]
+      }
+    },
+    "bldg_ab34112e3465891f": {
+      "building_key": "1061W AVE M14 D PALMDALE CA 93551",
+      "original_cms_address": "1061W AVENUE M14 D, PALMDALE, CA, 935511430",
+      "notes": "Census and HCAI confirm the hyphenated street and spaced W. The Assessor parcel matches the exact ZIP+4 and lies within 100 m of the Census anchor. The trailing D has no confirmed unit location.",
+      "location": {
+        "source": "LA County Assessor",
+        "record_id": "3111022036",
+        "matched_address": "1061 W AVENUE M-14, PALMDALE, CA 93551",
+        "county": "Los Angeles",
+        "confidence": "approximate",
+        "precision": "parcel_interior",
+        "latitude": 34.6334063,
+        "longitude": -118.14989953,
+        "evidence_urls": [
+          "https://data.cms.gov/provider-characteristics/hospitals-and-other-facilities/hospice-enrollments",
+          "https://hcai.ca.gov/facility/alden-home-health-inc/",
+          "https://geocoding.geo.census.gov/geocoder/geographies/onelineaddress?address=1061+W+AVE+M-14%2C+PALMDALE%2C+CA%2C+93551&benchmark=Public_AR_Current&vintage=Current_Current&layers=Counties&format=json",
+          "https://public.gis.lacounty.gov/public/rest/services/LACounty_Cache/LACounty_Parcel/MapServer/0/query?where=AIN%3D%273111022036%27&outFields=AIN%2CSitusFullAddress%2CCENTER_LAT%2CCENTER_LON&outSR=4326&f=pjson"
+        ]
+      }
+    },
+    "bldg_cd6e8ca5f0edc1e5": {
+      "building_key": "1112 1 2 N PACIFIC AVE GLENDALE CA 91202",
+      "original_cms_address": "1112 1/2 N PACIFIC AVE, GLENDALE, CA, 912022316",
+      "notes": "The source contains a literal fraction that normalization split. Glendale and Census both return street-level results for 1112 1/2. The 1112 primary CAMS point and city point cannot establish the fraction.",
+      "location": {
+        "source": "U.S. Census Bureau Geocoder",
+        "record_id": "141608563",
+        "matched_address": "1112 1/2 N PACIFIC AVE, GLENDALE, CA, 91202",
+        "county": "Los Angeles",
+        "confidence": "approximate",
+        "precision": "street_interpolation",
+        "latitude": 34.161204614096,
+        "longitude": -118.264431875702,
+        "evidence_urls": [
+          "https://data.cms.gov/provider-characteristics/hospitals-and-other-facilities/hospice-enrollments",
+          "https://gismap.glendaleca.gov/arcgis/rest/services/Common/CAD_SiteAddress_Street/GeocodeServer",
+          "https://services.arcgis.com/RmCCgQtiZLDCtblq/arcgis/rest/services/eGIS_Addressing_ADDRESS_POINTSv2/FeatureServer/0/query?where=OBJECTID%3D2260034&outFields=OBJECTID%2CFullAddress%2CAIN&outSR=4326&f=pjson",
+          "https://geocoding.geo.census.gov/geocoder/geographies/onelineaddress?address=1112+1%2F2+N+PACIFIC+AVE%2C+GLENDALE%2C+CA%2C+91202&benchmark=Public_AR_Current&vintage=Current_Current&layers=Counties&format=json"
+        ]
+      }
+    },
+    "bldg_71d08712e8373e0e": {
+      "building_key": "12241 FIRESTONE BLVD AB NORWALK CA 90650",
+      "original_cms_address": "12241 FIRESTONE BLVD AB, NORWALK, CA, 906509342",
+      "notes": "The assessor and CAMS confirm the base street address near the Census anchor. The AB suffix and differing ZIP+4 are unconfirmed.",
+      "location": {
+        "source": "U.S. Census Bureau Geocoder",
+        "record_id": "141741851",
+        "matched_address": "12241 FIRESTONE BLVD, NORWALK, CA, 90650",
+        "county": "Los Angeles",
+        "confidence": "approximate",
+        "precision": "street_interpolation",
+        "latitude": 33.907666014865,
+        "longitude": -118.072163548693,
+        "evidence_urls": [
+          "https://data.cms.gov/provider-characteristics/hospitals-and-other-facilities/hospice-enrollments",
+          "https://services.arcgis.com/RmCCgQtiZLDCtblq/arcgis/rest/services/eGIS_Addressing_ADDRESS_POINTSv2/FeatureServer/0/query?where=OBJECTID%3D2654912&outFields=OBJECTID%2CFullAddress%2CAIN&outSR=4326&f=pjson",
+          "https://geocoding.geo.census.gov/geocoder/geographies/onelineaddress?address=12241+FIRESTONE+BLVD%2C+NORWALK%2C+CA%2C+90650&benchmark=Public_AR_Current&vintage=Current_Current&layers=Counties&format=json"
+        ]
+      }
+    },
+    "bldg_b408608f72114fb2": {
+      "building_key": "140N VICTORY BLVD BURBANK CA 91502",
+      "original_cms_address": "140N VICTORY BLVD, 105, BURBANK, CA, 915021848",
+      "notes": "The assessor confirms 140 N Victory and the exact CMS ZIP+4. The Census alternate on S Victory has no matching CAMS situs record and is outside the accepted 100 m check.",
+      "location": {
+        "source": "LA County CAMS",
+        "record_id": "1107847",
+        "matched_address": "140 N VICTORY BLVD, BURBANK, CA 91502",
+        "county": "Los Angeles",
+        "confidence": "verified",
+        "precision": "address_point",
+        "latitude": 34.174763530769056,
+        "longitude": -118.31680543207554,
+        "evidence_urls": [
+          "https://data.cms.gov/provider-characteristics/hospitals-and-other-facilities/hospice-enrollments",
+          "https://geocoding.geo.census.gov/geocoder/geographies/onelineaddress?address=140+N+VICTORY+BLVD%2C+BURBANK%2C+CA%2C+91502&benchmark=Public_AR_Current&vintage=Current_Current&layers=Counties&format=json",
+          "https://services.arcgis.com/RmCCgQtiZLDCtblq/arcgis/rest/services/eGIS_Addressing_ADDRESS_POINTSv2/FeatureServer/0/query?where=OBJECTID%3D1107847&outFields=OBJECTID%2CFullAddress%2CAIN&outSR=4326&f=pjson",
+          "https://public.gis.lacounty.gov/public/rest/services/LACounty_Cache/LACounty_Parcel/MapServer/0/query?where=AIN%3D%272451014031%27&outFields=AIN%2CSitusFullAddress%2CCENTER_LAT%2CCENTER_LON&outSR=4326&f=pjson"
+        ]
+      }
+    },
+    "bldg_ed0269f9f2a4a0ad": {
+      "building_key": "15050 IMPERIAL HWY LA MIRADA CA 90638",
+      "original_cms_address": "15050 IMPERIAL HWY, LA MIRADA, CA, 906381301",
+      "notes": "HCAI and historical CMS surveys confirm the 15050 Imperial Highway site. Census adds E. CAMS and the targeted assessor search produced no matching primary point.",
+      "location": {
+        "source": "U.S. Census Bureau Geocoder",
+        "record_id": "241247192",
+        "matched_address": "15050 E IMPERIAL HWY, LA MIRADA, CA, 90638",
+        "county": "Los Angeles",
+        "confidence": "approximate",
+        "precision": "street_interpolation",
+        "latitude": 33.917049427122,
+        "longitude": -118.010314683791,
+        "evidence_urls": [
+          "https://data.cms.gov/provider-characteristics/hospitals-and-other-facilities/hospice-enrollments",
+          "https://hcai.ca.gov/facility/presbyterian-intercommunity-hospital-home-health-services-parent/",
+          "https://geocoding.geo.census.gov/geocoder/geographies/onelineaddress?address=15050+E+IMPERIAL+HWY%2C+LA+MIRADA%2C+CA%2C+90638&benchmark=Public_AR_Current&vintage=Current_Current&layers=Counties&format=json"
+        ]
+      }
+    },
+    "bldg_82d4d8496b83c96d": {
+      "building_key": "151N SAN VICENTE BLVD 209 BEVERLY HILLS CA 90211",
+      "original_cms_address": "151N SAN VICENTE BLVD 209, BEVERLY HILLS, CA, 902112323",
+      "notes": "The assessor ZIP+4 and Beverly Hills parcel inventory both identify parcel 4334022041 as 151 N. CAMS labels that same parcel S. Historical CMS confirms suite 209. The Census anchor is approximately 33 m away.",
+      "location": {
+        "source": "LA County CAMS",
+        "record_id": "2417408",
+        "matched_address": "151 N SAN VICENTE BLVD, BEVERLY HILLS, CA 90211",
+        "county": "Los Angeles",
+        "confidence": "verified",
+        "precision": "address_point",
+        "latitude": 34.068172870696074,
+        "longitude": -118.3750485108482,
+        "evidence_urls": [
+          "https://data.cms.gov/provider-characteristics/hospitals-and-other-facilities/hospice-enrollments",
+          "https://beverlyhills.granicus.com/MetaViewer.php?clip_id=8132&meta_id=489960&view_id=49",
+          "https://www.cms.gov/files/document/r12405otn.pdf",
+          "https://geocoding.geo.census.gov/geocoder/geographies/onelineaddress?address=151N+SAN+VICENTE+BLVD%2C+BEVERLY+HILLS%2C+CA%2C+90211&benchmark=Public_AR_Current&vintage=Current_Current&layers=Counties&format=json",
+          "https://services.arcgis.com/RmCCgQtiZLDCtblq/arcgis/rest/services/eGIS_Addressing_ADDRESS_POINTSv2/FeatureServer/0/query?where=OBJECTID%3D2417408&outFields=OBJECTID%2CFullAddress%2CAIN&outSR=4326&f=pjson",
+          "https://public.gis.lacounty.gov/public/rest/services/LACounty_Cache/LACounty_Parcel/MapServer/0/query?where=AIN%3D%274334022041%27&outFields=AIN%2CSitusFullAddress%2CCENTER_LAT%2CCENTER_LON&outSR=4326&f=pjson"
+        ]
+      }
+    },
+    "bldg_87068f06ee7ca068": {
+      "building_key": "15455 SAN FERNANDO BLVD MISSION HILLS CA 91345",
+      "original_cms_address": "15455 SAN FERNANDO BLVD, SUITE 103A, MISSION HILLS, CA, 913451342",
+      "notes": "The assessor situs and Census identify San Fernando Mission Boulevard. CAMS links the point to the same parcel despite a San Fernando mailing-place label. The original road name omits Mission.",
+      "location": {
+        "source": "LA County CAMS",
+        "record_id": "1606221",
+        "matched_address": "15455 SAN FERNANDO MISSION BLVD, MISSION HILLS, CA 91345",
+        "county": "Los Angeles",
+        "confidence": "verified",
+        "precision": "address_point",
+        "latitude": 34.27228238357225,
+        "longitude": -118.46912849827004,
+        "evidence_urls": [
+          "https://data.cms.gov/provider-characteristics/hospitals-and-other-facilities/hospice-enrollments",
+          "https://geocoding.geo.census.gov/geocoder/geographies/onelineaddress?address=15455+SAN+FERNANDO+MISSION+BLVD%2C+MISSION+HILLS%2C+CA%2C+91345&benchmark=Public_AR_Current&vintage=Current_Current&layers=Counties&format=json",
+          "https://services.arcgis.com/RmCCgQtiZLDCtblq/arcgis/rest/services/eGIS_Addressing_ADDRESS_POINTSv2/FeatureServer/0/query?where=OBJECTID%3D1606221&outFields=OBJECTID%2CFullAddress%2CAIN&outSR=4326&f=pjson",
+          "https://public.gis.lacounty.gov/public/rest/services/LACounty_Cache/LACounty_Parcel/MapServer/0/query?where=AIN%3D%272664007024%27&outFields=AIN%2CSitusFullAddress%2CCENTER_LAT%2CCENTER_LON&outSR=4326&f=pjson"
+        ]
+      }
+    },
+    "bldg_4e84eb2e494b9aae": {
+      "building_key": "16501 SHERMAN WAY VAN NUYS CA 91406",
+      "original_cms_address": "16501 SHERMAN WAY, STE 105A, VAN NUYS, CA, 914063757",
+      "notes": "CAMS and Census agree on the missing W. The distinct civic point is roughly 22 m from the Census anchor. The suite is not a separate map point.",
+      "location": {
+        "source": "LA County CAMS",
+        "record_id": "1981360",
+        "matched_address": "16501 W SHERMAN WAY, VAN NUYS, CA 91406",
+        "county": "Los Angeles",
+        "confidence": "verified",
+        "precision": "address_point",
+        "latitude": 34.20138165822945,
+        "longitude": -118.49270303876723,
+        "evidence_urls": [
+          "https://data.cms.gov/provider-characteristics/hospitals-and-other-facilities/hospice-enrollments",
+          "https://geocoding.geo.census.gov/geocoder/geographies/onelineaddress?address=16501+W+SHERMAN+WAY%2C+VAN+NUYS%2C+CA%2C+91406&benchmark=Public_AR_Current&vintage=Current_Current&layers=Counties&format=json",
+          "https://services.arcgis.com/RmCCgQtiZLDCtblq/arcgis/rest/services/eGIS_Addressing_ADDRESS_POINTSv2/FeatureServer/0/query?where=OBJECTID%3D1981360&outFields=OBJECTID%2CFullAddress%2CAIN&outSR=4326&f=pjson",
+          "https://public.gis.lacounty.gov/public/rest/services/LACounty_Cache/LACounty_Parcel/MapServer/0/query?where=AIN%3D%272226001906%27&outFields=AIN%2CSitusFullAddress%2CCENTER_LAT%2CCENTER_LON&outSR=4326&f=pjson"
+        ]
+      }
+    },
+    "bldg_d9d06a31f8b2751f": {
+      "building_key": "16555 SHERMAN WAY VAN NUYS CA 91406",
+      "original_cms_address": "16555 SHERMAN WAY, STE B2, VAN NUYS, CA, 914063781",
+      "notes": "CAMS and Census agree on the missing W. The distinct civic point is about 31 m from the Census anchor. It shares an assessor parcel with 16501 but has a separate address point.",
+      "location": {
+        "source": "LA County CAMS",
+        "record_id": "1553953",
+        "matched_address": "16555 W SHERMAN WAY, VAN NUYS, CA 91406",
+        "county": "Los Angeles",
+        "confidence": "verified",
+        "precision": "address_point",
+        "latitude": 34.20138013646335,
+        "longitude": -118.49391923877687,
+        "evidence_urls": [
+          "https://data.cms.gov/provider-characteristics/hospitals-and-other-facilities/hospice-enrollments",
+          "https://geocoding.geo.census.gov/geocoder/geographies/onelineaddress?address=16555+W+SHERMAN+WAY%2C+VAN+NUYS%2C+CA%2C+91406&benchmark=Public_AR_Current&vintage=Current_Current&layers=Counties&format=json",
+          "https://services.arcgis.com/RmCCgQtiZLDCtblq/arcgis/rest/services/eGIS_Addressing_ADDRESS_POINTSv2/FeatureServer/0/query?where=OBJECTID%3D1553953&outFields=OBJECTID%2CFullAddress%2CAIN&outSR=4326&f=pjson",
+          "https://public.gis.lacounty.gov/public/rest/services/LACounty_Cache/LACounty_Parcel/MapServer/0/query?where=AIN%3D%272226001906%27&outFields=AIN%2CSitusFullAddress%2CCENTER_LAT%2CCENTER_LON&outSR=4326&f=pjson"
+        ]
+      }
+    },
+    "bldg_ceeff6fbb9a2b0c8": {
+      "building_key": "18711 SHERMAN WAY RESEDA CA 91335",
+      "original_cms_address": "18711 SHERMAN WAY, SUITE 101B, RESEDA, CA, 913354000",
+      "notes": "Census adds W. CAMS records a unit range and the assessor confirms the civic address. The unit range does not identify suite 101B.",
+      "location": {
+        "source": "U.S. Census Bureau Geocoder",
+        "record_id": "241190419",
+        "matched_address": "18711 W SHERMAN WAY, RESEDA, CA, 91335",
+        "county": "Los Angeles",
+        "confidence": "approximate",
+        "precision": "street_interpolation",
+        "latitude": 34.201225722846,
+        "longitude": -118.540721577304,
+        "evidence_urls": [
+          "https://data.cms.gov/provider-characteristics/hospitals-and-other-facilities/hospice-enrollments",
+          "https://services.arcgis.com/RmCCgQtiZLDCtblq/arcgis/rest/services/eGIS_Addressing_ADDRESS_POINTSv2/FeatureServer/0/query?where=OBJECTID%3D1291164&outFields=OBJECTID%2CFullAddress%2CAIN&outSR=4326&f=pjson",
+          "https://geocoding.geo.census.gov/geocoder/geographies/onelineaddress?address=18711+W+SHERMAN+WAY%2C+RESEDA%2C+CA%2C+91335&benchmark=Public_AR_Current&vintage=Current_Current&layers=Counties&format=json"
+        ]
+      }
+    },
+    "bldg_f12818dbc33d4c09": {
+      "building_key": "19725 SHERMAN WAY CANOGA PARK CA 91306",
+      "original_cms_address": "19725 SHERMAN WAY, STE 220, CANOGA PARK, CA, 913063668",
+      "notes": "Census and CAMS agree on the civic site within 30 m. Census includes W and uses Canoga Park. CAMS uses Winnetka. The assessor confirms house, street and ZIP5. The existing analysis row has the same corrected house number, street, ZIP and CAMS feature ID. Both registration keys refer to the same mapped address.",
+      "location": {
+        "source": "LA County CAMS",
+        "record_id": "1560984",
+        "matched_address": "19725 SHERMAN WAY, CANOGA PARK, CA 91306",
+        "county": "Los Angeles",
+        "confidence": "verified",
+        "precision": "address_point",
+        "latitude": 34.20129810353178,
+        "longitude": -118.56314481140237,
+        "evidence_urls": [
+          "https://data.cms.gov/provider-characteristics/hospitals-and-other-facilities/hospice-enrollments",
+          "https://geocoding.geo.census.gov/geocoder/geographies/onelineaddress?address=19725+W+SHERMAN+WAY%2C+CANOGA+PARK%2C+CA%2C+91306&benchmark=Public_AR_Current&vintage=Current_Current&layers=Counties&format=json",
+          "https://services.arcgis.com/RmCCgQtiZLDCtblq/arcgis/rest/services/eGIS_Addressing_ADDRESS_POINTSv2/FeatureServer/0/query?where=OBJECTID%3D1560984&outFields=OBJECTID%2CFullAddress%2CAIN&outSR=4326&f=pjson",
+          "https://public.gis.lacounty.gov/public/rest/services/LACounty_Cache/LACounty_Parcel/MapServer/0/query?where=AIN%3D%272115019023%27&outFields=AIN%2CSitusFullAddress%2CCENTER_LAT%2CCENTER_LON&outSR=4326&f=pjson"
+        ]
+      }
+    },
+    "bldg_dffff52cd126cc49": {
+      "building_key": "2605 1 2 W BEVERLY BLVD MONTEBELLO CA 90640",
+      "original_cms_address": "2605 1/2 W BEVERLY BLVD, MONTEBELLO, CA, 906402309",
+      "notes": "Census accepts the fraction restored from the original CMS line, but returns the same interpolation for 2605. CAMS returned no compatible point for either.",
+      "location": {
+        "source": "U.S. Census Bureau Geocoder",
+        "record_id": "141639208",
+        "matched_address": "2605 1/2 W BEVERLY BLVD, MONTEBELLO, CA, 90640",
+        "county": "Los Angeles",
+        "confidence": "approximate",
+        "precision": "street_interpolation",
+        "latitude": 34.020789103461,
+        "longitude": -118.130573716543,
+        "evidence_urls": [
+          "https://data.cms.gov/provider-characteristics/hospitals-and-other-facilities/hospice-enrollments",
+          "https://services.arcgis.com/RmCCgQtiZLDCtblq/arcgis/rest/services/eGIS_Addressing_ADDRESS_POINTSv2/FeatureServer/0",
+          "https://geocoding.geo.census.gov/geocoder/geographies/onelineaddress?address=2605+1%2F2+W+BEVERLY+BLVD%2C+MONTEBELLO%2C+CA%2C+90640&benchmark=Public_AR_Current&vintage=Current_Current&layers=Counties&format=json"
+        ]
+      }
+    },
+    "bldg_31fa6a193e936151": {
+      "building_key": "2955E HILLCREST DR 128 WESTLAKE VILLAGE CA 91362",
+      "original_cms_address": "2955E HILLCREST DR 128, WESTLAKE VILLAGE, CA, 913623178",
+      "notes": "Historical CMS identifies suite 128 in Thousand Oaks. Census confirms Ventura County and the same point under both city labels. OSM shows the corresponding addressed building about 3 m away. The pin preserves the Census coordinate and its street precision.",
+      "location": {
+        "source": "U.S. Census Bureau Geocoder",
+        "record_id": "651146011",
+        "matched_address": "2955 E HILLCREST DR, THOUSAND OAKS, CA, 91362",
+        "county": "Ventura",
+        "confidence": "approximate",
+        "precision": "street_interpolation",
+        "latitude": 34.172825957279,
+        "longitude": -118.834187614923,
+        "evidence_urls": [
+          "https://data.cms.gov/provider-characteristics/hospitals-and-other-facilities/hospice-enrollments",
+          "https://www.cms.gov/files/document/r11776otn.pdf",
+          "https://www.openstreetmap.org/way/723774294",
+          "https://geocoding.geo.census.gov/geocoder/geographies/onelineaddress?address=2955+E+HILLCREST+DR%2C+THOUSAND+OAKS%2C+CA%2C+91362&benchmark=Public_AR_Current&vintage=Current_Current&layers=Counties&format=json"
+        ]
+      }
+    },
+    "bldg_631cdd4745cd8005": {
+      "building_key": "3939 ATLANTIC AVE 216 LONG BEACH CA 90807",
+      "original_cms_address": "3939 ATLANTIC AVE 216, LONG BEACH, CA, 908073535",
+      "notes": "Long Beach's exact primary address point and assessor parcel 7139003047 corroborate the civic address. CAMS contains unit points with an S prefix, but the municipal point identifies the building and does not locate suite 216.",
+      "location": {
+        "source": "City of Long Beach GIS",
+        "record_id": "3939 ATLANTIC AVE",
+        "matched_address": "3939 ATLANTIC AVE, LONG BEACH, CA, 90807",
+        "county": "Los Angeles",
+        "confidence": "verified",
+        "precision": "address_point",
+        "latitude": 33.830109,
+        "longitude": -118.1854485,
+        "evidence_urls": [
+          "https://data.cms.gov/provider-characteristics/hospitals-and-other-facilities/hospice-enrollments",
+          "https://geocoding.geo.census.gov/geocoder/geographies/onelineaddress?address=3939+ATLANTIC+AVE%2C+LONG+BEACH%2C+CA%2C+90807&benchmark=Public_AR_Current&vintage=Current_Current&layers=Counties&format=json",
+          "https://gis.longbeach.gov/fed/rest/services/Locators/CLB_AddressPoints_WGS/GeocodeServer/findAddressCandidates?SingleLine=3939+ATLANTIC+AVE%2C+LONG+BEACH%2C+CA%2C+90807&outFields=Addr_type%2CMatch_addr%2CAddNum%2CPostal&outSR=4326&f=pjson",
+          "https://public.gis.lacounty.gov/public/rest/services/LACounty_Cache/LACounty_Parcel/MapServer/0/query?where=AIN%3D%277139003047%27&outFields=AIN%2CSitusFullAddress%2CCENTER_LAT%2CCENTER_LON&outSR=4326&f=pjson"
+        ]
+      }
+    },
+    "bldg_6a2307f3dce76b83": {
+      "building_key": "444 E HUNTINGTON DR ARCADIA CA 91006",
+      "original_cms_address": "444 E HUNTINGTON DR, STE 103, ARCADIA, CA, 910066257",
+      "notes": "Historical CMS and current city permits corroborate the address. City's permit ties it to assessor parcel 5773015026. The housing inventory APN is inconsistent with current situs. West Huntington and the same-number Monrovia point were rejected. OSM confirms the east-side address but gives a different ZIP.",
+      "location": {
+        "source": "LA County Assessor",
+        "record_id": "5773015026",
+        "matched_address": "444 E HUNTINGTON DR, ARCADIA, CA 91006",
+        "county": "Los Angeles",
+        "confidence": "approximate",
+        "precision": "parcel_interior",
+        "latitude": 34.13958936,
+        "longitude": -118.02106949,
+        "evidence_urls": [
+          "https://data.cms.gov/provider-characteristics/hospitals-and-other-facilities/hospice-enrollments",
+          "https://www.arcadiaca.gov/Document%20Center/Government/Development%20Services/Building%20Services/Permit%20Activity%20Report/2026/March%202026%20Permit%20Summary.pdf",
+          "https://www.cms.gov/files/document/r12405otn.pdf",
+          "https://www.openstreetmap.org/way/406232662",
+          "https://public.gis.lacounty.gov/public/rest/services/LACounty_Cache/LACounty_Parcel/MapServer/0/query?where=AIN%3D%275773015026%27&outFields=AIN%2CSitusFullAddress%2CCENTER_LAT%2CCENTER_LON&outSR=4326&f=pjson"
+        ]
+      }
+    },
+    "bldg_a1ce63c041818a8a": {
+      "building_key": "450 N BRAND BLVD GLENDALE CA 91203",
+      "original_cms_address": "450 N BRAND BLVD, STE 600, GLENDALE, CA, 912032349",
+      "notes": "Glendale returns an exact primary address point for 91203. Its street result is within 50 m. The CAMS 91340 record is in San Fernando and was rejected.",
+      "location": {
+        "source": "City of Glendale GIS",
+        "record_id": "450 N BRAND BLVD",
+        "matched_address": "450 N BRAND BLVD, GLENDALE, CA, 91203",
+        "county": "Los Angeles",
+        "confidence": "verified",
+        "precision": "address_point",
+        "latitude": 34.152687000001094,
+        "longitude": -118.25460000000216,
+        "evidence_urls": [
+          "https://data.cms.gov/provider-characteristics/hospitals-and-other-facilities/hospice-enrollments",
+          "https://gismap.glendaleca.gov/arcgis/rest/services/Common/CAD_SiteAddress_Street/GeocodeServer",
+          "https://gismap.glendaleca.gov/arcgis/rest/services/Common/CAD_SiteAddress_Street/GeocodeServer/findAddressCandidates?SingleLine=450+N+BRAND+BLVD%2C+GLENDALE%2C+CA%2C+91203&outFields=Addr_type%2CMatch_addr%2CAddNum%2CPostal&outSR=4326&f=pjson"
+        ]
+      }
+    },
+    "bldg_2f1c06dd56a620c4": {
+      "building_key": "4510E PACIFIC COAST HWY 320 LONG BEACH CA 90804",
+      "original_cms_address": "4510E PACIFIC COAST HWY 320, LONG BEACH, CA, 908046926",
+      "notes": "Long Beach returns a score-100 primary address point matching house, street, direction and ZIP. Census locates the same civic address about 123 m away by street interpolation. The authoritative city point is used directly, without expanding the search radius. Suite 320 is not a separate mapped point.",
+      "location": {
+        "source": "City of Long Beach GIS",
+        "record_id": "4510 E PACIFIC COAST HWY",
+        "matched_address": "4510 E PACIFIC COAST HWY, LONG BEACH, CA, 90804",
+        "county": "Los Angeles",
+        "confidence": "verified",
+        "precision": "address_point",
+        "latitude": 33.78744,
+        "longitude": -118.1408715,
+        "evidence_urls": [
+          "https://data.cms.gov/provider-characteristics/hospitals-and-other-facilities/hospice-enrollments",
+          "https://geocoding.geo.census.gov/geocoder/geographies/onelineaddress?address=4510+E+PACIFIC+COAST+HWY%2C+LONG+BEACH%2C+CA%2C+90804&benchmark=Public_AR_Current&vintage=Current_Current&layers=Counties&format=json",
+          "https://gis.longbeach.gov/fed/rest/services/Locators/CLB_AddressPoints_WGS/GeocodeServer/findAddressCandidates?SingleLine=4510+E+PACIFIC+COAST+HWY%2C+LONG+BEACH%2C+CA%2C+90804&outFields=Addr_type%2CMatch_addr%2CAddNum%2CPostal&outSR=4326&f=pjson"
+        ]
+      }
+    },
+    "bldg_7030e340857915c6": {
+      "building_key": "5301 LAUREL CANTON BL VALLEY VILLAGE CA 91607",
+      "original_cms_address": "5301 LAUREL CANTON BL., STE 201A, VALLEY VILLAGE, CA, 916072736",
+      "notes": "Historical CMS confirms Canyon and suite 201A. County CAMS and Census agree on the corrected street and ZIP within 30 m. The existing analysis row has the same corrected house number, street, ZIP and CAMS feature ID. Both registration keys refer to the same mapped address.",
+      "location": {
+        "source": "LA County CAMS",
+        "record_id": "1767912",
+        "matched_address": "5301 LAUREL CANYON BLVD, VALLEY VILLAGE, CA 91607",
+        "county": "Los Angeles",
+        "confidence": "verified",
+        "precision": "address_point",
+        "latitude": 34.16696623545721,
+        "longitude": -118.39671870553686,
+        "evidence_urls": [
+          "https://data.cms.gov/provider-characteristics/hospitals-and-other-facilities/hospice-enrollments",
+          "https://www.cms.gov/files/document/r12405otn.pdf",
+          "https://geocoding.geo.census.gov/geocoder/geographies/onelineaddress?address=5301+LAUREL+CANYON+BLVD%2C+VALLEY+VILLAGE%2C+CA%2C+91607&benchmark=Public_AR_Current&vintage=Current_Current&layers=Counties&format=json",
+          "https://services.arcgis.com/RmCCgQtiZLDCtblq/arcgis/rest/services/eGIS_Addressing_ADDRESS_POINTSv2/FeatureServer/0/query?where=OBJECTID%3D1767912&outFields=OBJECTID%2CFullAddress%2CAIN&outSR=4326&f=pjson",
+          "https://public.gis.lacounty.gov/public/rest/services/LACounty_Cache/LACounty_Parcel/MapServer/0/query?where=AIN%3D%272347017006%27&outFields=AIN%2CSitusFullAddress%2CCENTER_LAT%2CCENTER_LON&outSR=4326&f=pjson"
+        ]
+      }
+    },
+    "bldg_c8ff304bfc094c18": {
+      "building_key": "6345 BALBOA BLVD ENCINO CA 91316",
+      "original_cms_address": "6345 BALBOA BLVD, STE 315, ENCINO, CA, 913161500",
+      "notes": "The Assessor links the CAMS point to parcel 2230024006 and the original 91316 situs. LADBS independently confirms the civic address and ZIP. CAMS labels the parcel Van Nuys 91406, which is inconsistent with its assessor situs.",
+      "location": {
+        "source": "LA County CAMS",
+        "record_id": "1777020",
+        "matched_address": "6345 BALBOA BLVD, ENCINO, CA 91316",
+        "county": "Los Angeles",
+        "confidence": "verified",
+        "precision": "address_point",
+        "latitude": 34.18613358791944,
+        "longitude": -118.50316281816858,
+        "evidence_urls": [
+          "https://data.cms.gov/provider-characteristics/hospitals-and-other-facilities/hospice-enrollments",
+          "https://www.ladbsservices2.lacity.org/EBEWECompliance/Default/Index1?syear=2017",
+          "https://services.arcgis.com/RmCCgQtiZLDCtblq/arcgis/rest/services/eGIS_Addressing_ADDRESS_POINTSv2/FeatureServer/0/query?where=OBJECTID%3D1777020&outFields=OBJECTID%2CFullAddress%2CAIN&outSR=4326&f=pjson",
+          "https://public.gis.lacounty.gov/public/rest/services/LACounty_Cache/LACounty_Parcel/MapServer/0/query?where=AIN%3D%272230024006%27&outFields=AIN%2CSitusFullAddress%2CCENTER_LAT%2CCENTER_LON&outSR=4326&f=pjson"
+        ]
+      }
+    },
+    "bldg_443a7ca72402edfa": {
+      "building_key": "7233 1 2 FOOTHILL BLVD TUJUNGA CA 91042",
+      "original_cms_address": "7233 1/2 FOOTHILL BLVD.,, TUJUNGA, CA, 910422718",
+      "notes": "The original fraction was restored for Census. The 7233 and 7233 1/2 interpolations coincide. CAMS supplies only the base address and the assessor lists another situs on that parcel, so fraction precision is unconfirmed.",
+      "location": {
+        "source": "U.S. Census Bureau Geocoder",
+        "record_id": "141588417",
+        "matched_address": "7233 1/2 FOOTHILL BLVD, TUJUNGA, CA, 91042",
+        "county": "Los Angeles",
+        "confidence": "approximate",
+        "precision": "street_interpolation",
+        "latitude": 34.249055340846,
+        "longitude": -118.289474440141,
+        "evidence_urls": [
+          "https://data.cms.gov/provider-characteristics/hospitals-and-other-facilities/hospice-enrollments",
+          "https://services.arcgis.com/RmCCgQtiZLDCtblq/arcgis/rest/services/eGIS_Addressing_ADDRESS_POINTSv2/FeatureServer/0/query?where=OBJECTID%3D1696508&outFields=OBJECTID%2CFullAddress%2CAIN&outSR=4326&f=pjson",
+          "https://geocoding.geo.census.gov/geocoder/geographies/onelineaddress?address=7233+1%2F2+FOOTHILL+BLVD%2C+TUJUNGA%2C+CA%2C+91042&benchmark=Public_AR_Current&vintage=Current_Current&layers=Counties&format=json"
+        ]
+      }
+    },
+    "bldg_b180723cdd2faf0b": {
+      "building_key": "726 W BROADWAY ST GLENDALE CA 91204",
+      "original_cms_address": "726 W BROADWAY ST, UNIT B, GLENDALE, CA, 912041054",
+      "notes": "The Glendale primary address point resolves the extra ST. CAMS supplies unit D rather than CMS unit B. Census and the municipal primary address corroborate the building location.",
+      "location": {
+        "source": "City of Glendale GIS",
+        "record_id": "726 W BROADWAY",
+        "matched_address": "726 W BROADWAY, GLENDALE, CA, 91204",
+        "county": "Los Angeles",
+        "confidence": "verified",
+        "precision": "address_point",
+        "latitude": 34.14649500000109,
+        "longitude": -118.27093050000214,
+        "evidence_urls": [
+          "https://data.cms.gov/provider-characteristics/hospitals-and-other-facilities/hospice-enrollments",
+          "https://geocoding.geo.census.gov/geocoder/geographies/onelineaddress?address=726+W+BROADWAY%2C+GLENDALE%2C+CA%2C+91204&benchmark=Public_AR_Current&vintage=Current_Current&layers=Counties&format=json",
+          "https://gismap.glendaleca.gov/arcgis/rest/services/Common/CAD_SiteAddress_Street/GeocodeServer/findAddressCandidates?SingleLine=726+W+BROADWAY%2C+GLENDALE%2C+CA%2C+91204&outFields=Addr_type%2CMatch_addr%2CAddNum%2CPostal&outSR=4326&f=pjson"
+        ]
+      }
+    },
+    "bldg_4278e2dc19086357": {
+      "building_key": "809 S LEMON AVE DIAMOND BAR CA 91789",
+      "original_cms_address": "809 S LEMON AVE, DIAMOND BAR, CA, 917892906",
+      "notes": "NPPES confirms the original 809 S Lemon and ZIP+4. Census interpolates 809 Lemon without S. The 100 m county check returned 835 Lemon at a Walnut situs, with no 809 point or parcel. The corroborating OSM South Lemon way is over 400 m from the Census estimate. The assessor's 809 E Lemon result is in Monrovia. This remains unmapped."
+    }
+  }
+}

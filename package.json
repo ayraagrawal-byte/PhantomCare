@@ -8,11 +8,19 @@
     "dev": "npm run dev --workspace dashboard",
     "build": "npm run build --workspace dashboard",
     "lint": "npm run lint --workspace dashboard",
-    "test": "npm run test --workspace dashboard"
+    "test": "npm run test --workspace dashboard",
+    "test:e2e": "playwright test"
   },
   "engines": {
     "node": ">=20",
     "npm": ">=10"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.56.1"
+  },
+  "overrides": {
+    "@typescript-eslint/typescript-estree": {
+      "minimatch": "11.0.1"
+    }
   }
 }
-
