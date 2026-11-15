@@ -1,6 +1,5 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "git": { "deploymentEnabled": { "codex/ananya-next-work": false } },
   "rewrites": [
     { "source": "/(.*)", "destination": "/api/index" }
   ]
