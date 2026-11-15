@@ -1,0 +1,2666 @@
+{
+  "schema_version": 1,
+  "census_url": "https://geocoding.geo.census.gov/geocoder/geographies/onelineaddress",
+  "cams_url": "https://services.arcgis.com/RmCCgQtiZLDCtblq/arcgis/rest/services/eGIS_Addressing_ADDRESS_POINTSv2/FeatureServer/0",
+  "search_radius_meters": 100,
+  "retrieved_at": "2026-11-14T23:32:53.199426Z",
+  "results": {
+    "bldg_ff1bc8ee765491af": {
+      "building_key": "14328 VICTORY BLVD VAN NUYS CA 91401",
+      "anchor": {
+        "source": "U.S. Census Bureau Geocoder",
+        "confidence": "approximate",
+        "precision": "street_interpolation",
+        "matched_address": "14328 VICTORY BLVD, VAN NUYS, CA, 91401",
+        "address_basis": "full_address",
+        "county": "Los Angeles",
+        "tiger_line_id": "141561079",
+        "benchmark": "Public_AR_Current",
+        "latitude": 34.186605420345,
+        "longitude": -118.445002070863
+      },
+      "reason": "street_interpolation_only",
+      "nearby_matching_feature_ids": []
+    },
+    "bldg_31882d06af96aca6": {
+      "building_key": "1616 VICTORY BLVD GLENDALE CA 91201",
+      "anchor": {
+        "source": "U.S. Census Bureau Geocoder",
+        "confidence": "approximate",
+        "precision": "street_interpolation",
+        "matched_address": "1616 VICTORY BLVD, GLENDALE, CA, 91201",
+        "address_basis": "full_address",
+        "county": "Los Angeles",
+        "tiger_line_id": "141595957",
+        "benchmark": "Public_AR_Current",
+        "latitude": 34.160134080954,
+        "longitude": -118.298927340228
+      },
+      "reason": "unit_or_conflicting_points",
+      "nearby_matching_feature_ids": [
+        2198145,
+        2207351,
+        2229681,
+        2277328,
+        2294211,
+        2295375,
+        2319186,
+        2322599,
+        2331062,
+        2334131,
+        2341617,
+        2355295
+      ]
+    },
+    "bldg_61eb698c381440df": {
+      "building_key": "16430 VENTURA BLVD ENCINO CA 91436",
+      "anchor": {
+        "source": "U.S. Census Bureau Geocoder",
+        "confidence": "approximate",
+        "precision": "street_interpolation",
+        "matched_address": "16430 VENTURA BLVD, ENCINO, CA, 91436",
+        "address_basis": "full_address",
+        "county": "Los Angeles",
+        "tiger_line_id": "141556569",
+        "benchmark": "Public_AR_Current",
+        "latitude": 34.157303241768,
+        "longitude": -118.490859679246
+      },
+      "reason": "street_interpolation_only",
+      "nearby_matching_feature_ids": []
+    },
+    "bldg_9aecac061c3c6600": {
+      "building_key": "17215 STUDEBAKER RD CERRITOS CA 90703",
+      "anchor": {
+        "source": "U.S. Census Bureau Geocoder",
+        "confidence": "approximate",
+        "precision": "street_interpolation",
+        "matched_address": "17215 STUDEBAKER RD, CERRITOS, CA, 90703",
+        "address_basis": "full_address",
+        "county": "Los Angeles",
+        "tiger_line_id": "141742992",
+        "benchmark": "Public_AR_Current",
+        "latitude": 33.874713772974,
+        "longitude": -118.099799213207
+      },
+      "reason": "unit_or_conflicting_points",
+      "nearby_matching_feature_ids": [
+        33295,
+        47960,
+        58844,
+        67394,
+        75143,
+        111467,
+        121411,
+        147227,
+        153656,
+        156207,
+        162207,
+        195608,
+        197894,
+        207909,
+        210649,
+        225395,
+        229216,
+        230761,
+        248669,
+        248690,
+        250205,
+        252683,
+        294904,
+        315325,
+        316651,
+        329988
+      ]
+    },
+    "bldg_8610040730bbf6b6": {
+      "building_key": "224 E OLIVE AVE BURBANK CA 91502",
+      "anchor": {
+        "source": "U.S. Census Bureau Geocoder",
+        "confidence": "approximate",
+        "precision": "street_interpolation",
+        "matched_address": "224 E OLIVE AVE, BURBANK, CA, 91502",
+        "address_basis": "full_address",
+        "county": "Los Angeles",
+        "tiger_line_id": "241240091",
+        "benchmark": "Public_AR_Current",
+        "latitude": 34.181114000922,
+        "longitude": -118.30835381044
+      },
+      "reason": "street_interpolation_only",
+      "nearby_matching_feature_ids": []
+    },
+    "bldg_e5c660f4afc5403e": {
+      "building_key": "2855 TEMPLE AVE SIGNAL HILL CA 90755",
+      "anchor": {
+        "source": "U.S. Census Bureau Geocoder",
+        "confidence": "approximate",
+        "precision": "street_interpolation",
+        "matched_address": "2855 TEMPLE AVE, SIGNAL HILL, CA, 90755",
+        "address_basis": "full_address",
+        "county": "Los Angeles",
+        "tiger_line_id": "647647020",
+        "benchmark": "Public_AR_Current",
+        "latitude": 33.808859238873,
+        "longitude": -118.15898607497
+      },
+      "reason": "street_interpolation_only",
+      "nearby_matching_feature_ids": []
+    },
+    "bldg_513dd653a97eb545": {
+      "building_key": "4119 W BURBANK BLVD BURBANK CA 91505",
+      "anchor": {
+        "source": "U.S. Census Bureau Geocoder",
+        "confidence": "approximate",
+        "precision": "street_interpolation",
+        "matched_address": "4119 W BURBANK BLVD, BURBANK, CA, 91505",
+        "address_basis": "full_address",
+        "county": "Los Angeles",
+        "tiger_line_id": "141592044",
+        "benchmark": "Public_AR_Current",
+        "latitude": 34.172999728371,
+        "longitude": -118.355452128944
+      },
+      "reason": "street_interpolation_only",
+      "nearby_matching_feature_ids": []
+    },
+    "bldg_c83eb2a9bee8fa17": {
+      "building_key": "1 N INDIAN HILL BLVD CLAREMONT CA 91711",
+      "reason": "no_defensible_anchor",
+      "nearby_matching_feature_ids": []
+    },
+    "bldg_f357f6e764e58803": {
+      "building_key": "100 W BROADWAY GLENDALE CA 91210",
+      "anchor": {
+        "source": "U.S. Census Bureau Geocoder",
+        "confidence": "approximate",
+        "precision": "street_interpolation",
+        "matched_address": "100 W BROADWAY, GLENDALE, CA, 91210",
+        "address_basis": "full_address",
+        "county": "Los Angeles",
+        "tiger_line_id": "141610056",
+        "benchmark": "Public_AR_Current",
+        "latitude": 34.14652300004,
+        "longitude": -118.256744257801
+      },
+      "reason": "unit_or_conflicting_points",
+      "nearby_matching_feature_ids": [
+        416882,
+        581534,
+        2098210,
+        2100024,
+        2101471,
+        2105073,
+        2113784,
+        2116414,
+        2118731,
+        2120924,
+        2121662,
+        2122445,
+        2129205,
+        2129842,
+        2131197,
+        2136333,
+        2138267,
+        2138767,
+        2138783,
+        2140349,
+        2142048,
+        2142807,
+        2142898,
+        2144216,
+        2144372,
+        2147383,
+        2150553,
+        2152394,
+        2156902,
+        2223901,
+        2230276,
+        2251954,
+        2282742,
+        2289488,
+        2314972,
+        2332574,
+        2346587,
+        2374327
+      ]
+    },
+    "bldg_51eeb036a368076b": {
+      "building_key": "101 S 1ST ST BURBANK CA 91502",
+      "anchor": {
+        "source": "U.S. Census Bureau Geocoder",
+        "confidence": "approximate",
+        "precision": "street_interpolation",
+        "matched_address": "101 S 1ST ST, BURBANK, CA, 91502",
+        "address_basis": "full_address",
+        "county": "Los Angeles",
+        "tiger_line_id": "657231205",
+        "benchmark": "Public_AR_Current",
+        "latitude": 34.179604226362,
+        "longitude": -118.309994133022
+      },
+      "reason": "unit_or_conflicting_points",
+      "nearby_matching_feature_ids": [
+        930330
+      ]
+    },
+    "bldg_cf4d44221d4cf1cf": {
+      "building_key": "10272 FOOTHILL BLVD LAKE VIEW TER CA 91342",
+      "anchor": {
+        "source": "U.S. Census Bureau Geocoder",
+        "confidence": "approximate",
+        "precision": "street_interpolation",
+        "matched_address": "10272 FOOTHILL BLVD, LAKE VIEW TER, CA, 91342",
+        "address_basis": "full_address",
+        "county": "Los Angeles",
+        "tiger_line_id": "141586166",
+        "benchmark": "Public_AR_Current",
+        "latitude": 34.273317776972,
+        "longitude": -118.35312790912
+      },
+      "reason": "street_interpolation_only",
+      "nearby_matching_feature_ids": []
+    },
+    "bldg_a3c64479a3097bf8": {
+      "building_key": "104 W BEVERLY BLVD MONTEBELLO CA 90640",
+      "anchor": {
+        "source": "U.S. Census Bureau Geocoder",
+        "confidence": "approximate",
+        "precision": "street_interpolation",
+        "matched_address": "104 W BEVERLY BLVD, MONTEBELLO, CA, 90640",
+        "address_basis": "full_address",
+        "county": "Los Angeles",
+        "tiger_line_id": "141642398",
+        "benchmark": "Public_AR_Current",
+        "latitude": 34.015706227615,
+        "longitude": -118.098681290078
+      },
+      "reason": "street_interpolation_only",
+      "nearby_matching_feature_ids": []
+    },
+    "bldg_0fd8ea492e5dd2ed": {
+      "building_key": "105 W ALAMEDA AVE BURBANK CA 91502",
+      "anchor": {
+        "source": "U.S. Census Bureau Geocoder",
+        "confidence": "approximate",
+        "precision": "street_interpolation",
+        "matched_address": "105 W ALAMEDA AVE, BURBANK, CA, 91502",
+        "address_basis": "full_address",
+        "county": "Los Angeles",
+        "tiger_line_id": "141595822",
+        "benchmark": "Public_AR_Current",
+        "latitude": 34.171187841242,
+        "longitude": -118.303381587939
+      },
+      "reason": "street_interpolation_only",
+      "nearby_matching_feature_ids": []
+    },
+    "bldg_79244ada529cebe1": {
+      "building_key": "1050 A COMMERCE CENTER DR LANCASTER CA 93534",
+      "reason": "no_defensible_anchor",
+      "nearby_matching_feature_ids": []
+    },
+    "bldg_ab34112e3465891f": {
+      "building_key": "1061W AVE M14 D PALMDALE CA 93551",
+      "reason": "no_defensible_anchor",
+      "nearby_matching_feature_ids": []
+    },
+    "bldg_0fc77f62457f7d24": {
+      "building_key": "11080 ARTESIA BLVD CERRITOS CA 90703",
+      "anchor": {
+        "source": "U.S. Census Bureau Geocoder",
+        "confidence": "approximate",
+        "precision": "street_interpolation",
+        "matched_address": "11080 ARTESIA BLVD, CERRITOS, CA, 90703",
+        "address_basis": "full_address",
+        "county": "Los Angeles",
+        "tiger_line_id": "142662519",
+        "benchmark": "Public_AR_Current",
+        "latitude": 33.872905143031,
+        "longitude": -118.097955233921
+      },
+      "reason": "unit_or_conflicting_points",
+      "nearby_matching_feature_ids": []
+    },
+    "bldg_cd6e8ca5f0edc1e5": {
+      "building_key": "1112 1 2 N PACIFIC AVE GLENDALE CA 91202",
+      "reason": "no_defensible_anchor",
+      "nearby_matching_feature_ids": []
+    },
+    "bldg_3d1882d076511ab4": {
+      "building_key": "1115 N HOLLYWOOD WAY BURBANK CA 91505",
+      "anchor": {
+        "source": "U.S. Census Bureau Geocoder",
+        "confidence": "approximate",
+        "precision": "street_interpolation",
+        "matched_address": "1115 N HOLLYWOOD WAY, BURBANK, CA, 91505",
+        "address_basis": "full_address",
+        "county": "Los Angeles",
+        "tiger_line_id": "142725958",
+        "benchmark": "Public_AR_Current",
+        "latitude": 34.169803031475,
+        "longitude": -118.347998476604
+      },
+      "reason": "street_interpolation_only",
+      "nearby_matching_feature_ids": []
+    },
+    "bldg_5f8f6b80293a9117": {
+      "building_key": "11401 CARSON ST LAKEWOOD CA 90715",
+      "anchor": {
+        "source": "U.S. Census Bureau Geocoder",
+        "confidence": "approximate",
+        "precision": "street_interpolation",
+        "matched_address": "11401 CARSON ST, LAKEWOOD, CA, 90715",
+        "address_basis": "full_address",
+        "county": "Los Angeles",
+        "tiger_line_id": "642863835",
+        "benchmark": "Public_AR_Current",
+        "latitude": 33.831493608947,
+        "longitude": -118.090347194721
+      },
+      "reason": "unit_or_conflicting_points",
+      "nearby_matching_feature_ids": [
+        549678,
+        590790,
+        856393,
+        1098975,
+        1104861,
+        1143691,
+        1149775
+      ]
+    },
+    "bldg_9c478f05a8c90f3c": {
+      "building_key": "11755 VICTORY BLVD 103 N HOLLYWOOD CA 91606",
+      "anchor": {
+        "source": "U.S. Census Bureau Geocoder",
+        "confidence": "approximate",
+        "precision": "street_interpolation",
+        "matched_address": "11755 VICTORY BLVD, N HOLLYWOOD, CA, 91606",
+        "address_basis": "civic_address_only",
+        "county": "Los Angeles",
+        "tiger_line_id": "141564206",
+        "benchmark": "Public_AR_Current",
+        "latitude": 34.186731289888,
+        "longitude": -118.389275790883
+      },
+      "reason": "unit_or_conflicting_points",
+      "nearby_matching_feature_ids": [
+        1819877
+      ]
+    },
+    "bldg_cb0f46146a255ac1": {
+      "building_key": "11911 ARTESIA BLVD CERRITOS CA 90701",
+      "anchor": {
+        "source": "U.S. Census Bureau Geocoder",
+        "confidence": "approximate",
+        "precision": "street_interpolation",
+        "matched_address": "11911 ARTESIA BLVD, CERRITOS, CA, 90701",
+        "address_basis": "full_address",
+        "county": "Los Angeles",
+        "tiger_line_id": "141744154",
+        "benchmark": "Public_AR_Current",
+        "latitude": 33.873112741795,
+        "longitude": -118.079798338799
+      },
+      "reason": "street_interpolation_only",
+      "nearby_matching_feature_ids": []
+    },
+    "bldg_e5427cdb37ebc6a7": {
+      "building_key": "1201 N PACIFIC AVE GLENDALE CA 91202",
+      "anchor": {
+        "source": "U.S. Census Bureau Geocoder",
+        "confidence": "approximate",
+        "precision": "street_interpolation",
+        "matched_address": "1201 N PACIFIC AVE, GLENDALE, CA, 91202",
+        "address_basis": "full_address",
+        "county": "Los Angeles",
+        "tiger_line_id": "141608433",
+        "benchmark": "Public_AR_Current",
+        "latitude": 34.163244633026,
+        "longitude": -118.265028117115
+      },
+      "reason": "unit_or_conflicting_points",
+      "nearby_matching_feature_ids": [
+        2101698,
+        2104557,
+        2113220,
+        2116835,
+        2118071,
+        2121553,
+        2122028,
+        2139315,
+        2146091,
+        2151993,
+        2154401,
+        2157964,
+        2159408,
+        2159615
+      ]
+    },
+    "bldg_952f5861a399931a": {
+      "building_key": "12140 ARTESIA BLVD 214 ARTESIA CA 90701",
+      "anchor": {
+        "source": "U.S. Census Bureau Geocoder",
+        "confidence": "approximate",
+        "precision": "street_interpolation",
+        "matched_address": "12140 ARTESIA BLVD, ARTESIA, CA, 90701",
+        "address_basis": "civic_address_only",
+        "county": "Los Angeles",
+        "tiger_line_id": "640426090",
+        "benchmark": "Public_AR_Current",
+        "latitude": 33.873033636012,
+        "longitude": -118.073717696897
+      },
+      "reason": "unit_or_conflicting_points",
+      "nearby_matching_feature_ids": [
+        2620865
+      ]
+    },
+    "bldg_2d07e15eb2cd126f": {
+      "building_key": "1220 W GLENOAKS BLVD GLENDALE CA 91201",
+      "anchor": {
+        "source": "U.S. Census Bureau Geocoder",
+        "confidence": "approximate",
+        "precision": "street_interpolation",
+        "matched_address": "1220 W GLENOAKS BLVD, GLENDALE, CA, 91201",
+        "address_basis": "full_address",
+        "county": "Los Angeles",
+        "tiger_line_id": "141596544",
+        "benchmark": "Public_AR_Current",
+        "latitude": 34.16557368114,
+        "longitude": -118.282290736064
+      },
+      "reason": "unit_or_conflicting_points",
+      "nearby_matching_feature_ids": [
+        2098138,
+        2099607,
+        2104417,
+        2105168,
+        2109762,
+        2110275,
+        2116256,
+        2117296,
+        2119403,
+        2121192,
+        2125559,
+        2140140,
+        2140432,
+        2143817,
+        2146122,
+        2150806,
+        2158979
+      ]
+    },
+    "bldg_71d08712e8373e0e": {
+      "building_key": "12241 FIRESTONE BLVD AB NORWALK CA 90650",
+      "reason": "no_defensible_anchor",
+      "nearby_matching_feature_ids": []
+    },
+    "bldg_4a77c4b1fd540f18": {
+      "building_key": "12403 SLAUSON AVE WHITTIER CA 90606",
+      "anchor": {
+        "source": "U.S. Census Bureau Geocoder",
+        "confidence": "approximate",
+        "precision": "street_interpolation",
+        "matched_address": "12403 SLAUSON AVE, WHITTIER, CA, 90606",
+        "address_basis": "full_address",
+        "county": "Los Angeles",
+        "tiger_line_id": "241147876",
+        "benchmark": "Public_AR_Current",
+        "latitude": 33.960446104786,
+        "longitude": -118.053257288227
+      },
+      "reason": "street_interpolation_only",
+      "nearby_matching_feature_ids": []
+    },
+    "bldg_1f900fd940afbb92": {
+      "building_key": "13047 ARTESIA BLVD CERRITOS CA 90703",
+      "anchor": {
+        "source": "U.S. Census Bureau Geocoder",
+        "confidence": "approximate",
+        "precision": "street_interpolation",
+        "matched_address": "13047 ARTESIA BLVD, CERRITOS, CA, 90703",
+        "address_basis": "full_address",
+        "county": "Los Angeles",
+        "tiger_line_id": "141753513",
+        "benchmark": "Public_AR_Current",
+        "latitude": 33.87326001765,
+        "longitude": -118.054323169848
+      },
+      "reason": "unit_or_conflicting_points",
+      "nearby_matching_feature_ids": [
+        69956,
+        188105,
+        261884,
+        270220,
+        321069
+      ]
+    },
+    "bldg_ea804e6c279c65d6": {
+      "building_key": "1343 N GRAND AVE COVINA CA 91724",
+      "anchor": {
+        "source": "U.S. Census Bureau Geocoder",
+        "confidence": "approximate",
+        "precision": "street_interpolation",
+        "matched_address": "1343 N GRAND AVE, COVINA, CA, 91724",
+        "address_basis": "full_address",
+        "county": "Los Angeles",
+        "tiger_line_id": "241255595",
+        "benchmark": "Public_AR_Current",
+        "latitude": 34.104313020786,
+        "longitude": -117.872733535182
+      },
+      "reason": "street_interpolation_only",
+      "nearby_matching_feature_ids": []
+    },
+    "bldg_64c591372555c791": {
+      "building_key": "13658 HAWTHORNE BLVD HAWTHORNE CA 90250",
+      "anchor": {
+        "source": "U.S. Census Bureau Geocoder",
+        "confidence": "approximate",
+        "precision": "street_interpolation",
+        "matched_address": "13658 HAWTHORNE BLVD, HAWTHORNE, CA, 90250",
+        "address_basis": "full_address",
+        "county": "Los Angeles",
+        "tiger_line_id": "141656655",
+        "benchmark": "Public_AR_Current",
+        "latitude": 33.907892004686,
+        "longitude": -118.352289794291
+      },
+      "reason": "street_interpolation_only",
+      "nearby_matching_feature_ids": []
+    },
+    "bldg_4951a6b7ac472ee4": {
+      "building_key": "13758 VICTORY BLVD 200 VAN NUYS CA 91401",
+      "anchor": {
+        "source": "U.S. Census Bureau Geocoder",
+        "confidence": "approximate",
+        "precision": "street_interpolation",
+        "matched_address": "13758 VICTORY BLVD, VAN NUYS, CA, 91401",
+        "address_basis": "civic_address_only",
+        "county": "Los Angeles",
+        "tiger_line_id": "141561327",
+        "benchmark": "Public_AR_Current",
+        "latitude": 34.186609427123,
+        "longitude": -118.432796877636
+      },
+      "reason": "unit_or_conflicting_points",
+      "nearby_matching_feature_ids": [
+        1294330
+      ]
+    },
+    "bldg_d98b8bf8fe39be07": {
+      "building_key": "1403 LOMITA BLVD HARBOR CITY CA 90710",
+      "anchor": {
+        "source": "U.S. Census Bureau Geocoder",
+        "confidence": "approximate",
+        "precision": "street_interpolation",
+        "matched_address": "1403 LOMITA BLVD, HARBOR CITY, CA, 90710",
+        "address_basis": "full_address",
+        "county": "Los Angeles",
+        "tiger_line_id": "142456424",
+        "benchmark": "Public_AR_Current",
+        "latitude": 33.797860883485,
+        "longitude": -118.301522732413
+      },
+      "reason": "street_interpolation_only",
+      "nearby_matching_feature_ids": []
+    },
+    "bldg_b408608f72114fb2": {
+      "building_key": "140N VICTORY BLVD BURBANK CA 91502",
+      "reason": "no_defensible_anchor",
+      "nearby_matching_feature_ids": []
+    },
+    "bldg_1d3389976f2d4808": {
+      "building_key": "1419 N SAN FERNANDO BLVD BURBANK CA 91504",
+      "anchor": {
+        "source": "U.S. Census Bureau Geocoder",
+        "confidence": "approximate",
+        "precision": "street_interpolation",
+        "matched_address": "1419 N SAN FERNANDO BLVD, BURBANK, CA, 91504",
+        "address_basis": "full_address",
+        "county": "Los Angeles",
+        "tiger_line_id": "141594999",
+        "benchmark": "Public_AR_Current",
+        "latitude": 34.190490395481,
+        "longitude": -118.321956693797
+      },
+      "reason": "street_interpolation_only",
+      "nearby_matching_feature_ids": []
+    },
+    "bldg_0b7cdde1aba64cc6": {
+      "building_key": "1425 W BURBANK BLVD BURBANK CA 91506",
+      "anchor": {
+        "source": "U.S. Census Bureau Geocoder",
+        "confidence": "approximate",
+        "precision": "street_interpolation",
+        "matched_address": "1425 W BURBANK BLVD, BURBANK, CA, 91506",
+        "address_basis": "full_address",
+        "county": "Los Angeles",
+        "tiger_line_id": "141592776",
+        "benchmark": "Public_AR_Current",
+        "latitude": 34.18226001095,
+        "longitude": -118.327742093441
+      },
+      "reason": "street_interpolation_only",
+      "nearby_matching_feature_ids": []
+    },
+    "bldg_7c196f316a66b4f4": {
+      "building_key": "144 N GLENDALE AVE GLENDALE CA 91206",
+      "anchor": {
+        "source": "U.S. Census Bureau Geocoder",
+        "confidence": "approximate",
+        "precision": "street_interpolation",
+        "matched_address": "144 N GLENDALE AVE, GLENDALE, CA, 91206",
+        "address_basis": "full_address",
+        "county": "Los Angeles",
+        "tiger_line_id": "241240500",
+        "benchmark": "Public_AR_Current",
+        "latitude": 34.147141070355,
+        "longitude": -118.246768145618
+      },
+      "reason": "unit_or_conflicting_points",
+      "nearby_matching_feature_ids": [
+        2333972,
+        2364652
+      ]
+    },
+    "bldg_a460f6b22e4dfd7e": {
+      "building_key": "146 N SAN FERNANDO BLVD BURBANK CA 91502",
+      "anchor": {
+        "source": "U.S. Census Bureau Geocoder",
+        "confidence": "approximate",
+        "precision": "street_interpolation",
+        "matched_address": "146 N SAN FERNANDO BLVD, BURBANK, CA, 91502",
+        "address_basis": "full_address",
+        "county": "Los Angeles",
+        "tiger_line_id": "142726966",
+        "benchmark": "Public_AR_Current",
+        "latitude": 34.181384395175,
+        "longitude": -118.309367556994
+      },
+      "reason": "street_interpolation_only",
+      "nearby_matching_feature_ids": []
+    },
+    "bldg_b54c4f9e7ad30b03": {
+      "building_key": "14712 PIPELINE AVE CHINO HILLS CA 91709",
+      "anchor": {
+        "source": "U.S. Census Bureau Geocoder",
+        "confidence": "approximate",
+        "precision": "street_interpolation",
+        "matched_address": "14712 PIPELINE AVE, CHINO HILLS, CA, 91709",
+        "address_basis": "full_address",
+        "county": "San Bernardino",
+        "tiger_line_id": "638254910",
+        "benchmark": "Public_AR_Current",
+        "latitude": 33.985917890895,
+        "longitude": -117.715112883714
+      },
+      "reason": "street_interpolation_only",
+      "nearby_matching_feature_ids": []
+    },
+    "bldg_ed0269f9f2a4a0ad": {
+      "building_key": "15050 IMPERIAL HWY LA MIRADA CA 90638",
+      "reason": "no_defensible_anchor",
+      "nearby_matching_feature_ids": []
+    },
+    "bldg_82d4d8496b83c96d": {
+      "building_key": "151N SAN VICENTE BLVD 209 BEVERLY HILLS CA 90211",
+      "reason": "no_defensible_anchor",
+      "nearby_matching_feature_ids": []
+    },
+    "bldg_668e51ec5bdb141f": {
+      "building_key": "15317 PARAMOUNT BLVD 205 PARAMOUNT CA 90723",
+      "anchor": {
+        "source": "U.S. Census Bureau Geocoder",
+        "confidence": "approximate",
+        "precision": "street_interpolation",
+        "matched_address": "15317 PARAMOUNT BLVD, PARAMOUNT, CA, 90723",
+        "address_basis": "civic_address_only",
+        "county": "Los Angeles",
+        "tiger_line_id": "141697119",
+        "benchmark": "Public_AR_Current",
+        "latitude": 33.894629061894,
+        "longitude": -118.160101981314
+      },
+      "reason": "unit_or_conflicting_points",
+      "nearby_matching_feature_ids": [
+        630907
+      ]
+    },
+    "bldg_e43d899746a341f5": {
+      "building_key": "15335 FAIRFIELD RANCH RD CHINO HILLS CA 91709",
+      "anchor": {
+        "source": "U.S. Census Bureau Geocoder",
+        "confidence": "approximate",
+        "precision": "street_interpolation",
+        "matched_address": "15335 FAIRFIELD RANCH RD, CHINO HILLS, CA, 91709",
+        "address_basis": "full_address",
+        "county": "San Bernardino",
+        "tiger_line_id": "145231277",
+        "benchmark": "Public_AR_Current",
+        "latitude": 33.973082566246,
+        "longitude": -117.692028057935
+      },
+      "reason": "street_interpolation_only",
+      "nearby_matching_feature_ids": []
+    },
+    "bldg_87068f06ee7ca068": {
+      "building_key": "15455 SAN FERNANDO BLVD MISSION HILLS CA 91345",
+      "reason": "no_defensible_anchor",
+      "nearby_matching_feature_ids": []
+    },
+    "bldg_1f523e111801f032": {
+      "building_key": "159 E HUNTINGTON DR ARCADIA CA 91006",
+      "anchor": {
+        "source": "U.S. Census Bureau Geocoder",
+        "confidence": "approximate",
+        "precision": "street_interpolation",
+        "matched_address": "159 E HUNTINGTON DR, ARCADIA, CA, 91006",
+        "address_basis": "full_address",
+        "county": "Los Angeles",
+        "tiger_line_id": "640426056",
+        "benchmark": "Public_AR_Current",
+        "latitude": 34.140170036124,
+        "longitude": -118.026331704827
+      },
+      "reason": "street_interpolation_only",
+      "nearby_matching_feature_ids": []
+    },
+    "bldg_7455db71f8a7e8b9": {
+      "building_key": "16102B HART ST VAN NUYS CA 91406",
+      "anchor": {
+        "source": "U.S. Census Bureau Geocoder",
+        "confidence": "approximate",
+        "precision": "street_interpolation",
+        "matched_address": "16102B HART ST, VAN NUYS, CA, 91406",
+        "address_basis": "full_address",
+        "county": "Los Angeles",
+        "tiger_line_id": "141556345",
+        "benchmark": "Public_AR_Current",
+        "latitude": 34.19747565861,
+        "longitude": -118.483766947688
+      },
+      "reason": "street_interpolation_only",
+      "nearby_matching_feature_ids": []
+    },
+    "bldg_1d543e656550fdd6": {
+      "building_key": "16110B HART ST VAN NUYS CA 91406",
+      "anchor": {
+        "source": "U.S. Census Bureau Geocoder",
+        "confidence": "approximate",
+        "precision": "street_interpolation",
+        "matched_address": "16110B HART ST, VAN NUYS, CA, 91406",
+        "address_basis": "full_address",
+        "county": "Los Angeles",
+        "tiger_line_id": "141556345",
+        "benchmark": "Public_AR_Current",
+        "latitude": 34.197475581723,
+        "longitude": -118.483933840532
+      },
+      "reason": "street_interpolation_only",
+      "nearby_matching_feature_ids": []
+    },
+    "bldg_4e84eb2e494b9aae": {
+      "building_key": "16501 SHERMAN WAY VAN NUYS CA 91406",
+      "reason": "no_defensible_anchor",
+      "nearby_matching_feature_ids": []
+    },
+    "bldg_d9d06a31f8b2751f": {
+      "building_key": "16555 SHERMAN WAY VAN NUYS CA 91406",
+      "reason": "no_defensible_anchor",
+      "nearby_matching_feature_ids": []
+    },
+    "bldg_1b3511f812086784": {
+      "building_key": "1711W TEMPLE ST 3614 LOS ANGELES CA 90026",
+      "anchor": {
+        "source": "U.S. Census Bureau Geocoder",
+        "confidence": "approximate",
+        "precision": "street_interpolation",
+        "matched_address": "1711 W TEMPLE ST, LOS ANGELES, CA, 90026",
+        "address_basis": "civic_address_only",
+        "county": "Los Angeles",
+        "tiger_line_id": "141616518",
+        "benchmark": "Public_AR_Current",
+        "latitude": 34.06868142521,
+        "longitude": -118.263020421689
+      },
+      "reason": "unit_or_conflicting_points",
+      "nearby_matching_feature_ids": [
+        1657508
+      ]
+    },
+    "bldg_f9a10976bfe3b9c8": {
+      "building_key": "17817 CHATSWORTH ST GRANADA HILLS CA 91344",
+      "anchor": {
+        "source": "U.S. Census Bureau Geocoder",
+        "confidence": "approximate",
+        "precision": "street_interpolation",
+        "matched_address": "17817 CHATSWORTH ST, GRANADA HILLS, CA, 91344",
+        "address_basis": "full_address",
+        "county": "Los Angeles",
+        "tiger_line_id": "141542274",
+        "benchmark": "Public_AR_Current",
+        "latitude": 34.264953372601,
+        "longitude": -118.52190676041
+      },
+      "reason": "street_interpolation_only",
+      "nearby_matching_feature_ids": []
+    },
+    "bldg_2568e5bbcc2b436c": {
+      "building_key": "1821 W VERDUGO AVE BURBANK CA 91506",
+      "anchor": {
+        "source": "U.S. Census Bureau Geocoder",
+        "confidence": "approximate",
+        "precision": "street_interpolation",
+        "matched_address": "1821 W VERDUGO AVE, BURBANK, CA, 91506",
+        "address_basis": "full_address",
+        "county": "Los Angeles",
+        "tiger_line_id": "141593161",
+        "benchmark": "Public_AR_Current",
+        "latitude": 34.167462606999,
+        "longitude": -118.324511541568
+      },
+      "reason": "street_interpolation_only",
+      "nearby_matching_feature_ids": []
+    },
+    "bldg_ceeff6fbb9a2b0c8": {
+      "building_key": "18711 SHERMAN WAY RESEDA CA 91335",
+      "reason": "no_defensible_anchor",
+      "nearby_matching_feature_ids": []
+    },
+    "bldg_f12818dbc33d4c09": {
+      "building_key": "19725 SHERMAN WAY CANOGA PARK CA 91306",
+      "reason": "no_defensible_anchor",
+      "nearby_matching_feature_ids": []
+    },
+    "bldg_37821f9004563c3c": {
+      "building_key": "200 W GLENOAKS BLVD GLENDALE CA 91202",
+      "anchor": {
+        "source": "U.S. Census Bureau Geocoder",
+        "confidence": "approximate",
+        "precision": "street_interpolation",
+        "matched_address": "200 W GLENOAKS BLVD, GLENDALE, CA, 91202",
+        "address_basis": "full_address",
+        "county": "Los Angeles",
+        "tiger_line_id": "142730118",
+        "benchmark": "Public_AR_Current",
+        "latitude": 34.159287891384,
+        "longitude": -118.256975531217
+      },
+      "reason": "street_interpolation_only",
+      "nearby_matching_feature_ids": []
+    },
+    "bldg_ddf4ff4495c57c4e": {
+      "building_key": "20705S WESTERN AVE TORRANCE CA 90501",
+      "anchor": {
+        "source": "U.S. Census Bureau Geocoder",
+        "confidence": "approximate",
+        "precision": "street_interpolation",
+        "matched_address": "20705 S WESTERN AVE, TORRANCE, CA, 90501",
+        "address_basis": "civic_address_only",
+        "county": "Los Angeles",
+        "tiger_line_id": "142650604",
+        "benchmark": "Public_AR_Current",
+        "latitude": 33.842762960728,
+        "longitude": -118.309375997962
+      },
+      "reason": "unit_or_conflicting_points",
+      "nearby_matching_feature_ids": [
+        2659269
+      ]
+    },
+    "bldg_fb798c7d4ba894ed": {
+      "building_key": "21021 DEVONSHIRE ST 108 CHATSWORTH CA 91311",
+      "anchor": {
+        "source": "U.S. Census Bureau Geocoder",
+        "confidence": "approximate",
+        "precision": "street_interpolation",
+        "matched_address": "21021 DEVONSHIRE ST, CHATSWORTH, CA, 91311",
+        "address_basis": "civic_address_only",
+        "county": "Los Angeles",
+        "tiger_line_id": "141532052",
+        "benchmark": "Public_AR_Current",
+        "latitude": 34.257297846183,
+        "longitude": -118.591239394023
+      },
+      "reason": "unit_or_conflicting_points",
+      "nearby_matching_feature_ids": [
+        1797969
+      ]
+    },
+    "bldg_94e4390c31edc69f": {
+      "building_key": "2155 E GARVEY AVE N W COVINA CA 91791",
+      "anchor": {
+        "source": "U.S. Census Bureau Geocoder",
+        "confidence": "approximate",
+        "precision": "street_interpolation",
+        "matched_address": "2155 E GARVEY AVE N, WEST COVINA, CA, 91791",
+        "address_basis": "full_address",
+        "county": "Los Angeles",
+        "tiger_line_id": "241245738",
+        "benchmark": "Public_AR_Current",
+        "latitude": 34.072562600059,
+        "longitude": -117.899780163143
+      },
+      "reason": "street_interpolation_only",
+      "nearby_matching_feature_ids": []
+    },
+    "bldg_bc37bafccd81840f": {
+      "building_key": "2161 COLORADO BLVD 206 LOS ANGELES CA 90041",
+      "anchor": {
+        "source": "U.S. Census Bureau Geocoder",
+        "confidence": "approximate",
+        "precision": "street_interpolation",
+        "matched_address": "2161 COLORADO BLVD, LOS ANGELES, CA, 90041",
+        "address_basis": "civic_address_only",
+        "county": "Los Angeles",
+        "tiger_line_id": "141613251",
+        "benchmark": "Public_AR_Current",
+        "latitude": 34.139267960035,
+        "longitude": -118.213441047679
+      },
+      "reason": "unit_or_conflicting_points",
+      "nearby_matching_feature_ids": [
+        1921465
+      ]
+    },
+    "bldg_bb6188c0af3b1864": {
+      "building_key": "21707 HAWTHORNE BLVD 304 TORRANCE CA 90503",
+      "anchor": {
+        "source": "U.S. Census Bureau Geocoder",
+        "confidence": "approximate",
+        "precision": "street_interpolation",
+        "matched_address": "21707 HAWTHORNE BLVD, TORRANCE, CA, 90503",
+        "address_basis": "civic_address_only",
+        "county": "Los Angeles",
+        "tiger_line_id": "241258214",
+        "benchmark": "Public_AR_Current",
+        "latitude": 33.831328147953,
+        "longitude": -118.352724848144
+      },
+      "reason": "unit_or_conflicting_points",
+      "nearby_matching_feature_ids": [
+        2657651
+      ]
+    },
+    "bldg_fbed99ff02d3452d": {
+      "building_key": "22048 SHERMAN WAY 103 CANOGA PARK CA 91303",
+      "anchor": {
+        "source": "U.S. Census Bureau Geocoder",
+        "confidence": "approximate",
+        "precision": "street_interpolation",
+        "matched_address": "22048 SHERMAN WAY, CANOGA PARK, CA, 91303",
+        "address_basis": "civic_address_only",
+        "county": "Los Angeles",
+        "tiger_line_id": "142709852",
+        "benchmark": "Public_AR_Current",
+        "latitude": 34.200954747657,
+        "longitude": -118.607045823773
+      },
+      "reason": "unit_or_conflicting_points",
+      "nearby_matching_feature_ids": [
+        2462864
+      ]
+    },
+    "bldg_923517695d0f03c5": {
+      "building_key": "221 W ALAMEDA AVE BURBANK CA 91502",
+      "anchor": {
+        "source": "U.S. Census Bureau Geocoder",
+        "confidence": "approximate",
+        "precision": "street_interpolation",
+        "matched_address": "221 W ALAMEDA AVE, BURBANK, CA, 91502",
+        "address_basis": "full_address",
+        "county": "Los Angeles",
+        "tiger_line_id": "142727301",
+        "benchmark": "Public_AR_Current",
+        "latitude": 34.16872798556,
+        "longitude": -118.306011125012
+      },
+      "reason": "unit_or_conflicting_points",
+      "nearby_matching_feature_ids": [
+        2106773,
+        2112390,
+        2115770,
+        2123348,
+        2123566,
+        2127241,
+        2135536,
+        2146694,
+        2152249,
+        2154138,
+        2155167,
+        2158681
+      ]
+    },
+    "bldg_10f64ba4d31b9b48": {
+      "building_key": "2250 OBISPO AVE SIGNAL HILL CA 90755",
+      "anchor": {
+        "source": "U.S. Census Bureau Geocoder",
+        "confidence": "approximate",
+        "precision": "street_interpolation",
+        "matched_address": "2250 OBISPO AVE, SIGNAL HILL, CA, 90755",
+        "address_basis": "full_address",
+        "county": "Los Angeles",
+        "tiger_line_id": "141700343",
+        "benchmark": "Public_AR_Current",
+        "latitude": 33.797945278032,
+        "longitude": -118.154524032652
+      },
+      "reason": "street_interpolation_only",
+      "nearby_matching_feature_ids": []
+    },
+    "bldg_84a62c745688bc81": {
+      "building_key": "229 N CENTRAL AVE GLENDALE CA 91203",
+      "anchor": {
+        "source": "U.S. Census Bureau Geocoder",
+        "confidence": "approximate",
+        "precision": "street_interpolation",
+        "matched_address": "229 N CENTRAL AVE, GLENDALE, CA, 91203",
+        "address_basis": "full_address",
+        "county": "Los Angeles",
+        "tiger_line_id": "141610048",
+        "benchmark": "Public_AR_Current",
+        "latitude": 34.149023811957,
+        "longitude": -118.257975476779
+      },
+      "reason": "unit_or_conflicting_points",
+      "nearby_matching_feature_ids": [
+        2195748,
+        2198804,
+        2199285,
+        2204258,
+        2205702,
+        2210057,
+        2215482,
+        2219126,
+        2233566,
+        2241429,
+        2244651,
+        2254404,
+        2264714,
+        2279766,
+        2289056,
+        2292416,
+        2300557,
+        2301640,
+        2314711,
+        2328258,
+        2334802,
+        2335065,
+        2339348,
+        2346292,
+        2356251,
+        2356258,
+        2357019,
+        2357076,
+        2360464,
+        2361774,
+        2361981,
+        2374850,
+        2397936,
+        2403879
+      ]
+    },
+    "bldg_a466323291bd91e8": {
+      "building_key": "233 E POMONA BLVD MONTEREY PARK CA 91755",
+      "anchor": {
+        "source": "U.S. Census Bureau Geocoder",
+        "confidence": "approximate",
+        "precision": "street_interpolation",
+        "matched_address": "233 E POMONA BLVD, MONTEREY PARK, CA, 91755",
+        "address_basis": "full_address",
+        "county": "Los Angeles",
+        "tiger_line_id": "141639023",
+        "benchmark": "Public_AR_Current",
+        "latitude": 34.033643209184,
+        "longitude": -118.127578691402
+      },
+      "reason": "unit_or_conflicting_points",
+      "nearby_matching_feature_ids": [
+        690211,
+        2652100
+      ]
+    },
+    "bldg_b118a7bfae957eac": {
+      "building_key": "23300 CINEMA DR VALENCIA CA 91355",
+      "anchor": {
+        "source": "U.S. Census Bureau Geocoder",
+        "confidence": "approximate",
+        "precision": "street_interpolation",
+        "matched_address": "23300 CINEMA DR, VALENCIA, CA, 91355",
+        "address_basis": "full_address",
+        "county": "Los Angeles",
+        "tiger_line_id": "141858473",
+        "benchmark": "Public_AR_Current",
+        "latitude": 34.419254447333,
+        "longitude": -118.542116442271
+      },
+      "reason": "unit_or_conflicting_points",
+      "nearby_matching_feature_ids": [
+        2538148,
+        2540392,
+        2540575,
+        2540648,
+        2540682,
+        2546893,
+        2547319,
+        2549270,
+        2549985,
+        2617464
+      ]
+    },
+    "bldg_238a888cecc35e3d": {
+      "building_key": "23550 LYONS AVE NEWHALL CA 91321",
+      "anchor": {
+        "source": "U.S. Census Bureau Geocoder",
+        "confidence": "approximate",
+        "precision": "street_interpolation",
+        "matched_address": "23550 LYONS AVE, NEWHALL, CA, 91321",
+        "address_basis": "full_address",
+        "county": "Los Angeles",
+        "tiger_line_id": "142711305",
+        "benchmark": "Public_AR_Current",
+        "latitude": 34.379347918885,
+        "longitude": -118.545778870857
+      },
+      "reason": "unit_or_conflicting_points",
+      "nearby_matching_feature_ids": [
+        2626123,
+        2626157,
+        2626185,
+        2626209,
+        2626220,
+        2627315,
+        2627363,
+        2627467,
+        2627596,
+        2627631,
+        2627672,
+        2627708,
+        2627753,
+        2627781,
+        2627802,
+        2629015
+      ]
+    },
+    "bldg_da61837dc29ee156": {
+      "building_key": "2420 W CARSON ST TORRANCE CA 90501",
+      "anchor": {
+        "source": "U.S. Census Bureau Geocoder",
+        "confidence": "approximate",
+        "precision": "street_interpolation",
+        "matched_address": "2420 W CARSON ST, TORRANCE, CA, 90501",
+        "address_basis": "full_address",
+        "county": "Los Angeles",
+        "tiger_line_id": "141665920",
+        "benchmark": "Public_AR_Current",
+        "latitude": 33.831263805398,
+        "longitude": -118.326710893387
+      },
+      "reason": "street_interpolation_only",
+      "nearby_matching_feature_ids": []
+    },
+    "bldg_b304a13a7ce0b52c": {
+      "building_key": "24355 LYONS AVE SANTA CLARITA CA 91321",
+      "anchor": {
+        "source": "U.S. Census Bureau Geocoder",
+        "confidence": "approximate",
+        "precision": "street_interpolation",
+        "matched_address": "24355 LYONS AVE, SANTA CLARITA, CA, 91321",
+        "address_basis": "full_address",
+        "county": "Los Angeles",
+        "tiger_line_id": "142711043",
+        "benchmark": "Public_AR_Current",
+        "latitude": 34.378390153465,
+        "longitude": -118.563081138456
+      },
+      "reason": "unit_or_conflicting_points",
+      "nearby_matching_feature_ids": []
+    },
+    "bldg_ba6d6f61ef2f6d6b": {
+      "building_key": "24868 APPLE ST SANTA CLARITA CA 91321",
+      "anchor": {
+        "source": "U.S. Census Bureau Geocoder",
+        "confidence": "approximate",
+        "precision": "street_interpolation",
+        "matched_address": "24868 APPLE ST, SANTA CLARITA, CA, 91321",
+        "address_basis": "full_address",
+        "county": "Los Angeles",
+        "tiger_line_id": "241238956",
+        "benchmark": "Public_AR_Current",
+        "latitude": 34.378921895276,
+        "longitude": -118.542312379913
+      },
+      "reason": "unit_or_conflicting_points",
+      "nearby_matching_feature_ids": [
+        2539544,
+        2541163,
+        2544165,
+        2544196,
+        2545678,
+        2546598,
+        2618428
+      ]
+    },
+    "bldg_0f3fc087ce959f76": {
+      "building_key": "2505 FOOTHILL BLVD LA CRESCENTA CA 91214",
+      "anchor": {
+        "source": "U.S. Census Bureau Geocoder",
+        "confidence": "approximate",
+        "precision": "street_interpolation",
+        "matched_address": "2505 FOOTHILL BLVD, LA CRESCENTA, CA, 91214",
+        "address_basis": "full_address",
+        "county": "Los Angeles",
+        "tiger_line_id": "655819656",
+        "benchmark": "Public_AR_Current",
+        "latitude": 34.220024007723,
+        "longitude": -118.233060931254
+      },
+      "reason": "unit_or_conflicting_points",
+      "nearby_matching_feature_ids": [
+        263709
+      ]
+    },
+    "bldg_73f98ceb30803b8d": {
+      "building_key": "2550 N HOLLYWOOD WAY BURBANK CA 91505",
+      "anchor": {
+        "source": "U.S. Census Bureau Geocoder",
+        "confidence": "approximate",
+        "precision": "street_interpolation",
+        "matched_address": "2550 N HOLLYWOOD WAY, BURBANK, CA, 91505",
+        "address_basis": "full_address",
+        "county": "Los Angeles",
+        "tiger_line_id": "142725512",
+        "benchmark": "Public_AR_Current",
+        "latitude": 34.194908842767,
+        "longitude": -118.348836691282
+      },
+      "reason": "unit_or_conflicting_points",
+      "nearby_matching_feature_ids": [
+        1109913
+      ]
+    },
+    "bldg_c993f5b044432438": {
+      "building_key": "2550E AMAR RD A1G W COVINA CA 91792",
+      "anchor": {
+        "source": "U.S. Census Bureau Geocoder",
+        "confidence": "approximate",
+        "precision": "street_interpolation",
+        "matched_address": "2550 E AMAR RD, WEST COVINA, CA, 91792",
+        "address_basis": "civic_address_only",
+        "county": "Los Angeles",
+        "tiger_line_id": "142782723",
+        "benchmark": "Public_AR_Current",
+        "latitude": 34.02730941637,
+        "longitude": -117.896354057803
+      },
+      "reason": "unit_or_conflicting_points",
+      "nearby_matching_feature_ids": [
+        1114814
+      ]
+    },
+    "bldg_dffff52cd126cc49": {
+      "building_key": "2605 1 2 W BEVERLY BLVD MONTEBELLO CA 90640",
+      "reason": "no_defensible_anchor",
+      "nearby_matching_feature_ids": []
+    },
+    "bldg_918f8394facb2cf5": {
+      "building_key": "2654 HONOLULU AVE MONTROSE CA 91020",
+      "anchor": {
+        "source": "U.S. Census Bureau Geocoder",
+        "confidence": "approximate",
+        "precision": "street_interpolation",
+        "matched_address": "2654 HONOLULU AVE, MONTROSE, CA, 91020",
+        "address_basis": "full_address",
+        "county": "Los Angeles",
+        "tiger_line_id": "141590046",
+        "benchmark": "Public_AR_Current",
+        "latitude": 34.209606155357,
+        "longitude": -118.237147363193
+      },
+      "reason": "street_interpolation_only",
+      "nearby_matching_feature_ids": []
+    },
+    "bldg_391cf05955dc5c30": {
+      "building_key": "2659 TOWNSGATE RD WESTLAKE VILLAGE CA 91361",
+      "anchor": {
+        "source": "U.S. Census Bureau Geocoder",
+        "confidence": "approximate",
+        "precision": "street_interpolation",
+        "matched_address": "2659 TOWNSGATE RD, WESTLAKE VILLAGE, CA, 91361",
+        "address_basis": "full_address",
+        "county": "Ventura",
+        "tiger_line_id": "109977698",
+        "benchmark": "Public_AR_Current",
+        "latitude": 34.156382685844,
+        "longitude": -118.828548236541
+      },
+      "reason": "street_interpolation_only",
+      "nearby_matching_feature_ids": []
+    },
+    "bldg_59b0b1558b3d35bd": {
+      "building_key": "271 E WORKMAN ST COVINA CA 91723",
+      "anchor": {
+        "source": "U.S. Census Bureau Geocoder",
+        "confidence": "approximate",
+        "precision": "street_interpolation",
+        "matched_address": "271 E WORKMAN ST, COVINA, CA, 91723",
+        "address_basis": "full_address",
+        "county": "Los Angeles",
+        "tiger_line_id": "142856148",
+        "benchmark": "Public_AR_Current",
+        "latitude": 34.075381666031,
+        "longitude": -117.885859682258
+      },
+      "reason": "street_interpolation_only",
+      "nearby_matching_feature_ids": []
+    },
+    "bldg_4909fef964a4ada9": {
+      "building_key": "2777 PACIFIC AVE LONG BEACH CA 90806",
+      "anchor": {
+        "source": "U.S. Census Bureau Geocoder",
+        "confidence": "approximate",
+        "precision": "street_interpolation",
+        "matched_address": "2777 PACIFIC AVE, LONG BEACH, CA, 90806",
+        "address_basis": "full_address",
+        "county": "Los Angeles",
+        "tiger_line_id": "141686642",
+        "benchmark": "Public_AR_Current",
+        "latitude": 33.807573274778,
+        "longitude": -118.193771667817
+      },
+      "reason": "street_interpolation_only",
+      "nearby_matching_feature_ids": []
+    },
+    "bldg_dc0b4af3e508a2c7": {
+      "building_key": "281 HARVEY DR GLENDALE CA 91206",
+      "anchor": {
+        "source": "U.S. Census Bureau Geocoder",
+        "confidence": "approximate",
+        "precision": "street_interpolation",
+        "matched_address": "281 HARVEY DR, GLENDALE, CA, 91206",
+        "address_basis": "full_address",
+        "county": "Los Angeles",
+        "tiger_line_id": "142046000",
+        "benchmark": "Public_AR_Current",
+        "latitude": 34.149882614191,
+        "longitude": -118.227236808386
+      },
+      "reason": "unit_or_conflicting_points",
+      "nearby_matching_feature_ids": [
+        2206905,
+        2390506
+      ]
+    },
+    "bldg_31fa6a193e936151": {
+      "building_key": "2955E HILLCREST DR 128 WESTLAKE VILLAGE CA 91362",
+      "reason": "no_defensible_anchor",
+      "nearby_matching_feature_ids": []
+    },
+    "bldg_7535c899171655cb": {
+      "building_key": "2985 E HILLCREST DR WESTLAKE VILLAGE CA 91362",
+      "anchor": {
+        "source": "U.S. Census Bureau Geocoder",
+        "confidence": "approximate",
+        "precision": "street_interpolation",
+        "matched_address": "2985 E HILLCREST DR, WESTLAKE VILLAGE, CA, 91362",
+        "address_basis": "full_address",
+        "county": "Ventura",
+        "tiger_line_id": "651146011",
+        "benchmark": "Public_AR_Current",
+        "latitude": 34.172570026557,
+        "longitude": -118.833672261698
+      },
+      "reason": "street_interpolation_only",
+      "nearby_matching_feature_ids": []
+    },
+    "bldg_416b4ec74d78b64c": {
+      "building_key": "3033 N AVON ST BURBANK CA 91504",
+      "anchor": {
+        "source": "U.S. Census Bureau Geocoder",
+        "confidence": "approximate",
+        "precision": "street_interpolation",
+        "matched_address": "3033 N AVON ST, BURBANK, CA, 91504",
+        "address_basis": "full_address",
+        "county": "Los Angeles",
+        "tiger_line_id": "142723639",
+        "benchmark": "Public_AR_Current",
+        "latitude": 34.205346651501,
+        "longitude": -118.347695707263
+      },
+      "reason": "street_interpolation_only",
+      "nearby_matching_feature_ids": []
+    },
+    "bldg_89924b81ec0291d1": {
+      "building_key": "3121 SKYPARK DR TORRANCE CA 90505",
+      "anchor": {
+        "source": "U.S. Census Bureau Geocoder",
+        "confidence": "approximate",
+        "precision": "street_interpolation",
+        "matched_address": "3121 SKYPARK DR, TORRANCE, CA, 90505",
+        "address_basis": "full_address",
+        "county": "Los Angeles",
+        "tiger_line_id": "142845137",
+        "benchmark": "Public_AR_Current",
+        "latitude": 33.807164209104,
+        "longitude": -118.341500782947
+      },
+      "reason": "street_interpolation_only",
+      "nearby_matching_feature_ids": []
+    },
+    "bldg_62fe9666a435f808": {
+      "building_key": "315 ARDEN AVE GLENDALE CA 91203",
+      "anchor": {
+        "source": "U.S. Census Bureau Geocoder",
+        "confidence": "approximate",
+        "precision": "street_interpolation",
+        "matched_address": "315 ARDEN AVE, GLENDALE, CA, 91203",
+        "address_basis": "full_address",
+        "county": "Los Angeles",
+        "tiger_line_id": "241240328",
+        "benchmark": "Public_AR_Current",
+        "latitude": 34.158533565831,
+        "longitude": -118.258497383447
+      },
+      "reason": "unit_or_conflicting_points",
+      "nearby_matching_feature_ids": [
+        2180163,
+        2195103,
+        2215823,
+        2230185,
+        2242032,
+        2264570,
+        2296919,
+        2297993,
+        2300582,
+        2332372,
+        2334716,
+        2336991,
+        2346646,
+        2354296,
+        2381977,
+        2382324,
+        2385784,
+        2390761,
+        2406548,
+        2406636
+      ]
+    },
+    "bldg_e58d0c489fa80833": {
+      "building_key": "3151 CAHUENGA BLVD W LOS ANGELES CA 90068",
+      "anchor": {
+        "source": "U.S. Census Bureau Geocoder",
+        "confidence": "approximate",
+        "precision": "street_interpolation",
+        "matched_address": "3151 CAHUENGA BLVD W, LOS ANGELES, CA, 90068",
+        "address_basis": "full_address",
+        "county": "Los Angeles",
+        "tiger_line_id": "141594169",
+        "benchmark": "Public_AR_Current",
+        "latitude": 34.127602465401,
+        "longitude": -118.346434880999
+      },
+      "reason": "street_interpolation_only",
+      "nearby_matching_feature_ids": []
+    },
+    "bldg_faedf244cc187f6b": {
+      "building_key": "3191 W TEMPLE AVE POMONA CA 91768",
+      "anchor": {
+        "source": "U.S. Census Bureau Geocoder",
+        "confidence": "approximate",
+        "precision": "street_interpolation",
+        "matched_address": "3191 W TEMPLE AVE, POMONA, CA, 91768",
+        "address_basis": "full_address",
+        "county": "Los Angeles",
+        "tiger_line_id": "141730328",
+        "benchmark": "Public_AR_Current",
+        "latitude": 34.045907050299,
+        "longitude": -117.80358199308
+      },
+      "reason": "street_interpolation_only",
+      "nearby_matching_feature_ids": []
+    },
+    "bldg_a1925948f7062096": {
+      "building_key": "320 ARDEN AVE GLENDALE CA 91203",
+      "anchor": {
+        "source": "U.S. Census Bureau Geocoder",
+        "confidence": "approximate",
+        "precision": "street_interpolation",
+        "matched_address": "320 ARDEN AVE, GLENDALE, CA, 91203",
+        "address_basis": "full_address",
+        "county": "Los Angeles",
+        "tiger_line_id": "241240328",
+        "benchmark": "Public_AR_Current",
+        "latitude": 34.158420247541,
+        "longitude": -118.258709994282
+      },
+      "reason": "unit_or_conflicting_points",
+      "nearby_matching_feature_ids": [
+        2195073,
+        2203018,
+        2213934,
+        2215166,
+        2237071,
+        2283375,
+        2324782,
+        2342571,
+        2353494
+      ]
+    },
+    "bldg_cb79e6a3ce5814af": {
+      "building_key": "327 ARDEN AVE GLENDALE CA 91203",
+      "anchor": {
+        "source": "U.S. Census Bureau Geocoder",
+        "confidence": "approximate",
+        "precision": "street_interpolation",
+        "matched_address": "327 ARDEN AVE, GLENDALE, CA, 91203",
+        "address_basis": "full_address",
+        "county": "Los Angeles",
+        "tiger_line_id": "241240328",
+        "benchmark": "Public_AR_Current",
+        "latitude": 34.158533490792,
+        "longitude": -118.258896833474
+      },
+      "reason": "unit_or_conflicting_points",
+      "nearby_matching_feature_ids": [
+        2097516,
+        2102199,
+        2104767,
+        2110105,
+        2114025,
+        2121096,
+        2129674,
+        2137224,
+        2151577,
+        2151989,
+        2157181,
+        2159832
+      ]
+    },
+    "bldg_c6e664955509f1df": {
+      "building_key": "331 ARDEN AVE GLENDALE CA 91203",
+      "anchor": {
+        "source": "U.S. Census Bureau Geocoder",
+        "confidence": "approximate",
+        "precision": "street_interpolation",
+        "matched_address": "331 ARDEN AVE, GLENDALE, CA, 91203",
+        "address_basis": "full_address",
+        "county": "Los Angeles",
+        "tiger_line_id": "241240328",
+        "benchmark": "Public_AR_Current",
+        "latitude": 34.158532529571,
+        "longitude": -118.259029618319
+      },
+      "reason": "unit_or_conflicting_points",
+      "nearby_matching_feature_ids": [
+        2224665,
+        2236691,
+        2244604,
+        2349082,
+        2380348,
+        2390725,
+        2398561
+      ]
+    },
+    "bldg_b0831d8e58e13b69": {
+      "building_key": "336 N CENTRAL AVE GLENDALE CA 91203",
+      "anchor": {
+        "source": "U.S. Census Bureau Geocoder",
+        "confidence": "approximate",
+        "precision": "street_interpolation",
+        "matched_address": "336 N CENTRAL AVE, GLENDALE, CA, 91203",
+        "address_basis": "full_address",
+        "county": "Los Angeles",
+        "tiger_line_id": "141608812",
+        "benchmark": "Public_AR_Current",
+        "latitude": 34.15105252725,
+        "longitude": -118.257842228966
+      },
+      "reason": "unit_or_conflicting_points",
+      "nearby_matching_feature_ids": [
+        2179737,
+        2186563,
+        2254530,
+        2314480,
+        2317554,
+        2320101,
+        2343283,
+        2379984,
+        2402343,
+        2402499
+      ]
+    },
+    "bldg_df5412ce2e1bed41": {
+      "building_key": "3430 OCEAN VIEW BLVD GLENDALE CA 91208",
+      "anchor": {
+        "source": "U.S. Census Bureau Geocoder",
+        "confidence": "approximate",
+        "precision": "street_interpolation",
+        "matched_address": "3430 OCEAN VIEW BLVD, GLENDALE, CA, 91208",
+        "address_basis": "full_address",
+        "county": "Los Angeles",
+        "tiger_line_id": "142724700",
+        "benchmark": "Public_AR_Current",
+        "latitude": 34.201475556792,
+        "longitude": -118.228189524592
+      },
+      "reason": "unit_or_conflicting_points",
+      "nearby_matching_feature_ids": [
+        2223576,
+        2230211,
+        2237633,
+        2247794,
+        2251022,
+        2258108,
+        2270333,
+        2274726,
+        2296247
+      ]
+    },
+    "bldg_fddba3f69394ccde": {
+      "building_key": "3467 OCEAN VIEW BLVD GLENDALE CA 91208",
+      "anchor": {
+        "source": "U.S. Census Bureau Geocoder",
+        "confidence": "approximate",
+        "precision": "street_interpolation",
+        "matched_address": "3467 OCEAN VIEW BLVD, GLENDALE, CA, 91208",
+        "address_basis": "full_address",
+        "county": "Los Angeles",
+        "tiger_line_id": "142724700",
+        "benchmark": "Public_AR_Current",
+        "latitude": 34.201867676929,
+        "longitude": -118.228303536324
+      },
+      "reason": "unit_or_conflicting_points",
+      "nearby_matching_feature_ids": [
+        2213040,
+        2240493,
+        2256810,
+        2303970,
+        2379146,
+        2384166
+      ]
+    },
+    "bldg_4e8abe980f939bdb": {
+      "building_key": "351 E FOOTHILL BLVD ARCADIA CA 91006",
+      "anchor": {
+        "source": "U.S. Census Bureau Geocoder",
+        "confidence": "approximate",
+        "precision": "street_interpolation",
+        "matched_address": "351 E FOOTHILL BLVD, ARCADIA, CA, 91006",
+        "address_basis": "full_address",
+        "county": "Los Angeles",
+        "tiger_line_id": "654699164",
+        "benchmark": "Public_AR_Current",
+        "latitude": 34.151158299423,
+        "longitude": -118.021519706305
+      },
+      "reason": "street_interpolation_only",
+      "nearby_matching_feature_ids": []
+    },
+    "bldg_fc0053ca7788f111": {
+      "building_key": "356 W COLORADO ST GLENDALE CA 91204",
+      "anchor": {
+        "source": "U.S. Census Bureau Geocoder",
+        "confidence": "approximate",
+        "precision": "street_interpolation",
+        "matched_address": "356 W COLORADO ST, GLENDALE, CA, 91204",
+        "address_basis": "full_address",
+        "county": "Los Angeles",
+        "tiger_line_id": "641530276",
+        "benchmark": "Public_AR_Current",
+        "latitude": 34.142489960109,
+        "longitude": -118.259727660542
+      },
+      "reason": "unit_or_conflicting_points",
+      "nearby_matching_feature_ids": [
+        835635
+      ]
+    },
+    "bldg_17d95b3b102838e8": {
+      "building_key": "3607 W MAGNOLIA BLVD BURBANK CA 91505",
+      "anchor": {
+        "source": "U.S. Census Bureau Geocoder",
+        "confidence": "approximate",
+        "precision": "street_interpolation",
+        "matched_address": "3607 W MAGNOLIA BLVD, BURBANK, CA, 91505",
+        "address_basis": "full_address",
+        "county": "Los Angeles",
+        "tiger_line_id": "141592851",
+        "benchmark": "Public_AR_Current",
+        "latitude": 34.168224285809,
+        "longitude": -118.346090261115
+      },
+      "reason": "street_interpolation_only",
+      "nearby_matching_feature_ids": []
+    },
+    "bldg_29905263697d03a6": {
+      "building_key": "3629 N SEPULVEDA BLVD MANHATTAN BEACH CA 90266",
+      "anchor": {
+        "source": "U.S. Census Bureau Geocoder",
+        "confidence": "approximate",
+        "precision": "street_interpolation",
+        "matched_address": "3629 N SEPULVEDA BLVD, MANHATTAN BEACH, CA, 90266",
+        "address_basis": "full_address",
+        "county": "Los Angeles",
+        "tiger_line_id": "141580993",
+        "benchmark": "Public_AR_Current",
+        "latitude": 33.901335079423,
+        "longitude": -118.396236933865
+      },
+      "reason": "street_interpolation_only",
+      "nearby_matching_feature_ids": []
+    },
+    "bldg_3363bef9633cc494": {
+      "building_key": "373 VAN NESS AVE TORRANCE CA 90501",
+      "anchor": {
+        "source": "U.S. Census Bureau Geocoder",
+        "confidence": "approximate",
+        "precision": "street_interpolation",
+        "matched_address": "373 VAN NESS AVE, TORRANCE, CA, 90501",
+        "address_basis": "full_address",
+        "county": "Los Angeles",
+        "tiger_line_id": "638621024",
+        "benchmark": "Public_AR_Current",
+        "latitude": 33.844794305529,
+        "longitude": -118.318866617612
+      },
+      "reason": "street_interpolation_only",
+      "nearby_matching_feature_ids": []
+    },
+    "bldg_6b8a1e8ee463a6cc": {
+      "building_key": "3857 FOOTHILL BLVD GLENDALE CA 91214",
+      "anchor": {
+        "source": "U.S. Census Bureau Geocoder",
+        "confidence": "approximate",
+        "precision": "street_interpolation",
+        "matched_address": "3857 FOOTHILL BLVD, GLENDALE, CA, 91214",
+        "address_basis": "full_address",
+        "county": "Los Angeles",
+        "tiger_line_id": "141588964",
+        "benchmark": "Public_AR_Current",
+        "latitude": 34.238544910931,
+        "longitude": -118.262984097808
+      },
+      "reason": "unit_or_conflicting_points",
+      "nearby_matching_feature_ids": [
+        2102086,
+        2108736,
+        2108958,
+        2109472,
+        2113152,
+        2115890,
+        2116400,
+        2120192,
+        2120810,
+        2122632,
+        2124313,
+        2127042,
+        2132830,
+        2154413
+      ]
+    },
+    "bldg_a7f0e440098d2850": {
+      "building_key": "38700 5TH ST W PALMDALE CA 93551",
+      "anchor": {
+        "source": "U.S. Census Bureau Geocoder",
+        "confidence": "approximate",
+        "precision": "street_interpolation",
+        "matched_address": "38700 5TH ST W, PALMDALE, CA, 93551",
+        "address_basis": "full_address",
+        "county": "Los Angeles",
+        "tiger_line_id": "141843216",
+        "benchmark": "Public_AR_Current",
+        "latitude": 34.584975771707,
+        "longitude": -118.138464011238
+      },
+      "reason": "street_interpolation_only",
+      "nearby_matching_feature_ids": []
+    },
+    "bldg_f6284aff98ee09a5": {
+      "building_key": "3916 FOOTHILL BLVD LA CRESCENTA CA 91214",
+      "anchor": {
+        "source": "U.S. Census Bureau Geocoder",
+        "confidence": "approximate",
+        "precision": "street_interpolation",
+        "matched_address": "3916 FOOTHILL BLVD, LA CRESCENTA, CA, 91214",
+        "address_basis": "full_address",
+        "county": "Los Angeles",
+        "tiger_line_id": "141588884",
+        "benchmark": "Public_AR_Current",
+        "latitude": 34.239270837722,
+        "longitude": -118.26442359795
+      },
+      "reason": "unit_or_conflicting_points",
+      "nearby_matching_feature_ids": [
+        2155899
+      ]
+    },
+    "bldg_78688b24357a0c12": {
+      "building_key": "3925 ROSEMEAD BLVD 201 ROSEMEAD CA 91770",
+      "anchor": {
+        "source": "U.S. Census Bureau Geocoder",
+        "confidence": "approximate",
+        "precision": "street_interpolation",
+        "matched_address": "3925 ROSEMEAD BLVD, ROSEMEAD, CA, 91770",
+        "address_basis": "civic_address_only",
+        "county": "Los Angeles",
+        "tiger_line_id": "241152658",
+        "benchmark": "Public_AR_Current",
+        "latitude": 34.079151794843,
+        "longitude": -118.073287338275
+      },
+      "reason": "unit_or_conflicting_points",
+      "nearby_matching_feature_ids": [
+        2659003
+      ]
+    },
+    "bldg_631cdd4745cd8005": {
+      "building_key": "3939 ATLANTIC AVE 216 LONG BEACH CA 90807",
+      "reason": "no_defensible_anchor",
+      "nearby_matching_feature_ids": []
+    },
+    "bldg_55396435fd31cd28": {
+      "building_key": "4010 WATSON PLAZA DR LAKEWOOD CA 90712",
+      "anchor": {
+        "source": "U.S. Census Bureau Geocoder",
+        "confidence": "approximate",
+        "precision": "street_interpolation",
+        "matched_address": "4010 WATSON PLAZA DR, LAKEWOOD, CA, 90712",
+        "address_basis": "full_address",
+        "county": "Los Angeles",
+        "tiger_line_id": "142651832",
+        "benchmark": "Public_AR_Current",
+        "latitude": 33.831076619583,
+        "longitude": -118.154993419378
+      },
+      "reason": "unit_or_conflicting_points",
+      "nearby_matching_feature_ids": [
+        448411,
+        451832,
+        462749,
+        493650,
+        540245,
+        540364,
+        638551,
+        717552,
+        721681,
+        745410,
+        780232,
+        803026,
+        827473,
+        859948,
+        894118,
+        938110,
+        980630,
+        1031875,
+        1072570,
+        1077578,
+        1113370,
+        1116820,
+        1118292,
+        1134807,
+        1201450,
+        1221633
+      ]
+    },
+    "bldg_bb1e988b364fcb50": {
+      "building_key": "418 N GLENDALE AVE GLENDALE CA 91206",
+      "anchor": {
+        "source": "U.S. Census Bureau Geocoder",
+        "confidence": "approximate",
+        "precision": "street_interpolation",
+        "matched_address": "418 N GLENDALE AVE, GLENDALE, CA, 91206",
+        "address_basis": "full_address",
+        "county": "Los Angeles",
+        "tiger_line_id": "141609518",
+        "benchmark": "Public_AR_Current",
+        "latitude": 34.152114811045,
+        "longitude": -118.24446971186
+      },
+      "reason": "unit_or_conflicting_points",
+      "nearby_matching_feature_ids": [
+        2192320
+      ]
+    },
+    "bldg_4106e40e2a1ec9e7": {
+      "building_key": "419 W COLORADO ST GLENDALE CA 91204",
+      "anchor": {
+        "source": "U.S. Census Bureau Geocoder",
+        "confidence": "approximate",
+        "precision": "street_interpolation",
+        "matched_address": "419 W COLORADO ST, GLENDALE, CA, 91204",
+        "address_basis": "full_address",
+        "county": "Los Angeles",
+        "tiger_line_id": "141609909",
+        "benchmark": "Public_AR_Current",
+        "latitude": 34.142595107374,
+        "longitude": -118.26158286707
+      },
+      "reason": "unit_or_conflicting_points",
+      "nearby_matching_feature_ids": [
+        2179242,
+        2240988
+      ]
+    },
+    "bldg_3961d088e7a89412": {
+      "building_key": "427 W COLORADO ST GLENDALE CA 91204",
+      "anchor": {
+        "source": "U.S. Census Bureau Geocoder",
+        "confidence": "approximate",
+        "precision": "street_interpolation",
+        "matched_address": "427 W COLORADO ST, GLENDALE, CA, 91204",
+        "address_basis": "full_address",
+        "county": "Los Angeles",
+        "tiger_line_id": "141609909",
+        "benchmark": "Public_AR_Current",
+        "latitude": 34.142590634566,
+        "longitude": -118.261857679705
+      },
+      "reason": "unit_or_conflicting_points",
+      "nearby_matching_feature_ids": [
+        2180248,
+        2184556,
+        2215475,
+        2240732,
+        2241197,
+        2251049,
+        2260936,
+        2272344,
+        2274767,
+        2286078,
+        2339765,
+        2347850,
+        2375333,
+        2378124
+      ]
+    },
+    "bldg_009cea11a3335b24": {
+      "building_key": "430 FOOTHILL BLVD LA CANADA CA 91011",
+      "verified": {
+        "source": "LA County CAMS",
+        "feature_id": 329394,
+        "county_record_source": "Office of Assessor",
+        "matched_address": "430 Foothill Blvd La Canada Flintridge 91011",
+        "confidence": "standardized",
+        "precision": "address_point",
+        "latitude": 34.19829777421952,
+        "longitude": -118.18757879507655
+      },
+      "anchor": {
+        "source": "U.S. Census Bureau Geocoder",
+        "confidence": "approximate",
+        "precision": "street_interpolation",
+        "matched_address": "430 FOOTHILL BLVD, LA CANADA, CA, 91011",
+        "address_basis": "full_address",
+        "county": "Los Angeles",
+        "tiger_line_id": "640107629",
+        "benchmark": "Public_AR_Current",
+        "latitude": 34.198469320488,
+        "longitude": -118.187391550641
+      },
+      "reason": "corroborated_address_point",
+      "nearby_matching_feature_ids": [
+        329394
+      ],
+      "verified_distance_meters": 25.69844247892428
+    },
+    "bldg_6a18aa1f81449900": {
+      "building_key": "434 W COLORADO ST GLENDALE CA 91204",
+      "anchor": {
+        "source": "U.S. Census Bureau Geocoder",
+        "confidence": "approximate",
+        "precision": "street_interpolation",
+        "matched_address": "434 W COLORADO ST, GLENDALE, CA, 91204",
+        "address_basis": "full_address",
+        "county": "Los Angeles",
+        "tiger_line_id": "141609909",
+        "benchmark": "Public_AR_Current",
+        "latitude": 34.142471927692,
+        "longitude": -118.262130195329
+      },
+      "reason": "unit_or_conflicting_points",
+      "nearby_matching_feature_ids": [
+        2180943,
+        2264081,
+        2272451,
+        2314919,
+        2325156,
+        2338133,
+        2345903,
+        2347688,
+        2351694,
+        2352751,
+        2356655,
+        2374071,
+        2399697
+      ]
+    },
+    "bldg_551f734becf45bdd": {
+      "building_key": "43805 15TH ST W LANCASTER CA 93534",
+      "anchor": {
+        "source": "U.S. Census Bureau Geocoder",
+        "confidence": "approximate",
+        "precision": "street_interpolation",
+        "matched_address": "43805 15TH ST W, LANCASTER, CA, 93534",
+        "address_basis": "full_address",
+        "county": "Los Angeles",
+        "tiger_line_id": "141824022",
+        "benchmark": "Public_AR_Current",
+        "latitude": 34.68267024884,
+        "longitude": -118.156890670022
+      },
+      "reason": "street_interpolation_only",
+      "nearby_matching_feature_ids": []
+    },
+    "bldg_5b6fe215941c988f": {
+      "building_key": "43845 10TH ST W LANCASTER CA 93534",
+      "anchor": {
+        "source": "U.S. Census Bureau Geocoder",
+        "confidence": "approximate",
+        "precision": "street_interpolation",
+        "matched_address": "43845 10TH ST W, LANCASTER, CA, 93534",
+        "address_basis": "full_address",
+        "county": "Los Angeles",
+        "tiger_line_id": "241247467",
+        "benchmark": "Public_AR_Current",
+        "latitude": 34.679239196067,
+        "longitude": -118.14796207762
+      },
+      "reason": "unit_or_conflicting_points",
+      "nearby_matching_feature_ids": []
+    },
+    "bldg_a0a8a483c5fb1fb3": {
+      "building_key": "440 W COLORADO ST GLENDALE CA 91204",
+      "anchor": {
+        "source": "U.S. Census Bureau Geocoder",
+        "confidence": "approximate",
+        "precision": "street_interpolation",
+        "matched_address": "440 W COLORADO ST, GLENDALE, CA, 91204",
+        "address_basis": "full_address",
+        "county": "Los Angeles",
+        "tiger_line_id": "141609909",
+        "benchmark": "Public_AR_Current",
+        "latitude": 34.142469604225,
+        "longitude": -118.262336325488
+      },
+      "reason": "unit_or_conflicting_points",
+      "nearby_matching_feature_ids": [
+        2212774,
+        2216044,
+        2216321,
+        2222807,
+        2242264,
+        2265200,
+        2265542,
+        2278546,
+        2283785,
+        2339095,
+        2362165,
+        2378025,
+        2379543,
+        2402749
+      ]
+    },
+    "bldg_6a2307f3dce76b83": {
+      "building_key": "444 E HUNTINGTON DR ARCADIA CA 91006",
+      "reason": "no_defensible_anchor",
+      "nearby_matching_feature_ids": []
+    },
+    "bldg_f5e027e6404ebf46": {
+      "building_key": "44501 16TH ST W LANCASTER CA 93534",
+      "anchor": {
+        "source": "U.S. Census Bureau Geocoder",
+        "confidence": "approximate",
+        "precision": "street_interpolation",
+        "matched_address": "44501 16TH ST W, LANCASTER, CA, 93534",
+        "address_basis": "full_address",
+        "county": "Los Angeles",
+        "tiger_line_id": "641208833",
+        "benchmark": "Public_AR_Current",
+        "latitude": 34.691100083994,
+        "longitude": -118.15856135232
+      },
+      "reason": "unit_or_conflicting_points",
+      "nearby_matching_feature_ids": [
+        2522399,
+        2522400,
+        2522402
+      ]
+    },
+    "bldg_a1ce63c041818a8a": {
+      "building_key": "450 N BRAND BLVD GLENDALE CA 91203",
+      "reason": "no_defensible_anchor",
+      "nearby_matching_feature_ids": []
+    },
+    "bldg_2f1c06dd56a620c4": {
+      "building_key": "4510E PACIFIC COAST HWY 320 LONG BEACH CA 90804",
+      "reason": "no_defensible_anchor",
+      "nearby_matching_feature_ids": []
+    },
+    "bldg_a3496c8c5c9557d3": {
+      "building_key": "4515 OCEAN VIEW BLVD LA CANADA CA 91011",
+      "verified": {
+        "source": "LA County CAMS",
+        "feature_id": 55794,
+        "county_record_source": "Office of Assessor",
+        "matched_address": "4515 Ocean View Blvd La Canada Flintridge 91011",
+        "confidence": "standardized",
+        "precision": "address_point",
+        "latitude": 34.218205211926126,
+        "longitude": -118.22805743047711
+      },
+      "anchor": {
+        "source": "U.S. Census Bureau Geocoder",
+        "confidence": "approximate",
+        "precision": "street_interpolation",
+        "matched_address": "4515 OCEAN VIEW BLVD, LA CANADA, CA, 91011",
+        "address_basis": "full_address",
+        "county": "Los Angeles",
+        "tiger_line_id": "142724642",
+        "benchmark": "Public_AR_Current",
+        "latitude": 34.217617507667,
+        "longitude": -118.227917721682
+      },
+      "reason": "corroborated_address_point",
+      "nearby_matching_feature_ids": [
+        55794
+      ],
+      "verified_distance_meters": 66.60033328488372
+    },
+    "bldg_8355a4686760c9f2": {
+      "building_key": "490 S ROSEMEAD BLVD PASADENA CA 91107",
+      "anchor": {
+        "source": "U.S. Census Bureau Geocoder",
+        "confidence": "approximate",
+        "precision": "street_interpolation",
+        "matched_address": "490 S ROSEMEAD BLVD, PASADENA, CA, 91107",
+        "address_basis": "full_address",
+        "county": "Los Angeles",
+        "tiger_line_id": "141634434",
+        "benchmark": "Public_AR_Current",
+        "latitude": 34.138043946845,
+        "longitude": -118.073221064466
+      },
+      "reason": "unit_or_conflicting_points",
+      "nearby_matching_feature_ids": [
+        303292
+      ]
+    },
+    "bldg_f925a61cbea4ee6a": {
+      "building_key": "500 N CENTRAL AVE GLENDALE CA 91203",
+      "anchor": {
+        "source": "U.S. Census Bureau Geocoder",
+        "confidence": "approximate",
+        "precision": "street_interpolation",
+        "matched_address": "500 N CENTRAL AVE, GLENDALE, CA, 91203",
+        "address_basis": "full_address",
+        "county": "Los Angeles",
+        "tiger_line_id": "241240355",
+        "benchmark": "Public_AR_Current",
+        "latitude": 34.152923901751,
+        "longitude": -118.257849082738
+      },
+      "reason": "street_interpolation_only",
+      "nearby_matching_feature_ids": []
+    },
+    "bldg_265702f8ab6c335e": {
+      "building_key": "500 W BONITA AVE SAN DIMAS CA 91773",
+      "anchor": {
+        "source": "U.S. Census Bureau Geocoder",
+        "confidence": "approximate",
+        "precision": "street_interpolation",
+        "matched_address": "500 W BONITA AVE, SAN DIMAS, CA, 91773",
+        "address_basis": "full_address",
+        "county": "Los Angeles",
+        "tiger_line_id": "647673046",
+        "benchmark": "Public_AR_Current",
+        "latitude": 34.106614513735,
+        "longitude": -117.815888960405
+      },
+      "reason": "street_interpolation_only",
+      "nearby_matching_feature_ids": []
+    },
+    "bldg_f95524364b56045c": {
+      "building_key": "5000 OVERLAND AVE CULVER CITY CA 90230",
+      "anchor": {
+        "source": "U.S. Census Bureau Geocoder",
+        "confidence": "approximate",
+        "precision": "street_interpolation",
+        "matched_address": "5000 OVERLAND AVE, CULVER CITY, CA, 90230",
+        "address_basis": "full_address",
+        "county": "Los Angeles",
+        "tiger_line_id": "141575488",
+        "benchmark": "Public_AR_Current",
+        "latitude": 34.006696690488,
+        "longitude": -118.395669561636
+      },
+      "reason": "unit_or_conflicting_points",
+      "nearby_matching_feature_ids": [
+        2664839,
+        2667651,
+        2668519,
+        2669317,
+        2672125,
+        2677761,
+        2677900,
+        2686036,
+        2687741
+      ]
+    },
+    "bldg_d47da061f838ffea": {
+      "building_key": "520 E WILSON AVE GLENDALE CA 91206",
+      "anchor": {
+        "source": "U.S. Census Bureau Geocoder",
+        "confidence": "approximate",
+        "precision": "street_interpolation",
+        "matched_address": "520 E WILSON AVE, GLENDALE, CA, 91206",
+        "address_basis": "full_address",
+        "county": "Los Angeles",
+        "tiger_line_id": "142730714",
+        "benchmark": "Public_AR_Current",
+        "latitude": 34.148088609648,
+        "longitude": -118.249357049038
+      },
+      "reason": "unit_or_conflicting_points",
+      "nearby_matching_feature_ids": [
+        2223772,
+        2241127,
+        2251070,
+        2255064,
+        2255299,
+        2275683,
+        2278625,
+        2286978,
+        2288983,
+        2315566,
+        2321764,
+        2335980,
+        2356256,
+        2361878,
+        2398487,
+        2402328
+      ]
+    },
+    "bldg_7030e340857915c6": {
+      "building_key": "5301 LAUREL CANTON BL VALLEY VILLAGE CA 91607",
+      "reason": "no_defensible_anchor",
+      "nearby_matching_feature_ids": []
+    },
+    "bldg_316720536eac6e9d": {
+      "building_key": "5605 WOODMAN AVE VAN NUYS CA 91401",
+      "anchor": {
+        "source": "U.S. Census Bureau Geocoder",
+        "confidence": "approximate",
+        "precision": "street_interpolation",
+        "matched_address": "5605 WOODMAN AVE, VAN NUYS, CA, 91401",
+        "address_basis": "full_address",
+        "county": "Los Angeles",
+        "tiger_line_id": "141561807",
+        "benchmark": "Public_AR_Current",
+        "latitude": 34.172251617504,
+        "longitude": -118.43131034905
+      },
+      "reason": "unit_or_conflicting_points",
+      "nearby_matching_feature_ids": [
+        1554296
+      ]
+    },
+    "bldg_ca0b2fce42cfc126": {
+      "building_key": "5658 SEPULVEDA BLVD SHERMAN OAKS CA 91411",
+      "verified": {
+        "source": "LA County CAMS",
+        "feature_id": 1618186,
+        "county_record_source": "LA City",
+        "matched_address": "5658 Sepulveda Blvd Van Nuys 91411",
+        "confidence": "standardized",
+        "precision": "address_point",
+        "latitude": 34.17374069571176,
+        "longitude": -118.46591020000683
+      },
+      "anchor": {
+        "source": "U.S. Census Bureau Geocoder",
+        "confidence": "approximate",
+        "precision": "street_interpolation",
+        "matched_address": "5658 SEPULVEDA BLVD, SHERMAN OAKS, CA, 91411",
+        "address_basis": "full_address",
+        "county": "Los Angeles",
+        "tiger_line_id": "141560413",
+        "benchmark": "Public_AR_Current",
+        "latitude": 34.173193516583,
+        "longitude": -118.466098638744
+      },
+      "reason": "corroborated_address_point",
+      "nearby_matching_feature_ids": [
+        1618186
+      ],
+      "verified_distance_meters": 63.265004120118626
+    },
+    "bldg_49acbf47dad5d751": {
+      "building_key": "5670 WILSHIRE BLVD LOS ANGELES CA 90036",
+      "anchor": {
+        "source": "U.S. Census Bureau Geocoder",
+        "confidence": "approximate",
+        "precision": "street_interpolation",
+        "matched_address": "5670 WILSHIRE BLVD, LOS ANGELES, CA, 90036",
+        "address_basis": "full_address",
+        "county": "Los Angeles",
+        "tiger_line_id": "141599180",
+        "benchmark": "Public_AR_Current",
+        "latitude": 34.06226952657,
+        "longitude": -118.351933578602
+      },
+      "reason": "street_interpolation_only",
+      "nearby_matching_feature_ids": []
+    },
+    "bldg_c5a97a70c958f0d6": {
+      "building_key": "600 W BROADWAY GLENDALE CA 91204",
+      "anchor": {
+        "source": "U.S. Census Bureau Geocoder",
+        "confidence": "approximate",
+        "precision": "street_interpolation",
+        "matched_address": "600 W BROADWAY, GLENDALE, CA, 91204",
+        "address_basis": "full_address",
+        "county": "Los Angeles",
+        "tiger_line_id": "642193194",
+        "benchmark": "Public_AR_Current",
+        "latitude": 34.146731381791,
+        "longitude": -118.267567404714
+      },
+      "reason": "unit_or_conflicting_points",
+      "nearby_matching_feature_ids": [
+        2183779,
+        2184000,
+        2184457,
+        2218393,
+        2222281,
+        2223532,
+        2232470,
+        2242017,
+        2253232,
+        2270969,
+        2278310,
+        2292842,
+        2301748,
+        2303311,
+        2314528,
+        2332256,
+        2356612,
+        2365244,
+        2375251,
+        2384217,
+        2393128,
+        2397994
+      ]
+    },
+    "bldg_c8ff304bfc094c18": {
+      "building_key": "6345 BALBOA BLVD ENCINO CA 91316",
+      "reason": "no_defensible_anchor",
+      "nearby_matching_feature_ids": []
+    },
+    "bldg_4c7e5f32f7687204": {
+      "building_key": "6404A INDEPENDENCE AVE WOODLAND HILLS CA 91367",
+      "anchor": {
+        "source": "U.S. Census Bureau Geocoder",
+        "confidence": "approximate",
+        "precision": "street_interpolation",
+        "matched_address": "6404A INDEPENDENCE AVE, WOODLAND HILLS, CA, 91367",
+        "address_basis": "full_address",
+        "county": "Los Angeles",
+        "tiger_line_id": "141535386",
+        "benchmark": "Public_AR_Current",
+        "latitude": 34.187181371533,
+        "longitude": -118.590540964871
+      },
+      "reason": "street_interpolation_only",
+      "nearby_matching_feature_ids": []
+    },
+    "bldg_32acdd3996b7ba50": {
+      "building_key": "644 W BROADWAY GLENDALE CA 91204",
+      "anchor": {
+        "source": "U.S. Census Bureau Geocoder",
+        "confidence": "approximate",
+        "precision": "street_interpolation",
+        "matched_address": "644 W BROADWAY, GLENDALE, CA, 91204",
+        "address_basis": "full_address",
+        "county": "Los Angeles",
+        "tiger_line_id": "642193194",
+        "benchmark": "Public_AR_Current",
+        "latitude": 34.146720968933,
+        "longitude": -118.268765090738
+      },
+      "reason": "unit_or_conflicting_points",
+      "nearby_matching_feature_ids": [
+        2180436,
+        2209427,
+        2241541,
+        2294906,
+        2308899,
+        2320201,
+        2360703,
+        2406494
+      ]
+    },
+    "bldg_9e99f33cf0cd6dae": {
+      "building_key": "646 S BARRANCA AVE COVINA CA 91723",
+      "anchor": {
+        "source": "U.S. Census Bureau Geocoder",
+        "confidence": "approximate",
+        "precision": "street_interpolation",
+        "matched_address": "646 S BARRANCA AVE, COVINA, CA, 91723",
+        "address_basis": "full_address",
+        "county": "Los Angeles",
+        "tiger_line_id": "142253886",
+        "benchmark": "Public_AR_Current",
+        "latitude": 34.078097812225,
+        "longitude": -117.881241545217
+      },
+      "reason": "street_interpolation_only",
+      "nearby_matching_feature_ids": []
+    },
+    "bldg_752141b84b2d6eb7": {
+      "building_key": "6637 SAN FERNANDO RD GLENDALE CA 91201",
+      "anchor": {
+        "source": "U.S. Census Bureau Geocoder",
+        "confidence": "approximate",
+        "precision": "street_interpolation",
+        "matched_address": "6637 SAN FERNANDO RD, GLENDALE, CA, 91201",
+        "address_basis": "full_address",
+        "county": "Los Angeles",
+        "tiger_line_id": "141596276",
+        "benchmark": "Public_AR_Current",
+        "latitude": 34.169534513254,
+        "longitude": -118.293261557678
+      },
+      "reason": "street_interpolation_only",
+      "nearby_matching_feature_ids": []
+    },
+    "bldg_956c0adad2ad3c5c": {
+      "building_key": "664 W BROADWAY GLENDALE CA 91204",
+      "anchor": {
+        "source": "U.S. Census Bureau Geocoder",
+        "confidence": "approximate",
+        "precision": "street_interpolation",
+        "matched_address": "664 W BROADWAY, GLENDALE, CA, 91204",
+        "address_basis": "full_address",
+        "county": "Los Angeles",
+        "tiger_line_id": "642193194",
+        "benchmark": "Public_AR_Current",
+        "latitude": 34.146717031404,
+        "longitude": -118.269309381034
+      },
+      "reason": "unit_or_conflicting_points",
+      "nearby_matching_feature_ids": [
+        2201137
+      ]
+    },
+    "bldg_c2ae85586dcd4f95": {
+      "building_key": "706 W BROADWAY GLENDALE CA 91204",
+      "anchor": {
+        "source": "U.S. Census Bureau Geocoder",
+        "confidence": "approximate",
+        "precision": "street_interpolation",
+        "matched_address": "706 W BROADWAY, GLENDALE, CA, 91204",
+        "address_basis": "full_address",
+        "county": "Los Angeles",
+        "tiger_line_id": "642193194",
+        "benchmark": "Public_AR_Current",
+        "latitude": 34.146709536934,
+        "longitude": -118.270452895157
+      },
+      "reason": "street_interpolation_only",
+      "nearby_matching_feature_ids": []
+    },
+    "bldg_0b46408f647cf225": {
+      "building_key": "715 S AVERILL AVE SAN PEDRO CA 90732",
+      "anchor": {
+        "source": "U.S. Census Bureau Geocoder",
+        "confidence": "approximate",
+        "precision": "street_interpolation",
+        "matched_address": "715 S AVERILL AVE, SAN PEDRO, CA, 90732",
+        "address_basis": "full_address",
+        "county": "Los Angeles",
+        "tiger_line_id": "141690159",
+        "benchmark": "Public_AR_Current",
+        "latitude": 33.737745188578,
+        "longitude": -118.307812804346
+      },
+      "reason": "street_interpolation_only",
+      "nearby_matching_feature_ids": []
+    },
+    "bldg_443a7ca72402edfa": {
+      "building_key": "7233 1 2 FOOTHILL BLVD TUJUNGA CA 91042",
+      "reason": "no_defensible_anchor",
+      "nearby_matching_feature_ids": []
+    },
+    "bldg_b180723cdd2faf0b": {
+      "building_key": "726 W BROADWAY ST GLENDALE CA 91204",
+      "reason": "no_defensible_anchor",
+      "nearby_matching_feature_ids": []
+    },
+    "bldg_4278e2dc19086357": {
+      "building_key": "809 S LEMON AVE DIAMOND BAR CA 91789",
+      "reason": "no_defensible_anchor",
+      "nearby_matching_feature_ids": []
+    },
+    "bldg_6ac146252d585bb7": {
+      "building_key": "815 S CENTRAL AVE GLENDALE CA 91204",
+      "anchor": {
+        "source": "U.S. Census Bureau Geocoder",
+        "confidence": "approximate",
+        "precision": "street_interpolation",
+        "matched_address": "815 S CENTRAL AVE, GLENDALE, CA, 91204",
+        "address_basis": "full_address",
+        "county": "Los Angeles",
+        "tiger_line_id": "141610189",
+        "benchmark": "Public_AR_Current",
+        "latitude": 34.1364964308,
+        "longitude": -118.25790439301
+      },
+      "reason": "unit_or_conflicting_points",
+      "nearby_matching_feature_ids": [
+        2180156,
+        2184616,
+        2190656,
+        2201969,
+        2208366,
+        2216239,
+        2223146,
+        2224776,
+        2236888,
+        2237467,
+        2246897,
+        2247900,
+        2256581,
+        2269122,
+        2272486,
+        2274617,
+        2274772,
+        2291451,
+        2303023,
+        2330978,
+        2331696,
+        2357311,
+        2361245,
+        2362022,
+        2365857,
+        2384505,
+        2393658,
+        2402902
+      ]
+    },
+    "bldg_38267ea2f7facc62": {
+      "building_key": "875 S WESTLAKE BLVD WESTLAKE VILLAGE CA 91361",
+      "anchor": {
+        "source": "U.S. Census Bureau Geocoder",
+        "confidence": "approximate",
+        "precision": "street_interpolation",
+        "matched_address": "875 S WESTLAKE BLVD, WESTLAKE VILLAGE, CA, 91361",
+        "address_basis": "full_address",
+        "county": "Ventura",
+        "tiger_line_id": "109977732",
+        "benchmark": "Public_AR_Current",
+        "latitude": 34.155058243677,
+        "longitude": -118.827116831694
+      },
+      "reason": "street_interpolation_only",
+      "nearby_matching_feature_ids": []
+    },
+    "bldg_eaa83393465c6d43": {
+      "building_key": "9100 WILSHIRE BLVD BEVERLY HILLS CA 90212",
+      "anchor": {
+        "source": "U.S. Census Bureau Geocoder",
+        "confidence": "approximate",
+        "precision": "street_interpolation",
+        "matched_address": "9100 WILSHIRE BLVD, BEVERLY HILLS, CA, 90212",
+        "address_basis": "full_address",
+        "county": "Los Angeles",
+        "tiger_line_id": "141572586",
+        "benchmark": "Public_AR_Current",
+        "latitude": 34.066992769518,
+        "longitude": -118.389741244348
+      },
+      "reason": "street_interpolation_only",
+      "nearby_matching_feature_ids": []
+    },
+    "bldg_68fa29fd4da27d23": {
+      "building_key": "9608 VAN NUYS BLVD 207-B PANORAMA CITY CA 91402",
+      "anchor": {
+        "source": "U.S. Census Bureau Geocoder",
+        "confidence": "approximate",
+        "precision": "street_interpolation",
+        "matched_address": "9608 VAN NUYS BLVD, PANORAMA CITY, CA, 91402",
+        "address_basis": "civic_address_only",
+        "county": "Los Angeles",
+        "tiger_line_id": "141549601",
+        "benchmark": "Public_AR_Current",
+        "latitude": 34.244847837673,
+        "longitude": -118.450167839691
+      },
+      "reason": "unit_or_conflicting_points",
+      "nearby_matching_feature_ids": [
+        1898998
+      ]
+    },
+    "bldg_ed2f196326c1625a": {
+      "building_key": "9660 FLAIR DR EL MONTE CA 91731",
+      "anchor": {
+        "source": "U.S. Census Bureau Geocoder",
+        "confidence": "approximate",
+        "precision": "street_interpolation",
+        "matched_address": "9660 FLAIR DR, EL MONTE, CA, 91731",
+        "address_basis": "full_address",
+        "county": "Los Angeles",
+        "tiger_line_id": "241241954",
+        "benchmark": "Public_AR_Current",
+        "latitude": 34.072006840063,
+        "longitude": -118.058344437824
+      },
+      "reason": "unit_or_conflicting_points",
+      "nearby_matching_feature_ids": [
+        793009
+      ]
+    }
+  }
+}

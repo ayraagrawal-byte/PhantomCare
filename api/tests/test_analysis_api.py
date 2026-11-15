@@ -18,6 +18,7 @@ from api.analysis import (
 )
 from api.app import app
 from api.contracts import ReviewLevel
+from api.contracts.geocodes import CAMS_LAYER
 
 
 def _priority(building_id: str, total: float, level: str) -> dict[str, object]:
@@ -169,6 +170,7 @@ def test_analysis_endpoints_validate_sort_filter_and_detail(tmp_path: Path) -> N
     assert analysis_summary(repository).building_count == 2
     buildings = list_buildings(repository, level=None, limit=100)
     assert [item.building_id for item in buildings] == ["bldg_high", "bldg_low"]
+    assert list_buildings(repository, limit=1, offset=1) == [buildings[1]]
     filtered = list_buildings(repository, level=ReviewLevel.HIGH_PRIORITY, limit=100)
     assert [item.building_id for item in filtered] == ["bldg_high"]
     detail = building_detail("bldg_high", repository)
@@ -199,6 +201,111 @@ def test_missing_or_invalid_artifacts_return_actionable_503(tmp_path: Path) -> N
         list_buildings(repository, level=None, limit=100)
     assert invalid.value.status_code == 503
     assert "failed validation" in invalid.value.detail["message"]
+
+
+def test_list_uses_aerial_center_only_for_a_matching_address(tmp_path: Path) -> None:
+    repository = _artifacts(tmp_path)
+    manifest = tmp_path / "vexcel_evidence.json"
+    evidence = json.loads(manifest.read_text())[0]
+    evidence["target_id"] = "bldg_low"
+    manifest.write_text(json.dumps([evidence]))
+    assert list_buildings(repository, limit=100)[1].latitude is None
+
+    evidence["address"] = "bldg_low TEST ST LOS ANGELES CA 90012"
+    manifest.write_text(json.dumps([evidence]))
+    item = list_buildings(repository, limit=100)[1]
+    assert (item.latitude, item.longitude) == (34.0522, -118.2437)
+    assert item.coordinate_source == "Vexcel imagery address center"
+    assert item.costar_match_status == "not_configured"
+    assert building_detail("bldg_low", repository).latitude is None
+
+    manifest.write_text(json.dumps([evidence, evidence]))
+    assert list_buildings(repository, limit=100)[1].latitude is None
+
+
+def test_cached_cams_locations_override_legacy_points_and_match_current_address(tmp_path: Path):
+    repository = _artifacts(tmp_path)
+    before = list_buildings(repository, limit=100)
+    cache = {
+        "schema_version": 1,
+        "source_url": CAMS_LAYER,
+        "retrieved_at": "2026-11-14T00:00:00Z",
+        "results": {
+            "bldg_high": {
+                "building_key": before[0].building_key,
+                "reason": "ambiguous_points",
+            },
+            "bldg_low": {
+                "building_key": before[1].building_key,
+                "location": {
+                    "feature_id": 42,
+                    "county_record_source": "LA City",
+                    "matched_address": "100 Test St Los Angeles 90012",
+                    "confidence": "exact",
+                    "latitude": 34.05,
+                    "longitude": -118.25,
+                },
+            },
+        },
+    }
+    path = tmp_path / "cams_geocodes.json"
+    path.write_text(json.dumps(cache))
+    assert analysis_summary(repository).cams_mapped_count == 1
+    high, low = list_buildings(repository, limit=100)
+    assert high.latitude is None and high.longitude is None
+    assert low.verified_location.feature_id == 42
+    assert low.verified_location.precision == "address_point"
+    assert (low.latitude, low.longitude) == (34.05, -118.25)
+    assert low.coordinate_source == "LA County CAMS"
+    assert [high.total_score, low.total_score] == [item.total_score for item in before]
+
+    cache["results"]["bldg_low"]["building_key"] = "Old address"
+    path.write_text(json.dumps(cache))
+    assert list_buildings(repository, limit=100)[1].verified_location is None
+
+
+def test_runtime_supplemental_points_preserve_original_verified_coordinates():
+    repository = AnalysisRepository(Path("data/runtime"))
+    original = repository.cams_locations()
+    supplemental = repository.supplemental_locations(original)
+    assert len(supplemental) == 140
+    summary = analysis_summary(repository)
+    rows = {row.building_id: row for row in list_buildings(repository, limit=500)}
+    assert len(rows) == summary.building_count == 468
+    preserved = 0
+    for key, result in original.items():
+        row = rows[key]
+        if result.location:
+            assert row.verified_location == result.location
+            assert row.approximate_location is None
+            assert (row.latitude, row.longitude) == (
+                result.location.latitude,
+                result.location.longitude,
+            )
+            preserved += 1
+        elif automatic := supplemental[key].anchor:
+            outcome = supplemental[key]
+            expected = outcome.verified or automatic
+            assert (row.latitude, row.longitude) == (expected.latitude, expected.longitude)
+    assert preserved == 328
+    reviewed = repository.reviewed_locations(supplemental)
+    assert len(reviewed) == 23
+    for key, point in reviewed.items():
+        assert supplemental[key].anchor is None
+        assert (rows[key].latitude, rows[key].longitude) == (point.latitude, point.longitude)
+        assert (rows[key].verified_location or rows[key].approximate_location) == point
+    assert sum(row.latitude is None for row in rows.values()) == 1
+    verified_count = sum(row.verified_location is not None for row in rows.values())
+    assert verified_count == summary.cams_mapped_count
+    approximate = [row for row in rows.values() if row.approximate_location]
+    assert len(approximate) == summary.approximate_mapped_count > 0
+    for row in approximate:
+        assert row.verified_location is None
+        assert row.coordinate_source == row.approximate_location.source
+        assert (row.latitude, row.longitude) == (
+            row.approximate_location.latitude,
+            row.approximate_location.longitude,
+        )
 
 
 def test_analysis_routes_are_registered() -> None:
