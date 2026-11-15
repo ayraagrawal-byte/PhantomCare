@@ -27,7 +27,10 @@ high priority needs three independent strong indicators.
 - **Vexcel (real imagery):** the ortho image with retrieval date and provenance.
   Say it: *"Aerial imagery is exterior context. It cannot show whether a hospice operates inside."*
 - **CoStar (real record, different building):** search `3800 BARHAM` to show a real
-  exact property match — type, area, floors, occupancy records.
+  exact property match: class B office, 85,831 sq ft, 6 stories, 44 tenant locations.
+  Click **Investigate**. The cross-source comparison shows one registration in a large
+  multi-tenant office (~85,831 sq ft per registration), so *CoStar context lowers concern
+  here*. That is the point: property data separates real anomalies from ordinary leasing.
 
 Be explicit: *"In our real data, the one CoStar match and the one Vexcel image are
 different buildings. Our same-building CoStar-plus-Vexcel fusion is a labeled

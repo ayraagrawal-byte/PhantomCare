@@ -43,7 +43,7 @@ It never labels anyone as fraudulent. Output is a lead package for human review.
 | Source | Status in the demo |
 | --- | --- |
 | CMS hospice enrollments and owners | Real public data |
-| CoStar | Real record; one exact match (3800 Barham Blvd) |
+| CoStar | Real record; one exact match (3800 Barham Blvd), with a linked Matterport model ID |
 | Vexcel | Real ortho imagery; one building (12444 Victory Blvd) |
 | Same-building CoStar + Vexcel fusion | **Synthetic** evaluation scenario only |
 
@@ -59,7 +59,7 @@ demonstrated with a clearly labeled synthetic scenario.
   scenarios, 67/67 checks. These measure rule conformance, not real-world accuracy.
 - Writing those scenarios exposed two safety bugs in the AI-output validator
   (paraphrased fraud allegations and fabricated citations); both are fixed.
-- 122 backend tests, 5 frontend unit tests, and 20 real-browser tests (desktop and mobile)
+- 129 backend tests, 5 frontend unit tests, and 22 real-browser tests (desktop and mobile)
   passing.
 
 ## What we learned

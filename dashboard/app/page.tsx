@@ -267,12 +267,14 @@ function FusionPanel({ result, status, onInvestigate }: { result: InteractiveInv
     <section className="fusion-panel">
       <div className="fusion-heading"><div><p className="section-label">Cross-source investigation</p><h3>CMS + CoStar + Vexcel</h3></div>{result && <span className={`agent-mode mode-${result.mode}`}>{result.mode === "live_ai" ? "Live AI" : "Deterministic fallback"}</span>}</div>
       <p className="case-muted">Run a bounded, read-only investigation. Screening scores remain deterministic and unchanged.</p>
+      <ol className="investigation-flow" aria-label="Investigation stages"><li>Registration anomaly</li><li>Physical-property evidence</li><li>Cross-source comparison</li><li>Uncertainty</li><li>Human action</li></ol>
       <button className="investigate-button" disabled={status === "loading"} onClick={onInvestigate} type="button">{status === "loading" ? "Investigating…" : "Investigate this building"}</button>
       {status === "error" && <p className="fusion-error" role="alert">The interactive investigation could not be completed.</p>}
       {result && <>
         {result.fallback_reason && <p className="fallback-reason">Live AI was not used: {formatLevel(result.fallback_reason)}.</p>}
         <p className="fusion-summary">{result.reasoning_summary}</p>
-        <div className="fusion-grid">{result.fusion_layers.map((layer) => <article key={layer.source}><strong>{layer.source}</strong>{layer.establishes.map((fact) => <p key={fact}>{fact}</p>)}<small>{layer.evidence_references.length ? `${layer.evidence_references.length} evidence reference(s)` : "No source record available"}</small>{layer.limitations.map((item) => <em key={item}>{item}</em>)}</article>)}</div>
+        <div className="fusion-grid">{result.fusion_layers.map((layer) => <article key={layer.source}><strong>{layer.source}</strong>{layer.data_class && <span className={`data-class data-class-${layer.data_class}`}>{DATA_CLASS_LABELS[layer.data_class]}</span>}{layer.establishes.map((fact) => <p key={fact}>{fact}</p>)}<small>{layer.evidence_references.length ? `${layer.evidence_references.length} evidence reference(s)` : "No source record available"}</small>{layer.limitations.map((item) => <em key={item}>{item}</em>)}</article>)}</div>
+        {result.cross_source_comparison && <ComparisonPanel comparison={result.cross_source_comparison} />}
         <div className="next-step"><strong>Recommended next step</strong><p>{result.recommended_next_step}</p></div>
         {result.review_checklist && result.review_checklist.length > 0 && <div className="review-checklist"><strong>Human-review checklist</strong><ul>{result.review_checklist.map((item) => <li key={item}>{item}</li>)}</ul></div>}
         {result.unknowns.length > 0 && <details><summary>What remains unknown</summary><ul>{result.unknowns.map((item) => <li key={item}>{item}</li>)}</ul></details>}
@@ -282,6 +284,27 @@ function FusionPanel({ result, status, onInvestigate }: { result: InteractiveInv
     </section>
   );
 }
+
+const DATA_CLASS_LABELS = {
+  public_record: "Public CMS record",
+  derived_masked: "Derived · owners masked",
+  licensed_property_data: "Licensed CoStar data",
+  aerial_imagery: "Vexcel aerial imagery",
+} as const;
+
+function ComparisonPanel({ comparison }: { comparison: NonNullable<InteractiveInvestigation["cross_source_comparison"]> }) {
+  return (
+    <div className="comparison-panel">
+      <strong>Cross-source comparison</strong>
+      <small>Compared: {comparison.sources_compared.join(" + ")}</small>
+      {comparison.combined_observations.length > 0 && <><h4>What becomes clearer combined</h4><ul>{comparison.combined_observations.map((item) => <li key={item}>{item}</li>)}</ul></>}
+      <h4>Still uncertain</h4><ul>{comparison.remains_uncertain.map((item) => <li key={item}>{item}</li>)}</ul>
+      <h4>Records to request</h4><ul>{comparison.records_to_request.map((item) => <li key={item}>{item}</li>)}</ul>
+    </div>
+  );
+}
+
+const MATTERPORT_MODEL_ID = /^[A-Za-z0-9]{11}$/;
 
 function AerialCard({ evidence }: { evidence: AerialEvidence }) {
   return (
@@ -310,6 +333,13 @@ function BuildingContextCard({ building }: { building: BuildingDetail }) {
         <div><span>Matterport</span><strong>{context.matterport_model_ids.length ? `${context.matterport_model_ids.length} model available` : "No model linked"}</strong></div>
       </div>
       {context.occupancy_scope && <small className="context-caveat">Occupancy count scope: {context.occupancy_scope.replaceAll("_", " ")}.</small>}
+      {context.matterport_model_ids.filter((id) => MATTERPORT_MODEL_ID.test(id)).slice(0, 1).map((id) => (
+        <p className="matterport-link" key={id}>
+          <a href={`https://my.matterport.com/show/?m=${id}`} rel="noopener noreferrer" target="_blank">Open sponsor-linked Matterport model ↗</a>
+          <small>Linked to CoStar property {context.property_id} in the sponsor dataset. Hosted by Matterport; it shows the property, not any specific hospice suite, and is not evidence of occupancy.</small>
+        </p>
+      ))}
+      <small className="context-caveat">Licensed CoStar data, shown in-app for the hackathon only.</small>
     </section>
   );
 }

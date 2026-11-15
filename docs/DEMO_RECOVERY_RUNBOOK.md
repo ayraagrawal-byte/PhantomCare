@@ -62,8 +62,8 @@ npm run test:e2e
 ```
 
 The first prints `10/10 scenarios, 67/67 checks (synthetic data)`. The second starts
-both servers itself if they are not already running (20 browser tests: 10 desktop,
-10 mobile).
+both servers itself if they are not already running (22 browser tests: 11 desktop,
+11 mobile).
 
 ## Never during the demo
 

@@ -26,5 +26,5 @@ Use a synthetic target only after the release prerequisites are present. Explain
 
 - Say “investigation lead,” “unusual pattern,” and “requires verification.”
 - Do not say “fraud detected,” “shell company,” “fake hospice,” or that aerial imagery proves service activity.
-- Measured on `claude/sprint-recovery`: 122 backend tests, 5 frontend unit tests, 20 real-browser tests (10 desktop, 10 mobile), and the ten-scenario synthetic evaluation (10/10) passing. See `docs/EVALUATION_SUMMARY.md`.
+- Measured on `claude/sprint-recovery`: 129 backend tests, 5 frontend unit tests, 22 real-browser tests (11 desktop, 11 mobile), and the ten-scenario synthetic evaluation (10/10) passing. See `docs/EVALUATION_SUMMARY.md`.
 - The current data limitation is important: the one exact CoStar match and the one Vexcel image belong to different offline buildings.

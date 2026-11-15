@@ -70,10 +70,10 @@ tool. Expectations were not changed.
 
 | Check | Result |
 | --- | --- |
-| `pytest` (with `.[dev,agent]`) | 122 passed |
+| `pytest` (with `.[dev,agent]`) | 129 passed |
 | Mocked-model Deep Agents tests | 4 passed (`agent/tests/test_deep_agent_mocked.py`) |
 | `npm run test` | 5 passed |
-| `npm run test:e2e` | 20 passed (10 desktop, 10 mobile) |
+| `npm run test:e2e` | 22 passed (11 desktop, 11 mobile) |
 | Offline demo (`python -m eval.offline_demo`) | passed |
 
 ## Real-data limitation
