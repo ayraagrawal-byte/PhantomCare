@@ -423,10 +423,9 @@ test("complete deterministic investigation journey", async ({ page }) => {
 });
 
 test("real CoStar match shows licensed context, Matterport link and cross-source comparison", async ({ page }) => {
-  await page.goto("/");
+  await openDashboard(page);
   await expect(page.getByText("Analysis online")).toBeVisible();
-  await page.getByRole("searchbox", { name: "Search addresses" }).fill("3800 BARHAM");
-  await page.getByRole("button", { name: /3800 BARHAM BLVD/ }).click();
+  await (await findBuilding(page, "3800 BARHAM BLVD")).click();
   const inspector = page.locator(".inspector");
   const context = inspector.locator(".context-card");
   await expect(context.getByRole("heading", { name: "Barham Plaza" })).toBeVisible();
