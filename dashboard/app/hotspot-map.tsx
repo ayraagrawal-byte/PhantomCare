@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import L from "leaflet";
-import "leaflet.markercluster";
+import MapLegend from "./map-legend";
 import { buildingPosition, formatLevel, type BuildingListItem } from "../lib/analysis";
 
 const countyBounds: L.LatLngBoundsExpression = [[33.65, -118.95], [34.83, -117.63]];
@@ -12,12 +12,13 @@ function resetView(map: L.Map) {
 }
 
 function markerIcon(building: BuildingListItem, selected = false) {
-  const size = Math.min(30, 14 + building.hospice_count);
-  const style = building.approximate_location ? " hotspot-approximate" : "";
+  const style = building.approximate_location
+    ? " hotspot-approximate"
+    : building.verified_location ? " hotspot-verified" : "";
   return L.divIcon({
     className: `hotspot-marker hotspot-${building.review_level}${style}${selected ? " is-selected" : ""}`,
-    iconSize: [size, size],
-    popupAnchor: [0, -size / 2],
+    iconSize: [24, 24],
+    popupAnchor: [0, -7],
   });
 }
 
@@ -52,18 +53,19 @@ function popupContent(building: BuildingListItem) {
 }
 
 export default function HotspotMap({
-  buildings, total, status, warning, selectedId, onSelect,
+  buildings, total, status, warning, selectedId, focusOnSelection, onSelect,
 }: {
   buildings: BuildingListItem[];
   total: number;
   status: "loading" | "ready" | "error";
   warning: string;
   selectedId: string | null;
-  onSelect: (buildingId: string) => void;
+  focusOnSelection: { buildingId: string } | null;
+  onSelect: (buildingId: string, focus?: boolean) => void;
 }) {
   const container = useRef<HTMLDivElement>(null);
   const map = useRef<L.Map | null>(null);
-  const clusters = useRef<L.MarkerClusterGroup | null>(null);
+  const markerLayer = useRef<L.LayerGroup | null>(null);
   const markers = useRef(new Map<string, { marker: L.Marker; building: BuildingListItem }>());
   const highlighted = useRef<string | null>(null);
   const select = useRef(onSelect);
@@ -96,31 +98,23 @@ export default function HotspotMap({
     layer.on("load", () => setTiles(tileFailed ? "error" : "ready"));
     layer.addTo(instance);
     instance.attributionControl?.setPrefix(false);
-    const group = L.markerClusterGroup({
-      maxClusterRadius: 38,
-      showCoverageOnHover: false,
-      iconCreateFunction: (cluster) => L.divIcon({
-        className: "hotspot-cluster",
-        html: String(cluster.getChildCount()),
-        iconSize: [34, 34],
-      }),
-    }).addTo(instance);
-    clusters.current = group;
+    markerLayer.current = L.layerGroup().addTo(instance);
 
-    const resize = new ResizeObserver(() => instance.invalidateSize({ pan: false }));
+    const resize = new ResizeObserver(() => instance.invalidateSize({ animate: false, debounceMoveend: true }));
     resize.observe(container.current);
     return () => {
       resize.disconnect();
       layer.off();
       instance.remove();
       map.current = null;
-      clusters.current = null;
+      markerLayer.current = null;
     };
   }, []);
 
   useEffect(() => {
-    const group = clusters.current;
-    if (!group) return;
+    const group = markerLayer.current;
+    const instance = map.current;
+    if (!group || !instance) return;
     const entries = markers.current;
     entries.clear();
     for (const { building, position } of points) {
@@ -133,10 +127,41 @@ export default function HotspotMap({
       marker.on("keypress", (event: L.LeafletKeyboardEvent) => {
         if (event.originalEvent.key === "Enter") select.current(building.building_id);
       });
-      marker.bindPopup(() => popupContent(building), { maxWidth: 260 });
+      marker.bindPopup(() => {
+        const content = popupContent(building);
+        const origin = instance.latLngToLayerPoint(marker.getLatLng());
+        const nearby = [...entries.values()].filter((entry) =>
+          entry.marker !== marker &&
+          instance.latLngToLayerPoint(entry.marker.getLatLng()).distanceTo(origin) <= 24,
+        );
+        if (nearby.length) {
+          const choices = document.createElement("details");
+          choices.className = "hotspot-nearby";
+          const heading = document.createElement("summary");
+          heading.textContent = "Other buildings at or near this point";
+          const list = document.createElement("ul");
+          L.DomEvent.disableScrollPropagation(list);
+          for (const entry of nearby) {
+            const item = document.createElement("li");
+            const button = document.createElement("button");
+            button.type = "button";
+            button.textContent = entry.building.building_key;
+            button.addEventListener("click", () => {
+              select.current(entry.building.building_id);
+              entry.marker.openPopup();
+              entry.marker.getPopup()?.getElement()?.querySelector<HTMLElement>("a")?.focus();
+            });
+            item.append(button);
+            list.append(item);
+          }
+          choices.append(heading, list);
+          content.append(choices);
+        }
+        return content;
+      }, { maxWidth: 280 });
       entries.set(building.building_id, { marker, building });
     }
-    group.addLayers(Array.from(entries.values(), ({ marker }) => marker));
+    for (const { marker } of entries.values()) group.addLayer(marker);
     return () => { group.clearLayers(); entries.clear(); };
   }, [points]);
 
@@ -149,46 +174,18 @@ export default function HotspotMap({
     if (current) {
       current.marker.setIcon(markerIcon(current.building, true));
       current.marker.setZIndexOffset(1000);
-      if (!map.current?.hasLayer(current.marker)) {
-        clusters.current?.zoomToShowLayer(current.marker, () => {});
+      const position = current.marker.getLatLng();
+      const animate = !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      if (focusOnSelection && map.current && map.current.getZoom() < 15) {
+        map.current.setView(position, 15, { animate: false });
+      } else {
+        map.current?.panTo(position, { animate });
       }
     }
-  }, [points, selectedId]);
+  }, [focusOnSelection, points, selectedId]);
 
   return (
-    <section className="map-panel" aria-labelledby="map-title">
-      <div className="map-copy">
-        <h2 id="map-title">LA County hotspots</h2>
-        <p>Select a building to review its evidence. Buildings without coordinates are still available in the review queue.</p>
-        <div className="map-legend">
-          <span><i className="legend-hot" />High priority</span>
-          <span><i className="legend-watch" />Worth a look</span>
-          <span><i className="legend-neutral" />No indicators found</span>
-          <span><i className="legend-verified" />Verified address point</span>
-          <span><i className="legend-approximate" />Approximate street or parcel position</span>
-        </div>
-        <p className="hotspot-count" aria-live="polite">
-          {status === "ready" && !warning ? <><strong>{points.length}</strong> mapped of {total} analyzed buildings</>
-            : status === "loading" ? "Loading building locations…" : "Building locations unavailable"}
-        </p>
-        {warning && <p role="alert">{warning}</p>}
-        {status === "ready" && !warning && (verifiedCount > 0 || approximateCount > 0) && (
-          <p className="hotspot-breakdown">
-            {verifiedCount} verified · {approximateCount} approximate · {total - points.length} unmapped
-          </p>
-        )}
-        {status === "ready" && !warning && points.length === 0 && <p>No building coordinates in this analysis.</p>}
-        {points.some(({ building }) => building.verified_location) && (
-          <p className="hotspot-provenance">
-            Address points from <a href="https://cams-lacounty.hub.arcgis.com/">LA County CAMS</a>.
-          </p>
-        )}
-        {approximateCount > 0 && (
-          <p className="hotspot-provenance">
-            Street estimates from the <a href="https://www.census.gov/data/developers/data-sets/Geocoding-services.html">U.S. Census Bureau</a>.
-          </p>
-        )}
-      </div>
+    <section className="map-panel" aria-label="Los Angeles County map">
       <div className="hotspot-frame">
         <div ref={container} className="hotspot-map" aria-label="Interactive LA County street map" role="region" />
         <button className="hotspot-reset" type="button" onClick={() => map.current && resetView(map.current)}>
@@ -198,6 +195,41 @@ export default function HotspotMap({
           {tiles === "loading" ? "Loading street tiles…" : "Some street tiles are unavailable. Building locations remain available."}
         </p>}
       </div>
+      <MapLegend buildings={buildings} selectedId={selectedId} onSelect={(id) => onSelect(id, true)} />
+      {warning && <p className="map-warning" role="alert">{warning}</p>}
+      <details className="map-data" open={selectedId === null}>
+      <summary>Map coverage and location data</summary>
+      <div className="location-overview">
+        <section aria-labelledby="coverage-title">
+          <h2 id="coverage-title">Coverage</h2>
+          <dl className="coverage-metrics">
+            <div><dt>Total buildings</dt><dd>{status === "ready" ? total.toLocaleString() : "—"}</dd></div>
+            <div><dt>Mapped buildings</dt><dd>{status === "ready" && !warning ? points.length.toLocaleString() : "—"}</dd></div>
+            <div><dt>Geocoding coverage</dt><dd>{status === "ready" && !warning && total > 0 ? `${(100 * points.length / total).toFixed(1)}%` : "—"}</dd></div>
+          </dl>
+        </section>
+        <section aria-labelledby="location-title">
+          <h2 id="location-title">Location Data</h2>
+          <dl className="location-breakdown">
+            <div>
+              <dt>Verified locations</dt>
+              <dd className="location-count">{status === "ready" && !warning ? verifiedCount.toLocaleString() : "—"}</dd>
+              <dd>Address points from <a href="https://cams-lacounty.hub.arcgis.com/">LA County CAMS</a> and municipal GIS.</dd>
+            </div>
+            <div>
+              <dt>Approximate locations</dt>
+              <dd className="location-count">{status === "ready" && !warning ? approximateCount.toLocaleString() : "—"}</dd>
+              <dd>Supplemental geocoding from <a href="https://www.census.gov/data/developers/data-sets/Geocoding-services.html">Census street estimates</a> and parcel records.</dd>
+            </div>
+            <div>
+              <dt>Unmapped buildings</dt>
+              <dd className="location-count">{status === "ready" && !warning ? (total - points.length).toLocaleString() : "—"}</dd>
+              <dd>Available for investigation in the <a href="#buildings">building queue</a>.</dd>
+            </div>
+          </dl>
+        </section>
+      </div>
+      </details>
     </section>
   );
 }
