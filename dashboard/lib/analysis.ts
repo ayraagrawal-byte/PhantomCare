@@ -272,6 +272,7 @@ export function filterBuildings(
 }
 
 export function formatLevel(value: string): string {
+  if (value === "worth_a_look") return "Investigate";
   return value.replaceAll("_", " ").replace(/\b\w/g, (letter) => letter.toUpperCase());
 }
 

@@ -1,7 +1,10 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import { useEffect, useMemo, useRef, useState } from "react";
+import AppHeader from "./app-header";
+import Assessment from "./assessment";
+import AnimatedBuildingList, { reviewLabels } from "./animated-building-list";
+import { useEffect, useMemo, useRef, useState, useSyncExternalStore } from "react";
 import {
   AnalysisSummary,
   AerialEvidence,
@@ -24,20 +27,32 @@ import {
 
 const HotspotMap = dynamic(() => import("./hotspot-map"), {
   ssr: false,
-  loading: () => <section className="map-panel"><div className="map-copy"><h2>LA County hotspots</h2><p role="status">Loading map?</p></div></section>,
+  loading: () => <div className="hotspot-placeholder" role="status">Loading map...</div>,
 });
 
 const filters: Array<{ label: string; value: ReviewLevel | "all" }> = [
-  { label: "All buildings", value: "all" },
-  { label: "High priority", value: "high_priority" },
-  { label: "Worth a look", value: "worth_a_look" },
-  { label: "No indicators", value: "no_indicators_found" },
+  { label: "All Buildings", value: "all" },
+  { label: reviewLabels.worth_a_look, value: "worth_a_look" },
+  { label: reviewLabels.no_indicators_found, value: "no_indicators_found" },
 ];
 
+const mobileQueueQuery = "(max-width: 760px)";
+
+function subscribeToQueueViewport(onChange: () => void) {
+  const viewport = window.matchMedia(mobileQueueQuery);
+  viewport.addEventListener("change", onChange);
+  return () => viewport.removeEventListener("change", onChange);
+}
+
 export default function Home() {
+  const mobileQueue = useSyncExternalStore(subscribeToQueueViewport, () => window.matchMedia(mobileQueueQuery).matches, () => false);
+  const [queuePreference, setQueuePreference] = useState<boolean | null>(null);
+  const queueOpen = queuePreference ?? !mobileQueue;
   const [summary, setSummary] = useState<AnalysisSummary | null>(null);
   const [buildings, setBuildings] = useState<BuildingListItem[]>([]);
   const [selectedId, setSelectedId] = useState<string | null>(null);
+  const [mapReveal, setMapReveal] = useState<{ id: string } | null>(null);
+  const [mapFocus, setMapFocus] = useState<{ buildingId: string } | null>(null);
   const [selected, setSelected] = useState<BuildingDetail | null>(null);
   const [caseResult, setCaseResult] = useState<InvestigationResult | null>(null);
   const [network, setNetwork] = useState<BuildingNetwork | null>(null);
@@ -70,7 +85,7 @@ export default function Home() {
   }, []);
 
   const visible = useMemo(
-    () => filterBuildings(buildings, level, query),
+    () => filterBuildings(buildings, level, query).sort((a, b) => b.total_score - a.total_score),
     [buildings, level, query],
   );
 
@@ -106,47 +121,33 @@ export default function Home() {
     } catch (reason) {
       if (requestId !== selectionRequest.current) return;
       setSelected(null);
-      setSelectedId(null);
       setError(reason instanceof Error ? reason.message : "Building detail could not be loaded.");
       setCaseStatus("error");
     }
   }
 
   async function runAgentInvestigation(buildingId: string) {
+    const requestId = selectionRequest.current;
     setAgentStatus("loading");
     setAgentResult(null);
     try {
-      setAgentResult(await runInteractiveInvestigation(buildingId));
+      const result = await runInteractiveInvestigation(buildingId);
+      if (requestId !== selectionRequest.current) return;
+      setAgentResult(result);
       setAgentStatus("ready");
     } catch {
-      setAgentStatus("error");
+      if (requestId === selectionRequest.current) setAgentStatus("error");
     }
   }
 
+  const ranked = [...buildings].sort((a, b) => b.total_score - a.total_score);
+  const rank = ranked.findIndex(({ building_id }) => building_id === selectedId);
+  const active = ranked[rank];
+
   return (
-    <main>
-      <header className="topbar">
-        <a className="brand" href="#top" aria-label="PhantomCare home">
-          <span className="brand-mark">P</span><span>PhantomCare</span>
-        </a>
-        <div className="run-status" aria-live="polite">
-          <span className={`status-dot ${status}`} />
-          {status === "loading" ? "Loading analysis" : status === "ready" ? "Analysis online" : "Analysis unavailable"}
-        </div>
-      </header>
-
-      <section className="intro" id="top">
-        <div>
-          <p className="eyebrow">Los Angeles County · Review workspace</p>
-          <h1>Building signals,<br />with the evidence attached.</h1>
-        </div>
-        <p className="lede">
-          Rank hospice registration clusters using explainable public-record and building-context
-          indicators. Every score shows its inputs, limitations, and missing data.
-          <span className="dataset-note">Data snapshot: CMS Q4 2026 public records with CoStar and Vexcel hackathon evidence.</span>
-        </p>
-      </section>
-
+    <>
+      <AppHeader />
+      <main>
       {status === "error" && (
         <section className="error-panel" role="alert">
           <strong>Analysis is temporarily unavailable.</strong>
@@ -154,34 +155,40 @@ export default function Home() {
         </section>
       )}
 
-      <section className="metrics" aria-label="Analysis summary">
-        <Metric label="Hospice enrollments" value={summary?.enrollment_count} />
-        <Metric label="Physical buildings" value={summary?.building_count} />
-        <Metric label="High priority" value={summary?.high_priority_count} tone="hot" />
-        <Metric label="Worth a look" value={summary?.worth_a_look_count} tone="watch" />
-      </section>
+      <div className="investigation-grid" data-queue-open={queueOpen}>
+        <header className="case-heading-bar" id="investigations">
+          <h1>{active ? <><span>Case {String(rank + 1).padStart(2, "0")}</span>{active.building_key}</> : "Investigate Healthcare Facilities"}</h1>
+          <div className="case-heading-actions">
+            {active && <span className="case-priority">Review priority <strong>{reviewLabels[active.review_level]} ({Math.round(active.total_score)})</strong></span>}
+            {active && <button className="investigate-button" type="button" disabled={!selected || agentStatus === "loading"}
+              onClick={() => void runAgentInvestigation(active.building_id)}>
+              {agentStatus === "loading" ? "Investigating…" : "Investigate Building"}
+            </button>}
+            <span className="sr-only" role="status">{status === "loading" ? "Loading analysis" : status === "ready" ? "Analysis online" : "Analysis unavailable"}</span>
+          </div>
+        </header>
 
-      <HotspotMap buildings={buildings} total={summary?.building_count ?? buildings.length}
-        status={status} warning={mapWarning} selectedId={selectedId} onSelect={(buildingId) => {
-          if (!visible.some((building) => building.building_id === buildingId)) {
-            setLevel("all");
-            setQuery("");
-          }
-          if (buildingId !== selectedId) void inspectBuilding(buildingId);
-        }} />
-
-      <section className="workspace">
-        <div className="list-panel">
+      <section className="workspace" id="buildings" aria-labelledby="queue-title">
+          <div className="queue-toolbar">
+            <h2 className="panel-title" id="queue-title" hidden={!queueOpen}>Case Queue (LA County) {summary && <span>{summary.building_count.toLocaleString()}</span>}</h2>
+            <button className="queue-toggle" type="button" aria-controls="case-queue-content"
+              aria-expanded={queueOpen} aria-label={queueOpen ? "Collapse Case Queue" : "Expand Case Queue"}
+              onClick={() => setQueuePreference(!queueOpen)}>
+              <svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5">
+                <path d={queueOpen ? "m10 3-5 5 5 5" : "m6 3 5 5-5 5"} />
+              </svg>
+            </button>
+          </div>
+          <div id="case-queue-content" hidden={!queueOpen}>
           <div className="section-heading">
-            <div><p className="section-label">Review queue</p><h2>Ranked buildings</h2><p className="result-count">Showing {visible.length} of {buildings.length} buildings</p></div>
             <label className="search">
               <span className="sr-only">Search addresses</span>
               <input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Search address or building ID" type="search" />
             </label>
           </div>
-          <div className="filters" aria-label="Filter review level">
+          <div className="filters" role="group" aria-label="Filter review level">
             {filters.map((filter) => (
-              <button className={level === filter.value ? "active" : ""} key={filter.value} onClick={() => setLevel(filter.value)} type="button">
+              <button aria-pressed={level === filter.value} key={filter.value} onClick={() => setLevel(filter.value)} type="button">
                 {filter.label}
               </button>
             ))}
@@ -189,41 +196,65 @@ export default function Home() {
           <div className="building-list" aria-busy={status === "loading"}>
             {status === "loading" && [1, 2, 3].map((item) => <div className="skeleton" key={item} />)}
             {status === "ready" && visible.length === 0 && <p className="empty-state">No buildings match this view.</p>}
-            {visible.map((building, index) => (
-              <button className="building-row" aria-pressed={selectedId === building.building_id} key={building.building_id} onClick={() => inspectBuilding(building.building_id)} type="button">
-                <span className="rank">{String(index + 1).padStart(2, "0")}</span>
-                <span className="building-main">
-                  <strong>{building.building_key}</strong>
-                  <small>{building.hospice_count} hospices · {building.strong_indicator_count} strong signals</small>
-                </span>
-                <span className={`level level-${building.review_level}`}>{formatLevel(building.review_level)}</span>
-                <span className="score">{Math.round(building.total_score)}</span>
-              </button>
-            ))}
+            {visible.length > 0 && (
+              <AnimatedBuildingList
+                key={JSON.stringify([level, query.trim().toLowerCase()])}
+                buildings={visible}
+                selectedId={selectedId}
+                reveal={mapReveal}
+                showMatches={Boolean(query.trim())}
+                hideEmpty={level !== "all" || Boolean(query.trim())}
+                onSelect={(id) => {
+                  if (id === selectedId) {
+                    selectionRequest.current += 1;
+                    setSelectedId(null);
+                    setSelected(null);
+                    setCaseStatus("idle");
+                  } else {
+                    setMapFocus({ buildingId: id });
+                    void inspectBuilding(id);
+                  }
+                }}
+
+              />
+            )}
           </div>
-        </div>
-        <aside className="inspector" id="building-evidence" aria-live="polite">
-          {selected ? <BuildingInspector building={selected} aerial={aerial} network={network} caseResult={caseResult} caseStatus={caseStatus} agentResult={agentResult} agentStatus={agentStatus} onInvestigate={() => runAgentInvestigation(selected.building_id)} /> : caseStatus === "loading" ? <div className="inspector-empty" role="status">Loading building evidence…</div> : caseStatus === "error" ? <div className="inspector-empty" role="alert">Could not load building evidence. {error}</div> : <InspectorEmpty />}
-        </aside>
+          </div>
       </section>
+      <div className="case-main">
+        <div id="map">
+      <HotspotMap buildings={buildings} total={summary?.building_count ?? buildings.length}
+        status={status} warning={mapWarning} selectedId={selectedId} focusOnSelection={mapFocus?.buildingId === selectedId ? mapFocus : null} onSelect={(buildingId, focus) => {
+          if (focus) setMapFocus({ buildingId });
+          else if (buildingId !== selectedId) setMapFocus(null);
+          setMapReveal({ id: buildingId });
+          if (!visible.some((building) => building.building_id === buildingId)) {
+            setLevel("all");
+            setQuery("");
+          }
+          if (buildingId !== selectedId || (!selected && caseStatus === "error")) void inspectBuilding(buildingId);
+        }} />
 
-      <footer>
-        <span>{summary?.disclaimer ?? "Review priorities are screening aids, not findings of fraud."}</span>
-        <span>{summary ? `Analysis generated ${new Date(summary.generated_at).toLocaleString()}` : "Awaiting analysis artifacts"}</span>
-      </footer>
-    </main>
+        </div>
+        <section className="inspector" id="building-evidence" aria-label="Building evidence" aria-live="polite">
+          {selected ? <BuildingInspector building={selected} aerial={aerial} network={network} caseResult={caseResult} caseStatus={caseStatus} agentResult={agentResult} agentStatus={agentStatus} onInvestigate={() => runAgentInvestigation(selected.building_id)} /> : caseStatus === "loading" ? <div className="inspector-empty" role="status">Loading building evidence…</div> : caseStatus === "error" ? <div className="inspector-empty" role="alert">Could not load building evidence. {error}</div> : <InspectorEmpty />}
+          {!selected && <><span id="registrations" /><span id="ownership" /><span id="reports" /></>}
+        </section>
+      </div>
+      </div>
+      <Assessment investigation={agentResult} result={caseResult} />
+
+      </main>
+    </>
   );
-}
-
-function Metric({ label, value, tone = "default" }: { label: string; value?: number; tone?: string }) {
-  return <article className={`metric metric-${tone}`}><span>{label}</span><strong>{value ?? "—"}</strong></article>;
 }
 
 function InspectorEmpty() {
   return (
     <div className="inspector-empty">
-      <span className="crosshair" aria-hidden="true">＋</span><p className="section-label">Evidence inspector</p>
-      <h2>Select a building</h2><p>Open a ranked building to inspect its score, evidence, missing inputs, and limitations.</p>
+      <p className="section-label">Evidence inspector</p>
+      <h2>Select a Building</h2>
+      <p>Choose a building from the review queue to view its evidence and investigation details.</p>
     </div>
   );
 }
@@ -231,17 +262,31 @@ function InspectorEmpty() {
 function BuildingInspector({ building, aerial, network, caseResult, caseStatus, agentResult, agentStatus, onInvestigate }: { building: BuildingDetail; aerial: AerialEvidence | null; network: BuildingNetwork | null; caseResult: InvestigationResult | null; caseStatus: string; agentResult: InteractiveInvestigation | null; agentStatus: string; onInvestigate: () => void }) {
   return (
     <div>
-      <div className="inspector-head">
-        <p className="section-label">Evidence inspector</p><span className="big-score">{Math.round(building.priority.score.total)}</span>
-        <h2>{building.building_key}</h2><p>{building.priority.claim_reason}</p>
+      <div className="evidence-grid">
+        <section className="document-panel" id="registrations">
+          <h2 className="panel-title">CMS Registration</h2>
+          <dl className="evidence-facts"><div><dt>Hospices</dt><dd>{building.hospice_count}</dd></div></dl>
+          <p className="evidence-source">Source: CMS hospice registration data</p>
+        </section>
+        <section className="document-panel">
+          <h2 className="panel-title">CoStar Property</h2>
+          <BuildingContextCard building={building} />
+          <dl className="evidence-facts"><div><dt>Match status</dt><dd>{formatLevel(building.costar_match_status)}</dd></div></dl>
+        </section>
+        <section className="document-panel">
+          <h2 className="panel-title">Vexcel Aerial</h2>
+          {aerial ? <AerialCard evidence={aerial} /> : <p className="panel-message">No aerial imagery is available for this building.</p>}
+        </section>
       </div>
-      <dl className="facts">
-        <div><dt>Hospices</dt><dd>{building.hospice_count}</dd></div>
-        <div><dt>CoStar match</dt><dd>{building.costar_match_status.replaceAll("_", " ")}</dd></div>
-        <div><dt>Model</dt><dd>{building.priority.score.model_version}</dd></div>
-      </dl>
-      <BuildingContextCard building={building} />
-      {aerial && <AerialCard evidence={aerial} />}
+      <div className="inspector-head">
+        <h2>{building.building_key}</h2><p>{building.priority.claim_reason}</p>
+        <small>Scoring model {building.priority.score.model_version}</small>
+      </div>
+
+      {building.priority.strong_indicators.length > 0 && (
+        <p className="queue-signals"><strong>Strong signals</strong> {building.priority.strong_indicators.map(formatLevel).join(", ")}</p>
+      )}
+
       {building.priority.missing_indicators.length > 0 && (
         <div className="missing-note">Missing data: {building.priority.missing_indicators.map(formatLevel).join(", ")}. Available weights were rebalanced.</div>
       )}
@@ -255,9 +300,9 @@ function BuildingInspector({ building, aerial, network, caseResult, caseStatus, 
           </article>
         ))}
       </div>
-      <NetworkPanel network={network} />
+      <div id="ownership"><NetworkPanel network={network} /></div>
       <FusionPanel result={agentResult} status={agentStatus} onInvestigate={onInvestigate} />
-      <CasePanel result={caseResult} status={caseStatus} />
+      <div id="reports"><CasePanel result={caseResult} status={caseStatus} /></div>
     </div>
   );
 }
@@ -311,8 +356,8 @@ function AerialCard({ evidence }: { evidence: AerialEvidence }) {
     <figure className="aerial-card">
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img alt={`Vexcel ortho context for ${evidence.address}`} src={absoluteApiUrl(evidence.image_url)} />
-      <figcaption><div><p className="section-label">Vexcel aerial context</p><strong>Verified ortho imagery</strong></div><span>{new Date(evidence.retrieved_at).toLocaleDateString()}</span></figcaption>
-      <small>{evidence.limitations[0]}</small>
+      <figcaption><div><p className="section-label">Vexcel aerial context</p><strong>Verified ortho imagery</strong></div><span>Retrieved {new Date(evidence.retrieved_at).toLocaleDateString()}</span></figcaption>
+      {evidence.limitations.map((item) => <small key={item}>{item}</small>)}
     </figure>
   );
 }
@@ -357,7 +402,7 @@ function NetworkPanel({ network }: { network: BuildingNetwork | null }) {
         <div className="network-column">{owners.slice(0, 8).map((node) => <span className="network-node owner-node" key={node.id}>{node.label}{node.is_masked ? " · masked" : ""}<small>{node.count} linked</small></span>)}</div>
       </div>
       {network.nodes.length > 17 && <p className="network-more">Showing the first eight hospices and owners.</p>}
-      <small className="network-limit">{network.limitations[1]}</small>
+      {network.limitations.map((item) => <small className="network-limit" key={item}>{item}</small>)}
     </section>
   );
 }
@@ -392,7 +437,13 @@ function CasePanel({ result, status }: { result: InvestigationResult | null; sta
         <div className="trace-list">
           <h3>Deterministic review trace</h3>
           {result.trace.map((event) => (
-            <div key={event.event_id}><span>{formatLevel(event.event_type)}</span><p>{event.message}</p></div>
+            <div key={event.event_id}>
+              <span>{formatLevel(event.event_type)}</span>{" "}
+              <time dateTime={event.occurred_at}>{new Date(event.occurred_at).toLocaleTimeString("en-US", {
+                hour: "2-digit", minute: "2-digit", timeZone: "America/Los_Angeles",
+              })} PT</time>
+              <p>{event.message}</p>
+            </div>
           ))}
         </div>
       )}
